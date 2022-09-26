@@ -1,5 +1,6 @@
 import scrapeV1
 import csv
+import time
 from selenium import webdriver
 from selenium.webdriver.support.ui import Select
 from selenium.webdriver.chrome.service import Service
@@ -8,8 +9,9 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.common.action_chains import ActionChains
 from selenium.webdriver.common.keys import Keys
 
+
 #incomplete
-def Rate(make, model, year, zipcode):
+def rate(make, model, year, zipcode):
     list = scrapeV1.ScrapeToList(make, model, year, zipcode)
     # with open('cardata.csv', 'r', encoding='utf8', newline='') as f:
     #     reader = csv.reader(f)
@@ -19,10 +21,10 @@ def Rate(make, model, year, zipcode):
     #         cars.append(list_item)
     #         print(list_item[1])
     for c in list:
-        print(c[3])
+        print("Make:", c[0], ",Model:", c[1], ",Year:", c[2], ",Mileage:", c[3], ",Price:", c[4])
 
 #inprogress
-def DollarValue():
+def dollarValue(make, model, year, miles, zipcode):
     browser = webdriver.Chrome(service=Service(ChromeDriverManager().install()))
 
     browser.get('https://www.cargurus.com/Cars/car-valuation')
@@ -32,34 +34,38 @@ def DollarValue():
     purposeInput.select_by_visible_text('Buying a car')
     
     # browser.find_element_by_xpath("//select[@name='carPicker_purposeSelect']/option[text()='Buying a ca']").click()
-
     
     makeInputList = browser.find_element(By.ID, 'carPicker_makerSelect')
     makeInput = Select(makeInputList)
-    makeInput.select_by_visible_text('Ford')
+    makeInput.select_by_visible_text(make)
     
     modelInputList = browser.find_element(By.ID, 'carPicker_modelSelect')
     modelInput = Select(modelInputList)
-    modelInput.select_by_visible_text('Mustang')
+    modelInput.select_by_visible_text(model)
     
     yearInputList = browser.find_element(By.ID, 'carPicker_year1Select')
     yearInput = Select(yearInputList)
-    yearInput.select_by_visible_text('2001')
+    yearInput.select_by_visible_text(year)
     
-    trimInputList = browser.find_element(By.ID, 'carPicker_trimSelect').find_element(By.CSS_SELECTOR,"#Trims with data .eligibleTrimsGroup")
-    trimInput = Select(trimInputList)
-    trimInput.select_by_visible_text('Premium Convertible RWD')
+    # trimInputList = browser.find_element(By.ID, 'carPicker_trimSelect').find_element(By.CSS_SELECTOR,"#Trims with data .eligibleTrimsGroup")
+    # trimInput = Select(trimInputList)
+    # trimInput.select_by_visible_text('Premium Convertible RWD')
     
     mileageInput = browser.find_element(By.NAME, 'carDescription.mileage')
     zipcodeInput = browser.find_element(By.NAME, 'carDescription.postalCode')
     
-    mileageInput.send_keys('120000')
-    zipcodeInput.send_keys('22201')
+    mileageInput.send_keys(miles)
+    zipcodeInput.send_keys(zipcode)
     
-    price = browser.find_element(By.ID, 'instantMarketValuePrice').getText()
-    print(price)
+    while(True):
+        price = browser.find_element(By.ID, 'instantMarketValuePrice').text
+
+        if (price != "$ Calculating..."):
+            print("Suggested Price from CarGurus:", price)
+            break
+
 
     
-# DollarValue()     
 
-    
+dollarValue('Audi', 'A7', '2017', 50000, 22182) # Need to know which car from chrome extension
+rate('Audi', 'A3', '2017', '22182')
