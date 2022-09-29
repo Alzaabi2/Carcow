@@ -13,13 +13,7 @@ from selenium.webdriver.common.keys import Keys
 #incomplete
 def rate(make, model, year, zipcode):
     list = scrapeV1.ScrapeToList(make, model, year, zipcode)
-    # with open('cardata.csv', 'r', encoding='utf8', newline='') as f:
-    #     reader = csv.reader(f)
-    #     cars = []
-    #     for row in reader:
-    #         list_item = row.split(',', 4)
-    #         cars.append(list_item)
-    #         print(list_item[1])
+
     for c in list:
         print("Make:", c[0], ",Model:", c[1], ",Year:", c[2], ",Mileage:", c[3], ",Price:", c[4])
 
