@@ -8,18 +8,36 @@ from webdriver_manager.chrome import ChromeDriverManager
 from selenium.webdriver.common.by import By
 from selenium.webdriver.common.action_chains import ActionChains
 from selenium.webdriver.common.keys import Keys
+from selenium.webdriver.chrome.options import Options
+
 
 
 #incomplete
 def rate(make, model, year, zipcode):
     list = scrapeV1.ScrapeToList(make, model, year, zipcode)
+<<<<<<< HEAD:rate-v1.py
 
     for c in list:
         print("Make:", c[0], ",Model:", c[1], ",Year:", c[2], ",Mileage:", c[3], ",Price:", c[4])
+=======
+    # with open('cardata.csv', 'r', encoding='utf8', newline='') as f:
+    #     reader = csv.reader(f)
+    #     cars = []
+    #     for row in reader:
+    #         list_item = row.split(',', 4)
+    #         cars.append(list_item)
+    #         print(list_item[1])
+    # for c in list:
+        # print("Make:", c[0], ",Model:", c[1], ",Year:", c[2], ",Mileage:", c[3], ",Price:", c[4])
+>>>>>>> c7d3690c9e42dbedda85402006a990af07300a79:rateV1.py
 
 #inprogress
 def dollarValue(make, model, year, miles, zipcode):
-    browser = webdriver.Chrome(service=Service(ChromeDriverManager().install()))
+    chrome_options = Options()
+    chrome_options.add_argument("--headless")
+    
+    browser = webdriver.Chrome(options=chrome_options, service=Service(ChromeDriverManager().install()))
+    
 
     browser.get('https://www.cargurus.com/Cars/car-valuation')
     
@@ -56,10 +74,10 @@ def dollarValue(make, model, year, miles, zipcode):
 
         if (price != "$ Calculating..."):
             print("Suggested Price from CarGurus:", price)
-            break
+            return price
 
 
     
 
-dollarValue('Audi', 'A7', '2017', 50000, 22182) # Need to know which car from chrome extension
+dollarValue('Audi', 'A7', '2019', 10070, 22182) # Need to know which car from chrome extension
 rate('Audi', 'A3', '2017', '22182')
