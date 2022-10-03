@@ -15,6 +15,11 @@ from selenium.webdriver.chrome.options import Options
 #incomplete
 def rate(make, model, year, zipcode):
     list = scrapeV1.ScrapeToList(make, model, year, zipcode)
+
+
+    for c in list:
+        print("Make:", c[0], ",Model:", c[1], ",Year:", c[2], ",Mileage:", c[3], ",Price:", c[4])
+
     # with open('cardata.csv', 'r', encoding='utf8', newline='') as f:
     #     reader = csv.reader(f)
     #     cars = []
@@ -24,6 +29,7 @@ def rate(make, model, year, zipcode):
     #         print(list_item[1])
     # for c in list:
         # print("Make:", c[0], ",Model:", c[1], ",Year:", c[2], ",Mileage:", c[3], ",Price:", c[4])
+
 
 #inprogress
 def dollarValue(make, model, year, miles, zipcode):

@@ -52,4 +52,14 @@ def ScrapeToList(make, model, year, zipcode):
         ret_list.append(row)
     return ret_list
 
-Scrape('Jeep', 'Wrangler', '2005', '22043')
+
+### This function will find the MSRP of each different trim of the specified car ###
+# Working
+def scrapeTrimPrice(make, model, year, trim):
+    url = 'https://www.cars.com/research/audi-a3-2018/specs/'
+    
+
+Scrape('Audi', 'A7', '2014', '22043')
+
+
+
