@@ -7,7 +7,11 @@ from csv import writer
 # with the first 20 car search results. Each car will be described by Make,Model,Year,Mileage,Price.
 # The scraping api used is BeautifulSoup
 
+
+
+
 def Scrape(make, model, year, zipcode):
+
     make = make.lower()
     model = model.lower()
     
@@ -103,4 +107,6 @@ def scrapeTrimPrice(make, model, year, trim):
     
 
 Scrape('Toyota', 'Camry', '2014', '22043')
+
+
 
