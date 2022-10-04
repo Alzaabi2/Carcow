@@ -1,4 +1,5 @@
 import scrapeV1
+import scrapeV1_1
 import csv
 import time
 from selenium import webdriver
@@ -11,14 +12,37 @@ from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.chrome.options import Options
 
 
+carlist = []
 
+def createList():
+    csv_filename = 'cardata.csv'
+    # carlist =[]
+    with open(csv_filename) as f:
+        reader = csv.DictReader(f)
+        for row in reader:
+            # print(row)
+            # print(row['Make'])
+            carlist.append(row)
+
+    # print(carlist[5]["Price"])
+    # print(carlist[5])
+
+    for i in range(len(carlist)):
+        # print("|",carlist[i]['Price'],"|")
+        if carlist[i]['Price'] == ' Not Priced ':
+            carlist.remove(i)
+    
 #incomplete
 def rate(make, model, year, zipcode):
-    list = scrapeV1.ScrapeToList(make, model, year, zipcode)
+    # list = scrapeV1.ScrapeToList(make, model, year, zipcode)
+    scrapeV1.Scrape(make,model,year,zipcode)
+    createList()
+    
 
 
-    for c in list:
-        print("Make:", c[0], ",Model:", c[1], ",Year:", c[2], ",Mileage:", c[3], ",Price:", c[4])
+    # for c in list:
+    #     print("Make:", c[0], ",Model:", c[1], ",Year:", c[2], ",Mileage:", c[3], ",Price:", c[4])
+
 
     # with open('cardata.csv', 'r', encoding='utf8', newline='') as f:
     #     reader = csv.reader(f)
@@ -32,11 +56,12 @@ def rate(make, model, year, zipcode):
 
 
 #inprogress
-def dollarValue(make, model, year, miles, zipcode):
+def dollarValue(make, model, year, trim, miles, zipcode):
     chrome_options = Options()
     chrome_options.add_argument("--headless")
     
-    browser = webdriver.Chrome(options=chrome_options, service=Service(ChromeDriverManager().install()))
+    # browser = webdriver.Chrome(options=chrome_options, service=Service(ChromeDriverManager().install()))
+    browser = webdriver.Chrome(service=Service(ChromeDriverManager().install()))
     
 
     browser.get('https://www.cargurus.com/Cars/car-valuation')
@@ -59,9 +84,9 @@ def dollarValue(make, model, year, miles, zipcode):
     yearInput = Select(yearInputList)
     yearInput.select_by_visible_text(year)
     
-    # trimInputList = browser.find_element(By.ID, 'carPicker_trimSelect').find_element(By.CSS_SELECTOR,"#Trims with data .eligibleTrimsGroup")
-    # trimInput = Select(trimInputList)
-    # trimInput.select_by_visible_text('Premium Convertible RWD')
+    trimInputList = browser.find_element(By.ID, 'carPicker_trimSelect').find_element(By.CSS_SELECTOR,"#Trims with data .eligibleTrimsGroup")
+    trimInput = Select(trimInputList)
+    trimInput.select_by_visible_text(trim)
     
     mileageInput = browser.find_element(By.NAME, 'carDescription.mileage')
     zipcodeInput = browser.find_element(By.NAME, 'carDescription.postalCode')
@@ -77,7 +102,43 @@ def dollarValue(make, model, year, miles, zipcode):
             return price
 
 
+### Function that looks up the suggested retail value for
+# the specific vehicle using the VIN passed in ###
+def dollarValueVin(vin):
+    chrome_options = Options()
+    chrome_options.add_argument("--headless")
+    
+    browser = webdriver.Chrome(options=chrome_options, service=Service(ChromeDriverManager().install()))
+    # browser = webdriver.Chrome(service=Service(ChromeDriverManager().install()))
     
 
-dollarValue('Audi', 'A7', '2019', 10070, 22182) # Need to know which car from chrome extension
-rate('Audi', 'A3', '2017', '22182')
+    browser.get('https://www.cargurus.com/Cars/car-valuation')
+
+
+    # Click "Look up by VIN"
+    vinButton = browser.find_element(By.ID, 'searchByVinToggle').click()
+
+    # input vin form
+    vinInput = browser.find_element(By.ID, 'carIdentifier')
+    
+    # input the vin 
+    vinInput.send_keys(vin)
+
+    # Click "lookup"
+    lookUp = browser.find_element(By.ID, 'instantMarketValueFromVIN_0').click()
+    
+    # Ensure that the suggested price is visible
+    while(True):
+        price = browser.find_element(By.ID, 'instantMarketValuePrice').text
+
+        if (price != "$ Calculating..."):
+            print("Suggested Price from CarGurus:", price)
+            return price
+    
+
+# dollarValue('Mercedes-Benz', 'S-class', '2007', 130065, 22701) # Need to know which car from chrome extension
+
+dollarValueVin('WBA73AK06M7H36558')
+# rate('Audi', 'A3', '2017', '22182')
+
+# createList()

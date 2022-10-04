@@ -1,23 +1,21 @@
-Make,Model,Year,Mileage,Price,Trim,Suggested Price,Deal score
-Audi,A7,2019,"10,070 mi.",55975,3.0T Prestige,60642,1.0833765073693613
-Audi,A7,2016,"80,529 mi.",28000,3.0T Prestige,31314,1.1183571428571428
-Audi,A7,2016,"52,719 mi.",34993,3.0T Prestige,35895,1.0257765838882063
-Audi,A7,2019,"30,750 mi.",54999,3.0T Premium Plus,56381,1.0251277295950836
-Audi,A7,2019,"58,962 mi.",48995,3.0T Premium Plus,50568,1.0321053168690684
-Audi,A7,2016,"80,905 mi.",30000,3.0T Prestige,31252,1.0417333333333334
-Audi,A7,2019,"43,759 mi.",49980,3.0T quattro Premium,53701,1.0744497799119648
-Audi,A7,2013,"101,637 mi.",28888,3.0T Prestige quattro,22153,0.7668582110218776
-Audi,A7,2014,"71,431 mi.",29900,3.0 TDI Premium Plus quattro,26614,0.8901003344481605
-Audi,A7,2019,"34,761 mi.",54998,3.0T Premium Plus,55555,1.0101276410051274
-Audi,A7,2015,"90,993 mi.",24891,3.0T Premium Plus,27435,1.1022056164878873
-Audi,A7,2022,"2,100 mi.",81000,55 Premium Plus,78192,0.9653333333333334
-Audi,A7,2012,"93,035 mi.",19995,3.0 Premium Plus,21100,1.0552638159539884
-Audi,A7,2014,"103,798 mi.",23995,3.0T Premium Plus quattro,22633,0.9432381746197125
-Audi,A7,2016,"70,925 mi.",32500,3.0T Premium Plus,32896,1.0121846153846155
-Audi,A7,2017,"85,426 mi.",34887,3.0T Premium Plus,32735,0.9383151317109525
-Audi,A7,2017,"81,666 mi.",31966,3.0T Prestige,33355,1.0434524181943314
-Audi,A7,2018,"41,000 mi.",47995,3.0T Premium Plus,43288,0.9019272840920929
-Audi,A7,2014,"83,000 mi.",25000,3.0T Prestige,25191,1.00764
-Audi,A7,2012,"85,390 mi.",23535,3.0 Prestige,21831,0.9275971956660293
-Audi,A7,2017,"88,945 mi.",33989,3.0T Prestige,32154,0.9460119450410427
-Audi,A7,2019,"17,152 mi.",57998,3.0T Premium Plus,59183,1.0204317390254836
+Make,Model,Year,Mileage,Price
+Audi,A7 3.0T Prestige,2016,"80,530 mi.","$27,500"
+Audi,A7 3.0T Prestige,2016,"80,905 mi.","$29,500"
+Audi,A7 3.0T Premium Plus,2019,"30,750 mi.","$53,999"
+Audi,A7 3.0 Prestige,2012,"85,390 mi.","$22,541"
+Audi,A7 3.0T Prestige,2017,"88,945 mi.","$33,989"
+Audi,A7 3.0T Prestige,2019,"10,070 mi.","$55,975"
+Audi,A7 3.0T Premium Plus,2019,"58,962 mi.","$47,995"
+Audi,A7 3.0T Prestige quattro,2013,"101,637 mi.","$28,888"
+Audi,A7 3.0T Premium Plus,2019,"43,759 mi.","$49,980"
+Audi,A7 3.0 TDI Premium Plus quattro,2014,"71,431 mi.","$27,977"
+Audi,A7 3.0T Premium Plus,2015,"90,993 mi.","$24,500"
+Audi,A7 3.0T Premium Plus,2016,"70,925 mi.","$32,500"
+Audi,A7 55 Premium Plus,2022,"2,100 mi.","$81,000"
+Audi,A7 3.0T Premium Plus,2017,"85,426 mi.","$32,458"
+Audi,A7 3.0T Premium Plus,2018,"41,000 mi.","$47,995"
+Audi,A7 3.0 Premium Plus,2012,"93,035 mi.","$19,995"
+Audi,A7 3.0T Premium Plus quattro,2014,"103,798 mi.","$23,995"
+Audi,A7 3.0T Prestige,2017,"81,666 mi.","$31,966"
+Audi,A7 3.0T Prestige,2014,"83,000 mi.","$25,000"
+Audi,A7 3.0T quattro Premium,2019,"30,211 mi.","$53,998"

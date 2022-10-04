@@ -8,7 +8,7 @@ from csv import writer
 # The scraping api used is BeautifulSoup
 
 #working
-def Scrape(make, model, year, zipcode):
+def scrape(make, model, year, zipcode):
     make = make.lower()
     model = model.lower()
     url = 'https://www.cars.com/shopping/results/?stock_type=used&makes%5B%5D=' + make + '&models%5B%5D=' + make + '-' + model +'&list_price_max=&maximum_distance=20&zip=' + zipcode
@@ -64,4 +64,4 @@ def Scrape(make, model, year, zipcode):
 #         ret_list.append(row)
 #     return ret_list
 
-Scrape('Audi', 'A7', '2014', '22043')
+# scrape('Audi', 'A7', '2014', '22043')
