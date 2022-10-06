@@ -13,17 +13,18 @@ from selenium.webdriver.chrome.options import Options
 
 
 def main():
-    # dollarValue('Audi', 'A7', '2016', 130065, 22701) # Need to know which car from chrome extension
-    # dollarValueVin('WAUP2AF20KN116129')
-    # rate('Audi', 'A3', '2017', '22182')
 
-    demoList = [{'Make': 'BMW', 'Model': '228i xDrive', 'Year': '2016', 'Mileage': '65,956', 'Price': '$24,950', 'VIN': 'WBA1G9C51GV599609'},
+    demoDict = [{'Make': 'BMW', 'Model': '228i xDrive', 'Year': '2016', 'Mileage': '65,956', 'Price': '$24,950', 'VIN': 'WBA1G9C51GV599609'},
                 {'Make': 'BMW', 'Model': '228 Gran Coupe i xDrive', 'Year': '2021', 'Mileage': '24,681', 'Price': '$36,450', 'VIN': 'WBA73AK03M7H21242'},
                 {'Make': 'BMW', 'Model': '228 i', 'Year': '2014', 'Mileage': '56,547', 'Price': '$22,590', 'VIN': 'WBA1F5C50EV255231'}]
     
-    for i in range(len(demoList)):
-        print(demoList[i])
-        
+    # demoList = []
+    # for i in range(len(demoDict)):
+    #     print(demoDict[i])
+
+    # dollarValue('Audi', 'A7', '2016', 130065, 22701) # Need to know which car from chrome extension
+    # dollarValueVin('WAUP2AF20KN116129')
+    rate(demoDict)
     # createList()
 
 carlist = []
@@ -37,28 +38,39 @@ def createList():
             # print(row)
             # print(row['Make'])
             carlist.append(row)
-
+    print("Done")
     # print(carlist[5]["Price"])
     # print(carlist[5])
 
-    for i in range(len(carlist)):
-        # print("|",carlist[i]['Price'],"|")
-        print(carlist[i])
+    # for i in range(len(carlist)):
+    #     print("|",carlist[i]['Price'],"|")
+    #     # print(carlist[i])
     
     return carlist
 
 #incomplete
-def rate(make, model, year, zipcode):
-    # list = scrapeV1.ScrapeToList(make, model, year, zipcode)
-    # scrapeV1.Scrape(make,model,year,zipcode)
-    carlist = createList()
+def rate(list):
+    # carlist = createList()
 
-    for i in range(len(carlist)):
-        # need to have a list that has a vin, and a price
-        return
-
-
-
+    deals = []
+    for i in range(len(list)):
+        price = list[i]['Price']
+        vin   = list[i]['VIN']
+        print("Price: ", price, "Vin: ", vin)
+        suggested = dollarValueVin(vin)
+        suggested = suggested.replace(',', '')
+        price = price.replace(',', '')
+        suggested = suggested.replace('$', '')
+        price = price.replace('$', '')
+        ratio = int(suggested)/int(price) #metric for rating deal
+        row = (vin,ratio)
+        deals.append(row)
+        print("Ratio: ", ratio)
+    
+    # Sorted list of deals in descending order from best to worst deal
+    deals.sort(key=lambda y: -y[1])
+    print("\ndeals: ", deals)
+    
 
 
 #inprogress
@@ -120,16 +132,8 @@ def dollarValueVin(vin):
     chrome_options.add_argument("--headless")
     
     browser = webdriver.Chrome(options=chrome_options, service=Service(ChromeDriverManager().install()))
-    # browser = webdriver.Remote(command_executor="https://www.cargurus.com/Cars/car-valuation", options=chrome_options)
-
-
-    # browser = webdriver.Remote(command_executor='https://www.cargurus.com/Cars/car-valuation', options=chrome_options)
-    # browser = webdriver.Chrome()
-
-
-    # browser = webdriver.Remote(command_executor = remote_url, desired_capabilities = browser_capabilities)
+    # browser = webdriver.Chrome(service=Service(ChromeDriverManager().install()))
     
-
     browser.get('https://www.cargurus.com/Cars/car-valuation')
 
 
@@ -147,11 +151,19 @@ def dollarValueVin(vin):
     
     print("ran")
 
+
     # Ensure that the suggested price is visible
     while(True):
-        price = browser.find_element(By.ID, 'instantMarketValuePrice').text
+        idFound = False
 
-        if (price != "$ Calculating..."):
+        # To Ensure that the ID 'instantMarketValuePrice' is visible
+        try:
+            price = browser.find_element(By.ID, 'instantMarketValuePrice').text
+            idFound = True
+        except:
+            print("Error finding ID instantMarketValuePrice")
+
+        if (idFound and (price != "$ Calculating..." and price != "$—")):
             print("Suggested Price from CarGurus:", price)
             end = time.time()
             print("The time of execution of above program (VIN) is :",
