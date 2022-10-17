@@ -1,5 +1,3 @@
-import scrapeV1
-import scrapeV1_1
 import csv
 import time
 from selenium import webdriver
@@ -17,15 +15,13 @@ def main():
     demoDict = [{'Make': 'BMW', 'Model': '228i xDrive', 'Year': '2016', 'Mileage': '65,956', 'Price': '$24,950', 'VIN': 'WBA1G9C51GV599609'},
                 {'Make': 'BMW', 'Model': '228 Gran Coupe i xDrive', 'Year': '2021', 'Mileage': '24,681', 'Price': '$36,450', 'VIN': 'WBA73AK03M7H21242'},
                 {'Make': 'BMW', 'Model': '228 i', 'Year': '2014', 'Mileage': '56,547', 'Price': '$22,590', 'VIN': 'WBA1F5C50EV255231'}]
-    
-    # demoList = []
-    # for i in range(len(demoDict)):
-    #     print(demoDict[i])
 
+    print(demoDict)
     # dollarValue('Audi', 'A7', '2016', 130065, 22701) # Need to know which car from chrome extension
     # dollarValueVin('WAUP2AF20KN116129')
     rate(demoDict)
-    # createList()
+    # listOfCars = createList()
+    # print(listOfCars)
 
 carlist = []
 
