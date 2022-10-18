@@ -13,6 +13,8 @@ import itertools
 
 carlist = []
 
+carlist = []
+
 def main():
 
     demoDict = [{'Make': 'BMW', 'Model': '228i xDrive', 'Year': '2016', 'Mileage': '65,956', 'Price': '$24,950', 'VIN': 'WBA1G9C51GV599609', 'url': '1'},
