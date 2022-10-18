@@ -19,7 +19,7 @@ const App = () => {
             setIsCars(true) //set isCars to true
             }
         });
-
+        console.log("new version");
         return () => setIsCars(false) //before next useEffect is created, set isCars to false
 
     }, [chrome.tabs]);
