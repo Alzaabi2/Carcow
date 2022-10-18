@@ -1,18 +1,72 @@
-Make,Model,Year,Mileage,Price
-Audi,A7 3.0T Premium Plus quattro,2014,"103,798 mi.","$23,995"
-Audi,A7 3.0T Prestige,2019,"10,070 mi.","$54,500"
-Audi,A7 3.0T Premium Plus,2019,"17,152 mi.","$56,998"
-Audi,A7 3.0T Prestige,2017,"88,945 mi.","$33,411"
-Audi,A7 3.0T Prestige,2016,"80,905 mi.","$28,001"
-Audi,A7 3.0T Prestige,2019,"28,632 mi.","$52,999"
-Audi,A7 3.0 TDI Premium Plus quattro,2014,"71,431 mi.","$25,977"
-Audi,A7 3.0T Prestige quattro,2013,"101,637 mi.","$27,997"
-Audi,A7 3.0 Prestige,2012,"85,390 mi.","$21,699"
-Audi,A7 3.0 Premium Plus,2012,"93,035 mi.","$19,995"
-Audi,A7 3.0T Premium Plus,2019,"58,962 mi.","$47,995"
-Audi,A7 Premium,2012,"60,000 mi.","$24,999"
-Audi,A7 3.0T Prestige quattro,2012,"71,955 mi.","$22,995"
-Audi,A7 3.0T Premium Plus,2018,"20,633 mi.","$44,008"
-Audi,A7 3.0T quattro Premium,2019,"11,380 mi.","$61,999"
-Audi,A7 3.0T Premium Plus,2018,"41,000 mi.","$47,995"
-Audi,A7 55 Premium Plus,2022,"2,100 mi.","$81,000"
+Make,Model,Year,Mileage,Price,VIN
+Lamborghini,Aventador LP 740-4,2017,"9,877 mi.","$458,094",ZHWUG4ZD2HLA06039
+Lamborghini,Aventador LP750-4 Superveloce,2016,"9,850 mi.","$549,990",ZHWUF3ZD8GLA04324
+Lamborghini,Aventador LP700-4,2014,"2,794 mi.","$389,900",ZHWUC1ZD4ELA02158
+Lamborghini,Aventador 2dr Cpe,2012,"20,214 mi.","$318,991",ZHWUC1ZD0CLA00114
+Lamborghini,Aventador LP700-4,2015,"3,084 mi.","$399,950",ZHWUR1ZD9FLA03502
+Lamborghini,Aventador LP700-4,2014,"4,952 mi.","$414,950",ZHWUR1ZD5ELA02331
+Lamborghini,Aventador LP700-4,2015,"8,495 mi.","$359,900",ZHWUC1ZD0FLA03633
+Lamborghini,Aventador LP700-4,2014,"9,790 mi.","$369,998",ZHWUC1ZD6ELA02419
+Lamborghini,Aventador LP700-4,2014,"4,063 mi.","$388,500",ZHWUC1ZD0ELA02996
+Lamborghini,Aventador S,2017,"3,035 mi.","$499,000",ZHWUG4ZD9HLA06037
+Lamborghini,Aventador LP700-4,2015,"7,342 mi.","$359,000",ZHWUC1ZD8FLA03900
+Lamborghini,Aventador LP700-4,2016,"8,372 mi.","$412,595",ZHWUC1ZD7GLA04392
+Lamborghini,Aventador LP700-4,2013,"11,994 mi.","$332,912",ZHWUC1ZD8DLA01772
+Lamborghini,Aventador LP700-4,2012,"19,552 mi.","$309,991",ZHWUC1ZD5CLA00691
+Lamborghini,Aventador 50TH ANNIVERSARIO,2014,"2,702 mi.","$499,998",ZHWUD2ZD9ELA02384
+Lamborghini,Aventador LP700-4,2014,"11,827 mi.","$359,991",ZHWUC1ZD1ELA02215
+Lamborghini,Aventador LP750-4 Superveloce,2017,"8,400 mi.","$649,000",ZHWUF3ZD1HLA05686
+Lamborghini,Aventador LP700-4,2013,"7,469 mi.","$334,000",ZHWUC1ZD5DLA01731
+Lamborghini,Aventador 2dr Conv,2015,"4,747 mi.","$414,999",ZHWUR1ZD5FLA03450
+Lamborghini,Aventador 50th Anniversario,2014,"25,850 mi.","$349,990",ZHWUS2ZDXELA02920
+Lamborghini,Aventador LP 700-4 Pirelli Edition,2016,"10,143 mi.","$435,000",ZHWUC1ZD0GLA05173
+Lamborghini,Aventador 2dr Cpe,2013,"19,100 mi.","$323,000",ZHWUC1ZD6DLA01687
+Lamborghini,Aventador LP700-4,2014,"26,794 mi.","$305,000",ZHWUC1ZD9ELA02351
+Lamborghini,Aventador LP700-4,2014,"10,291 mi.","$355,900",ZHWUC1ZDXELA02861
+Lamborghini,Aventador LP700-4,2014,"6,408 mi.","$395,000",ZHWUR1ZD3ELA02165
+Lamborghini,Aventador LP750-4 Superveloce,2016,"2,460 mi.","$659,900",ZHWUT3ZD7GLA05165
+Lamborghini,Aventador LP700-4,2012,"17,905 mi.","$319,995",ZHWUC1ZD6CLA00926
+Lamborghini,Aventador LP700-4,2015,"12,875 mi.","$399,917",ZHWUC1ZDXFLA03655
+Lamborghini,Aventador LP700-4,2012,"9,114 mi.","$359,981",ZHWUC1ZDXCLA00704
+Lamborghini,Aventador LP750-4 Superveloce,2016,"3,789 mi.","$589,981",ZHWUF3ZD1GLA04326
+Lamborghini,Aventador LP750-4 Superveloce,2016,"10,097 mi.",Not Priced,ZHWUF3ZD0GLA04723
+Lamborghini,Aventador 2dr Conv,2015,"8,457 mi.","$425,000",ZHWUR1ZDXFLA03699
+Lamborghini,Aventador LP700-4,2016,"2,692 mi.","$459,900",ZHWUR1ZD7GLA04262
+Lamborghini,Aventador LP700-4,2014,"9,421 mi.","$374,919",ZHWUR1ZD7ELA03030
+Lamborghini,Aventador LP700-4,2014,"12,134 mi.","$369,900",ZHWUR1ZD5ELA02300
+Lamborghini,Aventador LP700-4,2012,"26,804 mi.","$305,000",ZHWUC1ZDXCLA01206
+Lamborghini,Aventador LP750-4 Superveloce,2017,930 mi.,"$674,880",ZHWCC3ZD0HLA05294
+Lamborghini,Aventador LP750-4 Superveloce,2016,"27,750 mi.","$459,995",ZHWUF3ZD1GLA04701
+Lamborghini,Aventador LP700-4,2015,"20,032 mi.","$359,995",ZHWUC1ZD2FLA03228
+Lamborghini,Aventador LP700-4,2016,"8,420 mi.","$474,900",ZHWUR1ZD7GLA04598
+Lamborghini,Aventador LP750-4 Superveloce,2017,"6,000 mi.","$649,995",ZHWUT3ZD8HLA05919
+Lamborghini,Aventador LP700-4,2015,"5,288 mi.","$369,000",ZHWUC1ZD4FLA03599
+Lamborghini,Aventador LP700-4,2014,"7,135 mi.","$389,995",ZHWUC1ZD2ELA02515
+Lamborghini,Aventador LP750-4 Superveloce,2017,"5,250 mi.","$679,800",ZHWUT3ZD0HLA05655
+Lamborghini,Aventador LP750-4 Superveloce,2017,"12,236 mi.",Not Priced,ZHWUT3ZD8HLA05743
+Lamborghini,Aventador SV-FULL CAR PPF-1 OF 600,2017,"2,219 mi.","$599,777",ZHWUF3ZD0HLA05419
+Lamborghini,Aventador LP700-4,2014,"14,471 mi.","$359,900",ZHWUC1ZD2ELA02000
+Lamborghini,Aventador LP700-4,2014,"22,069 mi.","$379,995",ZHWUR1ZD6ELA02340
+Lamborghini,Aventador LP 700-4,2016,"13,615 mi.","$409,999",ZHWUR1ZD2GLA04413
+Lamborghini,Aventador LP 740-4 S,2017,"7,800 mi.","$499,996",ZHWUG4ZD5HLA05936
+Lamborghini,Aventador LP750-4 Superveloce,2016,"5,456 mi.","$548,996",ZHWUF3ZD0GLA04365
+Lamborghini,Aventador LP700-4,2014,"7,034 mi.","$389,996",ZHWUC1ZDXELA02567
+Lamborghini,Aventador LP700-4,2014,"5,009 mi.","$385,000",ZHWUR1ZD7ELA02914
+Lamborghini,Aventador LP700-4 Pirelli Edition,2016,758 mi.,"$489,995",ZHWUC1ZDXGLA04337
+Lamborghini,Aventador LP700-4,2015,"4,913 mi.","$389,995",ZHWUC1ZD4FLA03781
+Lamborghini,Aventador LP740-4S,2017,"4,804 mi.","$489,900",ZHWUG4ZD2HLA06137
+Lamborghini,Aventador LP700-4,2016,"3,723 mi.","$429,900",ZHWUC1ZD8GLA04790
+Lamborghini,Aventador LP700-4,2015,"20,330 mi.","$395,000",ZHWUR1ZD0FLA03467
+Lamborghini,Aventador LP700-4,2015,"16,522 mi.","$378,000",ZHWUC1ZD4FLA03294
+Lamborghini,Aventador LP700-4,2015,"20,338 mi.","$344,999",ZHWUC1ZD5FLA03157
+Lamborghini,Aventador LP750-4 Superveloce,2016,"8,771 mi.","$549,850",ZHWUF3ZD7GLA05027
+Lamborghini,Aventador LP750-4 Superveloce,2016,"2,850 mi.",Not Priced,ZHWUT3ZD1GLA05078
+Lamborghini,Aventador LP700-4,2013,"7,290 mi.",Not Priced,ZHWUC1ZDXDLA01823
+Lamborghini,Aventador LP720-4 50th Anniversario,2014,"3,491 mi.",Not Priced,ZHWUD2ZD2ELA02792
+Lamborghini,Aventador LP740-4S,2017,"21,715 mi.","$439,900",ZHWUG4ZD9HLA06118
+Lamborghini,Aventador LP750-4 Superveloce,2016,"11,020 mi.",Not Priced,ZHWUF3ZDXGLA04714
+Lamborghini,Aventador LP750-4 Superveloce,2016,"1,245 mi.",Not Priced,ZHWUF3ZD4GLA04322
+Lamborghini,Aventador LP700-4,2012,"23,585 mi.","$319,950",ZHWUC1ZD4CLA00908
+Lamborghini,Aventador LP700-4,2017,"8,049 mi.","$410,000",ZHWCC1ZDXHLA05730
+Lamborghini,Aventador LP700-4,2014,"6,894 mi.","$386,336",ZHWUR1ZD7ELA02315
+Lamborghini,Aventador LP700-4,2014,0 mi.,"$339,988",ZHWUC1ZD7ELA02056
