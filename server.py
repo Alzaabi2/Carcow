@@ -31,7 +31,7 @@ def getScrape(make, model, car_year, zip):
 @app.route('/getUrl/<string:url>')
 def getUrl(url):
     print("user is on: ", url)
-    singleCarData(url) # need to create this function
+    singleCarData(url) # Function Now Created
 
 
 

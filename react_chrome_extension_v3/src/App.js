@@ -22,18 +22,18 @@ const App = () => {
             }
         });
         console.log("new version");
-        // urlCall =  '127.0.0.1:8080/getUrl/' + url;
+        urlCall =  '127.0.0.1:8080/getUrl/' + url;
         //add call the url :
-        // $.ajax({
-        //     type: "POST",
-        //     url: "127.0.0.1:8080/getUrl/",
-        //     data: { param: urlCall}
-        //   }).success(function() {
-        //         alert("Car data passed successfully")
-        //   }).fail(function() {
-        //         alert("Car data not failed to be passed")
-        // });
-        // return () => setIsCars(false) //before next useEffect is created, set isCars to false
+        $.ajax({
+            type: "POST",
+            url: "127.0.0.1:8080/getUrl/",
+            data: { param: urlCall}
+          }).success(function() {
+                alert("Car data passed successfully")
+          }).fail(function() {
+                alert("Car data not failed to be passed")
+        });
+        return () => setIsCars(false) //before next useEffect is created, set isCars to false
         
     //attempt 2 using axios
         // const instance = axios.create();

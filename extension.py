@@ -26,7 +26,7 @@ def singleCarData(url):
     entry = "Make: " + make + " --- Model: " + model + " ---Trim: " + trim + " --- Year: " + year
     #Create and Return a dictionary {make: ..., model: ..., trim: ..., year: ...} for single car
     carEntry = {}
-    carEntry[make + " Entry"] = entry
+    carEntry[make + " Car Entry"] = entry
     print (carEntry)
     return carEntry
 
