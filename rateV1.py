@@ -30,7 +30,12 @@ def main():
     # print(listOfCars)
     # dollarValueVin('ZHWUC1ZD4ELA02158')
 
-carlist = []
+    createList()
+
+    rate(carlist)
+
+
+
 
 def createList():
     csv_filename = 'cardata.csv'
@@ -38,16 +43,12 @@ def createList():
     with open(csv_filename) as f:
         reader = csv.DictReader(f)
         for row in reader:
-            # print(row)
-            # print(row['Make'])
             carlist.append(row)
     print("Done")
-    # print(carlist[5]["Price"])
-    # print(carlist[5])
 
-    # for i in range(len(carlist)):
-    #     print("|",carlist[i]['Price'],"|")
-    #     # print(carlist[i])
+    for i in range(len(carlist)):
+        print("|",carlist[i]['Price'],"|")
+        # print(carlist[i])
     
     return carlist
 
