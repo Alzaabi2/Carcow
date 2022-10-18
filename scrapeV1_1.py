@@ -22,7 +22,7 @@ def Scrape(make, model, year, zipcode):
     # search first 10 pages
     with open('cardata.csv', 'w', encoding='utf8', newline='') as f:
         w = writer(f)
-        header = ['Make', 'Model', 'Year', 'Mileage', 'Price', 'VIN']
+        header = ['Make', 'Model', 'Year', 'Mileage', 'Price', 'VIN', 'url']
         w.writerow(header)
         vincount = 0
         for n in range(10):
@@ -39,6 +39,7 @@ def Scrape(make, model, year, zipcode):
                 make = title[1]
                 model = title[2]
                 price = c.find('span', class_="primary-price").text
+                carpage = 'http://cars.com' + c.find('a', class_="vehicle-card-link js-gallery-click-link").get('href')
                 if not c.find('div', class_="mileage"):
                     mileage = ' '#assume its brand new??
                 else:
@@ -46,7 +47,7 @@ def Scrape(make, model, year, zipcode):
                 
                 vin = vins[vincount]    
                 
-                row = [make, model, year, mileage, price, vin]
+                row = [make, model, year, mileage, price, vin, carpage]
                 w.writerow(row)
                 vincount+=1
             url = getNextPage(soup)
