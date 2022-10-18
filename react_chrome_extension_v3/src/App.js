@@ -20,6 +20,8 @@ const App = () => {
             }
         });
         console.log("new version");
+        urlCall =  '127.0.0.1:8080/getUrl/' + url;
+        //add call the url :
         return () => setIsCars(false) //before next useEffect is created, set isCars to false
 
     }, [chrome.tabs]);
