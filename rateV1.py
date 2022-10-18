@@ -9,21 +9,22 @@ from selenium.webdriver.common.action_chains import ActionChains
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.chrome.options import Options
 
+carlist = []
 
 def main():
+
 
     demoDict = [{'Make': 'BMW', 'Model': '228i xDrive', 'Year': '2016', 'Mileage': '65,956', 'Price': '$24,950', 'VIN': 'WBA1G9C51GV599609'},
                 {'Make': 'BMW', 'Model': '228 Gran Coupe i xDrive', 'Year': '2021', 'Mileage': '24,681', 'Price': '$36,450', 'VIN': 'WBA73AK03M7H21242'},
                 {'Make': 'BMW', 'Model': '228 i', 'Year': '2014', 'Mileage': '56,547', 'Price': '$22,590', 'VIN': 'WBA1F5C50EV255231'}]
 
-    print(demoDict)
-    # dollarValue('Audi', 'A7', '2016', 130065, 22701) # Need to know which car from chrome extension
-    # dollarValueVin('WAUP2AF20KN116129')
-    rate(demoDict)
-    # listOfCars = createList()
-    # print(listOfCars)
 
-carlist = []
+    createList()
+
+    rate(carlist)
+
+
+
 
 def createList():
     csv_filename = 'cardata.csv'
@@ -31,16 +32,12 @@ def createList():
     with open(csv_filename) as f:
         reader = csv.DictReader(f)
         for row in reader:
-            # print(row)
-            # print(row['Make'])
             carlist.append(row)
     print("Done")
-    # print(carlist[5]["Price"])
-    # print(carlist[5])
 
-    # for i in range(len(carlist)):
-    #     print("|",carlist[i]['Price'],"|")
-    #     # print(carlist[i])
+    for i in range(len(carlist)):
+        print("|",carlist[i]['Price'],"|")
+        # print(carlist[i])
     
     return carlist
 
