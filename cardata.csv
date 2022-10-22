@@ -1,10 +1,47 @@
 Make,Model,Year,Mileage,Price,VIN,url
-Lamborghini,Aventador LP 740-4,2017,"9,877 mi.","$458,094",ZHWUG4ZD2HLA06039,http://cars.com/vehicledetail/0b6975e4-1d03-48b8-bb9a-8e44e0a3d7e0/
-Lamborghini,Aventador LP750-4 Superveloce,2016,"9,850 mi.","$549,990",ZHWUF3ZD8GLA04324,http://cars.com/vehicledetail/22cf4ad0-74fb-4bfc-bb16-0aaa38643431/
-Lamborghini,Aventador LP700-4,2014,"2,794 mi.","$389,900",ZHWUC1ZD4ELA02158,http://cars.com/vehicledetail/d0dbdedd-7050-4313-852c-ce48901829c1/
-Lamborghini,Aventador 2dr Cpe,2012,"20,214 mi.","$318,991",ZHWUC1ZD0CLA00114,http://cars.com/vehicledetail/aaa6c373-bfca-4834-b06d-05a7d64c81e0/
-Lamborghini,Aventador LP700-4,2015,"3,084 mi.","$399,950",ZHWUR1ZD9FLA03502,http://cars.com/vehicledetail/aeae2a02-cb45-4e52-b33c-88dc7731b00c/
-Lamborghini,Aventador LP700-4,2014,"4,952 mi.","$414,950",ZHWUR1ZD5ELA02331,http://cars.com/vehicledetail/531537db-c664-4714-841a-7e078dd00871/
-Lamborghini,Aventador LP700-4,2015,"8,495 mi.","$359,900",ZHWUC1ZD0FLA03633,http://cars.com/vehicledetail/62c92405-864f-44f2-8e20-030c0a07c5d8/
-Lamborghini,Aventador LP700-4,2014,"9,790 mi.","$369,998",ZHWUC1ZD6ELA02419,http://cars.com/vehicledetail/e9c13f31-a725-4a3e-b84d-216dda9b0458/
-Lamborghini,Aventador LP700-4,2014,"4,063 mi.","$388,500",ZHWUC1ZD0ELA02996,http://cars.com/vehicledetail/7dfeb4a6-7b29-4b8e-8f66-d69f1515bf30/
+Audi,A7 3.0 TDI Prestige quattro,2014,"132,963 mi.","$17,000",WAU2MAFC1EN036050,http://cars.com/vehicledetail/e83f0981-bc52-4302-b0c8-24d926d14c6d/
+Audi,A7 3.0T Premium Plus quattro,2013,"49,645 mi.","$25,990",WAUYGAFC2DN090294,http://cars.com/vehicledetail/c2a97e11-86e0-46b7-bde9-26079a5a95d4/
+Audi,A7 3.0T Prestige,2019,"25,286 mi.","$53,000",WAUS2AF22KN095875,http://cars.com/vehicledetail/226e8f3b-0c13-4893-85e4-956627bb16cc/
+Audi,A7 3.0T Prestige quattro,2014,"135,218 mi.","$18,376",WAU2GAFC3EN014557,http://cars.com/vehicledetail/9133feac-6650-4cb7-b5ed-5522a7958734/
+Audi,A7 3.0T Premium Plus quattro,2012,"97,157 mi.","$18,995",WAUSGAFC7CN016471,http://cars.com/vehicledetail/e5fac043-6e94-476f-86a7-a7fa2ff57da8/
+Audi,A7 3.0T Premium Plus,2019,"58,962 mi.","$47,995",WAUU2AF25KN041379,http://cars.com/vehicledetail/d0b11609-92e0-4fc5-b900-c48181199e79/
+Audi,A7 3.0 TDI Premium Plus quattro,2014,"71,431 mi.","$25,977",WAUWMAFC9EN134339,http://cars.com/vehicledetail/55c10702-653f-47cf-bd7b-da4683177ef4/
+Audi,A7 3.0 Premium Plus,2012,"93,035 mi.","$19,995",WAUSGAFC4CN014225,http://cars.com/vehicledetail/f29b5bed-815b-4933-8111-25bceab7c21f/
+Audi,A7 3.0T Premium Plus quattro,2014,"103,798 mi.","$23,995",WAUWGAFC6EN113701,http://cars.com/vehicledetail/dfcb123b-0a83-4989-8b71-8d5ed0bf6cba/
+Audi,A7 3.0T Premium Plus,2013,"104,793 mi.","$22,877",WAUYGAFC1DN064964,http://cars.com/vehicledetail/a21df049-09ee-499a-89e7-b34b7bb51140/
+Audi,A7 3.0T Premium Plus,2013,"119,275 mi.","$17,877",WAUYGAFC1DN067699,http://cars.com/vehicledetail/bdafea63-1879-47be-92c8-289584a11cd1/
+Audi,A7 3.0T Prestige quattro,2013,"101,637 mi.","$23,000",WAU3GAFC2DN017890,http://cars.com/vehicledetail/f0faed37-f127-4b8a-b68e-50a620a27149/
+Audi,A7 3.0T Prestige quattro,2012,"71,955 mi.","$21,995",WAU2GAFC7CN065279,http://cars.com/vehicledetail/71e44054-3d75-4128-80c7-3b1d1c45c25e/
+Audi,A7 3.0T Prestige,2016,"80,915 mi.","$25,001",WAU2GAFC4GN128988,http://cars.com/vehicledetail/56b5a641-d0dc-460d-b7ff-6ec048f79bfc/
+Audi,A7 3.0T quattro Premium,2019,"11,380 mi.","$61,999",WAUV2AF20KN085200,http://cars.com/vehicledetail/d74280e6-4e16-4fe3-b45d-b5df3514de1e/
+Audi,A7 Premium,2012,"60,000 mi.","$24,999",WAU2GAFC0CN084126,http://cars.com/vehicledetail/329aeac6-1f1b-40b1-b4df-73ad411669a2/
+Audi,A7 3.0T Prestige,2019,"28,632 mi.","$52,999",WAUS2AF22KN116241,http://cars.com/vehicledetail/a2a2aecf-28e5-4265-be5e-b0f64b62724e/
+Audi,A7 3.0T Prestige quattro,2014,"72,135 mi.","$26,977",WAU2GAFC9EN020881,http://cars.com/vehicledetail/f252fff4-e749-4eb8-b6b6-b4e20d954db1/
+Audi,A7 3.0T Premium Plus,2019,"17,152 mi.","$55,998",WAUU2AF26KN093376,http://cars.com/vehicledetail/d2b4a1e0-aabd-47a9-a0f7-03a11e62bd54/
+Audi,A7 3.0T Prestige,2019,"10,070 mi.","$52,975",WAUS2AF29KN028139,http://cars.com/vehicledetail/50e87760-bd5e-45c0-a008-213768e0e193/
+Audi,A7 3.0T Prestige,2017,"46,205 mi.","$34,995",WAU22AFC3HN041776,http://cars.com/vehicledetail/40013b2b-560f-434e-9ec2-13c80abf2071/
+Audi,A7 3.0T Prestige,2019,"14,184 mi.","$60,250",WAUS2AF20KN072644,http://cars.com/vehicledetail/b8f66d5d-efb9-4804-997a-122b473229f3/
+Audi,A7 3.0T Prestige,2016,"60,834 mi.","$29,995",WAU2GAFC5GN003417,http://cars.com/vehicledetail/b41b6761-067a-4294-9b8e-11c42770cc97/
+Audi,A7 3.0T Prestige quattro,2013,"114,330 mi.","$17,995",WAU2GBFCXDN127667,http://cars.com/vehicledetail/227d3c43-fe78-41b5-af99-e03d4d9c0f1c/
+Audi,A7 3.0T Premium Plus,2017,"77,941 mi.","$34,995",WAU22AFC4HN083485,http://cars.com/vehicledetail/9bb05d32-792b-49ca-bc2a-0fe6f18394ec/
+Audi,A7 3.0T Premium Plus,2018,"39,764 mi.","$46,988",WAUW3AFC9JN011380,http://cars.com/vehicledetail/ceedc39e-7b14-4322-809b-dc55731e2dc4/
+Audi,A7 3.0T Premium Plus,2016,"122,920 mi.","$21,599",WAUWGAFC0GN071724,http://cars.com/vehicledetail/85dbc053-8efe-4046-9d57-dc6e84f82841/
+Audi,A7 3.0T Premium Plus,2017,"86,159 mi.","$29,995",WAUW2AFC3HN015745,http://cars.com/vehicledetail/6baaec21-ba47-49c4-ba50-4603563a036b/
+Audi,A7 3.0T Competition Prestige,2017,"52,335 mi.","$41,995",WAUW3AFC8HN042078,http://cars.com/vehicledetail/d13e07e2-aeac-4838-990e-58253e6470ad/
+Audi,A7 3.0T quattro Premium,2019,"31,023 mi.","$58,888",WAUS2AF21KN050930,http://cars.com/vehicledetail/4167ce7a-50ab-4066-b4e5-b68e3b9bea90/
+Audi,A7 3.0T Prestige,2019,"44,184 mi.","$55,990",WAUS2AF22KN061774,http://cars.com/vehicledetail/721d9430-0a22-4035-85b0-5c060b68f2bd/
+Audi,A7 3.0 TDI Premium Plus quattro,2014,"70,172 mi.","$24,977",WAUWMAFC5EN051684,http://cars.com/vehicledetail/bd063ed0-aab2-4d9d-8c89-2e2fac73035e/
+Audi,A7 3.0 Prestige,2012,"85,390 mi.","$21,699",WAU3GAFC6CN090047,http://cars.com/vehicledetail/203914d1-2170-4426-8b87-b1c623b77f96/
+Audi,A7 3.0T Prestige,2017,"57,808 mi.","$40,599",WAUW3AFC6HN075127,http://cars.com/vehicledetail/a7d96ea1-9354-4217-aa9f-c42284a99772/
+Audi,A7 3.0T Premium Plus,2017,"72,944 mi.","$33,977",WAUW2AFC0HN027304,http://cars.com/vehicledetail/2d532e9e-72e7-4b81-8bb6-c51f84c72bcd/
+Audi,A7 3.0T Prestige,2017,"88,945 mi.","$32,992",WAU22AFC6HN030402,http://cars.com/vehicledetail/5429b213-95a8-446e-a6a6-a9b492aa6ce6/
+Audi,A7 3.0T Premium Plus,2016,"74,394 mi.","$29,995",WAU2GAFC2GN101160,http://cars.com/vehicledetail/6cd85a6d-9da6-4b24-b116-a07d098ed3cc/
+Audi,A7 3.0T Premium Plus,2014,"87,154 mi.","$23,595",WAUWGAFC4EN133722,http://cars.com/vehicledetail/4fb268d8-5b38-40dd-8cc7-675f81f9e124/
+Audi,A7 3.0T Premium Plus,2018,"20,633 mi.","$41,503",WAUW3AFC2JN057598,http://cars.com/vehicledetail/a2775f92-09a7-45c5-b666-8676dcbe6533/
+Audi,A7 3.0 TDI Prestige,2015,"90,111 mi.","$29,500",WAU2MAFCXFN022679,http://cars.com/vehicledetail/8c11288e-81ac-434f-bfd1-19acebf21a44/
+Audi,A7 3.0T Premium Plus,2021,"9,245 mi.","$78,784",WAUU2AF21MN080750,http://cars.com/vehicledetail/b3a76205-1249-46aa-93dd-6dc595ce8bca/
+Audi,A7 3.0T Premium Plus,2018,"41,000 mi.","$47,995",WAU23AFC6JN004465,http://cars.com/vehicledetail/01f98b45-a598-4b19-abba-3c006d25468a/
+Audi,A7 55 Premium Plus,2022,"2,100 mi.","$81,000",WAUU2BF28NN014767,http://cars.com/vehicledetail/d380d7f5-772c-416e-8322-7af09733f6ba/
+Audi,A7 3.0T Premium Plus,2016,"38,913 mi.","$39,998",WAUWGAFC2GN009807,http://cars.com/vehicledetail/b32946c1-73a0-423f-beda-c1e4603fd142/
+Audi,A7 3.0T Prestige quattro,2012,"59,432 mi.","$25,487",WAUSGAFC3CN004091,http://cars.com/vehicledetail/2f66de94-0006-4dae-9058-0986de0797c3/
+Audi,A7 3.0T Premium Plus quattro,2013,"54,100 mi.","$23,999",WAUYGAFCXDN097512,http://cars.com/vehicledetail/f46541c0-6855-476c-a623-a0ebe65ccf33/

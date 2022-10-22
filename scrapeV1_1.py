@@ -56,9 +56,16 @@ def Scrape(make, model, year, zipcode):
         
 def getNextPage(soup):
     page = soup.find('div', class_='sds-pagination__controls')
-    next = page.find('button', id="next_paginate")
-    if next == None: 
-        next = page.find('a', id="next_paginate")
+
+    next = ''
+
+    while( not next ):
+        next = page.find('button', id="next_paginate")
+        
+        if ( not next ):
+            next = page.find('a', id="next_paginate")
+        
+
     url = 'http://cars.com' + str(next.get('href'))
     if url == 'http://cars.comNone':
         print('no next page')
@@ -121,7 +128,7 @@ def scrapeTrimPrice(make, model, year, trim):
     url = 'https://www.cars.com/research/audi-a3-2018/specs/'
     
 
-Scrape('Lamborghini', 'Aventador', '2020', '22043')
+Scrape('Audi', 'A7', '2020', '22043')
 # ScrapeVin('Toyota', 'Camry', '2014', '22043')
 
 
