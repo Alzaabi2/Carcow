@@ -3,7 +3,6 @@ from flask import Flask, request, jsonify
 from scrapeV1_1 import *
 from rateV1 import *
 from flask import render_template, request
-from extension import singleCarData
 app = Flask('app')
 
 
@@ -31,12 +30,9 @@ def getScrape(make, model, car_year, zip):
 
 @app.route('/getUrl/<string:url>')
 def getUrl(url):
-    print("Got URL\n")
     singleCar = singleCarData(url) # need to create this function
     Scrape(singleCar['make'], singleCar['model'], singleCar['year'], )
-    list = rate(createList())
-    print (list)
-    return list
+    rate(createList())
 
 
 app.run(host='0.0.0.0', port=8080)
