@@ -1,6 +1,7 @@
 import json
 from flask import Flask, request, jsonify
 from scrapeV1_1 import *
+from rateV1 import *
 from flask import render_template, request
 from extension import singleCarData
 app = Flask('app')
@@ -30,9 +31,9 @@ def getScrape(make, model, car_year, zip):
 
 @app.route('/getUrl/<string:url>')
 def getUrl(url):
-    print("user is on: ", url)
-    singleCarData(url) # Function Now Created
-
+    singleCar = singleCarData(url) # need to create this function
+    Scrape(singleCar['make'], singleCar['model'], singleCar['year'], )
+    rate(createList())
 
 
 app.run(host='0.0.0.0', port=8080)

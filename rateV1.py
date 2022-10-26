@@ -9,30 +9,44 @@ from selenium.webdriver.common.action_chains import ActionChains
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.chrome.options import Options
 import concurrent.futures
+import itertools 
+
+carlist = []
+
+carlist = []
 
 def main():
 
-    # demoDict = [{'Make': 'BMW', 'Model': '228i xDrive', 'Year': '2016', 'Mileage': '65,956', 'Price': '$24,950', 'VIN': 'WBA1G9C51GV599609'},
-    #             {'Make': 'BMW', 'Model': '228 Gran Coupe i xDrive', 'Year': '2021', 'Mileage': '24,681', 'Price': '$36,450', 'VIN': 'WBA73AK03M7H21242'},
-    #             {'Make': 'BMW', 'Model': '228 i', 'Year': '2014', 'Mileage': '56,547', 'Price': '$22,590', 'VIN': 'WBA1F5C50EV255231'}]
+    demoDict = [{'Make': 'BMW', 'Model': '228i xDrive', 'Year': '2016', 'Mileage': '65,956', 'Price': '$24,950', 'VIN': 'WBA1G9C51GV599609', 'url': '1'},
+                {'Make': 'BMW', 'Model': '228 Gran Coupe i xDrive', 'Year': '2021', 'Mileage': '24,681', 'Price': '$36,450', 'VIN': 'WBA73AK03M7H21242', 'url': '2'},
+                {'Make': 'BMW', 'Model': '228 i', 'Year': '2014', 'Mileage': '56,547', 'Price': '$22,590', 'VIN': 'WBA1F5C50EV255231', 'url': '3'},
+                {'Make': 'BMW', 'Model': '228i xDrive', 'Year': '2016', 'Mileage': '5,956', 'Price': '$2,950', 'VIN': 'WBA1G9C51GV599609', 'url': '4'},
+                {'Make': 'BMW', 'Model': '228 Gran Coupe i xDrive', 'Year': '2021', 'Mileage': '124,681', 'Price': '$80,450', 'VIN': 'WBA73AK03M7H21242', 'url': '5'},
+                {'Make': 'BMW', 'Model': '228 i', 'Year': '2014', 'Mileage': '756,547', 'Price': '$52,590', 'VIN': 'WBA1F5C50EV255231', 'url': '6'}]
 
     # print(demoDict)
     # dollarValue('Audi', 'A7', '2016', 130065, 22701) # Need to know which car from chrome extension
     # dollarValueVin('WAUP2AF20KN116129')
     
     #runs in 5 seconds per car:
-    print("threading")
-    list = createList()
-    with concurrent.futures.ThreadPoolExecutor() as executer:
-        executer.map(dollarValueVin2, list)  
+    # print("threading")
+    # list = createList()
+    # with concurrent.futures.ThreadPoolExecutor() as executer:
+    #     executer.map(dollarValueVin2, list)  
+ 
+ 
+    #getTopCars test
+    # deals = [('WBA1G9C51GV599609', 7.357627118644068), ('WBA73AK03M7H21242', 0.9995336076817558), ('WBA1G9C51GV599609', 0.869939879759519), ('WBA1F5C50EV255231', 0.700531208499336), ('WBA73AK03M7H21242', 0.45286513362336855), ('WBA1F5C50EV255231', 0.3009127210496292)]
+    # deals = rate(createList())
+    # list = createList()
+    # deals = [('ZHWUC1ZD4ELA02158', 1.1615157732751988), ('ZHWUC1ZD0ELA02996', 1.0945740025740025), ('ZHWUC1ZD6ELA02419', 1.0391110222217417), ('ZHWUC1ZD0CLA00114', 0.9697389581524244), ('ZHWUG4ZD2HLA06039', 0.9664653979314289), ('ZHWUF3ZD8GLA04324', 0.5678466881216022), ('ZHWUR1ZD5ELA02331', 0.48796481503795636), ('ZHWUC1ZD0FLA03633', 0.48796481503795636), ('ZHWUR1ZD9FLA03502', 0.21584448056007)]
+    # print(getTopCars(list, deals))
  
     # listOfCars = createList()
     # print(listOfCars)
     # dollarValueVin('ZHWUC1ZD4ELA02158')
 
-    createList()
-
-    rate(carlist)
+    
 
 
 
@@ -44,11 +58,11 @@ def createList():
         reader = csv.DictReader(f)
         for row in reader:
             carlist.append(row)
-    print("Done")
+    # print("Done")
 
-    for i in range(len(carlist)):
-        print("|",carlist[i]['Price'],"|")
-        # print(carlist[i])
+    # for i in range(len(carlist)):
+    #     print("|",carlist[i]['Price'],"|")
+    #     # print(carlist[i])
     
     return carlist
 
@@ -67,7 +81,7 @@ def rate(list):
         suggested = suggested.replace('$', '')
         price = price.replace('$', '')
         price = price.replace(' ', '')
-        print('no', i, 'p: ',price)
+        # print('no', i, 'p: ',price)
         
         try:
             ratio = int(suggested)/int(price) #metric for rating deal
@@ -81,6 +95,28 @@ def rate(list):
     # Sorted list of deals in descending order from best to worst deal
     deals.sort(key=lambda y: -y[1])
     print("\ndeals: ", deals)
+    topDeals = [deals[0], deals[1], deals[2]]
+    return topDeals
+
+#return top 3 cars urls from list of vins
+def getTopCars(car_list, deals):
+    # for i, val in enumerate(itertools.islice(deals, 2)):
+    #     print(i)
+    topCars = []
+    for c in car_list:
+        if(c['VIN'] == deals[0][0]):
+            print(c['VIN'])
+            print(deals[0])
+            topCars.append(c)
+    for c in car_list:
+        if(c['VIN'] == deals[1][0]):
+            print(c['url'])
+            topCars.append(c)
+    for c in car_list:
+        if(c['VIN'] == deals[2][0]):
+            print(c['url'])
+            topCars.append(c)
+    return topCars
     
 
 
@@ -222,8 +258,6 @@ def dollarValueVin2(c):
             print("The time of execution of above program (VIN) is :",
                     (end-start) * 10**3, "ms")
             return price
-
-
 
 if __name__ == '__main__':
     main()
