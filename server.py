@@ -31,9 +31,12 @@ def getScrape(make, model, car_year, zip):
 
 @app.route('/getUrl/<string:url>')
 def getUrl(url):
+    print("Got URL\n")
     singleCar = singleCarData(url) # need to create this function
     Scrape(singleCar['make'], singleCar['model'], singleCar['year'], )
-    rate(createList())
+    list = rate(createList())
+    print (list)
+    return list
 
 
 app.run(host='0.0.0.0', port=8080)
