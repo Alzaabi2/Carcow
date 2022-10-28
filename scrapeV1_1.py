@@ -46,7 +46,7 @@ def Scrape(make, model, year, zipcode):
                     mileage = c.find('div', class_="mileage").text
                 
                 vin = vins[vincount]    
-                
+                 
                 row = [make, model, year, mileage, price, vin, carpage]
                 w.writerow(row)
                 vincount+=1

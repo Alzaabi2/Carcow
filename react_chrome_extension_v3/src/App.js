@@ -24,17 +24,31 @@ const App = () => {
             if(urlCall.includes('cars.com')){ //check if website is cars.com (potential edge case if website is something like cars.com.google.com)
             setIsCars(true) //set isCars to true
             }
+            if(urlCall != '')
+            {
+            console.log("empty call");
+            urlCall = 'https://www.cars.com/vehicledetail/328daed2-aa5f-4882-bddc-d0bde3601e15/'
+            const fetchURL =  '127.0.0.1:8080/getUrl/' + urlCall;
+            console.log(fetchURL)
+            axios (fetchURL)
+                .then((response) => {
+                    setContacts(response.data);
+                    setError(null);
+                })
+                .catch(setError);
+            }
+            else {
+            console.log("new version");
+            const fetchURL =  '127.0.0.1:8080/getUrl/' + urlCall;
+            console.log(fetchURL)
+            axios (fetchURL)
+                .then((response) => {
+                    setContacts(response.data);
+                    setError(null);
+                })
+                .catch(setError);
+            }
         });
-        console.log("new version");
-        const fetchURL =  '127.0.0.1:8080/getUrl/' + urlCall;
-
-        axios (fetchURL)
-            .then((response) => {
-                setContacts(response.data);
-                setError(null);
-            })
-            .catch(setError);
-        
         
         // //add call the url :
         // $.ajax({
@@ -60,7 +74,7 @@ const App = () => {
     }, [chrome.tabs]);
 
     if (error) {
-        return alert("An error occurred")
+        return alert(error)
     }
 
 
