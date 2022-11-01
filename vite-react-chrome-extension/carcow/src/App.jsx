@@ -20,7 +20,7 @@ function App() {
       chrome.tabs && chrome.tabs.query(queryInfo, tabs => {
           const urlCall = tabs[0].url.toLowerCase() //convert to lowercase
           setUrl(urlCall); //set url and reset state
-          if(urlCall.includes('cars.com')){ //check if website is cars.com (potential edge case if website is something like cars.com.google.com)
+          if(urlCall.includes('cars.com/vehicledetail')){ //check if website is cars.com (potential edge case if website is something like cars.com.google.com)
           setIsCars(true) //set isCars to true
           }
           if(urlCall == 'chrome://newtab/')
