@@ -25,7 +25,7 @@ def Scrape(make, model, year, zipcode):
         header = ['Make', 'Model', 'Year', 'Mileage', 'Price', 'VIN', 'url']
         w.writerow(header)
         vincount = 0
-        for n in range(10):
+        for n in range(1):
             page = requests.get(url)
             soup = BeautifulSoup(page.content, 'html.parser')
             cars = soup.find_all('div', class_="vehicle-card")
@@ -55,7 +55,11 @@ def Scrape(make, model, year, zipcode):
                 break
         
 def getNextPage(soup):
+    if soup == None:
+        return None
     page = soup.find('div', class_='sds-pagination__controls')
+    if page == None:
+        return None
     next = page.find('button', id="next_paginate")
     if next == None: 
         next = page.find('a', id="next_paginate")
@@ -72,7 +76,7 @@ def ScrapeVin(make,model,year,zipcode):
     
     with open('carvins.csv', 'w', encoding='utf8', newline='') as f:
         vins = []
-        for n in range(10):
+        for n in range(1):
             page = requests.get(url)
             soup = BeautifulSoup(page.content, 'html.parser') 
             searchContent = soup.find('div', class_="sds-page-section listings-page").get('data-site-activity')
