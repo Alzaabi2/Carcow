@@ -1,4 +1,6 @@
 import json
+import sys
+import shutil
 
 from flask import Flask, request, jsonify
 from scrapeV1_1 import *
@@ -36,12 +38,12 @@ def getUrl(url):
     #     print('n')
     #     return
     url2 = 'https://www.cars.com/vehicledetail/' + url
-    print(url2)
+    # print(url2)
     singleCar = singleCarData(url2) # need to create this function
-    print(singleCar)
-    # Scrape(singleCar['make'], singleCar['model'], singleCar['year'], )
-    # rate(createList())
-    return singleCar
+    Scrape(singleCar['Make'], singleCar['Model'], singleCar['Year'], '22201')
+    rating = rate (createList())
+    # print (rating)
 
+    return rating
 
 app.run(host='0.0.0.0', port=8080)

@@ -46,6 +46,8 @@ def main():
     # print(listOfCars)
     # dollarValueVin('ZHWUC1ZD4ELA02158')
 
+    print(rate(createList()))
+
     
 
 
@@ -66,7 +68,41 @@ def createList():
     
     return carlist
 
-#incomplete
+
+# #incomplete
+# def rate(list):
+#     # carlist = createList()
+
+#     deals = []
+#     for i in range(len(list)):
+#         price = list[i]['Price']
+#         vin   = list[i]['VIN']
+#         print("Price: ", price, "Vin: ", vin)
+#         suggested = dollarValueVin(vin)
+#         suggested = suggested.replace(',', '')
+#         price = price.replace(',', '')
+#         suggested = suggested.replace('$', '')
+#         price = price.replace('$', '')
+#         price = price.replace(' ', '')
+#         # print('no', i, 'p: ',price)
+        
+#         try:
+#             ratio = int(suggested)/int(price) #metric for rating deal
+#         except: 
+#             ratio == 'No Ratio'
+            
+#         row = (vin,ratio)
+#         deals.append(row)
+#         print("Ratio: ", ratio)
+    
+#     # Sorted list of deals in descending order from best to worst deal
+#     deals.sort(key=lambda y: -y[1])
+#     print("\ndeals: ", deals)
+#     topDeals = [deals[0], deals[1], deals[2]]
+#     return topDeals
+
+
+#temp
 def rate(list):
     # carlist = createList()
 
@@ -74,8 +110,8 @@ def rate(list):
     for i in range(len(list)):
         price = list[i]['Price']
         vin   = list[i]['VIN']
-        print("Price: ", price, "Vin: ", vin)
-        suggested = dollarValueVin(vin)
+        # print("Price: ", price, "Vin: ", vin)
+        suggested = price
         suggested = suggested.replace(',', '')
         price = price.replace(',', '')
         suggested = suggested.replace('$', '')
@@ -90,13 +126,16 @@ def rate(list):
             
         row = (vin,ratio)
         deals.append(row)
-        print("Ratio: ", ratio)
+        # print("Ratio: ", ratio)
     
     # Sorted list of deals in descending order from best to worst deal
     deals.sort(key=lambda y: -y[1])
-    print("\ndeals: ", deals)
+    # print("\ndeals: ", deals)
     topDeals = [deals[0], deals[1], deals[2]]
     return topDeals
+
+
+
 
 #return top 3 cars urls from list of vins
 def getTopCars(car_list, deals):
