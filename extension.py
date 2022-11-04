@@ -3,7 +3,7 @@ import requests
 
 #returns car data for car viewed in the browser
 def singleCarData(url):
-    print('got url')
+    # print('got url')
     if(url == ''):
         print('no url')
         return
@@ -14,27 +14,30 @@ def singleCarData(url):
     title = soup.find('h1', class_='listing-title').text
     # .find('body', class_='loaded vsc-initialized ae-lang-en ae-device-desktop')
     # .find('main', class_='sds-page-container').find('div', class_='vdp-content-wrapper price-history-grid ').find('section', class_='listing-overview').find('header', class_='gallery-header').find('div', class_='title-section').find('h1', class_='listing-title') #always use _class in BS
-    print("title:", title)
+    # print("title:", title)
     title = title.split(' ', 3)
     #find make
     make = title[1]
-    print (make)
+    # print (make)
     #find model
     model = title[2]
-    print (model)
+    # print (model)
     #find year
     year = title[0]
-    print(year)
+    # print(year)
     #find trim(optional)
     trim = title[3]
-    print(trim)
+    # print(trim)
 
-    entry = "Make: " + make + " --- Model: " + model + " ---Trim: " + trim + " --- Year: " + year
     #Create and Return a dictionary {make: ..., model: ..., trim: ..., year: ...} for single car
     carEntry = {}
-    carEntry[make + " Car Entry"] = entry
-    print (carEntry)
+    carEntry['Make'] = make
+    carEntry['Model'] = model
+    carEntry['Trim'] = trim
+    carEntry['Year'] = year
+    # print ('ex: ')
+    # print(carEntry)
     ret = '' + make + ' ' + model + ' ' + year
-    return ret 
+    return carEntry
 
-singleCarData('https://www.cars.com/vehicledetail/328daed2-aa5f-4882-bddc-d0bde3601e15')
+# singleCarData('https://www.cars.com/vehicledetail/328daed2-aa5f-4882-bddc-d0bde3601e15')

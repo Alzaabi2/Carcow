@@ -2,6 +2,12 @@ import React, { useEffect, useState } from 'react';
 import './App.css';
 import $ from "jquery";
 import axios from 'axios';
+// import './topThree.js'
+
+// function split (str, index1, index2){
+//     const result = str.slice(index1, index2);
+//     return result;
+// }
 
 function App() {
   const [urlCall, setUrl] = useState('');
@@ -10,7 +16,10 @@ function App() {
   const [contacts, setContacts] = useState([]);
   const [error, setError] = useState(null);
   const [carData, setCarData] = useState('')
-
+  const jsonstr1 = '';
+  const jsonstr2 = '';
+  const jsonstr3 = '';
+  
   /**
    * Get current URL
    */
@@ -20,39 +29,41 @@ function App() {
       chrome.tabs && chrome.tabs.query(queryInfo, tabs => {
           const urlCall = tabs[0].url.toLowerCase() //convert to lowercase
           setUrl(urlCall); //set url and reset state
-          if(urlCall.includes('cars.com')){ //check if website is cars.com (potential edge case if website is something like cars.com.google.com)
-          setIsCars(true) //set isCars to true
+          if(urlCall.includes('cars.com/vehicledetail')){ //check if website is cars.com (potential edge case if website is something like cars.com.google.com)
+            setIsCars(true) //set isCars to true
           }
           if(urlCall == 'chrome://newtab/')
           {
-          console.log("empty call");
-          urlCall2 = '328daed2-aa5f-4882-bddc-d0bde3601e15'
-          const fetchURL =  '127.0.0.1:8080/getUrl/' + urlCall2;
-          console.log(fetchURL)
-          axios (fetchURL)
-              .then((response) => {
-                  setContacts(response.data);
-                  setError(null);
-              })
-              .catch(setError);
+            console.log("empty call");
+            urlCall2 = '328daed2-aa5f-4882-bddc-d0bde3601e15'
+            const fetchURL =  '127.0.0.1:8080/getUrl/' + urlCall2;
+            console.log(fetchURL)
+            axios (fetchURL)
+                .then((response) => {
+                    setContacts(response.data);
+                    setError(null);
+                })
+                .catch(setError);
           }
           else {
-          console.log("new version");
-          const parsedURL = urlCall.replace('https://www.cars.com/vehicledetail/', '')
-          const parsedURL2 = parsedURL.replace('/', '')
-          const fetchURL =  'http://127.0.0.1:8080/getUrl/' + parsedURL2;
-          console.log(fetchURL)
-          axios.get(fetchURL)
-              .then((response) => {
-                  setContacts(response.data);
-                  setError(null);
-                  console.log(response.data);
-                  console.log(response);
-                  setCarData(response.data);
-
-              })
-              // .catch(setError);
-          }
+            console.log("new version");
+            const parsedURL = urlCall.replace('https://www.cars.com/vehicledetail/', '')
+            const parsedURL2 = parsedURL.replace('/', '')
+            const fetchURL =  'http://127.0.0.1:8080/getUrl/' + parsedURL2;
+            console.log(fetchURL)
+            axios.get(fetchURL)
+                .then((response) => {
+                    setContacts(response.data);
+                    setError(null);
+                    console.log(response.data);
+                    console.log(response);
+                    
+                    setCarData(response.data);
+            
+                })
+                // .catch(setError);
+            }
+           
       });
       
       // //add call the url :
@@ -99,7 +110,9 @@ function App() {
                   'Not Valid Website'}
               </p>
               <p>
-                carData: {carData}
+                Car Data 1: {carData[0]} <br/>
+                Car Data 2: {carData[1]} <br/>    
+                Car Data 3: {carData[2]}                  
               </p>
           </header>
       </div>
