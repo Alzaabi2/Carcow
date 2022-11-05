@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import './App.css';
 import $ from "jquery";
 import axios from 'axios';
+import { Make } from 'make';
 // import './topThree.js'
 
 // function split (str, index1, index2){
@@ -15,7 +16,7 @@ function App() {
 
   const [contacts, setContacts] = useState([]);
   const [error, setError] = useState(null);
-  const [carData, setCarData] = useState('')
+  const [carData, setCarData] = useState('');
   const jsonstr1 = '';
   const jsonstr2 = '';
   const jsonstr3 = '';
@@ -52,13 +53,32 @@ function App() {
             const fetchURL =  'http://127.0.0.1:8080/getUrl/' + parsedURL2;
             console.log(fetchURL)
             axios.get(fetchURL)
+                // .then(res => res.json())
                 .then((response) => {
-                    setContacts(response.data);
-                    setError(null);
-                    console.log(response.data);
-                    console.log(response);                    
-                    setCarData(response.data);
-            
+                    // console.log(response.json); 
+                    // setContacts(response.data);
+                    // setError(null);
+                    // console.log(response.data);                   
+                    // const carList = (JSON.stringify(response.data));
+                    // carList.replace ('[', '');
+                    // carList.replace (']', '');
+                    // carList.replace ('},', '}');
+                    // var carArr = carList.split('}');
+
+                    // var data = carList;
+
+                    // var sanitized = data.replace(/},{/g,'}{');
+                    // var res = JSON.parse(sanitized);
+
+                    // console.log(res);
+                    // setCarData(response.json);
+                    response.data.forEach((element) => {
+                        console.log(element['Make'])
+                        setCarData(element['Make'])
+                    });
+
+                    // setCarData(response.data);
+                    console.log(carData)
                 })
                 // .catch(setError);
             }
@@ -109,12 +129,14 @@ function App() {
                   'Not Valid Website'}
               </p>
               <p>
-                {/* Car Data 1: {carData[0]} <br/>
-                Car Data 2: {carData[1]} <br/>    
-                Car Data 3: {carData[2]} <br/>
-                Car Data 4: {carData[3]} <br/>
-                Car Data 5: {carData[4]} <br/>                */}
-                {carData}
+                {/* Original: {carData} */}
+{/* 
+                Car Data 1: {carData[Make]} <br/>
+                Car Data 2: {carData[Make]} <br/>    
+                Car Data 3: {carData[Make]} <br/>
+                Car Data 4: {carData[Make]} <br/>
+                Car Data 5: {carData[Make]} <br/>                */}
+                {/* {carData} */}
               </p>
           </header>
       </div>
