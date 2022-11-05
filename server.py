@@ -41,15 +41,18 @@ def getUrl(url):
     # print(url2)
     singleCar = singleCarData(url2) # need to create this function
     Scrape(singleCar['Make'], singleCar['Model'], singleCar['Year'], '22201')
-    rating = rate (createList())
-    # print (rating)
-
-    return {
-        'car1':{'make':'Ford', 'model':'Mustang', 'year':'2016', 'mileage':'100,000', 'price':'20,000', 'url':'https://www.cars.com/vehicledetail/92a80785-7bf4-42fc-b7dd-5365633f054e/'},
-        'car2':{'make':'Toyota', 'model':'Supra', 'year':'2017', 'mileage':'101,000', 'price':'30,000', 'url':'https://www.cars.com/vehicledetail/92a80785-7bf4-42fc-b7dd-5365633f054e/'},
-        'car3':{'make':'Dodge', 'model':'Ram', 'year':'2018', 'mileage':'102,000', 'price':'40,000', 'url':'https://www.cars.com/vehicledetail/92a80785-7bf4-42fc-b7dd-5365633f054e/'},
-        'car4':{'make':'BMW', 'model':'I8', 'year':'2019', 'mileage':'103,000', 'price':'50,000', 'url':'https://www.cars.com/vehicledetail/92a80785-7bf4-42fc-b7dd-5365633f054e/'},
-        'car5':{'make':'Ferrari', 'model':'445', 'year':'2020', 'mileage':'104,000', 'price':'60,000', 'url':'https://www.cars.com/vehicledetail/92a80785-7bf4-42fc-b7dd-5365633f054e/'}
-        }
+    list = createList()
+    rating = rate (list)
+    topCars = getTopCars(list, rating)
+    print(topCars)
+    
+    return topCars
+        # [
+        # {'Make':'Ford', 'Model':'Mustang', 'Year':'2016', 'Mileage':'100,000', 'Price':'20,000', 'url':'https://www.cars.com/vehicledetail/92a80785-7bf4-42fc-b7dd-5365633f054e/'},
+        # {'Make':'Toyota', 'Model':'Supra', 'Year':'2017', 'Mileage':'101,000', 'Price':'30,000', 'url':'https://www.cars.com/vehicledetail/92a80785-7bf4-42fc-b7dd-5365633f054e/'},
+        # {'Make':'Dodge', 'Model':'Ram', 'Year':'2018', 'Mileage':'102,000', 'Price':'40,000', 'url':'https://www.cars.com/vehicledetail/92a80785-7bf4-42fc-b7dd-5365633f054e/'},
+        # {'Make':'BMW', 'Model':'I8', 'Year':'2019', 'Mileage':'103,000', 'Price':'50,000', 'url':'https://www.cars.com/vehicledetail/92a80785-7bf4-42fc-b7dd-5365633f054e/'},
+        # {'Make':'Ferrari', 'Model':'445', 'Year':'2020', 'Mileage':'104,000', 'Price':'60,000', 'url':'https://www.cars.com/vehicledetail/92a80785-7bf4-42fc-b7dd-5365633f054e/'}
+        # ]
 
 app.run(host='0.0.0.0', port=8080)

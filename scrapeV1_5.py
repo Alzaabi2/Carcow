@@ -68,14 +68,17 @@ def Scrape(make, model, year, zipcode):
             #     break
 
 #Autotrader.com
-#zipcode not considered 
 def Scrape2(make, model, year, zipcode):
 
     make = make.lower()
     model = model.lower()
-    minYear = (str(int(year)- 5))
-    maxYear = (str(int(year)+ 5))
-    url = 'https://www.autotrader.com/cars-for-sale/all-cars/'+make+'/'+model+'woodbridge-va-'+zipcode+'?requestId=2152820002&dma=&searchRadius=50&location=&marketExtension=include&startYear='+minYear+'&endYear='+maxYear+'&isNewSearch=true&showAccelerateBanner=false&sortBy=relevance&numRecords=100'
+    
+    zipdata = json.loads(getZipData(zipcode))
+    city =str(zipdata['results'][zipcode][0]['city']).replace(' ', '')
+    state = str(zipdata['results'][zipcode][0]['state_code'])
+
+    url = 'https://www.autotrader.com/cars-for-sale/all-cars/'+make+'/'+model+'/'+city+'-'+state+'-'+zipcode+'?requestId=2152820002&dma=&searchRadius=50&location=&marketExtension=include&startYear='+year+'&endYear='+year+'&isNewSearch=true&showAccelerateBanner=false&sortBy=relevance&numRecords=100'
+
     vins = ScrapeVin2(make, model, year, zipcode)
     
     # search first 10 pages
@@ -320,11 +323,13 @@ def ScrapeVin(make,model,year,zipcode):
 def ScrapeVin2(make,model,year,zipcode):
     make = make.lower()
     model = model.lower()
-    minYear = (str(int(year)- 5))
-    maxYear = (str(int(year)+ 5))
+    
+    zipdata = json.loads(getZipData(zipcode))
+    city =str(zipdata['results'][zipcode][0]['city']).replace(' ', '')
+    state = str(zipdata['results'][zipcode][0]['state_code'])
 
-    url = 'https://www.autotrader.com/cars-for-sale/all-cars/'+make+'/'+model+'woodbridge-va-'+zipcode+'?requestId=2152820002&dma=&searchRadius=50&location=&marketExtension=include&startYear=' + minYear + '&endYear=' + maxYear + '&isNewSearch=true&showAccelerateBanner=false&sortBy=relevance&numRecords=100'
-
+    url = 'https://www.autotrader.com/cars-for-sale/all-cars/'+make+'/'+model+'/'+city+'-'+state+'-'+zipcode+'?requestId=2152820002&dma=&searchRadius=50&location=&marketExtension=include&startYear='+year+'&endYear='+year+'&isNewSearch=true&showAccelerateBanner=false&sortBy=relevance&numRecords=100'
+    print(url)
     with open('carvins2.csv', 'w', encoding='utf8', newline='') as f:
         vins = []
         # for n in range(1):
@@ -356,8 +361,10 @@ def ScrapeVin2(make,model,year,zipcode):
     #         # if url == None:
     #         #     break
                 
-    return vins 
+    return vins
+    
         
+
 def ScrapeToList(make, model, year, zipcode):
     make = make.lower()
     model = model.lower()
