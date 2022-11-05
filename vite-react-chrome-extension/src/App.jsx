@@ -56,8 +56,7 @@ function App() {
                     setContacts(response.data);
                     setError(null);
                     console.log(response.data);
-                    console.log(response);
-                    
+                    console.log(response);                    
                     setCarData(response.data);
             
                 })
@@ -110,9 +109,12 @@ function App() {
                   'Not Valid Website'}
               </p>
               <p>
-                Car Data 1: {carData[0]} <br/>
+                {/* Car Data 1: {carData[0]} <br/>
                 Car Data 2: {carData[1]} <br/>    
-                Car Data 3: {carData[2]}                  
+                Car Data 3: {carData[2]} <br/>
+                Car Data 4: {carData[3]} <br/>
+                Car Data 5: {carData[4]} <br/>                */}
+                {carData}
               </p>
           </header>
       </div>
