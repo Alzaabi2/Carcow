@@ -1,0 +1,15 @@
+Make,Model,Year,Mileage,Price,VIN,url
+Jeep,Wrangler,2004,
+Jeep,Wrangler,2009,"140,000miles","$13,999",1J8GA69159L719162,https://www.edmunds.com/jeep/wrangler/2009/vin/1J8GA69159L719162/?radius=50},
+Jeep,Wrangler,2009,"140,000miles","$13,999",1J8GA69159L719162,https://www.edmunds.com/jeep/wrangler/2009/vin/1J8GA69159L719162/?radius=50},
+Jeep,Wrangler,2009,"140,000miles","$13,999",1J8GA69159L719162,https://www.edmunds.com/jeep/wrangler/2009/vin/1J8GA69159L719162/?radius=50},
+Jeep,Wrangler,2009,"140,000miles","$13,999",1J8GA69159L719162,https://www.edmunds.com/jeep/wrangler/2009/vin/1J8GA69159L719162/?radius=50},
+Jeep,Wrangler,2009,"140,000miles","$13,999",1J8GA69159L719162,https://www.edmunds.com/jeep/wrangler/2009/vin/1J8GA69159L719162/?radius=50},
+Jeep,Wrangler,2009,"140,000miles","$13,999",1J8GA69159L719162,https://www.edmunds.com/jeep/wrangler/2009/vin/1J8GA69159L719162/?radius=50},
+Jeep,Wrangler,2009,"140,000miles","$13,999",1J8GA69159L719162,https://www.edmunds.com/jeep/wrangler/2009/vin/1J8GA69159L719162/?radius=50},
+Jeep,Wrangler,2009,"140,000miles","$13,999",1J8GA69159L719162,https://www.edmunds.com/jeep/wrangler/2009/vin/1J8GA69159L719162/?radius=50},
+Jeep,Wrangler,2009,"140,000miles","$13,999",1J8GA69159L719162,https://www.edmunds.com/jeep/wrangler/2009/vin/1J8GA69159L719162/?radius=50},
+Jeep,Wrangler,2001,"149,674miles","$6,855",1J4FA29P21P311130,https://www.edmunds.com/jeep/wrangler/2001/vin/1J4FA29P21P311130/?radius=50},
+Jeep,Wrangler,2001,"149,674miles","$6,855",1J4FA29P21P311130,https://www.edmunds.com/jeep/wrangler/2001/vin/1J4FA29P21P311130/?radius=50},
+Jeep,Wrangler,2001,"149,674miles","$6,855",1J4FA29P21P311130,https://www.edmunds.com/jeep/wrangler/2001/vin/1J4FA29P21P311130/?radius=50},
+Jeep,Wrangler,2001,"149,674miles","$6,855",1J4FA29P21P311130,https://www.edmunds.com/jeep/wrangler/2001/vin/1J4FA29P21P311130/?radius=50}

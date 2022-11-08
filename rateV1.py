@@ -77,7 +77,7 @@ def createList():
 #incomplete
 def rate(list):
     # carlist = createList()
-
+    print(list)
     deals = []
     for i in range(len(list)):
         price = list[i]['Price']
@@ -335,12 +335,18 @@ def dollarValueVin3(vin):
             apiResponse = response.text
         else:
             break
-
+    
+    if '"message":"invalid vin"' in response.text:
+        return '0'
 
     start = re.search('"prices":', response.text)
     end = re.search(',"distribution"', response.text)
 
+    if start.span() is None:
+        return '0'
     listOfstart = start.span()
+    if end.span() is None:
+        return '0'
     listOfEnd   = end.span()
     start2      = listOfstart[1]
     end2        = listOfEnd[0]

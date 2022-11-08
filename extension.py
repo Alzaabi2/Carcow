@@ -217,7 +217,7 @@ def singleCarData5(url):
     carEntry = {}
     carEntry['Make'] = make
     carEntry['Model'] = model
-    carEntry['Trim'] = trim[0]
+    # carEntry['Trim'] = trim[0]
     carEntry['Year'] = year
     # print ('ex: ')
     # print(carEntry)

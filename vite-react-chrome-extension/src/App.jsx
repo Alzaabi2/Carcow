@@ -44,8 +44,10 @@ function App() {
           }
           else {
             console.log("new version");
-            const parsedURL = urlCall.replace('https://www.cars.com/vehicledetail/', '')
-            const parsedURL2 = parsedURL.replace('/', '')
+            // const parsedURL = urlCall.replace('https://www.cars.com/vehicledetail/', '')
+            console.log(urlCall)
+            const parsedURL2 = urlCall.replaceAll('/', 'replaceslashes')
+            console.log(parsedURL2)
             const fetchURL =  'http://127.0.0.1:8080/getUrl/' + parsedURL2;
             console.log(fetchURL)
             axios.get(fetchURL)

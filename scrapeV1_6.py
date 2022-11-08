@@ -69,8 +69,9 @@ def Scrape1(make, model, year, zipcode):
             vin = vins[vincount]    
             
             row = [make, model, year, mileage, price, vin, carpage]
+            rowlist = {'Make': make, 'Model':model, 'Year':year, 'Mileage':mileage, 'Price':price, 'VIN':vin, 'url':carpage}
             w.writerow(row)
-            scrapedList.append(row)
+            scrapedList.append(rowlist)
             vincount+=1
     return scrapedList
 
@@ -121,9 +122,9 @@ def Scrape2(make, model, year, zipcode):
                 mileage = ' '
             vin = vins[vincount]    
             row = [make, model, year, mileage, price, vin, carpage]
-            
-            scrapedList.append(row)
+            rowlist = {'Make': make, 'Model':model, 'Year':year, 'Mileage':mileage, 'Price':price, 'VIN':vin, 'url':carpage}
             w.writerow(row)
+            scrapedList.append(rowlist)
             vincount+=1
     return scrapedList
 
@@ -221,10 +222,11 @@ def Scrape3(make, model, year, zipcode):
                     carpage = 'https://www.cargurus.com/Cars/inventorylisting/viewDetailsFilterViewInventoryListing.action?entitySelectingHelper.selectedEntity='+modelID+'&distance=50&zip='+zipcode+'&sourceContext=carSelectorAPI' + carpagepart
                     price = c.find('span', class_='JzvPHo').text.split(' ', 1)
                     price = price[0]
+                    
                     row = [make, model, year, mileage, price, vin, carpage]
-
+                    rowlist = {'Make': make, 'Model':model, 'Year':year, 'Mileage':mileage, 'Price':price, 'VIN':vin, 'url':carpage}
                     w.writerow(row)
-                    scrapedList.append(row)
+                    scrapedList.append(rowlist)
 
                 # next page
                 
@@ -281,11 +283,11 @@ def Scrape4(make, model, year, zipcode):
                 parseLink = link.split('/')
                 vin = parseLink[5]
 
-                row = [make, model, trim, year, mileage, price, vin, carpage]
+                # row = [make, model, trim, year, mileage, price, vin, carpage]
                 row = [make, model, year, mileage, price, vin, carpage]
-                
-                scrapedList.append(row)
+                rowlist = {'Make': make, 'Model':model, 'Year':year, 'Mileage':mileage, 'Price':price, 'VIN':vin, 'url':carpage}
                 w.writerow(row)
+                scrapedList.append(rowlist)
             url = getNextPage4(soup)
             if url == None:
                 break 
@@ -338,10 +340,10 @@ def Scrape5(make, model, year, zipcode):
                 url = 'https://www.carsdirect.com' + carpage
                 
                 # row = [make, model, trim, year, mileage, price, vin, url]
-                row = [make, model, year, mileage, price, vin, url]
+                row = [make, model, year, mileage, price, vin, carpage]
+                rowlist = {'Make': make, 'Model':model, 'Year':year, 'Mileage':mileage, 'Price':price, 'VIN':vin, 'url':carpage}
                 w.writerow(row)
-                scrapedList.append(row)
-
+                scrapedList.append(rowlist)
             url = getNextPage5(soup)
             if url == None:
                 break 
@@ -514,6 +516,6 @@ def ScrapeAlpha(make, model, year, zipcode):
     return scrapedList
 
 
-Scrape3('Acura', 'RLX', '2020', '22201')
+# Scrape3('Acura', 'RLX', '2020', '22201')
     
 # ScrapeAlpha('Nissan', 'Altima', '2014', '10003')

@@ -7,6 +7,7 @@ from scrapeV1_1 import *
 from rateV1 import *
 from flask import render_template
 from extension import *
+from scrapeV1_6 import ScrapeAlpha
 app = Flask('app')
 
 
@@ -34,19 +35,54 @@ def getScrape(make, model, car_year, zip):
 
 @app.route('/getUrl/<string:url>')
 def getUrl(url):
-    # if url == '':
-    #     print('n')
-    #     return
-    url2 = 'https://www.cars.com/vehicledetail/' + url
-    # print(url2)
-    singleCar = singleCarData11(url2) # need to create this function
-    Scrape(singleCar['Make'], singleCar['Model'], singleCar['Year'], '22201')
-    list = createList()
-    rating = rate (list)
-    topCars = getTopCars(list, rating)
-    print(topCars)
+    url = url.replace('replaceslashes', '/')
+    if 'cars' in url:
+        singleCar = singleCarData1(url)
+    elif 'autotrader' in url:
+        singleCar = singleCarData2(url)
+    elif 'cargurus' in url:
+        singleCar = singleCarData3(url)
+    elif 'edmunds' in url:
+        singleCar = singleCarData4(url)
+    elif 'carsdirect' in url:
+        singleCar = singleCarData5(url)
+    else:
+        print('unregistered website')
+        return 'unregistered website'
     
-    return topCars
+    print('website found: ' + url)
+
+    tempData = []
+    with open('TempData.txt') as f:
+        reader = csv.DictReader(f)
+        for row in reader:
+            tempData.append(row)
+    
+    print('temp:')
+    
+    print(tempData[0]['Make'] + ' =? ' + singleCar['Make'])
+    print(tempData[0]['Model'] + ' =? ' + singleCar['Model'])
+    print(tempData[0]['Year'] + ' =? ' + singleCar['Year'])
+    
+    #No Zip
+    if tempData[0]['Make'] == singleCar['Make'] and tempData[0]['Model'] == singleCar['Model'] and tempData[0]['Year'] == singleCar['Year']:
+        del tempData[0]
+        print(tempData)
+        return tempData
+    else:
+        list = ScrapeAlpha(singleCar['Make'], singleCar['Model'], singleCar['Year'], '22201')
+        rating = rate (list)
+        topCars = getTopCars(list, rating)
+        print('------')
+        print('------')
+        print(topCars)
+        
+        #data for last scraped car
+        with open('TempData.txt', 'w', encoding='utf8', newline='') as f:
+            f.write(singleCar)
+            f.write(topCars)
+        
+        return topCars
         # [
         # {'Make':'Ford', 'Model':'Mustang', 'Year':'2016', 'Mileage':'100,000', 'Price':'20,000', 'url':'https://www.cars.com/vehicledetail/92a80785-7bf4-42fc-b7dd-5365633f054e/'},
         # {'Make':'Toyota', 'Model':'Supra', 'Year':'2017', 'Mileage':'101,000', 'Price':'30,000', 'url':'https://www.cars.com/vehicledetail/92a80785-7bf4-42fc-b7dd-5365633f054e/'},
