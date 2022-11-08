@@ -1,8 +1,12 @@
 import json
+import sys
+import shutil
+
 from flask import Flask, request, jsonify
 from scrapeV1_1 import *
-from flask import render_template, request
-from extension import singleCarData
+from rateV1 import *
+from flask import render_template
+from extension import *
 app = Flask('app')
 
 
@@ -30,9 +34,35 @@ def getScrape(make, model, car_year, zip):
 
 @app.route('/getUrl/<string:url>')
 def getUrl(url):
-    print("user is on: ", url)
-    singleCarData(url) # Function Now Created
+    # if url == '':
+    #     print('n')
+    #     return
+    url2 = 'https://www.cars.com/vehicledetail/' + url
+    # print(url2)
+    singleCar = singleCarData(url2) # need to create this function
+    Scrape(singleCar['Make'], singleCar['Model'], singleCar['Year'], '22201')
+    rating = rate (createList())
+    # print (rating)
 
+    dict1 = {'Make':'Ford', 'Model':'Mustang', 'Year':'2016', 'Mileage':'100,000', 'Price':'20,000', 'url':'https://www.cars.com/vehicledetail/92a80785-7bf4-42fc-b7dd-5365633f054e/'}
+    dict2 = {'Make':'Toyota', 'Model':'Supra', 'Year':'2017', 'Mileage':'101,000', 'Price':'30,000', 'url':'https://www.cars.com/vehicledetail/92a80785-7bf4-42fc-b7dd-5365633f054e/'}
+    dict3 = {'Make':'Dodge', 'Model':'Ram', 'Year':'2018', 'Mileage':'102,000', 'Price':'40,000', 'url':'https://www.cars.com/vehicledetail/92a80785-7bf4-42fc-b7dd-5365633f054e/'}
+    dict4 = {'Make':'BMW', 'Model':'I8', 'Year':'2019', 'Mileage':'103,000', 'Price':'50,000', 'url':'https://www.cars.com/vehicledetail/92a80785-7bf4-42fc-b7dd-5365633f054e/'}
+    dict5 = {'Make':'Ferrari', 'Model':'445', 'Year':'2020', 'Mileage':'104,000', 'Price':'60,000', 'url':'https://www.cars.com/vehicledetail/92a80785-7bf4-42fc-b7dd-5365633f054e/'}
 
+    copy1 = dict1.copy()
+    copy2 = dict2.copy()
+    copy3 = dict3.copy()
+    copy4 = dict4.copy()
+    copy5 = dict5.copy()
+
+    list = []
+    list.append(copy1)
+    list.append(copy2)
+    list.append(copy3)
+    list.append(copy4)
+    list.append(copy5)
+    
+    return list
 
 app.run(host='0.0.0.0', port=8080)
