@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import './App.css';
 import $ from "jquery";
 import axios from 'axios';
+//import { Make } from 'make';
 // import './topThree.js'
 
 // function split (str, index1, index2){
@@ -15,11 +16,7 @@ function App() {
 
   const [contacts, setContacts] = useState([]);
   const [error, setError] = useState(null);
-  const [carData, setCarData] = useState('')
-  const jsonstr1 = '';
-  const jsonstr2 = '';
-  const jsonstr3 = '';
-  
+  const [carData, setCarData] = useState('');
   /**
    * Get current URL
    */
@@ -52,14 +49,39 @@ function App() {
             const fetchURL =  'http://127.0.0.1:8080/getUrl/' + parsedURL2;
             console.log(fetchURL)
             axios.get(fetchURL)
+                // .then(res => res.json())
                 .then((response) => {
+                    //console.log(response.json); 
                     setContacts(response.data);
                     setError(null);
                     console.log(response.data);
-                    console.log(response);
-                    
-                    setCarData(response.data);
-            
+
+                    const carList = JSON.stringify(response.data);
+                    //const parsedList = JSON.parse (carList);
+                    carList.replace (/^\[(.+)\]$/, '');
+                    // carList.replace (']/g', '');
+                    // carList.replace ('},/g', '}');
+                    const carArr = carList.split('}');
+
+                    for (let i = 0; i < 5; i++){
+                        carArr[i].replace (/^\[(.+)\]$/, '');
+                    }
+
+                    //const data = JSON.parse(carList.toString());
+
+                    // var sanitized = data.replace(/},{/g,'}{');
+                    // var res = JSON.parse(sanitized);
+
+                    // console.log(res);
+                    //setCarData(response.json);
+                    response.data.forEach((carList) => {
+                        console.log(carList['Make'])
+                        console.log(carList['Model'])
+                        console.log(carList['Price'])
+                    });
+                    setCarData(carArr)
+                    //setCarData(response.data);
+                    //console.log(carData)
                 })
                 // .catch(setError);
             }
@@ -109,11 +131,14 @@ function App() {
                   : 
                   'Not Valid Website'}
               </p>
-              <p>
-                Car Data 1: {carData[0]} <br/>
-                Car Data 2: {carData[1]} <br/>    
-                Car Data 3: {carData[2]}                  
-              </p>
+              <table border="1">
+                {/* Original: {carData} */}
+                    <tr><td>Car Data 1: {carData[0]}</td></tr>
+                    <tr><td>Car Data 2: {carData[1]}</td></tr>
+                    <tr><td>Car Data 3: {carData[2]}</td></tr>
+                    <tr><td>Car Data 4: {carData[3]}</td></tr>
+                    <tr><td>Car Data 5: {carData[4]}</td></tr>           
+              </table>
           </header>
       </div>
   );
