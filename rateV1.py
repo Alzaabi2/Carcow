@@ -28,6 +28,7 @@ def main():
     # dollarValue('Audi', 'A7', '2016', 130065, 22701) # Need to know which car from chrome extension
     # dollarValueVin('WAUP2AF20KN116129')
     
+
     #runs in 5 seconds per car:
     # print("threading")
     # list = createList()
@@ -49,6 +50,10 @@ def main():
     print(rate(createList()))
 
     
+
+
+
+    dollarValueVin3("WAUYGAFC2DN090294")
 
 
 
@@ -297,6 +302,79 @@ def dollarValueVin2(c):
             print("The time of execution of above program (VIN) is :",
                     (end-start) * 10**3, "ms")
             return price
+
+
+
+def dollarValueVin3(vin):
+    url = "https://car-utils.p.rapidapi.com/marketvalue"
+
+    querystring = {"vin": vin}
+
+    headers = {
+        "X-RapidAPI-Key": "eabb27e940mshbaf991f2c492656p1afbb7jsnc31638e26d33",
+        "X-RapidAPI-Host": "car-utils.p.rapidapi.com"
+    }
+
+    response = requests.request("GET", url, headers=headers, params=querystring)
+
+
+    ### MIGHT NEED THIS ###
+    # while(True):
+    #     response = requests.request("GET", url, headers=headers, params=querystring)
+
+    #     print(response.text)
+    #     err = re.search('"message":', response.text)
+    #     print( err )
+    #     if (err):
+    #         time.sleep(2)
+    #         continue
+    #     else:
+    #         break
+
+
+
+    
+    apiResponse = response.text
+
+    # print(apiResponse)
+    
+    start = re.search('"prices":', response.text)
+    end = re.search(',"distribution"', response.text)
+
+    listOfstart = start.span()
+    listOfEnd   = end.span()
+    start2      = listOfstart[1]
+    end2        = listOfEnd[0]
+
+
+    prices = apiResponse[start2 + 1:end2]
+
+    avg  = re.search('"average":', prices)
+    avg2 = avg.span()
+    avgEnd = avg2[1]
+
+    blw = re.search('"below":', prices)
+    blw2   = blw.span()
+    blwStart = blw2[0]
+    blwEnd = blw2[1]
+
+    abv = re.search('"above":', prices)
+    abv2   = abv.span()
+    abvStart = abv2[0]
+    abvEnd = abv2[1]
+
+    print("\n---------For VIN:", vin, " ---------")
+    average = prices[avgEnd:blwStart - 1]
+    print("AVERAGE:", average)
+
+    below = prices[blwEnd:abvStart - 1]
+    print("BELOW:", below)
+
+    above = prices[abvEnd:]
+    print("ABOVE:", above, "\n\n")
+
+    return average
+
 
 if __name__ == '__main__':
     main()
