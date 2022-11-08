@@ -45,13 +45,22 @@ def Scrape1(make, model, year, zipcode):
         cars = soup.find_all('div', class_="vehicle-card")
     
         for c in cars:
+            if not c.find('h2', class_="title"):
+                continue
             title = c.find('h2', class_="title").text
             title = title.split(' ', 2)
             year = title[0]
             make = title[1]
             model = title[2]
+            
+            if not c.find('span', class_="primary-price"):
+                continue
             price = c.find('span', class_="primary-price").text
+            
+            if not c.find('a', class_="vehicle-card-link js-gallery-click-link"):
+                continue
             carpage = 'http://cars.com' + c.find('a', class_="vehicle-card-link js-gallery-click-link").get('href')
+           
             if not c.find('div', class_="mileage"):
                 mileage = ' '#assume its brand new??
             else:
@@ -165,7 +174,12 @@ def Scrape3(make, model, year, zipcode):
     minYeartext = str(minYeartext)
     
     time.sleep(2.5)#wait for year to update
-    maxYearInput.select_by_visible_text(maxYeartext)
+    try:
+        maxYearInput.select_by_visible_text(maxYeartext)
+    except: 
+        if maxYeartext == '2023':
+            maxYeartext = '2022'
+        maxYearInput.select_by_visible_text(maxYeartext)
     minYearInput.select_by_visible_text(minYeartext)
     time.sleep(2.5)
 
@@ -343,7 +357,7 @@ def getNextPage(soup):
         next = page.find('a', id="next_paginate")
     url = 'http://cars.com' + str(next.get('href'))
     if url == 'http://cars.comNone':
-        print('no next page')
+        # print('no next page')
         return
     return url
 
@@ -355,7 +369,7 @@ def getNextPage4(soup):
 
     url = 'http://www.edmunds.com' + str(next.get('href'))
     if url == 'http://www.edmunds.comNone':
-        print('no next page')
+        # print('no next page')
         return None
     return url
 
@@ -368,10 +382,13 @@ def getNextPage5(soup):
     for l in allLinks:
         if l.find('span', class_="icon-chevron-right") is not None:
             next = l
-
+    
+    if next == None:
+        return None
+       
     url = 'http://www.carsdirect.com' + str(next.get('href'))
     if url == 'http://www.carsdirect.comNone':
-        print('no next page')
+        # print('no next page')
         return None
     return url
       
@@ -464,11 +481,39 @@ def getZipData(zipcode):
     return response.text
 
 def ScrapeAlpha(make, model, year, zipcode):
-    scrapedList = Scrape1(make, model, year, zipcode) + Scrape2(make, model, year, zipcode) + Scrape3(make, model, year, zipcode) + Scrape4(make, model, year, zipcode) + Scrape5(make, model, year, zipcode)
-    for c in scrapedList:
-        print(scrapedList)
-    print('length = ' + str(len(scrapedList)))
+    try:
+        l1 = Scrape1(make, model, year, zipcode) 
+    except:
+        "Scrape1 failed"
+        l1 = []
+    try:
+        l2 = Scrape2(make, model, year, zipcode)
+    except:
+        "Scrape2 failed"
+        l2 = []
+    try:
+        l3 = Scrape3(make, model, year, zipcode)
+    except:
+        "Scrape3 failed"
+        l3 = []
+    try:
+        l4 = Scrape4(make, model, year, zipcode)
+    except:
+        "Scrape4 failed"
+        l4 = []
+    try:
+        l5 = Scrape5(make, model, year, zipcode)
+    except:
+        "Scrape5 failed"
+        l5 = []
+    
+    scrapedList = l1 + l2 + l3 + l4 + l5
+    # for c in scrapedList:
+    #     print(scrapedList)
+    print('length = [' + str(len(l1)) + ' + ' + str(len(l2)) + ' + ' + str(len(l3)) + ' + '+ str(len(l4)) + ' + '+ str(len(l5)) + '] = ' + str(len(scrapedList)))
     return scrapedList
 
 
-ScrapeAlpha('Nissan', 'Altima', '2014', '10003')
+Scrape3('Acura', 'RLX', '2020', '22201')
+    
+# ScrapeAlpha('Nissan', 'Altima', '2014', '10003')
