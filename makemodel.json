@@ -1,0 +1,804 @@
+{
+  "results": [
+    {
+      "objectId": "ZRgPP9dBMm",
+      "Year": 2020,
+      "Make": "Audi",
+      "Model": "Q3",
+      "createdAt": "2020-01-27T20:44:17.665Z",
+      "updatedAt": "2020-01-27T20:44:17.665Z"
+    },
+    {
+      "objectId": "cptB1C1NSL",
+      "Year": 2020,
+      "Make": "Chevrolet",
+      "Model": "Malibu",
+      "createdAt": "2020-01-27T20:44:17.665Z",
+      "updatedAt": "2020-01-27T20:44:17.665Z"
+    },
+    {
+      "objectId": "ElhqsRZDnP",
+      "Year": 2020,
+      "Make": "Cadillac",
+      "Model": "Escalade ESV",
+      "createdAt": "2020-01-27T20:44:17.665Z",
+      "updatedAt": "2020-01-27T20:44:17.665Z"
+    },
+    {
+      "objectId": "LUzyWMYJpW",
+      "Year": 2020,
+      "Make": "Chevrolet",
+      "Model": "Corvette",
+      "createdAt": "2020-01-27T20:44:17.665Z",
+      "updatedAt": "2020-01-27T20:44:17.665Z"
+    },
+    {
+      "objectId": "rDkHakOBKP",
+      "Year": 2020,
+      "Make": "Acura",
+      "Model": "RLX",
+      "createdAt": "2020-01-27T20:44:17.665Z",
+      "updatedAt": "2020-01-27T20:44:17.665Z"
+    },
+    {
+      "objectId": "1JARpJ2AUB",
+      "Year": 2020,
+      "Make": "Chevrolet",
+      "Model": "Silverado 2500 HD Crew Cab",
+      "createdAt": "2020-01-27T20:44:17.665Z",
+      "updatedAt": "2020-01-27T20:44:17.665Z"
+    },
+    {
+      "objectId": "7G1VT2pSNO",
+      "Year": 2020,
+      "Make": "BMW",
+      "Model": "3 Series",
+      "createdAt": "2020-01-27T20:44:17.665Z",
+      "updatedAt": "2020-01-27T20:44:17.665Z"
+    },
+    {
+      "objectId": "4q7L9FAU2S",
+      "Year": 2020,
+      "Make": "Chrysler",
+      "Model": "Pacifica",
+      "createdAt": "2020-01-27T20:44:17.665Z",
+      "updatedAt": "2020-01-27T20:44:17.665Z"
+    },
+    {
+      "objectId": "jpOC5zs3jx",
+      "Year": 2020,
+      "Make": "Chevrolet",
+      "Model": "Colorado Crew Cab",
+      "createdAt": "2020-01-27T20:44:17.665Z",
+      "updatedAt": "2020-01-27T20:44:17.665Z"
+    },
+    {
+      "objectId": "96llWfTOAe",
+      "Year": 2020,
+      "Make": "BMW",
+      "Model": "X3",
+      "createdAt": "2020-01-27T20:44:17.665Z",
+      "updatedAt": "2020-01-27T20:44:17.665Z"
+    },
+    {
+      "objectId": "5OEvsF1R9k",
+      "Year": 2020,
+      "Make": "Acura",
+      "Model": "TLX",
+      "createdAt": "2020-01-27T20:44:17.665Z",
+      "updatedAt": "2020-01-27T20:44:17.665Z"
+    },
+    {
+      "objectId": "LNq3duGh9z",
+      "Year": 2020,
+      "Make": "Chevrolet",
+      "Model": "Silverado 3500 HD Crew Cab",
+      "createdAt": "2020-01-27T20:44:17.665Z",
+      "updatedAt": "2020-01-27T20:44:17.665Z"
+    },
+    {
+      "objectId": "FThs77Cddn",
+      "Year": 2020,
+      "Make": "BMW",
+      "Model": "7 Series",
+      "createdAt": "2020-01-27T20:44:17.665Z",
+      "updatedAt": "2020-01-27T20:44:17.665Z"
+    },
+    {
+      "objectId": "t9eGFMIk7E",
+      "Year": 2020,
+      "Make": "Ford",
+      "Model": "Fusion",
+      "createdAt": "2020-01-27T20:44:17.665Z",
+      "updatedAt": "2020-01-27T20:44:17.665Z"
+    },
+    {
+      "objectId": "cWQjuYWwc2",
+      "Year": 2020,
+      "Make": "Buick",
+      "Model": "Envision",
+      "createdAt": "2020-01-27T20:44:17.665Z",
+      "updatedAt": "2020-01-27T20:44:17.665Z"
+    },
+    {
+      "objectId": "2lYY81jKzR",
+      "Year": 2020,
+      "Make": "Audi",
+      "Model": "SQ5",
+      "createdAt": "2020-01-27T20:44:17.665Z",
+      "updatedAt": "2020-01-27T20:44:17.665Z"
+    },
+    {
+      "objectId": "qGDd5H3yYd",
+      "Year": 2020,
+      "Make": "Audi",
+      "Model": "R8",
+      "createdAt": "2020-01-27T20:44:17.665Z",
+      "updatedAt": "2020-01-27T20:44:17.665Z"
+    },
+    {
+      "objectId": "ALbinxfzM1",
+      "Year": 2020,
+      "Make": "Chevrolet",
+      "Model": "Traverse",
+      "createdAt": "2020-01-27T20:44:17.665Z",
+      "updatedAt": "2020-01-27T20:44:17.665Z"
+    },
+    {
+      "objectId": "9eRGwnViia",
+      "Year": 2020,
+      "Make": "Acura",
+      "Model": "MDX",
+      "createdAt": "2020-01-27T20:44:17.665Z",
+      "updatedAt": "2020-01-27T20:44:17.665Z"
+    },
+    {
+      "objectId": "kAgBF7aSaO",
+      "Year": 2020,
+      "Make": "INFINITI",
+      "Model": "QX80",
+      "createdAt": "2020-01-27T20:44:17.666Z",
+      "updatedAt": "2020-01-27T20:44:17.666Z"
+    },
+    {
+      "objectId": "ygsDiv3hRm",
+      "Year": 2020,
+      "Make": "Buick",
+      "Model": "Encore",
+      "createdAt": "2020-01-27T20:44:17.665Z",
+      "updatedAt": "2020-01-27T20:44:17.665Z"
+    },
+    {
+      "objectId": "92pfQo6pA4",
+      "Year": 2020,
+      "Make": "GMC",
+      "Model": "Sierra 2500 HD Crew Cab",
+      "createdAt": "2020-01-27T20:44:17.665Z",
+      "updatedAt": "2020-01-27T20:44:17.665Z"
+    },
+    {
+      "objectId": "VfXndYon3e",
+      "Year": 2020,
+      "Make": "Honda",
+      "Model": "Insight",
+      "createdAt": "2020-01-27T20:44:17.665Z",
+      "updatedAt": "2020-01-27T20:44:17.665Z"
+    },
+    {
+      "objectId": "grl6dVnzM9",
+      "Year": 2020,
+      "Make": "Cadillac",
+      "Model": "XT6",
+      "createdAt": "2020-01-27T20:44:17.665Z",
+      "updatedAt": "2020-01-27T20:44:17.665Z"
+    },
+    {
+      "objectId": "QrYfmqcnAR",
+      "Year": 2020,
+      "Make": "Cadillac",
+      "Model": "XT5",
+      "createdAt": "2020-01-27T20:44:17.665Z",
+      "updatedAt": "2020-01-27T20:44:17.665Z"
+    },
+    {
+      "objectId": "hSaQDQkkE0",
+      "Year": 2020,
+      "Make": "Cadillac",
+      "Model": "XT4",
+      "createdAt": "2020-01-27T20:44:17.665Z",
+      "updatedAt": "2020-01-27T20:44:17.665Z"
+    },
+    {
+      "objectId": "rSQyj88Pwe",
+      "Year": 2020,
+      "Make": "Buick",
+      "Model": "Enclave",
+      "createdAt": "2020-01-27T20:44:17.665Z",
+      "updatedAt": "2020-01-27T20:44:17.665Z"
+    },
+    {
+      "objectId": "kkcmfophql",
+      "Year": 2020,
+      "Make": "Audi",
+      "Model": "Q5",
+      "createdAt": "2020-01-27T20:44:17.665Z",
+      "updatedAt": "2020-01-27T20:44:17.665Z"
+    },
+    {
+      "objectId": "V1F5kE5svr",
+      "Year": 2020,
+      "Make": "Hyundai",
+      "Model": "Santa Fe",
+      "createdAt": "2020-01-27T20:44:17.665Z",
+      "updatedAt": "2020-01-27T20:44:17.665Z"
+    },
+    {
+      "objectId": "bW6jRQ3h2S",
+      "Year": 2020,
+      "Make": "Ford",
+      "Model": "EcoSport",
+      "createdAt": "2020-01-27T20:44:17.665Z",
+      "updatedAt": "2020-01-27T20:44:17.665Z"
+    },
+    {
+      "objectId": "6YcNNwgY0C",
+      "Year": 2020,
+      "Make": "Ford",
+      "Model": "Escape",
+      "createdAt": "2020-01-27T20:44:17.665Z",
+      "updatedAt": "2020-01-27T20:44:17.665Z"
+    },
+    {
+      "objectId": "dxs3ayh6Yl",
+      "Year": 2020,
+      "Make": "Ford",
+      "Model": "Mustang",
+      "createdAt": "2020-01-27T20:44:17.665Z",
+      "updatedAt": "2020-01-27T20:44:17.665Z"
+    },
+    {
+      "objectId": "yZUeGC1bOn",
+      "Year": 2020,
+      "Make": "Hyundai",
+      "Model": "Sonata",
+      "createdAt": "2020-01-27T20:44:17.665Z",
+      "updatedAt": "2020-01-27T20:44:17.665Z"
+    },
+    {
+      "objectId": "JyMpQJbCvy",
+      "Year": 2020,
+      "Make": "Ford",
+      "Model": "Edge",
+      "createdAt": "2020-01-27T20:44:17.665Z",
+      "updatedAt": "2020-01-27T20:44:17.665Z"
+    },
+    {
+      "objectId": "VT4rtTsGBj",
+      "Year": 2020,
+      "Make": "Chevrolet",
+      "Model": "Camaro",
+      "createdAt": "2020-01-27T20:44:17.665Z",
+      "updatedAt": "2020-01-27T20:44:17.665Z"
+    },
+    {
+      "objectId": "vRQFNeVlsa",
+      "Year": 2020,
+      "Make": "Hyundai",
+      "Model": "Kona Electric",
+      "createdAt": "2020-01-27T20:44:17.665Z",
+      "updatedAt": "2020-01-27T20:44:17.665Z"
+    },
+    {
+      "objectId": "OHHuEGKsUC",
+      "Year": 2020,
+      "Make": "Chevrolet",
+      "Model": "Equinox",
+      "createdAt": "2020-01-27T20:44:17.665Z",
+      "updatedAt": "2020-01-27T20:44:17.665Z"
+    },
+    {
+      "objectId": "vu2lCeXKzk",
+      "Year": 2020,
+      "Make": "GMC",
+      "Model": "Sierra 3500 HD Crew Cab",
+      "createdAt": "2020-01-27T20:44:17.665Z",
+      "updatedAt": "2020-01-27T20:44:17.665Z"
+    },
+    {
+      "objectId": "rg8LbH5ixZ",
+      "Year": 2020,
+      "Make": "Jeep",
+      "Model": "Gladiator",
+      "createdAt": "2020-01-27T20:44:17.666Z",
+      "updatedAt": "2020-01-27T20:44:17.666Z"
+    },
+    {
+      "objectId": "ifEdBTIVDH",
+      "Year": 2020,
+      "Make": "BMW",
+      "Model": "X7",
+      "createdAt": "2020-01-27T20:44:17.665Z",
+      "updatedAt": "2020-01-27T20:44:17.665Z"
+    },
+    {
+      "objectId": "4J2BvKonKq",
+      "Year": 2020,
+      "Make": "Cadillac",
+      "Model": "CT6-V",
+      "createdAt": "2020-01-27T20:44:17.665Z",
+      "updatedAt": "2020-01-27T20:44:17.665Z"
+    },
+    {
+      "objectId": "PlNwrAm6eM",
+      "Year": 2020,
+      "Make": "Audi",
+      "Model": "A7",
+      "createdAt": "2020-01-27T20:44:17.665Z",
+      "updatedAt": "2020-01-27T20:44:17.665Z"
+    },
+    {
+      "objectId": "VK6hmDAvqP",
+      "Year": 2020,
+      "Make": "Chevrolet",
+      "Model": "Blazer",
+      "createdAt": "2020-01-27T20:44:17.665Z",
+      "updatedAt": "2020-01-27T20:44:17.665Z"
+    },
+    {
+      "objectId": "vidGAd8cIJ",
+      "Year": 2020,
+      "Make": "Ford",
+      "Model": "F150 SuperCrew Cab",
+      "createdAt": "2020-01-27T20:44:17.665Z",
+      "updatedAt": "2020-01-27T20:44:17.665Z"
+    },
+    {
+      "objectId": "NHWgNGSFB7",
+      "Year": 2020,
+      "Make": "Chevrolet",
+      "Model": "Suburban",
+      "createdAt": "2020-01-27T20:44:17.665Z",
+      "updatedAt": "2020-01-27T20:44:17.665Z"
+    },
+    {
+      "objectId": "MTvnyKqtYJ",
+      "Year": 2020,
+      "Make": "Honda",
+      "Model": "Civic",
+      "createdAt": "2020-01-27T20:44:17.665Z",
+      "updatedAt": "2020-01-27T20:44:17.665Z"
+    },
+    {
+      "objectId": "wTXL9Ze5eF",
+      "Year": 2020,
+      "Make": "Jeep",
+      "Model": "Compass",
+      "createdAt": "2020-01-27T20:44:17.666Z",
+      "updatedAt": "2020-01-27T20:44:17.666Z"
+    },
+    {
+      "objectId": "SCG7WEYdG1",
+      "Year": 2020,
+      "Make": "Cadillac",
+      "Model": "Escalade",
+      "createdAt": "2020-01-27T20:44:17.665Z",
+      "updatedAt": "2020-01-27T20:44:17.665Z"
+    },
+    {
+      "objectId": "cKnegrw5AO",
+      "Year": 2020,
+      "Make": "Chrysler",
+      "Model": "Voyager",
+      "createdAt": "2020-01-27T20:44:17.665Z",
+      "updatedAt": "2020-01-27T20:44:17.665Z"
+    },
+    {
+      "objectId": "smKxD5m9KI",
+      "Year": 2020,
+      "Make": "Honda",
+      "Model": "Accord Hybrid",
+      "createdAt": "2020-01-27T20:44:17.665Z",
+      "updatedAt": "2020-01-27T20:44:17.665Z"
+    },
+    {
+      "objectId": "ED6o8Zffqs",
+      "Year": 2020,
+      "Make": "GMC",
+      "Model": "Terrain",
+      "createdAt": "2020-01-27T20:44:17.665Z",
+      "updatedAt": "2020-01-27T20:44:17.665Z"
+    },
+    {
+      "objectId": "2ZCPYTGxDj",
+      "Year": 2020,
+      "Make": "Chevrolet",
+      "Model": "Spark",
+      "createdAt": "2020-01-27T20:44:17.665Z",
+      "updatedAt": "2020-01-27T20:44:17.665Z"
+    },
+    {
+      "objectId": "fZGBnnMx4e",
+      "Year": 2020,
+      "Make": "GMC",
+      "Model": "Sierra 1500 Crew Cab",
+      "createdAt": "2020-01-27T20:44:17.665Z",
+      "updatedAt": "2020-01-27T20:44:17.665Z"
+    },
+    {
+      "objectId": "6qsEYBv6eW",
+      "Year": 2020,
+      "Make": "Hyundai",
+      "Model": "NEXO",
+      "createdAt": "2020-01-27T20:44:17.665Z",
+      "updatedAt": "2020-01-27T20:44:17.665Z"
+    },
+    {
+      "objectId": "4lZKmYPbMk",
+      "Year": 2020,
+      "Make": "Hyundai",
+      "Model": "Veloster",
+      "createdAt": "2020-01-27T20:44:17.665Z",
+      "updatedAt": "2020-01-27T20:44:17.665Z"
+    },
+    {
+      "objectId": "9BdK0PtwKc",
+      "Year": 2020,
+      "Make": "Chevrolet",
+      "Model": "Silverado 1500 Crew Cab",
+      "createdAt": "2020-01-27T20:44:17.665Z",
+      "updatedAt": "2020-01-27T20:44:17.665Z"
+    },
+    {
+      "objectId": "H1THLG6H1Z",
+      "Year": 2020,
+      "Make": "Genesis",
+      "Model": "G70",
+      "createdAt": "2020-01-27T20:44:17.665Z",
+      "updatedAt": "2020-01-27T20:44:17.665Z"
+    },
+    {
+      "objectId": "XtDg7lwyJT",
+      "Year": 2020,
+      "Make": "Cadillac",
+      "Model": "CT5",
+      "createdAt": "2020-01-27T20:44:17.665Z",
+      "updatedAt": "2020-01-27T20:44:17.665Z"
+    },
+    {
+      "objectId": "KE29kkqLX6",
+      "Year": 2020,
+      "Make": "Honda",
+      "Model": "Odyssey",
+      "createdAt": "2020-01-27T20:44:17.665Z",
+      "updatedAt": "2020-01-27T20:44:17.665Z"
+    },
+    {
+      "objectId": "70EmSYGau7",
+      "Year": 2020,
+      "Make": "Hyundai",
+      "Model": "Elantra GT",
+      "createdAt": "2020-01-27T20:44:17.665Z",
+      "updatedAt": "2020-01-27T20:44:17.665Z"
+    },
+    {
+      "objectId": "YZj6RLht79",
+      "Year": 2020,
+      "Make": "Acura",
+      "Model": "RDX",
+      "createdAt": "2020-01-27T20:44:17.665Z",
+      "updatedAt": "2020-01-27T20:44:17.665Z"
+    },
+    {
+      "objectId": "3phIrCVLh7",
+      "Year": 2020,
+      "Make": "GMC",
+      "Model": "Yukon XL",
+      "createdAt": "2020-01-27T20:44:17.665Z",
+      "updatedAt": "2020-01-27T20:44:17.665Z"
+    },
+    {
+      "objectId": "i6jT5ByjBF",
+      "Year": 2020,
+      "Make": "Ford",
+      "Model": "Ranger SuperCab",
+      "createdAt": "2020-01-27T20:44:17.665Z",
+      "updatedAt": "2020-01-27T20:44:17.665Z"
+    },
+    {
+      "objectId": "RHD7qDmzgU",
+      "Year": 2020,
+      "Make": "Ford",
+      "Model": "Expedition MAX",
+      "createdAt": "2020-01-27T20:44:17.665Z",
+      "updatedAt": "2020-01-27T20:44:17.665Z"
+    },
+    {
+      "objectId": "pJCLIx2r8E",
+      "Year": 2020,
+      "Make": "Hyundai",
+      "Model": "Kona",
+      "createdAt": "2020-01-27T20:44:17.665Z",
+      "updatedAt": "2020-01-27T20:44:17.665Z"
+    },
+    {
+      "objectId": "8kzM0APnBF",
+      "Year": 2020,
+      "Make": "INFINITI",
+      "Model": "QX50",
+      "createdAt": "2020-01-27T20:44:17.666Z",
+      "updatedAt": "2020-01-27T20:44:17.666Z"
+    },
+    {
+      "objectId": "1AV4avrH6j",
+      "Year": 2020,
+      "Make": "Dodge",
+      "Model": "Durango",
+      "createdAt": "2020-01-27T20:44:17.665Z",
+      "updatedAt": "2020-01-27T20:44:17.665Z"
+    },
+    {
+      "objectId": "dow9fD3WF6",
+      "Year": 2020,
+      "Make": "GMC",
+      "Model": "Yukon",
+      "createdAt": "2020-01-27T20:44:17.665Z",
+      "updatedAt": "2020-01-27T20:44:17.665Z"
+    },
+    {
+      "objectId": "adJr9Qr42Q",
+      "Year": 2020,
+      "Make": "Hyundai",
+      "Model": "Palisade",
+      "createdAt": "2020-01-27T20:44:17.665Z",
+      "updatedAt": "2020-01-27T20:44:17.665Z"
+    },
+    {
+      "objectId": "F7BG83iyWo",
+      "Year": 2020,
+      "Make": "Honda",
+      "Model": "Ridgeline",
+      "createdAt": "2020-01-27T20:44:17.665Z",
+      "updatedAt": "2020-01-27T20:44:17.665Z"
+    },
+    {
+      "objectId": "VMpSU5DhdC",
+      "Year": 2020,
+      "Make": "Jeep",
+      "Model": "Cherokee",
+      "createdAt": "2020-01-27T20:44:17.666Z",
+      "updatedAt": "2020-01-27T20:44:17.666Z"
+    },
+    {
+      "objectId": "UY03j6Fe12",
+      "Year": 2020,
+      "Make": "Chevrolet",
+      "Model": "Bolt EV",
+      "createdAt": "2020-01-27T20:44:17.665Z",
+      "updatedAt": "2020-01-27T20:44:17.665Z"
+    },
+    {
+      "objectId": "7zxuFmGDLY",
+      "Year": 2020,
+      "Make": "Ford",
+      "Model": "Expedition",
+      "createdAt": "2020-01-27T20:44:17.665Z",
+      "updatedAt": "2020-01-27T20:44:17.665Z"
+    },
+    {
+      "objectId": "pTGFRlqNAZ",
+      "Year": 2020,
+      "Make": "Hyundai",
+      "Model": "Elantra",
+      "createdAt": "2020-01-27T20:44:17.665Z",
+      "updatedAt": "2020-01-27T20:44:17.665Z"
+    },
+    {
+      "objectId": "e5835fdPKX",
+      "Year": 2020,
+      "Make": "Honda",
+      "Model": "Passport",
+      "createdAt": "2020-01-27T20:44:17.665Z",
+      "updatedAt": "2020-01-27T20:44:17.665Z"
+    },
+    {
+      "objectId": "rYV3CVGElN",
+      "Year": 2020,
+      "Make": "Dodge",
+      "Model": "Charger",
+      "createdAt": "2020-01-27T20:44:17.665Z",
+      "updatedAt": "2020-01-27T20:44:17.665Z"
+    },
+    {
+      "objectId": "DemETgxfzm",
+      "Year": 2020,
+      "Make": "Honda",
+      "Model": "Accord",
+      "createdAt": "2020-01-27T20:44:17.665Z",
+      "updatedAt": "2020-01-27T20:44:17.665Z"
+    },
+    {
+      "objectId": "ZcDno27E49",
+      "Year": 2020,
+      "Make": "INFINITI",
+      "Model": "QX60",
+      "createdAt": "2020-01-27T20:44:17.666Z",
+      "updatedAt": "2020-01-27T20:44:17.666Z"
+    },
+    {
+      "objectId": "eQ15fbmmpw",
+      "Year": 2020,
+      "Make": "Hyundai",
+      "Model": "Venue",
+      "createdAt": "2020-01-27T20:44:17.665Z",
+      "updatedAt": "2020-01-27T20:44:17.665Z"
+    },
+    {
+      "objectId": "bAVM6QBgYF",
+      "Year": 2020,
+      "Make": "Honda",
+      "Model": "Pilot",
+      "createdAt": "2020-01-27T20:44:17.665Z",
+      "updatedAt": "2020-01-27T20:44:17.665Z"
+    },
+    {
+      "objectId": "IeeTDLPJtc",
+      "Year": 2020,
+      "Make": "Jeep",
+      "Model": "Grand Cherokee",
+      "createdAt": "2020-01-27T20:44:17.666Z",
+      "updatedAt": "2020-01-27T20:44:17.666Z"
+    },
+    {
+      "objectId": "5nK3Kjti74",
+      "Year": 2020,
+      "Make": "Chevrolet",
+      "Model": "Tahoe",
+      "createdAt": "2020-01-27T20:44:17.665Z",
+      "updatedAt": "2020-01-27T20:44:17.665Z"
+    },
+    {
+      "objectId": "ZnSQK6bmSf",
+      "Year": 2020,
+      "Make": "GMC",
+      "Model": "Acadia",
+      "createdAt": "2020-01-27T20:44:17.665Z",
+      "updatedAt": "2020-01-27T20:44:17.665Z"
+    },
+    {
+      "objectId": "MGgtV71Gqh",
+      "Year": 2020,
+      "Make": "Chevrolet",
+      "Model": "Impala",
+      "createdAt": "2020-01-27T20:44:17.665Z",
+      "updatedAt": "2020-01-27T20:44:17.665Z"
+    },
+    {
+      "objectId": "QHVcYMkgs8",
+      "Year": 2020,
+      "Make": "Honda",
+      "Model": "CR-V",
+      "createdAt": "2020-01-27T20:44:17.665Z",
+      "updatedAt": "2020-01-27T20:44:17.665Z"
+    },
+    {
+      "objectId": "0qpktkoahP",
+      "Year": 2020,
+      "Make": "BMW",
+      "Model": "X5",
+      "createdAt": "2020-01-27T20:44:17.665Z",
+      "updatedAt": "2020-01-27T20:44:17.665Z"
+    },
+    {
+      "objectId": "wqjaR037XL",
+      "Year": 2020,
+      "Make": "INFINITI",
+      "Model": "Q60",
+      "createdAt": "2020-01-27T20:44:17.666Z",
+      "updatedAt": "2020-01-27T20:44:17.666Z"
+    },
+    {
+      "objectId": "4pZjPmNsj5",
+      "Year": 2020,
+      "Make": "Ford",
+      "Model": "Ranger SuperCrew",
+      "createdAt": "2020-01-27T20:44:17.665Z",
+      "updatedAt": "2020-01-27T20:44:17.665Z"
+    },
+    {
+      "objectId": "nAVMCHuWui",
+      "Year": 2020,
+      "Make": "Chevrolet",
+      "Model": "Trax",
+      "createdAt": "2020-01-27T20:44:17.665Z",
+      "updatedAt": "2020-01-27T20:44:17.665Z"
+    },
+    {
+      "objectId": "nvlklkJGRL",
+      "Year": 2020,
+      "Make": "Hyundai",
+      "Model": "Ioniq Plug-in Hybrid",
+      "createdAt": "2020-01-27T20:44:17.665Z",
+      "updatedAt": "2020-01-27T20:44:17.665Z"
+    },
+    {
+      "objectId": "Ok8T6kagAQ",
+      "Year": 2020,
+      "Make": "Jaguar",
+      "Model": "E-PACE",
+      "createdAt": "2020-01-27T20:44:17.666Z",
+      "updatedAt": "2020-01-27T20:44:17.666Z"
+    },
+    {
+      "objectId": "2o8HcNPula",
+      "Year": 2020,
+      "Make": "Hyundai",
+      "Model": "Tucson",
+      "createdAt": "2020-01-27T20:44:17.665Z",
+      "updatedAt": "2020-01-27T20:44:17.665Z"
+    },
+    {
+      "objectId": "IDXLjYyc46",
+      "Year": 2020,
+      "Make": "Ford",
+      "Model": "Explorer",
+      "createdAt": "2020-01-27T20:44:17.665Z",
+      "updatedAt": "2020-01-27T20:44:17.665Z"
+    },
+    {
+      "objectId": "DMfFQRFW7L",
+      "Year": 2020,
+      "Make": "Honda",
+      "Model": "HR-V",
+      "createdAt": "2020-01-27T20:44:17.665Z",
+      "updatedAt": "2020-01-27T20:44:17.665Z"
+    },
+    {
+      "objectId": "LQNej2UoF0",
+      "Year": 2020,
+      "Make": "Jaguar",
+      "Model": "I-PACE",
+      "createdAt": "2020-01-27T20:44:17.666Z",
+      "updatedAt": "2020-01-27T20:44:17.666Z"
+    },
+    {
+      "objectId": "US1p57Oo8w",
+      "Year": 2020,
+      "Make": "INFINITI",
+      "Model": "Q50",
+      "createdAt": "2020-01-27T20:44:17.666Z",
+      "updatedAt": "2020-01-27T20:44:17.666Z"
+    },
+    {
+      "objectId": "SQx4TCijoz",
+      "Year": 2020,
+      "Make": "Genesis",
+      "Model": "G80",
+      "createdAt": "2020-01-27T20:44:17.665Z",
+      "updatedAt": "2020-01-27T20:44:17.665Z"
+    },
+    {
+      "objectId": "JsaO4qw9cM",
+      "Year": 2020,
+      "Make": "Jaguar",
+      "Model": "F-PACE",
+      "createdAt": "2020-01-27T20:44:17.666Z",
+      "updatedAt": "2020-01-27T20:44:17.666Z"
+    },
+    {
+      "objectId": "LnUsyZRETe",
+      "Year": 2020,
+      "Make": "Jeep",
+      "Model": "Renegade",
+      "createdAt": "2020-01-27T20:44:17.666Z",
+      "updatedAt": "2020-01-27T20:44:17.666Z"
+    },
+    {
+      "objectId": "lJtQk4oNv7",
+      "Year": 2020,
+      "Make": "Hyundai",
+      "Model": "Accent",
+      "createdAt": "2020-01-27T20:44:17.665Z",
+      "updatedAt": "2020-01-27T20:44:17.665Z"
+    }
+  ]
+}

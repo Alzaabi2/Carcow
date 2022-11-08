@@ -25,7 +25,7 @@ def Scrape(make, model, year, zipcode):
         header = ['Make', 'Model', 'Year', 'Mileage', 'Price', 'VIN', 'url']
         w.writerow(header)
         vincount = 0
-        for n in range(10):
+        for n in range(1):
             page = requests.get(url)
             soup = BeautifulSoup(page.content, 'html.parser')
             cars = soup.find_all('div', class_="vehicle-card")
@@ -46,7 +46,7 @@ def Scrape(make, model, year, zipcode):
                     mileage = c.find('div', class_="mileage").text
                 
                 vin = vins[vincount]    
-                
+                 
                 row = [make, model, year, mileage, price, vin, carpage]
                 w.writerow(row)
                 vincount+=1
@@ -55,17 +55,14 @@ def Scrape(make, model, year, zipcode):
                 break
         
 def getNextPage(soup):
+    if soup == None:
+        return None
     page = soup.find('div', class_='sds-pagination__controls')
-
-    next = ''
-
-    while( not next ):
-        next = page.find('button', id="next_paginate")
-        
-        if ( not next ):
-            next = page.find('a', id="next_paginate")
-        
-
+    if page == None:
+        return None
+    next = page.find('button', id="next_paginate")
+    if next == None: 
+        next = page.find('a', id="next_paginate")
     url = 'http://cars.com' + str(next.get('href'))
     if url == 'http://cars.comNone':
         print('no next page')
@@ -79,7 +76,7 @@ def ScrapeVin(make,model,year,zipcode):
     
     with open('carvins.csv', 'w', encoding='utf8', newline='') as f:
         vins = []
-        for n in range(10):
+        for n in range(1):
             page = requests.get(url)
             soup = BeautifulSoup(page.content, 'html.parser') 
             searchContent = soup.find('div', class_="sds-page-section listings-page").get('data-site-activity')
@@ -128,7 +125,7 @@ def scrapeTrimPrice(make, model, year, trim):
     url = 'https://www.cars.com/research/audi-a3-2018/specs/'
     
 
-Scrape('Audi', 'A7', '2020', '22043')
+Scrape('Jeep', 'Wrangler', '2020', '22043')
 # ScrapeVin('Toyota', 'Camry', '2014', '22043')
 
 
