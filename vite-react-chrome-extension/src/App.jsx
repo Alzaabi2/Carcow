@@ -55,31 +55,36 @@ function App() {
                     setContacts(response.data);
                     setError(null);
                     console.log(response.data);
+                    
+                    var carStr = JSON.stringify(response.data);
+                    //var parsedList = JSON.parse (carStr);
+                    //carStr.replace (/^\[(.+)\]$/, '');
+                    // carStr.replace (']/g', '');
+                    // carStr.replace ('},/g', '}');
 
-                    const carList = JSON.stringify(response.data);
-                    //const parsedList = JSON.parse (carList);
-                    carList.replace (/^\[(.+)\]$/, '');
-                    // carList.replace (']/g', '');
-                    // carList.replace ('},/g', '}');
-                    const carArr = carList.split('}');
+                    // response.data.forEach((carStr) => {
+                    //     console.log(carStr['Make'])
+                    //     console.log(carStr['Model'])
+                    //     console.log(carStr['Price'])
+                    // });
 
-                    for (let i = 0; i < 5; i++){
-                        carArr[i].replace (/^\[(.+)\]$/, '');
-                    }
+                    carStr = carStr.split('[{' | '},{');
+                    // carStr = carStr.split(',');
+                    // carStr = carStr.split (':');
 
-                    //const data = JSON.parse(carList.toString());
+                    // for (let i = 0; i < 40; i++){
+                    //     carStr[i].replace (/^\[(.+)\]$/, '');
+                    // }
+
+                    //const data = JSON.parse(carStr.toString());
 
                     // var sanitized = data.replace(/},{/g,'}{');
                     // var res = JSON.parse(sanitized);
 
                     // console.log(res);
                     //setCarData(response.json);
-                    response.data.forEach((carList) => {
-                        console.log(carList['Make'])
-                        console.log(carList['Model'])
-                        console.log(carList['Price'])
-                    });
-                    setCarData(carArr)
+                    
+                    setCarData(carStr);
                     //setCarData(response.data);
                     //console.log(carData)
                 })
@@ -127,7 +132,7 @@ function App() {
               <br/>
               <p>
                   {isCars ? 
-                  'Valid'
+                  'Valid Website'
                   : 
                   'Not Valid Website'}
               </p>
@@ -137,7 +142,8 @@ function App() {
                     <tr><td>Car Data 2: {carData[1]}</td></tr>
                     <tr><td>Car Data 3: {carData[2]}</td></tr>
                     <tr><td>Car Data 4: {carData[3]}</td></tr>
-                    <tr><td>Car Data 5: {carData[4]}</td></tr>           
+                    <tr><td>Car Data 5: {carData[4]}</td></tr>       
+                    {/* <tr><td>Car Data 6: {carData.url}</td></tr>       */}
               </table>
           </header>
       </div>

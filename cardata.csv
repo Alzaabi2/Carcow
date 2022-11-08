@@ -1,5 +1,5 @@
 Make,Model,Year,Mileage,Price,VIN,url
-Buick,Enclave Avenir,2020,"34,622 mi.","$42,200",5GAEVCKW2LJ130307,http://cars.com/vehicledetail/e052fce7-83c7-42b7-aad8-3c3f054b9a1f/
+Buick,Enclave Avenir,2020,"34,622 mi.","$41,995",5GAEVCKW2LJ130307,http://cars.com/vehicledetail/e052fce7-83c7-42b7-aad8-3c3f054b9a1f/
 Buick,Enclave Avenir,2020,"26,756 mi.","$43,981",5GAEVCKW7LJ165795,http://cars.com/vehicledetail/19eb683f-736d-4f14-bb99-b3fbc7ed8874/
 Buick,Enclave Essence,2020,"41,446 mi.","$30,499",5GAERBKW6LJ237939,http://cars.com/vehicledetail/cbfbf211-f1db-442a-a1c2-ab66907aa85c/
 Buick,Enclave Premium,2012,"72,678 mi.","$17,990",5GAKRDED4CJ287506,http://cars.com/vehicledetail/d31b5596-005e-4e18-8faa-179256f17d6a/
@@ -9,7 +9,7 @@ Buick,Enclave Premium,2016,"55,005 mi.","$24,500",5GAKVCKD2GJ124224,http://cars.
 Buick,Enclave Essence,2019,"29,404 mi.","$31,477",5GAEVAKW8KJ201383,http://cars.com/vehicledetail/ff8fb970-7d62-4141-8c22-088fbbbcb63d/
 Buick,Enclave Essence,2020,"23,650 mi.","$33,750",5GAERBKW9LJ127712,http://cars.com/vehicledetail/8190f07e-14dc-437e-9ff9-899c503e9f63/
 Buick,Enclave Essence,2021,"13,418 mi.","$39,577",5GAEVAKW1MJ105730,http://cars.com/vehicledetail/9d96d618-cd65-4f9a-8864-3a5e8a4eb23e/
-Buick,Enclave Essence,2018,"30,049 mi.","$33,999",5GAEVAKW2JJ282153,http://cars.com/vehicledetail/3feee6c1-181a-4b06-89db-f96bbead10b8/
+Buick,Enclave Essence,2018,"30,049 mi.","$33,577",5GAEVAKW2JJ282153,http://cars.com/vehicledetail/3feee6c1-181a-4b06-89db-f96bbead10b8/
 Buick,Enclave Premium,2014,"95,125 mi.","$16,795",5GAKVCKD6EJ243780,http://cars.com/vehicledetail/07b12644-e1b9-4a0b-998e-c76130536bd8/
 Buick,Enclave Essence,2019,"80,261 mi.","$27,898",5GAEVAKW2KJ285622,http://cars.com/vehicledetail/7c06969d-e72c-48f4-92a1-e77b1cd77724/
 Buick,Enclave Premium,2017,"41,301 mi.","$28,421",5GAKVCKD0HJ210195,http://cars.com/vehicledetail/903065b2-49bf-41ea-a517-7f9aaf2a9e04/
@@ -36,8 +36,7 @@ Buick,Enclave Premium,2016,"79,321 mi.","$19,977",5GAKVCKD4GJ345419,http://cars.
 Buick,Enclave Essence,2019,"33,858 mi.","$33,500",5GAERBKW7KJ128128,http://cars.com/vehicledetail/6dc618c3-fdf7-44e6-98db-478cb5ddd647/
 Buick,Enclave Avenir,2018,"52,852 mi.","$37,250",5GAEVCKW0JJ262494,http://cars.com/vehicledetail/d3e50a13-d8f3-492c-9c86-dc9f0a6729d3/
 Buick,Enclave CXL,2009,"120,980 mi.","$10,995",5GAER23D69J104684,http://cars.com/vehicledetail/12a4e2a4-39d4-495f-b7be-1c2341dcf546/
-Buick,Enclave Leather,2015,"116,599 mi.","$15,913",5GAKVBKD0FJ223794,http://cars.com/vehicledetail/2f7a4dfc-9137-4405-9d32-af031ce2441c/
-Buick,Enclave Leather,2016,"40,382 mi.","$21,500",5GAKVBKD3GJ120080,http://cars.com/vehicledetail/de054cc8-d6ca-4c9b-b0a8-cb5661279f64/
+Buick,Enclave Leather,2015,"116,599 mi.","$16,149",5GAKVBKD0FJ223794,http://cars.com/vehicledetail/2f7a4dfc-9137-4405-9d32-af031ce2441c/
 Buick,Enclave Essence,2020,"63,334 mi.","$29,620",5GAERBKW7LJ202942,http://cars.com/vehicledetail/648e726d-b324-40d6-8f59-124fb1c71d40/
 Buick,Enclave Leather,2015,"116,295 mi.","$15,990",5GAKVBKD8FJ327403,http://cars.com/vehicledetail/9db89a52-80f4-4144-8b58-836fb866cafd/
 Buick,Enclave Premium,2014,"109,643 mi.","$16,990",5GAKVCKD8EJ119073,http://cars.com/vehicledetail/c21b8324-534e-4f21-8bed-19c2e7c201f7/
@@ -48,7 +47,7 @@ Buick,Enclave Premium,2018,"91,965 mi.","$25,000",5GAEVBKW0JJ209353,http://cars.
 Buick,Enclave Premium,2017,"64,642 mi.","$25,995",5GAKVCKD3HJ149702,http://cars.com/vehicledetail/1645f59f-daa3-4e0a-8563-fd241b8f967a/
 Buick,Enclave Essence,2020,"62,430 mi.","$27,800",5GAERBKW5LJ112172,http://cars.com/vehicledetail/92769f7c-7310-42c9-b0cd-353027a11572/
 Buick,Enclave Essence,2020,"65,770 mi.","$28,100",5GAEVAKW4LJ220739,http://cars.com/vehicledetail/3d4b9715-1655-466f-80af-a0d94a5dfd07/
-Buick,Enclave Leather,2014,"105,623 mi.","$15,995",5GAKVBKD0EJ110779,http://cars.com/vehicledetail/e3984e20-2197-4474-9a0f-6ef9d907cb28/
+Buick,Enclave Essence,2020,"61,208 mi.","$28,000",5GAEVAKW7LJ117007,http://cars.com/vehicledetail/d4f0974b-2693-4d39-9759-764bc0c5d397/
 Buick,Enclave Avenir,2019,"59,711 mi.","$36,988",5GAERDKW8KJ250573,http://cars.com/vehicledetail/58358f7f-e577-48c4-ab84-3ed70f17051c/
 Buick,Enclave Leather,2017,"69,462 mi.","$19,700",5GAKRBKD2HJ350084,http://cars.com/vehicledetail/2350e5de-f966-4ed8-8fbd-c4927ba56148/
 Buick,Enclave Avenir,2020,"27,510 mi.","$40,750",5GAEVCKWXLJ292279,http://cars.com/vehicledetail/284935a6-3c52-4765-b9e3-ef1a1000e49e/
@@ -62,7 +61,7 @@ Buick,Enclave Leather,2014,"88,841 mi.","$17,995",5GAKVBKD0EJ299756,http://cars.
 Buick,Enclave Avenir,2020,"48,858 mi.","$39,588",5GAEVCKW4LJ170064,http://cars.com/vehicledetail/1d9e2158-ba56-4084-b687-b9779440b012/
 Buick,Enclave Avenir,2019,"46,006 mi.","$39,996",5GAEVCKW9KJ248062,http://cars.com/vehicledetail/78d24687-6978-49c6-bfde-5fad4c1e8507/
 Buick,Enclave Premium,2015,"160,828 mi.","$11,999",5GAKVCKD1FJ305751,http://cars.com/vehicledetail/82b4f298-6efb-45f3-8174-98b876e7cf6c/
-Buick,Enclave Essence,2022,"2,085 mi.","$48,319",5GAEVAKW1NJ150605,http://cars.com/vehicledetail/bc2099e4-b16d-465d-b592-36fa9beac09d/
+Buick,Enclave Essence,2022,"2,085 mi.","$47,999",5GAEVAKW1NJ150605,http://cars.com/vehicledetail/bc2099e4-b16d-465d-b592-36fa9beac09d/
 Buick,Enclave Leather,2013,"120,387 mi.","$14,990",5GAKVCKD1DJ193286,http://cars.com/vehicledetail/3b9c762e-25db-40ca-afb3-6dfcb114e37d/
 Buick,Enclave Essence,2019,"35,300 mi.","$32,990",5GAEVAKW3KJ123627,http://cars.com/vehicledetail/b383fe8e-5853-4ff8-968a-975b13e8c15b/
 Buick,Enclave Essence,2019,"44,667 mi.","$31,479",5GAERBKW9KJ130043,http://cars.com/vehicledetail/39130b6b-3432-47a9-8c09-1f7893a53e0d/
@@ -70,7 +69,7 @@ Buick,Enclave Premium,2020,"33,087 mi.","$40,479",5GAEVBKW3LJ181082,http://cars.
 Buick,Enclave Essence,2020,"45,763 mi.","$32,717",5GAEVAKW7LJ210285,http://cars.com/vehicledetail/6ff10420-3ea1-40c8-8504-4d41bd1551a0/
 Buick,Enclave Avenir,2020,"28,576 mi.","$41,500",5GAEVCKW2LJ274133,http://cars.com/vehicledetail/f67132f0-1e92-4024-b78a-0141ef7fa77d/
 Buick,Enclave Avenir,2020,"17,216 mi.","$49,995",5GAEVCKW7LJ268957,http://cars.com/vehicledetail/af7a0cab-8dbf-41be-8225-df47c463f28e/
-Buick,Enclave Avenir,2021,"19,591 mi.","$42,078",5GAEVCKW9MJ229207,http://cars.com/vehicledetail/4905d58b-9a20-41ea-9995-03efbffff5bf/
+Buick,Enclave Avenir,2021,"19,591 mi.","$41,590",5GAEVCKW9MJ229207,http://cars.com/vehicledetail/4905d58b-9a20-41ea-9995-03efbffff5bf/
 Buick,Enclave Essence,2021,"45,553 mi.","$35,000",5GAEVAKW7MJ160764,http://cars.com/vehicledetail/f093fb38-5998-4307-96a1-329df6a4ee6f/
 Buick,Enclave Leather,2016,"91,217 mi.","$19,251",5GAKVBKD8GJ272064,http://cars.com/vehicledetail/27f7f843-b405-491c-b01e-105c3d083a18/
 Buick,Enclave Premium,2018,"93,019 mi.","$26,929",5GAEVBKW8JJ154344,http://cars.com/vehicledetail/7b844b35-dc15-4703-95aa-07c85b4f255d/
