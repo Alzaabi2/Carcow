@@ -54,9 +54,58 @@ function App() {
                     //console.log(response.json); 
                     setContacts(response.data);
                     setError(null);
-                    console.log(response.data);
+                    //console.log(response.data);
                     
                     var carStr = JSON.stringify(response.data);
+                    // carStr = carStr.replaceAll ('{"Make":"', "");
+                    // carStr = carStr.replaceAll ('"Mileage":"', "");
+                    //console.log(carStr);
+                    var arr = carStr.split('},');
+                    //console.log (arr);
+
+                    var finalArr = [];
+                    for (let i = 0; i < 5; i++){
+                        var singleCar = arr[i].replace("[", "");
+                        singleCar = singleCar + '}';
+                        //console.log(singleCar);
+
+                        var arr2 = singleCar.split('",');
+                        var make = arr2[0].replace('{"Make":"', "");
+                        make = make.replace('",', "");
+
+                        var mileage = arr2[1].replace('"Mileage":"', '');
+                        mileage = mileage.replace ('"', '');
+                        
+                        var model = arr2[2].replace('"Model":"','');
+                        model = model.replace('"', '');
+
+                        var price = arr2[3].replace('"Price":"', '');
+                        price = price.replace ('"', '');
+                        price = '$' + price;
+                        
+                        var year = arr2[4].replace('"Year":"', '');
+                        year = year.replace ('"', '');
+                        
+                        var url = arr2[5].replace('url":"', '');
+                        url = url.replace ('"}', '');
+                        
+                        console.log(make);
+                        console.log(model);                   
+                        console.log(year);
+                        console.log(mileage); 
+                        console.log(price);
+                        console.log(url);
+
+                        finalArr.push(make);
+                        finalArr.push(model);
+                        finalArr.push(year);
+                        finalArr.push(mileage);
+                        finalArr.push(price);
+                        finalArr.push(url);
+                    }        
+                    
+                            
+                    
                     //var parsedList = JSON.parse (carStr);
                     //carStr.replace (/^\[(.+)\]$/, '');
                     // carStr.replace (']/g', '');
@@ -68,7 +117,7 @@ function App() {
                     //     console.log(carStr['Price'])
                     // });
 
-                    carStr = carStr.split('[{' | '},{');
+                    //carStr = carStr.split('[{' | '},{');
                     // carStr = carStr.split(',');
                     // carStr = carStr.split (':');
 
@@ -84,13 +133,15 @@ function App() {
                     // console.log(res);
                     //setCarData(response.json);
                     
-                    setCarData(carStr);
+                    setCarData(finalArr);
                     //setCarData(response.data);
                     //console.log(carData)
                 })
                 // .catch(setError);
             }
-           
+
+            
+            
       });
       
       // //add call the url :
@@ -138,12 +189,66 @@ function App() {
               </p>
               <table border="1">
                 {/* Original: {carData} */}
-                    <tr><td>Car Data 1: {carData[0]}</td></tr>
-                    <tr><td>Car Data 2: {carData[1]}</td></tr>
-                    <tr><td>Car Data 3: {carData[2]}</td></tr>
-                    <tr><td>Car Data 4: {carData[3]}</td></tr>
-                    <tr><td>Car Data 5: {carData[4]}</td></tr>       
-                    {/* <tr><td>Car Data 6: {carData.url}</td></tr>       */}
+                    <tr>
+                        <td> Car Data 1
+                            <ul>
+                                <li>Make: {carData[0]}</li>
+                                <li>Model: {carData[1]}</li>
+                                <li>Year: {carData[2]}</li>
+                                <li>Mileage: {carData[3]}</li>
+                                <li>Price: {carData[4]}</li>
+                                <li>URL: {carData[5]}</li>
+                            </ul>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Car Data 2
+                            <ul>
+                                <li>Make: {carData[6]}</li>
+                                <li>Model: {carData[7]}</li>
+                                <li>Year: {carData[8]}</li>
+                                <li>Mileage: {carData[9]}</li>
+                                <li>Price: {carData[10]}</li>
+                                <li>URL: {carData[11]}</li>
+                            </ul>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Car Data 3
+                            <ul>
+                                <li>Make: {carData[12]}</li>
+                                <li>Model: {carData[13]}</li>
+                                <li>Year: {carData[14]}</li>
+                                <li>Mileage: {carData[15]}</li>
+                                <li>Price: {carData[16]}</li>
+                                <li>URL: {carData[17]}</li>
+                            </ul>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Car Data 4
+                            <ul>
+                                <li>Make: {carData[18]}</li>
+                                <li>Model: {carData[19]}</li>
+                                <li>Year: {carData[20]}</li>
+                                <li>Mileage: {carData[21]}</li>
+                                <li>Price: {carData[22]}</li>
+                                <li>URL: {carData[23]}</li>
+                            </ul>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Car Data 5
+                            <ul>
+                                <li>Make: {carData[24]}</li>
+                                <li>Model: {carData[25]}</li>
+                                <li>Year: {carData[26]}</li>
+                                <li>Mileage: {carData[27]}</li>
+                                <li>Price: {carData[28]}</li>
+                                <li>URL: {carData[29]}</li>
+                            </ul>
+                        </td>
+                    </tr>       
               </table>
           </header>
       </div>
