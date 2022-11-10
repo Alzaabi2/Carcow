@@ -32,6 +32,7 @@ def main():
     # dollarValue('Audi', 'A7', '2016', 130065, 22701) # Need to know which car from chrome extension
     # dollarValueVin('WAUP2AF20KN116129')
     
+
     #runs in 5 seconds per car:
     # print("threading")
     # list = createList()
@@ -54,6 +55,10 @@ def main():
     # dollarValueVin3('ZHWUC1ZD4ELA02158')
 
     
+
+
+
+    dollarValueVin3("WAUYGAFC2DN090294")
 
 
 
@@ -303,7 +308,6 @@ def dollarValueVin3(vin):
         "X-RapidAPI-Key": "eabb27e940mshbaf991f2c492656p1afbb7jsnc31638e26d33",
         "X-RapidAPI-Host": "car-utils.p.rapidapi.com"
     }
-    
     response = requests.request("GET", url, headers=headers, params=querystring)
 
 
