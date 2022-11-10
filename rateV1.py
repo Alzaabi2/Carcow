@@ -341,7 +341,9 @@ def dollarValueVin3(vin):
 
     start = re.search('"prices":', response.text)
     end = re.search(',"distribution"', response.text)
-
+    
+    if start is None or end is None:
+        return '0'
     if start.span() is None:
         return '0'
     listOfstart = start.span()

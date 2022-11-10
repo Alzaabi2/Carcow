@@ -45,8 +45,8 @@ function App() {
           else {
             console.log("new version");
             // const parsedURL = urlCall.replace('https://www.cars.com/vehicledetail/', '')
+            let parsedURL2 = urlCall.replace(/\//g, 'slash').replace(/\./g, 'dot').replace(/:/g, 'colum')
             console.log(urlCall)
-            const parsedURL2 = urlCall.replaceAll('/', 'replaceslashes')
             console.log(parsedURL2)
             const fetchURL =  'http://127.0.0.1:8080/getUrl/' + parsedURL2;
             console.log(fetchURL)
@@ -60,14 +60,14 @@ function App() {
 
                     const carList = JSON.stringify(response.data);
                     //const parsedList = JSON.parse (carList);
-                    carList.replace (/^\[(.+)\]$/, '');
+                    // carList.replace (/^\[(.+)\]$/, '');
                     // carList.replace (']/g', '');
                     // carList.replace ('},/g', '}');
                     const carArr = carList.split('}');
 
-                    for (let i = 0; i < 5; i++){
-                        carArr[i].replace (/^\[(.+)\]$/, '');
-                    }
+                    // for (let i = 0; i < 5; i++){
+                        // carArr[i].replace (/^\[(.+)\]$/, '');
+                    // }
 
                     //const data = JSON.parse(carList.toString());
 
