@@ -3,7 +3,7 @@ import './App.css';
 import $ from "jquery";
 import axios from 'axios';
 //import { Make } from 'make';
-// import './topThree.js'
+import './App.css'
 
 // function split (str, index1, index2){
 //     const result = str.slice(index1, index2);
@@ -245,7 +245,7 @@ function App() {
                                 <li>Year: {carData[26]}</li>
                                 <li>Mileage: {carData[27]}</li>
                                 <li>Price: {carData[28]}</li>
-                                <li>URL: {carData[29]}</li>
+                                <li>URL: <a href = {carData[29]} target="_blank">See Car Listing</a></li>
                             </ul>
                         </td>
                     </tr>       
