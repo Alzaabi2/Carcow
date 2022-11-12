@@ -7,7 +7,7 @@ from scrapeV1_1 import *
 from rateV1 import *
 from flask import render_template
 from extension import *
-from scrapeV1_6 import ScrapeAlpha
+from scrapeV1_6 import ScrapeAlpha, cleanData
 app = Flask('app')
 
 
@@ -20,6 +20,7 @@ def index():
 
 @app.get('/cars')
 def cars():
+    print("called")
     return {'car brands' : carbrands}
 
 @app.route('/year/<int:car_year>')
@@ -39,7 +40,7 @@ def getUrl(url):
     url = url.replace('colum', ':')
     url = url.replace('dot', '.')
     print(url)
-    if 'cars' in url:
+    if 'cars.com' in url:
         singleCar = singleCarData1(url)
     elif 'autotrader' in url:
         singleCar = singleCarData2(url)
@@ -87,7 +88,8 @@ def getUrl(url):
             return tempData
 
     list = ScrapeAlpha(singleCar['Make'], singleCar['Model'], singleCar['Year'], '22201')
-    rating = rate (list)
+    list = cleanData(list)
+    rating = rate(list)
     topCars = getTopCars(list, rating)
     print('------')
     print('------')
@@ -106,17 +108,18 @@ def getUrl(url):
         w = writer(f)
         header = ['Make', 'Model', 'Year', 'Mileage', 'Price', 'VIN', 'url']
         w.writerow(header)
-        for i in range(len(tempData)):
-            row = [tempData[i]['Make'], tempData[i]['Model'], tempData[i]['Year'], tempData[i]['Mileage'], tempData[i]['Price'], tempData[i]['VIN'], tempData[i]['url']]
+        for i in range(len(topCars)):
+            row = [topCars[i]['Make'], topCars[i]['Model'], topCars[i]['Year'], topCars[i]['Mileage'], topCars[i]['Price'], topCars[i]['VIN'], topCars[i]['url']]
             w.writerow(row)
     
-    return topCars
-    # [
+    # topCars = [
     # {'Make':'Ford', 'Model':'Mustang', 'Year':'2016', 'Mileage':'100,000', 'Price':'20,000', 'url':'https://www.cars.com/vehicledetail/92a80785-7bf4-42fc-b7dd-5365633f054e/'},
     # {'Make':'Toyota', 'Model':'Supra', 'Year':'2017', 'Mileage':'101,000', 'Price':'30,000', 'url':'https://www.cars.com/vehicledetail/92a80785-7bf4-42fc-b7dd-5365633f054e/'},
     # {'Make':'Dodge', 'Model':'Ram', 'Year':'2018', 'Mileage':'102,000', 'Price':'40,000', 'url':'https://www.cars.com/vehicledetail/92a80785-7bf4-42fc-b7dd-5365633f054e/'},
     # {'Make':'BMW', 'Model':'I8', 'Year':'2019', 'Mileage':'103,000', 'Price':'50,000', 'url':'https://www.cars.com/vehicledetail/92a80785-7bf4-42fc-b7dd-5365633f054e/'},
     # {'Make':'Ferrari', 'Model':'445', 'Year':'2020', 'Mileage':'104,000', 'Price':'60,000', 'url':'https://www.cars.com/vehicledetail/92a80785-7bf4-42fc-b7dd-5365633f054e/'}
     # ]
+    
+    return topCars
 
 app.run(host='0.0.0.0', port=8080)

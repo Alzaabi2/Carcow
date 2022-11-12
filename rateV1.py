@@ -1,3 +1,4 @@
+from ast import Continue
 import csv
 import time
 from turtle import goto
@@ -84,13 +85,15 @@ def rate(list):
     # carlist = createList()
     print(list)
     deals = []
+    if list is None:
+        return []
     for i in range(len(list)):
-        price = list[i]['Price']
+        priceListed = list[i]['Price']
         vin   = list[i]['VIN']
-        print("Price: ", price, "Vin: ", vin)
+        print("Price: ", priceListed, "Vin: ", vin)
         suggested = dollarValueVin3(vin)
         suggested = suggested.replace(',', '')
-        price = price.replace(',', '')
+        price = priceListed.replace(',', '')
         suggested = suggested.replace('$', '')
         price = price.replace('$', '')
         price = price.replace(' ', '')
@@ -101,7 +104,7 @@ def rate(list):
         except: 
             ratio == 'No Ratio'
             
-        row = (vin,ratio)
+        row = (vin,ratio,priceListed)
         deals.append(row)
         print("Ratio: ", ratio)
     
@@ -153,9 +156,13 @@ def getTopCars(car_list, deals):
     #     print(i)
     topCars = []
     for n in range(len(deals)):
+        found = False
         for c in car_list:
-            if(c['VIN'] == deals[n][0]):
+            if found == True:
+                continue
+            if(c['VIN'] == deals[n][0] and c['Price'] == deals[n][2]):
                 topCars.append(c)
+                found = True
     return topCars
     
 

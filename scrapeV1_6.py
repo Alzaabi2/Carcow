@@ -515,7 +515,18 @@ def ScrapeAlpha(make, model, year, zipcode):
     print('length = [' + str(len(l1)) + ' + ' + str(len(l2)) + ' + ' + str(len(l3)) + ' + '+ str(len(l4)) + ' + '+ str(len(l5)) + '] = ' + str(len(scrapedList)))
     return scrapedList
 
-
-# Scrape3('Acura', 'RLX', '2020', '22201')
+#removes duplicate data
+def cleanData(list):
+    print(list)
+    print('results list')
+    res_list = []
+    for i in range(len(list)):
+        if list[i] not in list[i + 1:]:
+            res_list.append(list[i])
+            
+    return res_list      
+    
+    
+# print(Scrape1('Acura', 'RLX', '2020', '22201'))
     
 # ScrapeAlpha('Nissan', 'Altima', '2014', '10003')

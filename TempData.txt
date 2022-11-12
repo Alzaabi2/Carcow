@@ -1,12 +1,6 @@
 Make,Model,Year,Mileage,Price,VIN,url
-Dodge,Challenger,2022,"3,030 miles","$30,998",2C3CDZAG5NH212014,https://www.edmunds.com/dodge/challenger/2022/vin/2C3CDZAG5NH212014/?radius=50
-Dodge,Challenger,2022,"3,030 miles","$30,998",2C3CDZAG5NH212014,https://www.edmunds.com/dodge/challenger/2022/vin/2C3CDZAG5NH212014/?radius=50
-Dodge,Challenger,2022,"3,030 miles","$30,998",2C3CDZAG5NH212014,https://www.edmunds.com/dodge/challenger/2022/vin/2C3CDZAG5NH212014/?radius=50
-Dodge,Challenger,2022,"3,030 miles","$30,998",2C3CDZAG5NH212014,https://www.edmunds.com/dodge/challenger/2022/vin/2C3CDZAG5NH212014/?radius=50
-Dodge,Challenger,2022," 2,512 miles ","$32,590 ",2C3CDZAG2NH140284,/used_cars/vehicle-detail/ul2152699317/dodge/challenger
-Dodge,Challenger,2016,"140,403 miles","$13,950",2C3CDZAG7GH352696,https://www.edmunds.com/dodge/challenger/2016/vin/2C3CDZAG7GH352696/?radius=50
-Dodge,Challenger,2016,"140,403 miles","$13,950",2C3CDZAG7GH352696,https://www.edmunds.com/dodge/challenger/2016/vin/2C3CDZAG7GH352696/?radius=50
-Dodge,Challenger,2016,"140,403 miles","$13,950",2C3CDZAG7GH352696,https://www.edmunds.com/dodge/challenger/2016/vin/2C3CDZAG7GH352696/?radius=50
-Dodge,Challenger,2016,"140,403 miles","$13,950",2C3CDZAG7GH352696,https://www.edmunds.com/dodge/challenger/2016/vin/2C3CDZAG7GH352696/?radius=50
-Dodge,Challenger,2016,"140,403 miles","$13,950",2C3CDZAG7GH352696,https://www.edmunds.com/dodge/challenger/2016/vin/2C3CDZAG7GH352696/?radius=50
-Dodge,Challenger,2016,"140,403 miles","$13,950",2C3CDZAG7GH352696,https://www.edmunds.com/dodge/challenger/2016/vin/2C3CDZAG7GH352696/?radius=50
+Jeep,Wrangler,2009,"140,000 miles","$13,999",1J8GA69159L719162,https://www.edmunds.com/jeep/wrangler/2009/vin/1J8GA69159L719162/?radius=50
+Jeep,Wrangler,2006,"144,804 miles","$12,888",1J4FA44S36P703757,https://www.edmunds.com/jeep/wrangler/2006/vin/1J4FA44S36P703757/?radius=50
+Jeep,Wrangler,2006,"125,655 miles","$13,790",1J4FA44S26P775467,https://www.edmunds.com/jeep/wrangler/2006/vin/1J4FA44S26P775467/?radius=50
+Jeep,Wrangler,2008," 169,107 miles ","$11,881 ",1J4FA24178L546319,/used_cars/vehicle-detail/ul2164447606/jeep/wrangler
+Jeep,Wrangler,2006,"117,112 miles","$11,999",1J4FA39S06P720437,https://www.edmunds.com/jeep/wrangler/2006/vin/1J4FA39S06P720437/?radius=50
