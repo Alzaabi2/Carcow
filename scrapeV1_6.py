@@ -514,6 +514,6 @@ def ScrapeAlpha(make, model, year, zipcode):
     return scrapedList
 
 
-Scrape3('Acura', 'RLX', '2020', '22201')
-    
+# Scrape3('Acura', 'RLX', '2020', '22201')
+
 # ScrapeAlpha('Nissan', 'Altima', '2014', '10003')

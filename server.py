@@ -39,7 +39,7 @@ def getUrl(url):
     #     return
     url2 = 'https://www.cars.com/vehicledetail/' + url
     # print(url2)
-    singleCar = singleCarData11(url2) # need to create this function
+    singleCar = singleCarData1(url2) # need to create this function
     Scrape(singleCar['Make'], singleCar['Model'], singleCar['Year'], '22201')
     list = createList()
     rating = rate (list)

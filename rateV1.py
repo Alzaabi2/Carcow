@@ -38,9 +38,10 @@ def main():
     # getTopCars test
     # deals = [('WBA1G9C51GV599609', 7.357627118644068), ('WBA73AK03M7H21242', 0.9995336076817558), ('WBA1G9C51GV599609', 0.869939879759519), ('WBA1F5C50EV255231', 0.700531208499336), ('WBA73AK03M7H21242', 0.45286513362336855), ('WBA1F5C50EV255231', 0.3009127210496292)]
     # deals = rate(createList())
-    list = createList()
-    deals = [('ZHWUC1ZD4ELA02158', 1.1615157732751988), ('ZHWUC1ZD0ELA02996', 1.0945740025740025), ('ZHWUC1ZD6ELA02419', 1.0391110222217417), ('ZHWUC1ZD0CLA00114', 0.9697389581524244), ('ZHWUG4ZD2HLA06039', 0.9664653979314289), ('ZHWUF3ZD8GLA04324', 0.5678466881216022), ('ZHWUR1ZD5ELA02331', 0.48796481503795636), ('ZHWUC1ZD0FLA03633', 0.48796481503795636), ('ZHWUR1ZD9FLA03502', 0.21584448056007)]
-    print(getTopCars(list, rate(list)))
+
+    # list = createList()
+    # deals = [('ZHWUC1ZD4ELA02158', 1.1615157732751988), ('ZHWUC1ZD0ELA02996', 1.0945740025740025), ('ZHWUC1ZD6ELA02419', 1.0391110222217417), ('ZHWUC1ZD0CLA00114', 0.9697389581524244), ('ZHWUG4ZD2HLA06039', 0.9664653979314289), ('ZHWUF3ZD8GLA04324', 0.5678466881216022), ('ZHWUR1ZD5ELA02331', 0.48796481503795636), ('ZHWUC1ZD0FLA03633', 0.48796481503795636), ('ZHWUR1ZD9FLA03502', 0.21584448056007)]
+    # print(getTopCars(list, rate(list)))
  
     # listOfCars = createList()
     # print(listOfCars)
@@ -50,23 +51,29 @@ def main():
     # dollarValueVin3('ZHWUC1ZD4ELA02158')
 
     
-    list = createList()
-    count = 0
-    for i in range(len(list)):
-        vin   = list[i]['VIN']
-        print("No. ", count)
-        suggested = dollarValueVin3(vin)
-        time.sleep(1)
-        count += 1
+    # list = createList()
+    # count = 0
+    # for i in range(len(list)):
+    #     vin   = list[i]['VIN']
+    #     print("No. ", count)
+    #     suggested = dollarValueVin3(vin)
+    #     time.sleep(1)
+    #     count += 1
 
 
-    # dollarValueVin3("WAUYGAFC2DN090294")
+    # vinOnly = dollarValueVin3("1GYS4TKJ7FR633162")
+    # print("VIN ONLY suggested price: ", vinOnly)
+
+    # miles = 117,000
+    # vinAndMiles = dollarValueVin4("1GYS4TKJ7FR633162", miles)
+    # print("VIN AND MILEAGE suggested price: ", vinAndMiles)
+
 
 
 
 def createList():
     csv_filename = 'cardata.csv'
-    # carlist =[]
+    carlist =[]
     with open(csv_filename) as f:
         reader = csv.DictReader(f)
         for row in reader:
@@ -325,7 +332,7 @@ def dollarValueVin3(vin):
 
     
     apiResponse = response.text
-    print(response.text)
+    # print(response.text)
     #if no market value data
     if '"vehicle":null' in response.text:
         return "0"
@@ -374,7 +381,90 @@ def dollarValueVin3(vin):
     above = prices[abvEnd:]
     print("ABOVE:", above, "\n\n")
     time.sleep(1)
-    return average
+    return below
+
+
+# Car Utils with Mileage
+def dollarValueVin4(vin, mileage):
+    url = "https://car-utils.p.rapidapi.com/marketvalue"
+
+    querystring = {"vin": vin, "mileage": mileage}
+
+    headers = {
+        "X-RapidAPI-Key": "eabb27e940mshbaf991f2c492656p1afbb7jsnc31638e26d33",
+        "X-RapidAPI-Host": "car-utils.p.rapidapi.com"
+    }
+    
+    response = requests.request("GET", url, headers=headers, params=querystring)
+
+
+    ### MIGHT NEED THIS ###
+    # while(True):
+    #     response = requests.request("GET", url, headers=headers, params=querystring)
+
+    #     print(response.text)
+    #     err = re.search('"message":', response.text)
+    #     print( err )
+    #     if (err):
+    #         time.sleep(2)
+    #         continue
+    #     else:
+    #         break
+
+
+
+    
+    apiResponse = response.text
+    # print(response.text)
+    #if no market value data
+    if '"vehicle":null' in response.text:
+        return "0"
+    while(1):
+        if 'You have exceeded the rate limit per second for your plan, BASIC, by the API provider' in response.text:
+            time.sleep(1)
+            response = requests.request("GET", url, headers=headers, params=querystring)
+            apiResponse = response.text
+        else:
+            break
+
+
+    start = re.search('"prices":', response.text)
+    end = re.search(',"distribution"', response.text)
+
+    listOfstart = start.span()
+    listOfEnd   = end.span()
+    start2      = listOfstart[1]
+    end2        = listOfEnd[0]
+
+
+    prices = apiResponse[start2 + 1:end2]
+
+    avg  = re.search('"average":', prices)
+    avg2 = avg.span()
+    avgEnd = avg2[1]
+
+    blw = re.search('"below":', prices)
+    blw2   = blw.span()
+    blwStart = blw2[0]
+    blwEnd = blw2[1]
+    
+
+    abv = re.search('"above":', prices)
+    abv2   = abv.span()
+    abvStart = abv2[0]
+    abvEnd = abv2[1]
+
+    print("\n---------For VIN:", vin, " ---------")
+    average = prices[avgEnd:blwStart - 1]
+    print("AVERAGE:", average)
+
+    below = prices[blwEnd:abvStart - 1]
+    print("BELOW:", below)
+
+    above = prices[abvEnd:]
+    print("ABOVE:", above, "\n\n")
+    time.sleep(1)
+    return below
 
 if __name__ == '__main__':
     main()
