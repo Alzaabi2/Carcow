@@ -1,6 +1,6 @@
 Make,Model,Year,Mileage,Price,VIN,url
-Jeep,Wrangler,2009,"140,000 miles","$13,999",1J8GA69159L719162,https://www.edmunds.com/jeep/wrangler/2009/vin/1J8GA69159L719162/?radius=50
-Jeep,Wrangler,2006,"144,804 miles","$12,888",1J4FA44S36P703757,https://www.edmunds.com/jeep/wrangler/2006/vin/1J4FA44S36P703757/?radius=50
-Jeep,Wrangler,2006,"125,655 miles","$13,790",1J4FA44S26P775467,https://www.edmunds.com/jeep/wrangler/2006/vin/1J4FA44S26P775467/?radius=50
-Jeep,Wrangler,2008," 169,107 miles ","$11,881 ",1J4FA24178L546319,/used_cars/vehicle-detail/ul2164447606/jeep/wrangler
-Jeep,Wrangler,2006,"117,112 miles","$11,999",1J4FA39S06P720437,https://www.edmunds.com/jeep/wrangler/2006/vin/1J4FA39S06P720437/?radius=50
+Dodge,Challenger,2014,"105,458 miles","$12,500",2C3CDYAG6EH262074,https://www.edmunds.com/dodge/challenger/2014/vin/2C3CDYAG6EH262074/?radius=50
+Dodge,Challenger SRT8,2009,"82,263 mi.","$21,500",2B3LJ74W19H524317,http://cars.com/vehicledetail/5681e9e6-433a-44bf-9919-8deaf98a1497/
+Dodge,Challenger SRT8,2013,"100,196 mi.","$23,988",2C3CDYCJ8DH596629,http://cars.com/vehicledetail/3d461520-f61f-433a-9dbe-0a795569db63/
+Dodge,Challenger R/T,2012,"116,537 mi.","$15,995",2C3CDYBT8CH158002,http://cars.com/vehicledetail/8a63a796-2300-41a8-bc34-082831c9a38e/
+Dodge,Challenger R/T,2013,"99,225 mi.","$16,990",2C3CDYBT4DH605037,http://cars.com/vehicledetail/889db00c-a54c-476e-b866-50b279342c30/

@@ -36,6 +36,7 @@ def getScrape(make, model, car_year, zip):
 
 @app.route('/getUrl/<string:url>')
 def getUrl(url):
+    time1 = time.perf_counter()
     url = url.replace('slash', '/')
     url = url.replace('colum', ':')
     url = url.replace('dot', '.')
@@ -55,7 +56,8 @@ def getUrl(url):
         return 'unregistered website'
     print('website found: ' + url)
 
-    
+    time2 = time.perf_counter()
+    print("Timer1 singleCar():" + str(time2-time1))
     
     tempData = []
     lastCar = {}
@@ -87,13 +89,29 @@ def getUrl(url):
             print(tempData)
             return tempData
 
+    time3 = time.perf_counter()
+    print("Timer2 tempData:" + str(time3-time2))
+
+    
     list = ScrapeAlpha(singleCar['Make'], singleCar['Model'], singleCar['Year'], '22201')
+    time4 = time.perf_counter()
+    print("Timer3 ScrapeAlpha():" + str(time4-time3))
+    
     list = cleanData(list)
+    time5 = time.perf_counter()
+    print("Timer4 cleanData():" + str(time5-time4))
+    
     rating = rate(list)
+    time6 = time.perf_counter()
+    print("Timer5 rate:" + str(time6-time5))
+    
     topCars = getTopCars(list, rating)
+    time7 = time.perf_counter()
+    print("Timer6 topCars():" + str(time7-time6))
+    
     print('------')
     print('------')
-    print(topCars)
+    # print(topCars)
     
     #data for last scraped car
     with open('lastCar.txt', 'w', encoding='utf8', newline='\n') as f:
@@ -119,7 +137,8 @@ def getUrl(url):
     # {'Make':'BMW', 'Model':'I8', 'Year':'2019', 'Mileage':'103,000', 'Price':'50,000', 'url':'https://www.cars.com/vehicledetail/92a80785-7bf4-42fc-b7dd-5365633f054e/'},
     # {'Make':'Ferrari', 'Model':'445', 'Year':'2020', 'Mileage':'104,000', 'Price':'60,000', 'url':'https://www.cars.com/vehicledetail/92a80785-7bf4-42fc-b7dd-5365633f054e/'}
     # ]
-    
+    time8 = time.perf_counter()
+    print("Timer7 tempDataWrite:" + str(time8-time7))
     return topCars
 
 app.run(host='0.0.0.0', port=8080)

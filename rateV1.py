@@ -15,6 +15,7 @@ from selenium.webdriver.chrome.options import Options
 import concurrent.futures
 import itertools 
 import json
+from CarDepreciationValue import *
 
 carlist = []
 
@@ -44,9 +45,9 @@ def main():
     #getTopCars test
     # deals = [('WBA1G9C51GV599609', 7.357627118644068), ('WBA73AK03M7H21242', 0.9995336076817558), ('WBA1G9C51GV599609', 0.869939879759519), ('WBA1F5C50EV255231', 0.700531208499336), ('WBA73AK03M7H21242', 0.45286513362336855), ('WBA1F5C50EV255231', 0.3009127210496292)]
     # deals = rate(createList())
-    list = createList()
-    deals = [('ZHWUC1ZD4ELA02158', 1.1615157732751988), ('ZHWUC1ZD0ELA02996', 1.0945740025740025), ('ZHWUC1ZD6ELA02419', 1.0391110222217417), ('ZHWUC1ZD0CLA00114', 0.9697389581524244), ('ZHWUG4ZD2HLA06039', 0.9664653979314289), ('ZHWUF3ZD8GLA04324', 0.5678466881216022), ('ZHWUR1ZD5ELA02331', 0.48796481503795636), ('ZHWUC1ZD0FLA03633', 0.48796481503795636), ('ZHWUR1ZD9FLA03502', 0.21584448056007)]
-    print(getTopCars(list, rate(list)))
+    # list = createList()
+    # deals = [('ZHWUC1ZD4ELA02158', 1.1615157732751988), ('ZHWUC1ZD0ELA02996', 1.0945740025740025), ('ZHWUC1ZD6ELA02419', 1.0391110222217417), ('ZHWUC1ZD0CLA00114', 0.9697389581524244), ('ZHWUG4ZD2HLA06039', 0.9664653979314289), ('ZHWUF3ZD8GLA04324', 0.5678466881216022), ('ZHWUR1ZD5ELA02331', 0.48796481503795636), ('ZHWUC1ZD0FLA03633', 0.48796481503795636), ('ZHWUR1ZD9FLA03502', 0.21584448056007)]
+    # print(getTopCars(list, rate(list)))
  
     # listOfCars = createList()
     # print(listOfCars)
@@ -59,7 +60,7 @@ def main():
 
 
 
-    dollarValueVin3("WAUYGAFC2DN090294")
+    # dollarValueVin3("WAUYGAFC2DN090294")
 
 
 
@@ -91,10 +92,11 @@ def rate(list):
         priceListed = list[i]['Price']
         vin   = list[i]['VIN']
         print("Price: ", priceListed, "Vin: ", vin)
-        suggested = dollarValueVin3(vin)
-        suggested = suggested.replace(',', '')
+        # suggested = dollarValueVin3(vin)
+        suggested = finalValue(list[i]['Make'], list[i]['Model'], '', list[i]['Year'], 0, list[i]['Mileage'], 0)
+        # suggested = suggested.replace(',', '')
         price = priceListed.replace(',', '')
-        suggested = suggested.replace('$', '')
+        # suggested = suggested.replace('$', '')
         price = price.replace('$', '')
         price = price.replace(' ', '')
         # print('no', i, 'p: ',price)
