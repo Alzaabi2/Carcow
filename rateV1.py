@@ -64,9 +64,9 @@ def main():
     # vinOnly = dollarValueVin3("1GYS4TKJ7FR633162")
     # print("VIN ONLY suggested price: ", vinOnly)
 
-    # miles = 117,000
-    # vinAndMiles = dollarValueVin4("1GYS4TKJ7FR633162", miles)
-    # print("VIN AND MILEAGE suggested price: ", vinAndMiles)
+    miles = 83801
+    vinAndMiles = dollarValueVin4("3C3CFFFH3DT608684", miles)
+    print("VIN AND MILEAGE suggested price: ", vinAndMiles)
 
 
 
