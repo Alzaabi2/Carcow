@@ -1,0 +1,1432 @@
+[Running] python -u "c:\Users\S-_-z\OneDrive\Documents\GitHub\Carcow\server.py"
+
+[WDM] - Downloading:   0%|          | 0.00/6.46M [00:00<?, ?B/s]
+[WDM] - Downloading:  34%|###3      | 2.17M/6.46M [00:00<00:00, 22.5MB/s]
+[WDM] - Downloading:  83%|########3 | 5.39M/6.46M [00:00<00:00, 28.9MB/s]
+[WDM] - Downloading: 100%|##########| 6.46M/6.46M [00:00<00:00, 29.6MB/s]
+ * Serving Flask app 'app'
+ * Debug mode: off
+WARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:8080
+ * Running on http://192.168.1.153:8080
+Press CTRL+C to quit
+website found: https://www.edmunds.com/jeep/wrangler/2004/vin/1j4fa49s94p761541/
+length = [0 + 2 + 90 + 97 + 15] = 204
+[{'Make': 'Jeep', 'Model': 'Wrangler', 'Year': '2004', 'Mileage': '70,300 miles', 'Price': '14,500', 'VIN': '1J4FA39S14P722940', 'url': 'https://www.autotrader.com/cars-for-sale/vehicledetails.xhtml?listingId=663287551&allListingType=all-cars&makeCodeList=JEEP&modelCodeList=WRANGLER&city=Arlington&state=VA&zip=22201&location=&requestId=2152820002&searchRadius=50&marketExtension=include&startYear=2004&endYear=2004&isNewSearch=false&showAccelerateBanner=false&sortBy=relevance&numRecords=100&dma=&referrer=%2Fcars-for-sale%2Fall-cars%2Fjeep%2Fwrangler%2Farlington-va-22201%3FrequestId%3D2152820002%26dma%3D%26searchRadius%3D50%26location%3D%26marketExtension%3Dinclude%26startYear%3D2004%26endYear%3D2004%26isNewSearch%3Dfalse%26showAccelerateBanner%3Dfalse%26sortBy%3Drelevance%26numRecords%3D100&clickType=listing'}, {'Make': 'Jeep', 'Model': 'Wrangler', 'Year': '2004', 'Mileage': '116,164 miles', 'Price': '12,500', 'VIN': '1J4FA49S94P761541', 'url': 'https://www.autotrader.com/cars-for-sale/vehicledetails.xhtml?listingId=642510327&allListingType=all-cars&makeCodeList=JEEP&modelCodeList=WRANGLER&city=Arlington&state=VA&zip=22201&location=&requestId=2152820002&searchRadius=50&marketExtension=include&startYear=2004&endYear=2004&isNewSearch=false&showAccelerateBanner=false&sortBy=relevance&numRecords=100&dma=&referrer=%2Fcars-for-sale%2Fall-cars%2Fjeep%2Fwrangler%2Farlington-va-22201%3FrequestId%3D2152820002%26dma%3D%26searchRadius%3D50%26location%3D%26marketExtension%3Dinclude%26startYear%3D2004%26endYear%3D2004%26isNewSearch%3Dfalse%26showAccelerateBanner%3Dfalse%26sortBy%3Drelevance%26numRecords%3D100&clickType=listing'}, {'Make': 'Jeep', 'Model': 'Wrangler', 'Year': '2009', 'Mileage': '49,829 mi', 'Price': '$19,500', 'VIN': '1J8FA54149L744776 ', 'url': 'https://www.cargurus.com/Cars/inventorylisting/viewDetailsFilterViewInventoryListing.action?entitySelectingHelper.selectedEntity=d494&distance=50&zip=22201&sourceContext=carSelectorAPI#listing=339634889/PRIORITY'}, {'Make': 'Jeep', 'Model': 'Wrangler', 'Year': '2008', 'Mileage': '106,979 mi', 'Price': '$13,795', 'VIN': '1J4FA24158L539790 ', 'url': 'https://www.cargurus.com/Cars/inventorylisting/viewDetailsFilterViewInventoryListing.action?entitySelectingHelper.selectedEntity=d494&distance=50&zip=22201&sourceContext=carSelectorAPI#listing=339532129/FEATURED'}, {'Make': 'Jeep', 'Model': 'Wrangler', 'Year': '2009', 'Mileage': '106,558 mi', 'Price': '$16,995', 'VIN': '1J4GA39179L722225 ', 'url': 'https://www.cargurus.com/Cars/inventorylisting/viewDetailsFilterViewInventoryListing.action?entitySelectingHelper.selectedEntity=d494&distance=50&zip=22201&sourceContext=carSelectorAPI#listing=343007512/FEATURED'}, {'Make': 'Jeep', 'Model': 'Wrangler', 'Year': '2008', 'Mileage': '138,760 mi', 'Price': '$8,965', 'VIN': '1J4FA541X8L650157 ', 'url': 'https://www.cargurus.com/Cars/inventorylisting/viewDetailsFilterViewInventoryListing.action?entitySelectingHelper.selectedEntity=d494&distance=50&zip=22201&sourceContext=carSelectorAPI#listing=341704139/NONE'}, {'Make': 'Jeep', 'Model': 'Wrangler', 'Year': '2008', 'Mileage': '119,314 mi', 'Price': '$11,995', 'VIN': '1J4FA24198L632411 ', 'url': 'https://www.cargurus.com/Cars/inventorylisting/viewDetailsFilterViewInventoryListing.action?entitySelectingHelper.selectedEntity=d494&distance=50&zip=22201&sourceContext=carSelectorAPI#listing=341867468/NONE'}, {'Make': 'Jeep', 'Model': 'Wrangler', 'Year': '2005', 'Mileage': '132,600 mi', 'Price': '$9,750', 'VIN': '1J4F449SX5P368639 ', 'url': 'https://www.cargurus.com/Cars/inventorylisting/viewDetailsFilterViewInventoryListing.action?entitySelectingHelper.selectedEntity=d494&distance=50&zip=22201&sourceContext=carSelectorAPI#listing=328814103/NONE'}, {'Make': 'Jeep', 'Model': 'Wrangler', 'Year': '2006', 'Mileage': '117,112 mi', 'Price': '$11,999', 'VIN': '1J4FA39S06P720437 ', 'url': 'https://www.cargurus.com/Cars/inventorylisting/viewDetailsFilterViewInventoryListing.action?entitySelectingHelper.selectedEntity=d494&distance=50&zip=22201&sourceContext=carSelectorAPI#listing=343097486/NONE'}, {'Make': 'Jeep', 'Model': 'Wrangler', 'Year': '2008', 'Mileage': '240,000 mi', 'Price': '$8,500', 'VIN': '1J4GA59108L505349 ', 'url': 'https://www.cargurus.com/Cars/inventorylisting/viewDetailsFilterViewInventoryListing.action?entitySelectingHelper.selectedEntity=d494&distance=50&zip=22201&sourceContext=carSelectorAPI#listing=342113242/NONE'}, {'Make': 'Jeep', 'Model': 'Wrangler', 'Year': '2006', 'Mileage': '125,655 mi', 'Price': '$13,790', 'VIN': '1J4FA44S26P775467 ', 'url': 'https://www.cargurus.com/Cars/inventorylisting/viewDetailsFilterViewInventoryListing.action?entitySelectingHelper.selectedEntity=d494&distance=50&zip=22201&sourceContext=carSelectorAPI#listing=332098671/NONE'}, {'Make': 'Jeep', 'Model': 'Wrangler', 'Year': '2007', 'Mileage': '132,000 mi', 'Price': '$12,999', 'VIN': '1J4FA54107L209040 ', 'url': 'https://www.cargurus.com/Cars/inventorylisting/viewDetailsFilterViewInventoryListing.action?entitySelectingHelper.selectedEntity=d494&distance=50&zip=22201&sourceContext=carSelectorAPI#listing=331496697/NONE'}, {'Make': 'Jeep', 'Model': 'Wrangler', 'Year': '2008', 'Mileage': '106,979 mi', 'Price': '$13,795', 'VIN': '1J4FA24158L539790 ', 'url': 'https://www.cargurus.com/Cars/inventorylisting/viewDetailsFilterViewInventoryListing.action?entitySelectingHelper.selectedEntity=d494&distance=50&zip=22201&sourceContext=carSelectorAPI#listing=339532129/NONE'}, {'Make': 'Jeep', 'Model': 'Wrangler', 'Year': '2006', 'Mileage': '112,010 mi', 'Price': '$12,995', 'VIN': '1J4FA39S26P780588 ', 'url': 'https://www.cargurus.com/Cars/inventorylisting/viewDetailsFilterViewInventoryListing.action?entitySelectingHelper.selectedEntity=d494&distance=50&zip=22201&sourceContext=carSelectorAPI#listing=342304668/NONE'}, {'Make': 'Jeep', 'Model': 'Wrangler', 'Year': '2009', 'Mileage': '125,061 mi', 'Price': '$15,999', 'VIN': '1J4GA39109L735365 ', 'url': 'https://www.cargurus.com/Cars/inventorylisting/viewDetailsFilterViewInventoryListing.action?entitySelectingHelper.selectedEntity=d494&distance=50&zip=22201&sourceContext=carSelectorAPI#listing=339503231/NONE'}, {'Make': 'Jeep', 'Model': 'Wrangler', 'Year': '2006', 'Mileage': '89,900 mi', 'Price': '$13,000', 'VIN': '1J4FA29146P782375 ', 'url': 'https://www.cargurus.com/Cars/inventorylisting/viewDetailsFilterViewInventoryListing.action?entitySelectingHelper.selectedEntity=d494&distance=50&zip=22201&sourceContext=carSelectorAPI#listing=337404077/NONE'}, {'Make': 'Jeep', 'Model': 'Wrangler', 'Year': '2009', 'Mileage': '49,829 mi', 'Price': '$19,500', 'VIN': '1J8FA54149L744776 ', 'url': 'https://www.cargurus.com/Cars/inventorylisting/viewDetailsFilterViewInventoryListing.action?entitySelectingHelper.selectedEntity=d494&distance=50&zip=22201&sourceContext=carSelectorAPI#listing=339634889/NONE'}, {'Make': 'Jeep', 'Model': 'Wrangler', 'Year': '2000', 'Mileage': '146,926 mi', 'Price': '$9,950', 'VIN': '1J4FA49S7YP781003 ', 'url': 'https://www.cargurus.com/Cars/inventorylisting/viewDetailsFilterViewInventoryListing.action?entitySelectingHelper.selectedEntity=d494&distance=50&zip=22201&sourceContext=carSelectorAPI#listing=331341671/NONE'}, {'Make': 'Jeep', 'Model': 'Wrangler', 'Year': '2008', 'Mileage': '94,771 mi', 'Price': '$14,999', 'VIN': '1J4FA24168L511626 ', 'url': 'https://www.cargurus.com/Cars/inventorylisting/viewDetailsFilterViewInventoryListing.action?entitySelectingHelper.selectedEntity=d494&distance=50&zip=22201&sourceContext=carSelectorAPI#listing=339252679/NONE'}, {'Make': 'Jeep', 'Model': 'Wrangler', 'Year': '2009', 'Mileage': '106,558 mi', 'Price': '$16,995', 'VIN': '1J4GA39179L722225 ', 'url': 'https://www.cargurus.com/Cars/inventorylisting/viewDetailsFilterViewInventoryListing.action?entitySelectingHelper.selectedEntity=d494&distance=50&zip=22201&sourceContext=carSelectorAPI#listing=343007512/NONE'}, {'Make': 'Jeep', 'Model': 'Wrangler', 'Year': '2009', 'Mileage': '49,829 mi', 'Price': '$19,500', 'VIN': '1J8FA54149L744776 ', 'url': 'https://www.cargurus.com/Cars/inventorylisting/viewDetailsFilterViewInventoryListing.action?entitySelectingHelper.selectedEntity=d494&distance=50&zip=22201&sourceContext=carSelectorAPI#listing=339634889/PRIORITY'}, {'Make': 'Jeep', 'Model': 'Wrangler', 'Year': '2008', 'Mileage': '106,979 mi', 'Price': '$13,795', 'VIN': '1J4FA24158L539790 ', 'url': 'https://www.cargurus.com/Cars/inventorylisting/viewDetailsFilterViewInventoryListing.action?entitySelectingHelper.selectedEntity=d494&distance=50&zip=22201&sourceContext=carSelectorAPI#listing=339532129/FEATURED'}, {'Make': 'Jeep', 'Model': 'Wrangler', 'Year': '2009', 'Mileage': '106,558 mi', 'Price': '$16,995', 'VIN': '1J4GA39179L722225 ', 'url': 'https://www.cargurus.com/Cars/inventorylisting/viewDetailsFilterViewInventoryListing.action?entitySelectingHelper.selectedEntity=d494&distance=50&zip=22201&sourceContext=carSelectorAPI#listing=343007512/FEATURED'}, {'Make': 'Jeep', 'Model': 'Wrangler', 'Year': '2008', 'Mileage': '138,760 mi', 'Price': '$8,965', 'VIN': '1J4FA541X8L650157 ', 'url': 'https://www.cargurus.com/Cars/inventorylisting/viewDetailsFilterViewInventoryListing.action?entitySelectingHelper.selectedEntity=d494&distance=50&zip=22201&sourceContext=carSelectorAPI#listing=341704139/NONE'}, {'Make': 'Jeep', 'Model': 'Wrangler', 'Year': '2008', 'Mileage': '119,314 mi', 'Price': '$11,995', 'VIN': '1J4FA24198L632411 ', 'url': 'https://www.cargurus.com/Cars/inventorylisting/viewDetailsFilterViewInventoryListing.action?entitySelectingHelper.selectedEntity=d494&distance=50&zip=22201&sourceContext=carSelectorAPI#listing=341867468/NONE'}, {'Make': 'Jeep', 'Model': 'Wrangler', 'Year': '2005', 'Mileage': '132,600 mi', 'Price': '$9,750', 'VIN': '1J4F449SX5P368639 ', 'url': 'https://www.cargurus.com/Cars/inventorylisting/viewDetailsFilterViewInventoryListing.action?entitySelectingHelper.selectedEntity=d494&distance=50&zip=22201&sourceContext=carSelectorAPI#listing=328814103/NONE'}, {'Make': 'Jeep', 'Model': 'Wrangler', 'Year': '2006', 'Mileage': '117,112 mi', 'Price': '$11,999', 'VIN': '1J4FA39S06P720437 ', 'url': 'https://www.cargurus.com/Cars/inventorylisting/viewDetailsFilterViewInventoryListing.action?entitySelectingHelper.selectedEntity=d494&distance=50&zip=22201&sourceContext=carSelectorAPI#listing=343097486/NONE'}, {'Make': 'Jeep', 'Model': 'Wrangler', 'Year': '2008', 'Mileage': '240,000 mi', 'Price': '$8,500', 'VIN': '1J4GA59108L505349 ', 'url': 'https://www.cargurus.com/Cars/inventorylisting/viewDetailsFilterViewInventoryListing.action?entitySelectingHelper.selectedEntity=d494&distance=50&zip=22201&sourceContext=carSelectorAPI#listing=342113242/NONE'}, {'Make': 'Jeep', 'Model': 'Wrangler', 'Year': '2006', 'Mileage': '125,655 mi', 'Price': '$13,790', 'VIN': '1J4FA44S26P775467 ', 'url': 'https://www.cargurus.com/Cars/inventorylisting/viewDetailsFilterViewInventoryListing.action?entitySelectingHelper.selectedEntity=d494&distance=50&zip=22201&sourceContext=carSelectorAPI#listing=332098671/NONE'}, {'Make': 'Jeep', 'Model': 'Wrangler', 'Year': '2007', 'Mileage': '132,000 mi', 'Price': '$12,999', 'VIN': '1J4FA54107L209040 ', 'url': 'https://www.cargurus.com/Cars/inventorylisting/viewDetailsFilterViewInventoryListing.action?entitySelectingHelper.selectedEntity=d494&distance=50&zip=22201&sourceContext=carSelectorAPI#listing=331496697/NONE'}, {'Make': 'Jeep', 'Model': 'Wrangler', 'Year': '2008', 'Mileage': '106,979 mi', 'Price': '$13,795', 'VIN': '1J4FA24158L539790 ', 'url': 'https://www.cargurus.com/Cars/inventorylisting/viewDetailsFilterViewInventoryListing.action?entitySelectingHelper.selectedEntity=d494&distance=50&zip=22201&sourceContext=carSelectorAPI#listing=339532129/NONE'}, {'Make': 'Jeep', 'Model': 'Wrangler', 'Year': '2006', 'Mileage': '112,010 mi', 'Price': '$12,995', 'VIN': '1J4FA39S26P780588 ', 'url': 'https://www.cargurus.com/Cars/inventorylisting/viewDetailsFilterViewInventoryListing.action?entitySelectingHelper.selectedEntity=d494&distance=50&zip=22201&sourceContext=carSelectorAPI#listing=342304668/NONE'}, {'Make': 'Jeep', 'Model': 'Wrangler', 'Year': '2009', 'Mileage': '125,061 mi', 'Price': '$15,999', 'VIN': '1J4GA39109L735365 ', 'url': 'https://www.cargurus.com/Cars/inventorylisting/viewDetailsFilterViewInventoryListing.action?entitySelectingHelper.selectedEntity=d494&distance=50&zip=22201&sourceContext=carSelectorAPI#listing=339503231/NONE'}, {'Make': 'Jeep', 'Model': 'Wrangler', 'Year': '2006', 'Mileage': '89,900 mi', 'Price': '$13,000', 'VIN': '1J4FA29146P782375 ', 'url': 'https://www.cargurus.com/Cars/inventorylisting/viewDetailsFilterViewInventoryListing.action?entitySelectingHelper.selectedEntity=d494&distance=50&zip=22201&sourceContext=carSelectorAPI#listing=337404077/NONE'}, {'Make': 'Jeep', 'Model': 'Wrangler', 'Year': '2009', 'Mileage': '49,829 mi', 'Price': '$19,500', 'VIN': '1J8FA54149L744776 ', 'url': 'https://www.cargurus.com/Cars/inventorylisting/viewDetailsFilterViewInventoryListing.action?entitySelectingHelper.selectedEntity=d494&distance=50&zip=22201&sourceContext=carSelectorAPI#listing=339634889/NONE'}, {'Make': 'Jeep', 'Model': 'Wrangler', 'Year': '2000', 'Mileage': '146,926 mi', 'Price': '$9,950', 'VIN': '1J4FA49S7YP781003 ', 'url': 'https://www.cargurus.com/Cars/inventorylisting/viewDetailsFilterViewInventoryListing.action?entitySelectingHelper.selectedEntity=d494&distance=50&zip=22201&sourceContext=carSelectorAPI#listing=331341671/NONE'}, {'Make': 'Jeep', 'Model': 'Wrangler', 'Year': '2008', 'Mileage': '94,771 mi', 'Price': '$14,999', 'VIN': '1J4FA24168L511626 ', 'url': 'https://www.cargurus.com/Cars/inventorylisting/viewDetailsFilterViewInventoryListing.action?entitySelectingHelper.selectedEntity=d494&distance=50&zip=22201&sourceContext=carSelectorAPI#listing=339252679/NONE'}, {'Make': 'Jeep', 'Model': 'Wrangler', 'Year': '2009', 'Mileage': '106,558 mi', 'Price': '$16,995', 'VIN': '1J4GA39179L722225 ', 'url': 'https://www.cargurus.com/Cars/inventorylisting/viewDetailsFilterViewInventoryListing.action?entitySelectingHelper.selectedEntity=d494&distance=50&zip=22201&sourceContext=carSelectorAPI#listing=343007512/NONE'}, {'Make': 'Jeep', 'Model': 'Wrangler', 'Year': '2009', 'Mileage': '49,829 mi', 'Price': '$19,500', 'VIN': '1J8FA54149L744776 ', 'url': 'https://www.cargurus.com/Cars/inventorylisting/viewDetailsFilterViewInventoryListing.action?entitySelectingHelper.selectedEntity=d494&distance=50&zip=22201&sourceContext=carSelectorAPI#listing=339634889/PRIORITY'}, {'Make': 'Jeep', 'Model': 'Wrangler', 'Year': '2008', 'Mileage': '106,979 mi', 'Price': '$13,795', 'VIN': '1J4FA24158L539790 ', 'url': 'https://www.cargurus.com/Cars/inventorylisting/viewDetailsFilterViewInventoryListing.action?entitySelectingHelper.selectedEntity=d494&distance=50&zip=22201&sourceContext=carSelectorAPI#listing=339532129/FEATURED'}, {'Make': 'Jeep', 'Model': 'Wrangler', 'Year': '2009', 'Mileage': '106,558 mi', 'Price': '$16,995', 'VIN': '1J4GA39179L722225 ', 'url': 'https://www.cargurus.com/Cars/inventorylisting/viewDetailsFilterViewInventoryListing.action?entitySelectingHelper.selectedEntity=d494&distance=50&zip=22201&sourceContext=carSelectorAPI#listing=343007512/FEATURED'}, {'Make': 'Jeep', 'Model': 'Wrangler', 'Year': '2008', 'Mileage': '138,760 mi', 'Price': '$8,965', 'VIN': '1J4FA541X8L650157 ', 'url': 'https://www.cargurus.com/Cars/inventorylisting/viewDetailsFilterViewInventoryListing.action?entitySelectingHelper.selectedEntity=d494&distance=50&zip=22201&sourceContext=carSelectorAPI#listing=341704139/NONE'}, {'Make': 'Jeep', 'Model': 'Wrangler', 'Year': '2008', 'Mileage': '119,314 mi', 'Price': '$11,995', 'VIN': '1J4FA24198L632411 ', 'url': 'https://www.cargurus.com/Cars/inventorylisting/viewDetailsFilterViewInventoryListing.action?entitySelectingHelper.selectedEntity=d494&distance=50&zip=22201&sourceContext=carSelectorAPI#listing=341867468/NONE'}, {'Make': 'Jeep', 'Model': 'Wrangler', 'Year': '2005', 'Mileage': '132,600 mi', 'Price': '$9,750', 'VIN': '1J4F449SX5P368639 ', 'url': 'https://www.cargurus.com/Cars/inventorylisting/viewDetailsFilterViewInventoryListing.action?entitySelectingHelper.selectedEntity=d494&distance=50&zip=22201&sourceContext=carSelectorAPI#listing=328814103/NONE'}, {'Make': 'Jeep', 'Model': 'Wrangler', 'Year': '2006', 'Mileage': '117,112 mi', 'Price': '$11,999', 'VIN': '1J4FA39S06P720437 ', 'url': 'https://www.cargurus.com/Cars/inventorylisting/viewDetailsFilterViewInventoryListing.action?entitySelectingHelper.selectedEntity=d494&distance=50&zip=22201&sourceContext=carSelectorAPI#listing=343097486/NONE'}, {'Make': 'Jeep', 'Model': 'Wrangler', 'Year': '2008', 'Mileage': '240,000 mi', 'Price': '$8,500', 'VIN': '1J4GA59108L505349 ', 'url': 'https://www.cargurus.com/Cars/inventorylisting/viewDetailsFilterViewInventoryListing.action?entitySelectingHelper.selectedEntity=d494&distance=50&zip=22201&sourceContext=carSelectorAPI#listing=342113242/NONE'}, {'Make': 'Jeep', 'Model': 'Wrangler', 'Year': '2006', 'Mileage': '125,655 mi', 'Price': '$13,790', 'VIN': '1J4FA44S26P775467 ', 'url': 'https://www.cargurus.com/Cars/inventorylisting/viewDetailsFilterViewInventoryListing.action?entitySelectingHelper.selectedEntity=d494&distance=50&zip=22201&sourceContext=carSelectorAPI#listing=332098671/NONE'}, {'Make': 'Jeep', 'Model': 'Wrangler', 'Year': '2007', 'Mileage': '132,000 mi', 'Price': '$12,999', 'VIN': '1J4FA54107L209040 ', 'url': 'https://www.cargurus.com/Cars/inventorylisting/viewDetailsFilterViewInventoryListing.action?entitySelectingHelper.selectedEntity=d494&distance=50&zip=22201&sourceContext=carSelectorAPI#listing=331496697/NONE'}, {'Make': 'Jeep', 'Model': 'Wrangler', 'Year': '2008', 'Mileage': '106,979 mi', 'Price': '$13,795', 'VIN': '1J4FA24158L539790 ', 'url': 'https://www.cargurus.com/Cars/inventorylisting/viewDetailsFilterViewInventoryListing.action?entitySelectingHelper.selectedEntity=d494&distance=50&zip=22201&sourceContext=carSelectorAPI#listing=339532129/NONE'}, {'Make': 'Jeep', 'Model': 'Wrangler', 'Year': '2006', 'Mileage': '112,010 mi', 'Price': '$12,995', 'VIN': '1J4FA39S26P780588 ', 'url': 'https://www.cargurus.com/Cars/inventorylisting/viewDetailsFilterViewInventoryListing.action?entitySelectingHelper.selectedEntity=d494&distance=50&zip=22201&sourceContext=carSelectorAPI#listing=342304668/NONE'}, {'Make': 'Jeep', 'Model': 'Wrangler', 'Year': '2009', 'Mileage': '125,061 mi', 'Price': '$15,999', 'VIN': '1J4GA39109L735365 ', 'url': 'https://www.cargurus.com/Cars/inventorylisting/viewDetailsFilterViewInventoryListing.action?entitySelectingHelper.selectedEntity=d494&distance=50&zip=22201&sourceContext=carSelectorAPI#listing=339503231/NONE'}, {'Make': 'Jeep', 'Model': 'Wrangler', 'Year': '2006', 'Mileage': '89,900 mi', 'Price': '$13,000', 'VIN': '1J4FA29146P782375 ', 'url': 'https://www.cargurus.com/Cars/inventorylisting/viewDetailsFilterViewInventoryListing.action?entitySelectingHelper.selectedEntity=d494&distance=50&zip=22201&sourceContext=carSelectorAPI#listing=337404077/NONE'}, {'Make': 'Jeep', 'Model': 'Wrangler', 'Year': '2009', 'Mileage': '49,829 mi', 'Price': '$19,500', 'VIN': '1J8FA54149L744776 ', 'url': 'https://www.cargurus.com/Cars/inventorylisting/viewDetailsFilterViewInventoryListing.action?entitySelectingHelper.selectedEntity=d494&distance=50&zip=22201&sourceContext=carSelectorAPI#listing=339634889/NONE'}, {'Make': 'Jeep', 'Model': 'Wrangler', 'Year': '2000', 'Mileage': '146,926 mi', 'Price': '$9,950', 'VIN': '1J4FA49S7YP781003 ', 'url': 'https://www.cargurus.com/Cars/inventorylisting/viewDetailsFilterViewInventoryListing.action?entitySelectingHelper.selectedEntity=d494&distance=50&zip=22201&sourceContext=carSelectorAPI#listing=331341671/NONE'}, {'Make': 'Jeep', 'Model': 'Wrangler', 'Year': '2008', 'Mileage': '94,771 mi', 'Price': '$14,999', 'VIN': '1J4FA24168L511626 ', 'url': 'https://www.cargurus.com/Cars/inventorylisting/viewDetailsFilterViewInventoryListing.action?entitySelectingHelper.selectedEntity=d494&distance=50&zip=22201&sourceContext=carSelectorAPI#listing=339252679/NONE'}, {'Make': 'Jeep', 'Model': 'Wrangler', 'Year': '2009', 'Mileage': '106,558 mi', 'Price': '$16,995', 'VIN': '1J4GA39179L722225 ', 'url': 'https://www.cargurus.com/Cars/inventorylisting/viewDetailsFilterViewInventoryListing.action?entitySelectingHelper.selectedEntity=d494&distance=50&zip=22201&sourceContext=carSelectorAPI#listing=343007512/NONE'}, {'Make': 'Jeep', 'Model': 'Wrangler', 'Year': '2009', 'Mileage': '49,829 mi', 'Price': '$19,500', 'VIN': '1J8FA54149L744776 ', 'url': 'https://www.cargurus.com/Cars/inventorylisting/viewDetailsFilterViewInventoryListing.action?entitySelectingHelper.selectedEntity=d494&distance=50&zip=22201&sourceContext=carSelectorAPI#listing=339634889/PRIORITY'}, {'Make': 'Jeep', 'Model': 'Wrangler', 'Year': '2008', 'Mileage': '106,979 mi', 'Price': '$13,795', 'VIN': '1J4FA24158L539790 ', 'url': 'https://www.cargurus.com/Cars/inventorylisting/viewDetailsFilterViewInventoryListing.action?entitySelectingHelper.selectedEntity=d494&distance=50&zip=22201&sourceContext=carSelectorAPI#listing=339532129/FEATURED'}, {'Make': 'Jeep', 'Model': 'Wrangler', 'Year': '2009', 'Mileage': '106,558 mi', 'Price': '$16,995', 'VIN': '1J4GA39179L722225 ', 'url': 'https://www.cargurus.com/Cars/inventorylisting/viewDetailsFilterViewInventoryListing.action?entitySelectingHelper.selectedEntity=d494&distance=50&zip=22201&sourceContext=carSelectorAPI#listing=343007512/FEATURED'}, {'Make': 'Jeep', 'Model': 'Wrangler', 'Year': '2008', 'Mileage': '138,760 mi', 'Price': '$8,965', 'VIN': '1J4FA541X8L650157 ', 'url': 'https://www.cargurus.com/Cars/inventorylisting/viewDetailsFilterViewInventoryListing.action?entitySelectingHelper.selectedEntity=d494&distance=50&zip=22201&sourceContext=carSelectorAPI#listing=341704139/NONE'}, {'Make': 'Jeep', 'Model': 'Wrangler', 'Year': '2008', 'Mileage': '119,314 mi', 'Price': '$11,995', 'VIN': '1J4FA24198L632411 ', 'url': 'https://www.cargurus.com/Cars/inventorylisting/viewDetailsFilterViewInventoryListing.action?entitySelectingHelper.selectedEntity=d494&distance=50&zip=22201&sourceContext=carSelectorAPI#listing=341867468/NONE'}, {'Make': 'Jeep', 'Model': 'Wrangler', 'Year': '2005', 'Mileage': '132,600 mi', 'Price': '$9,750', 'VIN': '1J4F449SX5P368639 ', 'url': 'https://www.cargurus.com/Cars/inventorylisting/viewDetailsFilterViewInventoryListing.action?entitySelectingHelper.selectedEntity=d494&distance=50&zip=22201&sourceContext=carSelectorAPI#listing=328814103/NONE'}, {'Make': 'Jeep', 'Model': 'Wrangler', 'Year': '2006', 'Mileage': '117,112 mi', 'Price': '$11,999', 'VIN': '1J4FA39S06P720437 ', 'url': 'https://www.cargurus.com/Cars/inventorylisting/viewDetailsFilterViewInventoryListing.action?entitySelectingHelper.selectedEntity=d494&distance=50&zip=22201&sourceContext=carSelectorAPI#listing=343097486/NONE'}, {'Make': 'Jeep', 'Model': 'Wrangler', 'Year': '2008', 'Mileage': '240,000 mi', 'Price': '$8,500', 'VIN': '1J4GA59108L505349 ', 'url': 'https://www.cargurus.com/Cars/inventorylisting/viewDetailsFilterViewInventoryListing.action?entitySelectingHelper.selectedEntity=d494&distance=50&zip=22201&sourceContext=carSelectorAPI#listing=342113242/NONE'}, {'Make': 'Jeep', 'Model': 'Wrangler', 'Year': '2006', 'Mileage': '125,655 mi', 'Price': '$13,790', 'VIN': '1J4FA44S26P775467 ', 'url': 'https://www.cargurus.com/Cars/inventorylisting/viewDetailsFilterViewInventoryListing.action?entitySelectingHelper.selectedEntity=d494&distance=50&zip=22201&sourceContext=carSelectorAPI#listing=332098671/NONE'}, {'Make': 'Jeep', 'Model': 'Wrangler', 'Year': '2007', 'Mileage': '132,000 mi', 'Price': '$12,999', 'VIN': '1J4FA54107L209040 ', 'url': 'https://www.cargurus.com/Cars/inventorylisting/viewDetailsFilterViewInventoryListing.action?entitySelectingHelper.selectedEntity=d494&distance=50&zip=22201&sourceContext=carSelectorAPI#listing=331496697/NONE'}, {'Make': 'Jeep', 'Model': 'Wrangler', 'Year': '2008', 'Mileage': '106,979 mi', 'Price': '$13,795', 'VIN': '1J4FA24158L539790 ', 'url': 'https://www.cargurus.com/Cars/inventorylisting/viewDetailsFilterViewInventoryListing.action?entitySelectingHelper.selectedEntity=d494&distance=50&zip=22201&sourceContext=carSelectorAPI#listing=339532129/NONE'}, {'Make': 'Jeep', 'Model': 'Wrangler', 'Year': '2006', 'Mileage': '112,010 mi', 'Price': '$12,995', 'VIN': '1J4FA39S26P780588 ', 'url': 'https://www.cargurus.com/Cars/inventorylisting/viewDetailsFilterViewInventoryListing.action?entitySelectingHelper.selectedEntity=d494&distance=50&zip=22201&sourceContext=carSelectorAPI#listing=342304668/NONE'}, {'Make': 'Jeep', 'Model': 'Wrangler', 'Year': '2009', 'Mileage': '125,061 mi', 'Price': '$15,999', 'VIN': '1J4GA39109L735365 ', 'url': 'https://www.cargurus.com/Cars/inventorylisting/viewDetailsFilterViewInventoryListing.action?entitySelectingHelper.selectedEntity=d494&distance=50&zip=22201&sourceContext=carSelectorAPI#listing=339503231/NONE'}, {'Make': 'Jeep', 'Model': 'Wrangler', 'Year': '2006', 'Mileage': '89,900 mi', 'Price': '$13,000', 'VIN': '1J4FA29146P782375 ', 'url': 'https://www.cargurus.com/Cars/inventorylisting/viewDetailsFilterViewInventoryListing.action?entitySelectingHelper.selectedEntity=d494&distance=50&zip=22201&sourceContext=carSelectorAPI#listing=337404077/NONE'}, {'Make': 'Jeep', 'Model': 'Wrangler', 'Year': '2009', 'Mileage': '49,829 mi', 'Price': '$19,500', 'VIN': '1J8FA54149L744776 ', 'url': 'https://www.cargurus.com/Cars/inventorylisting/viewDetailsFilterViewInventoryListing.action?entitySelectingHelper.selectedEntity=d494&distance=50&zip=22201&sourceContext=carSelectorAPI#listing=339634889/NONE'}, {'Make': 'Jeep', 'Model': 'Wrangler', 'Year': '2000', 'Mileage': '146,926 mi', 'Price': '$9,950', 'VIN': '1J4FA49S7YP781003 ', 'url': 'https://www.cargurus.com/Cars/inventorylisting/viewDetailsFilterViewInventoryListing.action?entitySelectingHelper.selectedEntity=d494&distance=50&zip=22201&sourceContext=carSelectorAPI#listing=331341671/NONE'}, {'Make': 'Jeep', 'Model': 'Wrangler', 'Year': '2008', 'Mileage': '94,771 mi', 'Price': '$14,999', 'VIN': '1J4FA24168L511626 ', 'url': 'https://www.cargurus.com/Cars/inventorylisting/viewDetailsFilterViewInventoryListing.action?entitySelectingHelper.selectedEntity=d494&distance=50&zip=22201&sourceContext=carSelectorAPI#listing=339252679/NONE'}, {'Make': 'Jeep', 'Model': 'Wrangler', 'Year': '2009', 'Mileage': '106,558 mi', 'Price': '$16,995', 'VIN': '1J4GA39179L722225 ', 'url': 'https://www.cargurus.com/Cars/inventorylisting/viewDetailsFilterViewInventoryListing.action?entitySelectingHelper.selectedEntity=d494&distance=50&zip=22201&sourceContext=carSelectorAPI#listing=343007512/NONE'}, {'Make': 'Jeep', 'Model': 'Wrangler', 'Year': '2009', 'Mileage': '49,829 mi', 'Price': '$19,500', 'VIN': '1J8FA54149L744776 ', 'url': 'https://www.cargurus.com/Cars/inventorylisting/viewDetailsFilterViewInventoryListing.action?entitySelectingHelper.selectedEntity=d494&distance=50&zip=22201&sourceContext=carSelectorAPI#listing=339634889/PRIORITY'}, {'Make': 'Jeep', 'Model': 'Wrangler', 'Year': '2008', 'Mileage': '106,979 mi', 'Price': '$13,795', 'VIN': '1J4FA24158L539790 ', 'url': 'https://www.cargurus.com/Cars/inventorylisting/viewDetailsFilterViewInventoryListing.action?entitySelectingHelper.selectedEntity=d494&distance=50&zip=22201&sourceContext=carSelectorAPI#listing=339532129/FEATURED'}, {'Make': 'Jeep', 'Model': 'Wrangler', 'Year': '2009', 'Mileage': '106,558 mi', 'Price': '$16,995', 'VIN': '1J4GA39179L722225 ', 'url': 'https://www.cargurus.com/Cars/inventorylisting/viewDetailsFilterViewInventoryListing.action?entitySelectingHelper.selectedEntity=d494&distance=50&zip=22201&sourceContext=carSelectorAPI#listing=343007512/FEATURED'}, {'Make': 'Jeep', 'Model': 'Wrangler', 'Year': '2008', 'Mileage': '138,760 mi', 'Price': '$8,965', 'VIN': '1J4FA541X8L650157 ', 'url': 'https://www.cargurus.com/Cars/inventorylisting/viewDetailsFilterViewInventoryListing.action?entitySelectingHelper.selectedEntity=d494&distance=50&zip=22201&sourceContext=carSelectorAPI#listing=341704139/NONE'}, {'Make': 'Jeep', 'Model': 'Wrangler', 'Year': '2008', 'Mileage': '119,314 mi', 'Price': '$11,995', 'VIN': '1J4FA24198L632411 ', 'url': 'https://www.cargurus.com/Cars/inventorylisting/viewDetailsFilterViewInventoryListing.action?entitySelectingHelper.selectedEntity=d494&distance=50&zip=22201&sourceContext=carSelectorAPI#listing=341867468/NONE'}, {'Make': 'Jeep', 'Model': 'Wrangler', 'Year': '2005', 'Mileage': '132,600 mi', 'Price': '$9,750', 'VIN': '1J4F449SX5P368639 ', 'url': 'https://www.cargurus.com/Cars/inventorylisting/viewDetailsFilterViewInventoryListing.action?entitySelectingHelper.selectedEntity=d494&distance=50&zip=22201&sourceContext=carSelectorAPI#listing=328814103/NONE'}, {'Make': 'Jeep', 'Model': 'Wrangler', 'Year': '2006', 'Mileage': '117,112 mi', 'Price': '$11,999', 'VIN': '1J4FA39S06P720437 ', 'url': 'https://www.cargurus.com/Cars/inventorylisting/viewDetailsFilterViewInventoryListing.action?entitySelectingHelper.selectedEntity=d494&distance=50&zip=22201&sourceContext=carSelectorAPI#listing=343097486/NONE'}, {'Make': 'Jeep', 'Model': 'Wrangler', 'Year': '2008', 'Mileage': '240,000 mi', 'Price': '$8,500', 'VIN': '1J4GA59108L505349 ', 'url': 'https://www.cargurus.com/Cars/inventorylisting/viewDetailsFilterViewInventoryListing.action?entitySelectingHelper.selectedEntity=d494&distance=50&zip=22201&sourceContext=carSelectorAPI#listing=342113242/NONE'}, {'Make': 'Jeep', 'Model': 'Wrangler', 'Year': '2006', 'Mileage': '125,655 mi', 'Price': '$13,790', 'VIN': '1J4FA44S26P775467 ', 'url': 'https://www.cargurus.com/Cars/inventorylisting/viewDetailsFilterViewInventoryListing.action?entitySelectingHelper.selectedEntity=d494&distance=50&zip=22201&sourceContext=carSelectorAPI#listing=332098671/NONE'}, {'Make': 'Jeep', 'Model': 'Wrangler', 'Year': '2007', 'Mileage': '132,000 mi', 'Price': '$12,999', 'VIN': '1J4FA54107L209040 ', 'url': 'https://www.cargurus.com/Cars/inventorylisting/viewDetailsFilterViewInventoryListing.action?entitySelectingHelper.selectedEntity=d494&distance=50&zip=22201&sourceContext=carSelectorAPI#listing=331496697/NONE'}, {'Make': 'Jeep', 'Model': 'Wrangler', 'Year': '2008', 'Mileage': '106,979 mi', 'Price': '$13,795', 'VIN': '1J4FA24158L539790 ', 'url': 'https://www.cargurus.com/Cars/inventorylisting/viewDetailsFilterViewInventoryListing.action?entitySelectingHelper.selectedEntity=d494&distance=50&zip=22201&sourceContext=carSelectorAPI#listing=339532129/NONE'}, {'Make': 'Jeep', 'Model': 'Wrangler', 'Year': '2006', 'Mileage': '112,010 mi', 'Price': '$12,995', 'VIN': '1J4FA39S26P780588 ', 'url': 'https://www.cargurus.com/Cars/inventorylisting/viewDetailsFilterViewInventoryListing.action?entitySelectingHelper.selectedEntity=d494&distance=50&zip=22201&sourceContext=carSelectorAPI#listing=342304668/NONE'}, {'Make': 'Jeep', 'Model': 'Wrangler', 'Year': '2009', 'Mileage': '125,061 mi', 'Price': '$15,999', 'VIN': '1J4GA39109L735365 ', 'url': 'https://www.cargurus.com/Cars/inventorylisting/viewDetailsFilterViewInventoryListing.action?entitySelectingHelper.selectedEntity=d494&distance=50&zip=22201&sourceContext=carSelectorAPI#listing=339503231/NONE'}, {'Make': 'Jeep', 'Model': 'Wrangler', 'Year': '2006', 'Mileage': '89,900 mi', 'Price': '$13,000', 'VIN': '1J4FA29146P782375 ', 'url': 'https://www.cargurus.com/Cars/inventorylisting/viewDetailsFilterViewInventoryListing.action?entitySelectingHelper.selectedEntity=d494&distance=50&zip=22201&sourceContext=carSelectorAPI#listing=337404077/NONE'}, {'Make': 'Jeep', 'Model': 'Wrangler', 'Year': '2009', 'Mileage': '49,829 mi', 'Price': '$19,500', 'VIN': '1J8FA54149L744776 ', 'url': 'https://www.cargurus.com/Cars/inventorylisting/viewDetailsFilterViewInventoryListing.action?entitySelectingHelper.selectedEntity=d494&distance=50&zip=22201&sourceContext=carSelectorAPI#listing=339634889/NONE'}, {'Make': 'Jeep', 'Model': 'Wrangler', 'Year': '2000', 'Mileage': '146,926 mi', 'Price': '$9,950', 'VIN': '1J4FA49S7YP781003 ', 'url': 'https://www.cargurus.com/Cars/inventorylisting/viewDetailsFilterViewInventoryListing.action?entitySelectingHelper.selectedEntity=d494&distance=50&zip=22201&sourceContext=carSelectorAPI#listing=331341671/NONE'}, {'Make': 'Jeep', 'Model': 'Wrangler', 'Year': '2008', 'Mileage': '94,771 mi', 'Price': '$14,999', 'VIN': '1J4FA24168L511626 ', 'url': 'https://www.cargurus.com/Cars/inventorylisting/viewDetailsFilterViewInventoryListing.action?entitySelectingHelper.selectedEntity=d494&distance=50&zip=22201&sourceContext=carSelectorAPI#listing=339252679/NONE'}, {'Make': 'Jeep', 'Model': 'Wrangler', 'Year': '2009', 'Mileage': '106,558 mi', 'Price': '$16,995', 'VIN': '1J4GA39179L722225 ', 'url': 'https://www.cargurus.com/Cars/inventorylisting/viewDetailsFilterViewInventoryListing.action?entitySelectingHelper.selectedEntity=d494&distance=50&zip=22201&sourceContext=carSelectorAPI#listing=343007512/NONE'}, {'Make': 'Jeep', 'Model': 'Wrangler', 'Year': '2004', 'Mileage': '116,164 miles', 'Price': '$12,500', 'VIN': '1J4FA49S94P761541', 'url': 'https://www.edmunds.com/jeep/wrangler/2004/vin/1J4FA49S94P761541/?radius=50'}, {'Make': 'Jeep', 'Model': 'Wrangler', 'Year': '2009', 'Mileage': '140,000 miles', 'Price': '$13,999', 'VIN': '1J8GA69159L719162', 'url': 'https://www.edmunds.com/jeep/wrangler/2009/vin/1J8GA69159L719162/?radius=50'}, {'Make': 'Jeep', 'Model': 'Wrangler', 'Year': '2009', 'Mileage': '49,829 miles', 'Price': '$20,000', 'VIN': '1J8FA54149L744776', 'url': 'https://www.edmunds.com/jeep/wrangler/2009/vin/1J8FA54149L744776/?radius=50'}, {'Make': 'Jeep', 'Model': 'Wrangler', 'Year': '2009', 'Mileage': '134,380 miles', 'Price': '$13,950', 'VIN': '1J4FA54139L774935', 'url': 'https://www.edmunds.com/jeep/wrangler/2009/vin/1J4FA54139L774935/?radius=50'}, {'Make': 'Jeep', 'Model': 'Wrangler', 'Year': '2007', 'Mileage': '118,759 miles', 'Price': '$17,495', 'VIN': '1J4GA69167L211801', 'url': 'https://www.edmunds.com/jeep/wrangler/2007/vin/1J4GA69167L211801/?radius=50'}, {'Make': 'Jeep', 'Model': 'Wrangler', 'Year': '1999', 'Mileage': '102,522 miles', 'Price': '$8,250', 'VIN': '1J4FY29P9XP418051', 'url': 'https://www.edmunds.com/jeep/wrangler/1999/vin/1J4FY29P9XP418051/?radius=50'}, {'Make': 'Jeep', 'Model': 'Wrangler', 'Year': '2000', 'Mileage': '96,497 miles', 'Price': '$16,990', 'VIN': '1J4FA59S6YP712406', 'url': 'https://www.edmunds.com/jeep/wrangler/2000/vin/1J4FA59S6YP712406/?radius=50'}, {'Make': 'Jeep', 'Model': 'Wrangler', 'Year': '2008', 'Mileage': '121,818 miles', 'Price': '$19,092', 'VIN': '1J4GA59168L532085', 'url': 'https://www.edmunds.com/jeep/wrangler/2008/vin/1J4GA59168L532085/?radius=50'}, {'Make': 'Jeep', 'Model': 'Wrangler', 'Year': '2008', 'Mileage': '106,508 miles', 'Price': '$18,995', 'VIN': '1J4GA39118L509060', 'url': 'https://www.edmunds.com/jeep/wrangler/2008/vin/1J4GA39118L509060/?radius=50'}, {'Make': 'Jeep', 'Model': 'Wrangler', 'Year': '2008', 'Mileage': '115,690 miles', 'Price': '$14,999', 'VIN': '1J4GA59198L615719', 'url': 'https://www.edmunds.com/jeep/wrangler/2008/vin/1J4GA59198L615719/?radius=50'}, {'Make': 'Jeep', 'Model': 'Wrangler', 'Year': '2008', 'Mileage': '136,641 miles', 'Price': '$12,995', 'VIN': '1J4GA59128L505966', 'url': 'https://www.edmunds.com/jeep/wrangler/2008/vin/1J4GA59128L505966/?radius=50'}, {'Make': 'Jeep', 'Model': 'Wrangler', 'Year': '2008', 'Mileage': '175,353 miles', 'Price': '$12,995', 'VIN': '1J4GA59198L573634', 'url': 'https://www.edmunds.com/jeep/wrangler/2008/vin/1J4GA59198L573634/?radius=50'}, {'Make': 'Jeep', 'Model': 'Wrangler', 'Year': '2006', 'Mileage': '144,804 miles', 'Price': '$12,888', 'VIN': '1J4FA44S36P703757', 'url': 'https://www.edmunds.com/jeep/wrangler/2006/vin/1J4FA44S36P703757/?radius=50'}, {'Make': 'Jeep', 'Model': 'Wrangler', 'Year': '2006', 'Mileage': '89,900 miles', 'Price': '$13,000', 'VIN': '1J4FA29146P782375', 'url': 'https://www.edmunds.com/jeep/wrangler/2006/vin/1J4FA29146P782375/?radius=50'}, {'Make': 'Jeep', 'Model': 'Wrangler', 'Year': '2005', 'Mileage': '102,846 miles', 'Price': '$12,965', 'VIN': '1J4FA39S65P300115', 'url': 'https://www.edmunds.com/jeep/wrangler/2005/vin/1J4FA39S65P300115/?radius=50'}, {'Make': 'Jeep', 'Model': 'Wrangler', 'Year': '2000', 'Mileage': '93,093 miles', 'Price': '$8,500', 'VIN': '1J4FA29P0YP792635', 'url': 'https://www.edmunds.com/jeep/wrangler/2000/vin/1J4FA29P0YP792635/?radius=50'}, {'Make': 'Jeep', 'Model': 'Wrangler', 'Year': '2001', 'Mileage': '111,086 miles', 'Price': '$12,699', 'VIN': '1J4FA49S11P368189', 'url': 'https://www.edmunds.com/jeep/wrangler/2001/vin/1J4FA49S11P368189/?radius=50'}, {'Make': 'Jeep', 'Model': 'Wrangler', 'Year': '2008', 'Mileage': '128,964 miles', 'Price': '$13,999', 'VIN': '1J4FA24138L550142', 'url': 'https://www.edmunds.com/jeep/wrangler/2008/vin/1J4FA24138L550142/?radius=50'}, {'Make': 'Jeep', 'Model': 'Wrangler', 'Year': '2009', 'Mileage': '106,558 miles', 'Price': '$16,995', 'VIN': '1J4GA39179L722225', 'url': 'https://www.edmunds.com/jeep/wrangler/2009/vin/1J4GA39179L722225/?radius=50'}, {'Make': 'Jeep', 'Model': 'Wrangler', 'Year': '2009', 'Mileage': '79,801 miles', 'Price': '$16,900', 'VIN': '1J4GA591X9L704863', 'url': 'https://www.edmunds.com/jeep/wrangler/2009/vin/1J4GA591X9L704863/?radius=50'}, {'Make': 'Jeep', 'Model': 'Wrangler', 'Year': '2007', 'Mileage': '107,199 miles', 'Price': '$16,999', 'VIN': '1J8FA54157L134236', 'url': 'https://www.edmunds.com/jeep/wrangler/2007/vin/1J8FA54157L134236/?radius=50'}, {'Make': 'Jeep', 'Model': 'Wrangler', 'Year': '2009', 'Mileage': '101,977 miles', 'Price': '$17,990', 'VIN': '1J4GA391X9L737057', 'url': 'https://www.edmunds.com/jeep/wrangler/2009/vin/1J4GA391X9L737057/?radius=50'}, {'Make': 'Jeep', 'Model': 'Wrangler', 'Year': '2009', 'Mileage': '127,527 miles', 'Price': '$15,717', 'VIN': '1J4GA39159L754865', 'url': 'https://www.edmunds.com/jeep/wrangler/2009/vin/1J4GA39159L754865/?radius=50'}, {'Make': 'Jeep', 'Model': 'Wrangler', 'Year': '2008', 'Mileage': '138,766 miles', 'Price': '$16,000', 'VIN': '1J4GA59188L531925', 'url': 'https://www.edmunds.com/jeep/wrangler/2008/vin/1J4GA59188L531925/?radius=50'}, {'Make': 'Jeep', 'Model': 'Wrangler', 'Year': '2009', 'Mileage': '81,309 miles', 'Price': '$21,990', 'VIN': '1J4GA39169L741994', 'url': 'https://www.edmunds.com/jeep/wrangler/2009/vin/1J4GA39169L741994/?radius=50'}, {'Make': 'Jeep', 'Model': 'Wrangler', 'Year': '2001', 'Mileage': '149,674 miles', 'Price': '$6,855', 'VIN': '1J4FA29P21P311130', 'url': 'https://www.edmunds.com/jeep/wrangler/2001/vin/1J4FA29P21P311130/?radius=50'}, {'Make': 'Jeep', 'Model': 'Wrangler', 'Year': '2008', 'Mileage': '94,771 miles', 'Price': '$14,999', 'VIN': '1J4FA24168L511626', 'url': 'https://www.edmunds.com/jeep/wrangler/2008/vin/1J4FA24168L511626/?radius=50'}, {'Make': 'Jeep', 'Model': 'Wrangler', 'Year': '2004', 'Mileage': '100,402 miles', 'Price': '$16,277', 'VIN': '1J4FA39S04P771417', 'url': 'https://www.edmunds.com/jeep/wrangler/2004/vin/1J4FA39S04P771417/?radius=50'}, {'Make': 'Jeep', 'Model': 'Wrangler', 'Year': '2008', 'Mileage': '101,153 miles', 'Price': '$16,799', 'VIN': '1J8GA59158L520668', 'url': 'https://www.edmunds.com/jeep/wrangler/2008/vin/1J8GA59158L520668/?radius=50'}, {'Make': 'Jeep', 'Model': 'Wrangler', 'Year': '2006', 'Mileage': '125,655 miles', 'Price': '$13,790', 'VIN': '1J4FA44S26P775467', 'url': 'https://www.edmunds.com/jeep/wrangler/2006/vin/1J4FA44S26P775467/?radius=50'}, {'Make': 'Jeep', 'Model': 'Wrangler', 'Year': '2007', 'Mileage': '170,300 miles', 'Price': '$13,999', 'VIN': '1J4GA591X7L161463', 'url': 'https://www.edmunds.com/jeep/wrangler/2007/vin/1J4GA591X7L161463/?radius=50'}, {'Make': 'Jeep', 'Model': 'Wrangler', 'Year': '2009', 'Mileage': '125,061 miles', 'Price': '$15,999', 'VIN': '1J4GA39109L735365', 'url': 'https://www.edmunds.com/jeep/wrangler/2009/vin/1J4GA39109L735365/?radius=50'}, {'Make': 'Jeep', 'Model': 'Wrangler', 'Year': '2007', 'Mileage': '77,625 miles', 'Price': '$16,348', 'VIN': '1J4FA24117L218473', 'url': 'https://www.edmunds.com/jeep/wrangler/2007/vin/1J4FA24117L218473/?radius=50'}, {'Make': 'Jeep', 'Model': 'Wrangler', 'Year': '2007', 'Mileage': '87,398 miles', 'Price': '$15,984', 'VIN': '1J4FA24177L227016', 'url': 'https://www.edmunds.com/jeep/wrangler/2007/vin/1J4FA24177L227016/?radius=50'}, {'Make': 'Jeep', 'Model': 'Wrangler', 'Year': '2007', 'Mileage': '135,924 miles', 'Price': '$14,900', 'VIN': '1J4GA39167L105556', 'url': 'https://www.edmunds.com/jeep/wrangler/2007/vin/1J4GA39167L105556/?radius=50'}, {'Make': 'Jeep', 'Model': 'Wrangler', 'Year': '2006', 'Mileage': '112,010 miles', 'Price': '$15,995', 'VIN': '1J4FA39S26P780588', 'url': 'https://www.edmunds.com/jeep/wrangler/2006/vin/1J4FA39S26P780588/?radius=50'}, {'Make': 'Jeep', 'Model': 'Wrangler', 'Year': '2006', 'Mileage': '109,891 miles', 'Price': '$16,991', 'VIN': '1J4FA44S76P787243', 'url': 'https://www.edmunds.com/jeep/wrangler/2006/vin/1J4FA44S76P787243/?radius=50'}, {'Make': 'Jeep', 'Model': 'Wrangler', 'Year': '2008', 'Mileage': '119,314 miles', 'Price': '$11,995', 'VIN': '1J4FA24198L632411', 'url': 'https://www.edmunds.com/jeep/wrangler/2008/vin/1J4FA24198L632411/?radius=50'}, {'Make': 'Jeep', 'Model': 'Wrangler', 'Year': '2006', 'Mileage': '52,930 miles', 'Price': '$22,950', 'VIN': '1J4FA69S26P726211', 'url': 'https://www.edmunds.com/jeep/wrangler/2006/vin/1J4FA69S26P726211/?radius=50'}, {'Make': 'Jeep', 'Model': 'Wrangler', 'Year': '2004', 'Mileage': '116,164 miles', 'Price': '$12,500', 'VIN': '1J4FA49S94P761541', 'url': 'https://www.edmunds.com/jeep/wrangler/2004/vin/1J4FA49S94P761541/?radius=50'}, {'Make': 'Jeep', 'Model': 'Wrangler', 'Year': '2009', 'Mileage': '140,000 miles', 'Price': '$13,999', 'VIN': '1J8GA69159L719162', 'url': 'https://www.edmunds.com/jeep/wrangler/2009/vin/1J8GA69159L719162/?radius=50'}, {'Make': 'Jeep', 'Model': 'Wrangler', 'Year': '2009', 'Mileage': '49,829 miles', 'Price': '$20,000', 'VIN': '1J8FA54149L744776', 'url': 'https://www.edmunds.com/jeep/wrangler/2009/vin/1J8FA54149L744776/?radius=50'}, {'Make': 'Jeep', 'Model': 'Wrangler', 'Year': '2009', 'Mileage': '134,380 miles', 'Price': '$13,950', 'VIN': '1J4FA54139L774935', 'url': 'https://www.edmunds.com/jeep/wrangler/2009/vin/1J4FA54139L774935/?radius=50'}, {'Make': 'Jeep', 'Model': 'Wrangler', 'Year': '2007', 'Mileage': '118,759 miles', 'Price': '$17,495', 'VIN': '1J4GA69167L211801', 'url': 'https://www.edmunds.com/jeep/wrangler/2007/vin/1J4GA69167L211801/?radius=50'}, {'Make': 'Jeep', 'Model': 'Wrangler', 'Year': '1999', 'Mileage': '102,522 miles', 'Price': '$8,250', 'VIN': '1J4FY29P9XP418051', 'url': 'https://www.edmunds.com/jeep/wrangler/1999/vin/1J4FY29P9XP418051/?radius=50'}, {'Make': 'Jeep', 'Model': 'Wrangler', 'Year': '2000', 'Mileage': '96,497 miles', 'Price': '$16,990', 'VIN': '1J4FA59S6YP712406', 'url': 'https://www.edmunds.com/jeep/wrangler/2000/vin/1J4FA59S6YP712406/?radius=50'}, {'Make': 'Jeep', 'Model': 'Wrangler', 'Year': '2008', 'Mileage': '121,818 miles', 'Price': '$19,092', 'VIN': '1J4GA59168L532085', 'url': 'https://www.edmunds.com/jeep/wrangler/2008/vin/1J4GA59168L532085/?radius=50'}, {'Make': 'Jeep', 'Model': 'Wrangler', 'Year': '2008', 'Mileage': '106,508 miles', 'Price': '$18,995', 'VIN': '1J4GA39118L509060', 'url': 'https://www.edmunds.com/jeep/wrangler/2008/vin/1J4GA39118L509060/?radius=50'}, {'Make': 'Jeep', 'Model': 'Wrangler', 'Year': '2008', 'Mileage': '115,690 miles', 'Price': '$14,999', 'VIN': '1J4GA59198L615719', 'url': 'https://www.edmunds.com/jeep/wrangler/2008/vin/1J4GA59198L615719/?radius=50'}, {'Make': 'Jeep', 'Model': 'Wrangler', 'Year': '2008', 'Mileage': '136,641 miles', 'Price': '$12,995', 'VIN': '1J4GA59128L505966', 'url': 'https://www.edmunds.com/jeep/wrangler/2008/vin/1J4GA59128L505966/?radius=50'}, {'Make': 'Jeep', 'Model': 'Wrangler', 'Year': '2008', 'Mileage': '175,353 miles', 'Price': '$12,995', 'VIN': '1J4GA59198L573634', 'url': 'https://www.edmunds.com/jeep/wrangler/2008/vin/1J4GA59198L573634/?radius=50'}, {'Make': 'Jeep', 'Model': 'Wrangler', 'Year': '2006', 'Mileage': '144,804 miles', 'Price': '$12,888', 'VIN': '1J4FA44S36P703757', 'url': 'https://www.edmunds.com/jeep/wrangler/2006/vin/1J4FA44S36P703757/?radius=50'}, {'Make': 'Jeep', 'Model': 'Wrangler', 'Year': '2006', 'Mileage': '89,900 miles', 'Price': '$13,000', 'VIN': '1J4FA29146P782375', 'url': 'https://www.edmunds.com/jeep/wrangler/2006/vin/1J4FA29146P782375/?radius=50'}, {'Make': 'Jeep', 'Model': 'Wrangler', 'Year': '2005', 'Mileage': '102,846 miles', 'Price': '$12,965', 'VIN': '1J4FA39S65P300115', 'url': 'https://www.edmunds.com/jeep/wrangler/2005/vin/1J4FA39S65P300115/?radius=50'}, {'Make': 'Jeep', 'Model': 'Wrangler', 'Year': '2000', 'Mileage': '93,093 miles', 'Price': '$8,500', 'VIN': '1J4FA29P0YP792635', 'url': 'https://www.edmunds.com/jeep/wrangler/2000/vin/1J4FA29P0YP792635/?radius=50'}, {'Make': 'Jeep', 'Model': 'Wrangler', 'Year': '2001', 'Mileage': '111,086 miles', 'Price': '$12,699', 'VIN': '1J4FA49S11P368189', 'url': 'https://www.edmunds.com/jeep/wrangler/2001/vin/1J4FA49S11P368189/?radius=50'}, {'Make': 'Jeep', 'Model': 'Wrangler', 'Year': '2008', 'Mileage': '128,964 miles', 'Price': '$13,999', 'VIN': '1J4FA24138L550142', 'url': 'https://www.edmunds.com/jeep/wrangler/2008/vin/1J4FA24138L550142/?radius=50'}, {'Make': 'Jeep', 'Model': 'Wrangler', 'Year': '2009', 'Mileage': '106,558 miles', 'Price': '$16,995', 'VIN': '1J4GA39179L722225', 'url': 'https://www.edmunds.com/jeep/wrangler/2009/vin/1J4GA39179L722225/?radius=50'}, {'Make': 'Jeep', 'Model': 'Wrangler', 'Year': '2009', 'Mileage': '79,801 miles', 'Price': '$16,900', 'VIN': '1J4GA591X9L704863', 'url': 'https://www.edmunds.com/jeep/wrangler/2009/vin/1J4GA591X9L704863/?radius=50'}, {'Make': 'Jeep', 'Model': 'Wrangler', 'Year': '2007', 'Mileage': '107,199 miles', 'Price': '$16,999', 'VIN': '1J8FA54157L134236', 'url': 'https://www.edmunds.com/jeep/wrangler/2007/vin/1J8FA54157L134236/?radius=50'}, {'Make': 'Jeep', 'Model': 'Wrangler', 'Year': '2009', 'Mileage': '101,977 miles', 'Price': '$17,990', 'VIN': '1J4GA391X9L737057', 'url': 'https://www.edmunds.com/jeep/wrangler/2009/vin/1J4GA391X9L737057/?radius=50'}, {'Make': 'Jeep', 'Model': 'Wrangler', 'Year': '2009', 'Mileage': '127,527 miles', 'Price': '$15,717', 'VIN': '1J4GA39159L754865', 'url': 'https://www.edmunds.com/jeep/wrangler/2009/vin/1J4GA39159L754865/?radius=50'}, {'Make': 'Jeep', 'Model': 'Wrangler', 'Year': '2008', 'Mileage': '138,766 miles', 'Price': '$16,000', 'VIN': '1J4GA59188L531925', 'url': 'https://www.edmunds.com/jeep/wrangler/2008/vin/1J4GA59188L531925/?radius=50'}, {'Make': 'Jeep', 'Model': 'Wrangler', 'Year': '2009', 'Mileage': '81,309 miles', 'Price': '$21,990', 'VIN': '1J4GA39169L741994', 'url': 'https://www.edmunds.com/jeep/wrangler/2009/vin/1J4GA39169L741994/?radius=50'}, {'Make': 'Jeep', 'Model': 'Wrangler', 'Year': '2001', 'Mileage': '149,674 miles', 'Price': '$6,855', 'VIN': '1J4FA29P21P311130', 'url': 'https://www.edmunds.com/jeep/wrangler/2001/vin/1J4FA29P21P311130/?radius=50'}, {'Make': 'Jeep', 'Model': 'Wrangler', 'Year': '2008', 'Mileage': '94,771 miles', 'Price': '$14,999', 'VIN': '1J4FA24168L511626', 'url': 'https://www.edmunds.com/jeep/wrangler/2008/vin/1J4FA24168L511626/?radius=50'}, {'Make': 'Jeep', 'Model': 'Wrangler', 'Year': '2004', 'Mileage': '100,402 miles', 'Price': '$16,277', 'VIN': '1J4FA39S04P771417', 'url': 'https://www.edmunds.com/jeep/wrangler/2004/vin/1J4FA39S04P771417/?radius=50'}, {'Make': 'Jeep', 'Model': 'Wrangler', 'Year': '2008', 'Mileage': '101,153 miles', 'Price': '$16,799', 'VIN': '1J8GA59158L520668', 'url': 'https://www.edmunds.com/jeep/wrangler/2008/vin/1J8GA59158L520668/?radius=50'}, {'Make': 'Jeep', 'Model': 'Wrangler', 'Year': '2006', 'Mileage': '125,655 miles', 'Price': '$13,790', 'VIN': '1J4FA44S26P775467', 'url': 'https://www.edmunds.com/jeep/wrangler/2006/vin/1J4FA44S26P775467/?radius=50'}, {'Make': 'Jeep', 'Model': 'Wrangler', 'Year': '2007', 'Mileage': '170,300 miles', 'Price': '$13,999', 'VIN': '1J4GA591X7L161463', 'url': 'https://www.edmunds.com/jeep/wrangler/2007/vin/1J4GA591X7L161463/?radius=50'}, {'Make': 'Jeep', 'Model': 'Wrangler', 'Year': '2009', 'Mileage': '125,061 miles', 'Price': '$15,999', 'VIN': '1J4GA39109L735365', 'url': 'https://www.edmunds.com/jeep/wrangler/2009/vin/1J4GA39109L735365/?radius=50'}, {'Make': 'Jeep', 'Model': 'Wrangler', 'Year': '2007', 'Mileage': '77,625 miles', 'Price': '$16,348', 'VIN': '1J4FA24117L218473', 'url': 'https://www.edmunds.com/jeep/wrangler/2007/vin/1J4FA24117L218473/?radius=50'}, {'Make': 'Jeep', 'Model': 'Wrangler', 'Year': '2007', 'Mileage': '87,398 miles', 'Price': '$15,984', 'VIN': '1J4FA24177L227016', 'url': 'https://www.edmunds.com/jeep/wrangler/2007/vin/1J4FA24177L227016/?radius=50'}, {'Make': 'Jeep', 'Model': 'Wrangler', 'Year': '2007', 'Mileage': '135,924 miles', 'Price': '$14,900', 'VIN': '1J4GA39167L105556', 'url': 'https://www.edmunds.com/jeep/wrangler/2007/vin/1J4GA39167L105556/?radius=50'}, {'Make': 'Jeep', 'Model': 'Wrangler', 'Year': '2006', 'Mileage': '112,010 miles', 'Price': '$15,995', 'VIN': '1J4FA39S26P780588', 'url': 'https://www.edmunds.com/jeep/wrangler/2006/vin/1J4FA39S26P780588/?radius=50'}, {'Make': 'Jeep', 'Model': 'Wrangler', 'Year': '2006', 'Mileage': '109,891 miles', 'Price': '$16,991', 'VIN': '1J4FA44S76P787243', 'url': 'https://www.edmunds.com/jeep/wrangler/2006/vin/1J4FA44S76P787243/?radius=50'}, {'Make': 'Jeep', 'Model': 'Wrangler', 'Year': '2008', 'Mileage': '119,314 miles', 'Price': '$11,995', 'VIN': '1J4FA24198L632411', 'url': 'https://www.edmunds.com/jeep/wrangler/2008/vin/1J4FA24198L632411/?radius=50'}, {'Make': 'Jeep', 'Model': 'Wrangler', 'Year': '2006', 'Mileage': '52,930 miles', 'Price': '$22,950', 'VIN': '1J4FA69S26P726211', 'url': 'https://www.edmunds.com/jeep/wrangler/2006/vin/1J4FA69S26P726211/?radius=50'}, {'Make': 'Jeep', 'Model': 'Wrangler', 'Year': '2004', 'Mileage': '116,164 miles', 'Price': '$12,500', 'VIN': '1J4FA49S94P761541', 'url': 'https://www.edmunds.com/jeep/wrangler/2004/vin/1J4FA49S94P761541/?radius=50'}, {'Make': 'Jeep', 'Model': 'Wrangler', 'Year': '2009', 'Mileage': '140,000 miles', 'Price': '$13,999', 'VIN': '1J8GA69159L719162', 'url': 'https://www.edmunds.com/jeep/wrangler/2009/vin/1J8GA69159L719162/?radius=50'}, {'Make': 'Jeep', 'Model': 'Wrangler', 'Year': '2009', 'Mileage': '49,829 miles', 'Price': '$20,000', 'VIN': '1J8FA54149L744776', 'url': 'https://www.edmunds.com/jeep/wrangler/2009/vin/1J8FA54149L744776/?radius=50'}, {'Make': 'Jeep', 'Model': 'Wrangler', 'Year': '2009', 'Mileage': '134,380 miles', 'Price': '$13,950', 'VIN': '1J4FA54139L774935', 'url': 'https://www.edmunds.com/jeep/wrangler/2009/vin/1J4FA54139L774935/?radius=50'}, {'Make': 'Jeep', 'Model': 'Wrangler', 'Year': '2007', 'Mileage': '118,759 miles', 'Price': '$17,495', 'VIN': '1J4GA69167L211801', 'url': 'https://www.edmunds.com/jeep/wrangler/2007/vin/1J4GA69167L211801/?radius=50'}, {'Make': 'Jeep', 'Model': 'Wrangler', 'Year': '1999', 'Mileage': '102,522 miles', 'Price': '$8,250', 'VIN': '1J4FY29P9XP418051', 'url': 'https://www.edmunds.com/jeep/wrangler/1999/vin/1J4FY29P9XP418051/?radius=50'}, {'Make': 'Jeep', 'Model': 'Wrangler', 'Year': '2000', 'Mileage': '96,497 miles', 'Price': '$16,990', 'VIN': '1J4FA59S6YP712406', 'url': 'https://www.edmunds.com/jeep/wrangler/2000/vin/1J4FA59S6YP712406/?radius=50'}, {'Make': 'Jeep', 'Model': 'Wrangler', 'Year': '2008', 'Mileage': '121,818 miles', 'Price': '$19,092', 'VIN': '1J4GA59168L532085', 'url': 'https://www.edmunds.com/jeep/wrangler/2008/vin/1J4GA59168L532085/?radius=50'}, {'Make': 'Jeep', 'Model': 'Wrangler', 'Year': '2008', 'Mileage': '106,508 miles', 'Price': '$18,995', 'VIN': '1J4GA39118L509060', 'url': 'https://www.edmunds.com/jeep/wrangler/2008/vin/1J4GA39118L509060/?radius=50'}, {'Make': 'Jeep', 'Model': 'Wrangler', 'Year': '2008', 'Mileage': '115,690 miles', 'Price': '$14,999', 'VIN': '1J4GA59198L615719', 'url': 'https://www.edmunds.com/jeep/wrangler/2008/vin/1J4GA59198L615719/?radius=50'}, {'Make': 'Jeep', 'Model': 'Wrangler', 'Year': '2008', 'Mileage': '136,641 miles', 'Price': '$12,995', 'VIN': '1J4GA59128L505966', 'url': 'https://www.edmunds.com/jeep/wrangler/2008/vin/1J4GA59128L505966/?radius=50'}, {'Make': 'Jeep', 'Model': 'Wrangler', 'Year': '2008', 'Mileage': '175,353 miles', 'Price': '$12,995', 'VIN': '1J4GA59198L573634', 'url': 'https://www.edmunds.com/jeep/wrangler/2008/vin/1J4GA59198L573634/?radius=50'}, {'Make': 'Jeep', 'Model': 'Wrangler', 'Year': '2006', 'Mileage': '144,804 miles', 'Price': '$12,888', 'VIN': '1J4FA44S36P703757', 'url': 'https://www.edmunds.com/jeep/wrangler/2006/vin/1J4FA44S36P703757/?radius=50'}, {'Make': 'Jeep', 'Model': 'Wrangler', 'Year': '2006', 'Mileage': '89,900 miles', 'Price': '$13,000', 'VIN': '1J4FA29146P782375', 'url': 'https://www.edmunds.com/jeep/wrangler/2006/vin/1J4FA29146P782375/?radius=50'}, {'Make': 'Jeep', 'Model': 'Wrangler', 'Year': '2005', 'Mileage': '102,846 miles', 'Price': '$12,965', 'VIN': '1J4FA39S65P300115', 'url': 'https://www.edmunds.com/jeep/wrangler/2005/vin/1J4FA39S65P300115/?radius=50'}, {'Make': 'Jeep', 'Model': 'Wrangler', 'Year': '2000', 'Mileage': '93,093 miles', 'Price': '$8,500', 'VIN': '1J4FA29P0YP792635', 'url': 'https://www.edmunds.com/jeep/wrangler/2000/vin/1J4FA29P0YP792635/?radius=50'}, {'Make': 'Jeep', 'Model': 'Wrangler', 'Year': '2001', 'Mileage': '111,086 miles', 'Price': '$12,699', 'VIN': '1J4FA49S11P368189', 'url': 'https://www.edmunds.com/jeep/wrangler/2001/vin/1J4FA49S11P368189/?radius=50'}, {'Make': 'Jeep', 'Model': 'Wrangler', 'Year': '2008', 'Mileage': '128,964 miles', 'Price': '$13,999', 'VIN': '1J4FA24138L550142', 'url': 'https://www.edmunds.com/jeep/wrangler/2008/vin/1J4FA24138L550142/?radius=50'}, {'Make': 'Jeep', 'Model': 'Wrangler', 'Year': '2009', 'Mileage': '106,558 miles', 'Price': '$16,995', 'VIN': '1J4GA39179L722225', 'url': 'https://www.edmunds.com/jeep/wrangler/2009/vin/1J4GA39179L722225/?radius=50'}, {'Make': 'Jeep', 'Model': 'Wrangler', 'Year': '2006', 'Mileage': ' 109,891 miles ', 'Price': '$16,991 ', 'VIN': '1J4FA44S76P787243', 'url': '/used_cars/vehicle-detail/ul2162802476/jeep/wrangler'}, {'Make': 'Jeep', 'Model': 'Wrangler', 'Year': '2009', 'Mileage': ' 29,245 miles ', 'Price': '$22,990 ', 'VIN': '1J4FA24119L759719', 'url': '/used_cars/vehicle-detail/ul2164528523/jeep/wrangler'}, {'Make': 'Jeep', 'Model': 'Wrangler', 'Year': '2009', 'Mileage': ' 46,612 miles ', 'Price': '$20,990 ', 'VIN': '1J4FA24109L753717', 'url': '/used_cars/vehicle-detail/ul2165793293/jeep/wrangler'}, {'Make': 'Jeep', 'Model': 'Wrangler', 'Year': '2008', 'Mileage': ' 92,899 miles ', 'Price': '$20,000 ', 'VIN': '1J8GA59148L624892', 'url': '/used_cars/vehicle-detail/ul2165503399/jeep/wrangler'}, {'Make': 'Jeep', 'Model': 'Wrangler', 'Year': '2007', 'Mileage': ' 118,759 miles ', 'Price': '$17,495 ', 'VIN': '1J4GA69167L211801', 'url': '/used_cars/vehicle-detail/ul2158822339/jeep/wrangler'}, {'Make': 'Jeep', 'Model': 'Wrangler', 'Year': '2008', 'Mileage': ' 169,107 miles ', 'Price': '$11,881 ', 'VIN': '1J4FA24178L546319', 'url': '/used_cars/vehicle-detail/ul2164447606/jeep/wrangler'}, {'Make': 'Jeep', 'Model': 'Wrangler', 'Year': '2006', 'Mileage': ' 94,539 miles ', 'Price': '$16,978 ', 'VIN': '1J4FA39S16P705462', 'url': '/used_cars/vehicle-detail/ul2165300092/jeep/wrangler'}, {'Make': 'Jeep', 'Model': 'Wrangler', 'Year': '2006', 'Mileage': ' 54,461 miles ', 'Price': '$21,400 ', 'VIN': '1J4FA44S76P719041', 'url': '/used_cars/vehicle-detail/ul2126077537/jeep/wrangler'}, {'Make': 'Jeep', 'Model': 'Wrangler', 'Year': '2005', 'Mileage': ' 96,692 miles ', 'Price': '$18,900 ', 'VIN': '1J4FA39S45P304096', 'url': '/used_cars/vehicle-detail/ul2160248819/jeep/wrangler'}, {'Make': 'Jeep', 'Model': 'Wrangler', 'Year': '2008', 'Mileage': ' 129,148 miles ', 'Price': '$12,994 ', 'VIN': '1J4FA24118L533985', 'url': '/used_cars/vehicle-detail/ul2165431861/jeep/wrangler'}, {'Make': 'Jeep', 'Model': 'Wrangler', 'Year': '2008', 'Mileage': ' 138,766 miles ', 'Price': '$16,000 ', 'VIN': '1J4GA59188L531925', 'url': '/used_cars/vehicle-detail/ul2164972186/jeep/wrangler'}, {'Make': 'Jeep', 'Model': 'Wrangler', 'Year': '2008', 'Mileage': ' 126,903 miles ', 'Price': '$15,999 ', 'VIN': '1J4GA39138L646517', 'url': '/used_cars/vehicle-detail/ul2164780725/jeep/wrangler'}, {'Make': 'Jeep', 'Model': 'Wrangler', 'Year': '2001', 'Mileage': ' 67,801 miles ', 'Price': '$15,000 ', 'VIN': '1J4FA29P81P353950', 'url': '/used_cars/vehicle-detail/ul2153764246/jeep/wrangler'}, {'Make': 'Jeep', 'Model': 'Wrangler', 'Year': '2007', 'Mileage': ' 161,486 miles ', 'Price': '$13,743 ', 'VIN': '1J4FA54157L169439', 'url': '/used_cars/vehicle-detail/ul2165158826/jeep/wrangler'}, {'Make': 'Jeep', 'Model': 'Wrangler', 'Year': '2002', 'Mileage': ' 168,222 miles ', 'Price': '$10,995 ', 'VIN': '1J4FA49S02P702052', 'url': '/used_cars/vehicle-detail/ul2145195526/jeep/wrangler'}]
+Price:  14,500 Vin:  1J4FA39S14P722940
+{"vin":"1J4FA39S14P722940","vehicle":"2004 Jeep Wrangler X","mean":13700.66,"stdev":2978,"count":779,"mileage":117353,"certainty":99,"period":["2021-05-03","2022-10-14"],"prices":{"average":13700.66,"below":10722.24,"above":16679.08,"distribution":[{"group":{"min":6980,"max":9900,"count":78}},{"group":{"min":9900,"max":10995,"count":78}},{"group":{"min":10995,"max":11995,"count":78}},{"group":{"min":11995,"max":12991,"count":78}},{"group":{"min":12991,"max":13900,"count":78}},{"group":{"min":13900,"max":14500,"count":78}},{"group":{"min":14500,"max":15000,"count":78}},{"group":{"min":15000,"max":16100,"count":78}},{"group":{"min":16100,"max":17955,"count":78}},{"group":{"min":17955,"max":20000,"count":77}}]},"adjustments":{"mileage":{"average":117353.87,"input":117353.87,"adjustment":0}}}
+
+---------For VIN: 1J4FA39S14P722940  ---------
+AVERAGE: 13700.66
+BELOW: 10722.24
+ABOVE: 16679.08 
+
+
+Ratio:  0.9448731034482758
+Price:  12,500 Vin:  1J4FA49S94P761541
+{"vin":"1J4FA49S94P761541","vehicle":"2004 Jeep Wrangler Sport","mean":14023.92,"stdev":2998,"count":711,"mileage":124605,"certainty":99,"period":["2021-05-03","2022-10-14"],"prices":{"average":14023.92,"below":11025.88,"above":17021.96,"distribution":[{"group":{"min":7495,"max":9995,"count":72}},{"group":{"min":9995,"max":11326,"count":71}},{"group":{"min":11326,"max":12500,"count":71}},{"group":{"min":12500,"max":12999,"count":71}},{"group":{"min":12999,"max":13995,"count":71}},{"group":{"min":13995,"max":14888,"count":71}},{"group":{"min":14888,"max":15888,"count":71}},{"group":{"min":15888,"max":16732,"count":71}},{"group":{"min":16732,"max":17995,"count":71}},{"group":{"min":17995,"max":20995,"count":71}}]},"adjustments":{"mileage":{"average":124605.41,"input":124605.41,"adjustment":0}}}
+
+---------For VIN: 1J4FA49S94P761541  ---------
+AVERAGE: 14023.92
+BELOW: 11025.88
+ABOVE: 17021.96 
+
+
+Ratio:  1.1219136
+Price:  $19,500 Vin:  1J8FA54149L744776 
+{"message":"invalid vin"}
+Ratio:  0.0
+Price:  $13,795 Vin:  1J4FA24158L539790 
+{"message":"You have exceeded the rate limit per second for your plan, BASIC, by the API provider"}
+Ratio:  0.0
+Price:  $16,995 Vin:  1J4GA39179L722225 
+{"message":"You have exceeded the rate limit per second for your plan, BASIC, by the API provider"}
+Ratio:  0.0
+Price:  $8,965 Vin:  1J4FA541X8L650157 
+{"message":"You have exceeded the rate limit per second for your plan, BASIC, by the API provider"}
+Ratio:  0.0
+Price:  $11,995 Vin:  1J4FA24198L632411 
+{"message":"You have exceeded the rate limit per second for your plan, BASIC, by the API provider"}
+Ratio:  0.0
+Price:  $9,750 Vin:  1J4F449SX5P368639 
+{"message":"You have exceeded the rate limit per second for your plan, BASIC, by the API provider"}
+Ratio:  0.0
+Price:  $11,999 Vin:  1J4FA39S06P720437 
+{"message":"You have exceeded the rate limit per second for your plan, BASIC, by the API provider"}
+Ratio:  0.0
+Price:  $8,500 Vin:  1J4GA59108L505349 
+{"message":"You have exceeded the rate limit per second for your plan, BASIC, by the API provider"}
+Ratio:  0.0
+Price:  $13,790 Vin:  1J4FA44S26P775467 
+{"message":"You have exceeded the rate limit per second for your plan, BASIC, by the API provider"}
+Ratio:  0.0
+Price:  $12,999 Vin:  1J4FA54107L209040 
+{"message":"You have exceeded the rate limit per second for your plan, BASIC, by the API provider"}
+Ratio:  0.0
+Price:  $13,795 Vin:  1J4FA24158L539790 
+{"message":"You have exceeded the rate limit per second for your plan, BASIC, by the API provider"}
+Ratio:  0.0
+Price:  $12,995 Vin:  1J4FA39S26P780588 
+{"message":"You have exceeded the rate limit per second for your plan, BASIC, by the API provider"}
+Ratio:  0.0
+Price:  $15,999 Vin:  1J4GA39109L735365 
+{"message":"You have exceeded the rate limit per second for your plan, BASIC, by the API provider"}
+Ratio:  0.0
+Price:  $13,000 Vin:  1J4FA29146P782375 
+{"message":"You have exceeded the rate limit per second for your plan, BASIC, by the API provider"}
+Ratio:  0.0
+Price:  $19,500 Vin:  1J8FA54149L744776 
+{"message":"You have exceeded the rate limit per second for your plan, BASIC, by the API provider"}
+Ratio:  0.0
+Price:  $9,950 Vin:  1J4FA49S7YP781003 
+{"message":"You have exceeded the rate limit per second for your plan, BASIC, by the API provider"}
+Ratio:  0.0
+Price:  $14,999 Vin:  1J4FA24168L511626 
+{"message":"You have exceeded the rate limit per second for your plan, BASIC, by the API provider"}
+Ratio:  0.0
+Price:  $16,995 Vin:  1J4GA39179L722225 
+{"message":"You have exceeded the rate limit per second for your plan, BASIC, by the API provider"}
+Ratio:  0.0
+Price:  $19,500 Vin:  1J8FA54149L744776 
+{"message":"You have exceeded the rate limit per second for your plan, BASIC, by the API provider"}
+Ratio:  0.0
+Price:  $13,795 Vin:  1J4FA24158L539790 
+{"message":"You have exceeded the rate limit per second for your plan, BASIC, by the API provider"}
+Ratio:  0.0
+Price:  $16,995 Vin:  1J4GA39179L722225 
+{"message":"You have exceeded the rate limit per second for your plan, BASIC, by the API provider"}
+Ratio:  0.0
+Price:  $8,965 Vin:  1J4FA541X8L650157 
+{"message":"You have exceeded the rate limit per second for your plan, BASIC, by the API provider"}
+Ratio:  0.0
+Price:  $11,995 Vin:  1J4FA24198L632411 
+{"message":"You have exceeded the rate limit per second for your plan, BASIC, by the API provider"}
+Ratio:  0.0
+Price:  $9,750 Vin:  1J4F449SX5P368639 
+{"message":"You have exceeded the rate limit per second for your plan, BASIC, by the API provider"}
+Ratio:  0.0
+Price:  $11,999 Vin:  1J4FA39S06P720437 
+{"message":"You have exceeded the rate limit per second for your plan, BASIC, by the API provider"}
+Ratio:  0.0
+Price:  $8,500 Vin:  1J4GA59108L505349 
+{"message":"You have exceeded the rate limit per second for your plan, BASIC, by the API provider"}
+Ratio:  0.0
+Price:  $13,790 Vin:  1J4FA44S26P775467 
+{"message":"You have exceeded the rate limit per second for your plan, BASIC, by the API provider"}
+Ratio:  0.0
+Price:  $12,999 Vin:  1J4FA54107L209040 
+{"message":"You have exceeded the rate limit per second for your plan, BASIC, by the API provider"}
+Ratio:  0.0
+Price:  $13,795 Vin:  1J4FA24158L539790 
+{"message":"You have exceeded the rate limit per second for your plan, BASIC, by the API provider"}
+Ratio:  0.0
+Price:  $12,995 Vin:  1J4FA39S26P780588 
+{"message":"You have exceeded the rate limit per second for your plan, BASIC, by the API provider"}
+Ratio:  0.0
+Price:  $15,999 Vin:  1J4GA39109L735365 
+{"message":"You have exceeded the rate limit per second for your plan, BASIC, by the API provider"}
+Ratio:  0.0
+Price:  $13,000 Vin:  1J4FA29146P782375 
+{"message":"You have exceeded the rate limit per second for your plan, BASIC, by the API provider"}
+Ratio:  0.0
+Price:  $19,500 Vin:  1J8FA54149L744776 
+{"message":"You have exceeded the rate limit per second for your plan, BASIC, by the API provider"}
+Ratio:  0.0
+Price:  $9,950 Vin:  1J4FA49S7YP781003 
+{"message":"You have exceeded the rate limit per second for your plan, BASIC, by the API provider"}
+Ratio:  0.0
+Price:  $14,999 Vin:  1J4FA24168L511626 
+{"message":"You have exceeded the rate limit per second for your plan, BASIC, by the API provider"}
+Ratio:  0.0
+Price:  $16,995 Vin:  1J4GA39179L722225 
+{"message":"You have exceeded the rate limit per second for your plan, BASIC, by the API provider"}
+Ratio:  0.0
+Price:  $19,500 Vin:  1J8FA54149L744776 
+{"message":"You have exceeded the rate limit per second for your plan, BASIC, by the API provider"}
+Ratio:  0.0
+Price:  $13,795 Vin:  1J4FA24158L539790 
+{"message":"You have exceeded the rate limit per second for your plan, BASIC, by the API provider"}
+Ratio:  0.0
+Price:  $16,995 Vin:  1J4GA39179L722225 
+{"message":"You have exceeded the rate limit per second for your plan, BASIC, by the API provider"}
+Ratio:  0.0
+Price:  $8,965 Vin:  1J4FA541X8L650157 
+{"message":"You have exceeded the rate limit per second for your plan, BASIC, by the API provider"}
+Ratio:  0.0
+Price:  $11,995 Vin:  1J4FA24198L632411 
+{"message":"You have exceeded the rate limit per second for your plan, BASIC, by the API provider"}
+Ratio:  0.0
+Price:  $9,750 Vin:  1J4F449SX5P368639 
+{"message":"You have exceeded the rate limit per second for your plan, BASIC, by the API provider"}
+Ratio:  0.0
+Price:  $11,999 Vin:  1J4FA39S06P720437 
+{"message":"You have exceeded the rate limit per second for your plan, BASIC, by the API provider"}
+Ratio:  0.0
+Price:  $8,500 Vin:  1J4GA59108L505349 
+{"message":"You have exceeded the rate limit per second for your plan, BASIC, by the API provider"}
+Ratio:  0.0
+Price:  $13,790 Vin:  1J4FA44S26P775467 
+{"message":"You have exceeded the rate limit per second for your plan, BASIC, by the API provider"}
+Ratio:  0.0
+Price:  $12,999 Vin:  1J4FA54107L209040 
+{"message":"You have exceeded the rate limit per second for your plan, BASIC, by the API provider"}
+Ratio:  0.0
+Price:  $13,795 Vin:  1J4FA24158L539790 
+{"message":"You have exceeded the rate limit per second for your plan, BASIC, by the API provider"}
+Ratio:  0.0
+Price:  $12,995 Vin:  1J4FA39S26P780588 
+{"message":"You have exceeded the rate limit per second for your plan, BASIC, by the API provider"}
+Ratio:  0.0
+Price:  $15,999 Vin:  1J4GA39109L735365 
+{"message":"You have exceeded the rate limit per second for your plan, BASIC, by the API provider"}
+Ratio:  0.0
+Price:  $13,000 Vin:  1J4FA29146P782375 
+{"message":"You have exceeded the rate limit per second for your plan, BASIC, by the API provider"}
+Ratio:  0.0
+Price:  $19,500 Vin:  1J8FA54149L744776 
+{"message":"You have exceeded the rate limit per second for your plan, BASIC, by the API provider"}
+Ratio:  0.0
+Price:  $9,950 Vin:  1J4FA49S7YP781003 
+{"message":"You have exceeded the rate limit per second for your plan, BASIC, by the API provider"}
+Ratio:  0.0
+Price:  $14,999 Vin:  1J4FA24168L511626 
+{"message":"You have exceeded the rate limit per second for your plan, BASIC, by the API provider"}
+Ratio:  0.0
+Price:  $16,995 Vin:  1J4GA39179L722225 
+{"message":"You have exceeded the rate limit per second for your plan, BASIC, by the API provider"}
+Ratio:  0.0
+Price:  $19,500 Vin:  1J8FA54149L744776 
+{"message":"You have exceeded the rate limit per second for your plan, BASIC, by the API provider"}
+Ratio:  0.0
+Price:  $13,795 Vin:  1J4FA24158L539790 
+{"message":"You have exceeded the rate limit per second for your plan, BASIC, by the API provider"}
+Ratio:  0.0
+Price:  $16,995 Vin:  1J4GA39179L722225 
+{"message":"You have exceeded the rate limit per second for your plan, BASIC, by the API provider"}
+Ratio:  0.0
+Price:  $8,965 Vin:  1J4FA541X8L650157 
+{"message":"You have exceeded the rate limit per second for your plan, BASIC, by the API provider"}
+Ratio:  0.0
+Price:  $11,995 Vin:  1J4FA24198L632411 
+{"message":"You have exceeded the rate limit per second for your plan, BASIC, by the API provider"}
+Ratio:  0.0
+Price:  $9,750 Vin:  1J4F449SX5P368639 
+{"message":"You have exceeded the rate limit per second for your plan, BASIC, by the API provider"}
+Ratio:  0.0
+Price:  $11,999 Vin:  1J4FA39S06P720437 
+{"message":"You have exceeded the rate limit per second for your plan, BASIC, by the API provider"}
+Ratio:  0.0
+Price:  $8,500 Vin:  1J4GA59108L505349 
+{"message":"You have exceeded the rate limit per second for your plan, BASIC, by the API provider"}
+Ratio:  0.0
+Price:  $13,790 Vin:  1J4FA44S26P775467 
+{"message":"You have exceeded the rate limit per second for your plan, BASIC, by the API provider"}
+Ratio:  0.0
+Price:  $12,999 Vin:  1J4FA54107L209040 
+{"message":"You have exceeded the rate limit per second for your plan, BASIC, by the API provider"}
+Ratio:  0.0
+Price:  $13,795 Vin:  1J4FA24158L539790 
+{"message":"You have exceeded the rate limit per second for your plan, BASIC, by the API provider"}
+Ratio:  0.0
+Price:  $12,995 Vin:  1J4FA39S26P780588 
+{"message":"You have exceeded the rate limit per second for your plan, BASIC, by the API provider"}
+Ratio:  0.0
+Price:  $15,999 Vin:  1J4GA39109L735365 
+{"message":"You have exceeded the rate limit per second for your plan, BASIC, by the API provider"}
+Ratio:  0.0
+Price:  $13,000 Vin:  1J4FA29146P782375 
+{"message":"You have exceeded the rate limit per second for your plan, BASIC, by the API provider"}
+Ratio:  0.0
+Price:  $19,500 Vin:  1J8FA54149L744776 
+{"message":"You have exceeded the rate limit per second for your plan, BASIC, by the API provider"}
+Ratio:  0.0
+Price:  $9,950 Vin:  1J4FA49S7YP781003 
+{"message":"You have exceeded the rate limit per second for your plan, BASIC, by the API provider"}
+Ratio:  0.0
+Price:  $14,999 Vin:  1J4FA24168L511626 
+{"message":"You have exceeded the rate limit per second for your plan, BASIC, by the API provider"}
+Ratio:  0.0
+Price:  $16,995 Vin:  1J4GA39179L722225 
+{"message":"invalid vin"}
+Ratio:  0.0
+Price:  $19,500 Vin:  1J8FA54149L744776 
+{"message":"invalid vin"}
+Ratio:  0.0
+Price:  $13,795 Vin:  1J4FA24158L539790 
+{"message":"invalid vin"}
+Ratio:  0.0
+Price:  $16,995 Vin:  1J4GA39179L722225 
+{"message":"invalid vin"}
+Ratio:  0.0
+Price:  $8,965 Vin:  1J4FA541X8L650157 
+{"message":"invalid vin"}
+Ratio:  0.0
+Price:  $11,995 Vin:  1J4FA24198L632411 
+{"message":"You have exceeded the rate limit per second for your plan, BASIC, by the API provider"}
+Ratio:  0.0
+Price:  $9,750 Vin:  1J4F449SX5P368639 
+{"message":"invalid vin"}
+Ratio:  0.0
+Price:  $11,999 Vin:  1J4FA39S06P720437 
+{"message":"You have exceeded the rate limit per second for your plan, BASIC, by the API provider"}
+Ratio:  0.0
+Price:  $8,500 Vin:  1J4GA59108L505349 
+{"message":"You have exceeded the rate limit per second for your plan, BASIC, by the API provider"}
+Ratio:  0.0
+Price:  $13,790 Vin:  1J4FA44S26P775467 
+{"message":"invalid vin"}
+Ratio:  0.0
+Price:  $12,999 Vin:  1J4FA54107L209040 
+{"message":"You have exceeded the rate limit per second for your plan, BASIC, by the API provider"}
+Ratio:  0.0
+Price:  $13,795 Vin:  1J4FA24158L539790 
+{"message":"You have exceeded the rate limit per second for your plan, BASIC, by the API provider"}
+Ratio:  0.0
+Price:  $12,995 Vin:  1J4FA39S26P780588 
+{"message":"You have exceeded the rate limit per second for your plan, BASIC, by the API provider"}
+Ratio:  0.0
+Price:  $15,999 Vin:  1J4GA39109L735365 
+{"message":"You have exceeded the rate limit per second for your plan, BASIC, by the API provider"}
+Ratio:  0.0
+Price:  $13,000 Vin:  1J4FA29146P782375 
+{"message":"You have exceeded the rate limit per second for your plan, BASIC, by the API provider"}
+Ratio:  0.0
+Price:  $19,500 Vin:  1J8FA54149L744776 
+{"message":"You have exceeded the rate limit per second for your plan, BASIC, by the API provider"}
+Ratio:  0.0
+Price:  $9,950 Vin:  1J4FA49S7YP781003 
+{"message":"You have exceeded the rate limit per second for your plan, BASIC, by the API provider"}
+Ratio:  0.0
+Price:  $14,999 Vin:  1J4FA24168L511626 
+{"message":"You have exceeded the rate limit per second for your plan, BASIC, by the API provider"}
+Ratio:  0.0
+Price:  $16,995 Vin:  1J4GA39179L722225 
+{"message":"You have exceeded the rate limit per second for your plan, BASIC, by the API provider"}
+Ratio:  0.0
+Price:  $12,500 Vin:  1J4FA49S94P761541
+{"message":"You have exceeded the rate limit per second for your plan, BASIC, by the API provider"}
+
+---------For VIN: 1J4FA49S94P761541  ---------
+AVERAGE: 14023.92
+BELOW: 11025.88
+ABOVE: 17021.96 
+
+
+Ratio:  1.1219136
+Price:  $13,999 Vin:  1J8GA69159L719162
+{"vin":"1J8GA69159L719162","vehicle":"2009 Jeep Wrangler Unlimited Rubicon","mean":21590.73,"stdev":3845,"count":468,"mileage":116634,"certainty":99,"period":["2021-05-04","2022-10-14"],"prices":{"average":21590.73,"below":17745.61,"above":25435.85,"distribution":[{"group":{"min":11795,"max":16750,"count":47}},{"group":{"min":16750,"max":18669,"count":47}},{"group":{"min":18669,"max":19499,"count":47}},{"group":{"min":19499,"max":19995,"count":47}},{"group":{"min":19995,"max":20999,"count":47}},{"group":{"min":20999,"max":22681,"count":46}},{"group":{"min":22681,"max":23771,"count":47}},{"group":{"min":23771,"max":24950,"count":47}},{"group":{"min":24950,"max":26995,"count":47}},{"group":{"min":26995,"max":30977,"count":46}}]},"adjustments":{"mileage":{"average":116634.45,"input":116634.45,"adjustment":0}}}
+
+---------For VIN: 1J8GA69159L719162  ---------
+AVERAGE: 21590.73
+BELOW: 17745.61
+ABOVE: 25435.85 
+
+
+Ratio:  1.5423051646546182
+Price:  $20,000 Vin:  1J8FA54149L744776
+{"vin":"1J8FA54149L744776","vehicle":"2009 Jeep Wrangler Sahara","mean":17504.31,"stdev":2751,"count":428,"mileage":112930,"certainty":99,"period":["2021-05-03","2022-10-14"],"prices":{"average":17504.31,"below":14753.09,"above":20255.53,"distribution":[{"group":{"min":9900,"max":13995,"count":43}},{"group":{"min":13995,"max":14999,"count":43}},{"group":{"min":14999,"max":15995,"count":43}},{"group":{"min":15995,"max":16980,"count":43}},{"group":{"min":16980,"max":17631,"count":43}},{"group":{"min":17631,"max":17995,"count":42}},{"group":{"min":17995,"max":18980,"count":43}},{"group":{"min":18980,"max":19553,"count":43}},{"group":{"min":19553,"max":20990,"count":43}},{"group":{"min":20990,"max":25850,"count":42}}]},"adjustments":{"mileage":{"average":112930.47,"input":112930.47,"adjustment":0}}}
+
+---------For VIN: 1J8FA54149L744776  ---------
+AVERAGE: 17504.31
+BELOW: 14753.09
+ABOVE: 20255.53 
+
+
+Ratio:  0.8752155
+Price:  $13,950 Vin:  1J4FA54139L774935
+{"vin":"1J4FA54139L774935","vehicle":"2009 Jeep Wrangler Sahara","mean":17504.31,"stdev":2751,"count":428,"mileage":112930,"certainty":99,"period":["2021-05-03","2022-10-14"],"prices":{"average":17504.31,"below":14753.09,"above":20255.53,"distribution":[{"group":{"min":9900,"max":13995,"count":43}},{"group":{"min":13995,"max":14999,"count":43}},{"group":{"min":14999,"max":15995,"count":43}},{"group":{"min":15995,"max":16980,"count":43}},{"group":{"min":16980,"max":17631,"count":43}},{"group":{"min":17631,"max":17995,"count":42}},{"group":{"min":17995,"max":18980,"count":43}},{"group":{"min":18980,"max":19553,"count":43}},{"group":{"min":19553,"max":20990,"count":43}},{"group":{"min":20990,"max":25850,"count":42}}]},"adjustments":{"mileage":{"average":112930.47,"input":112930.47,"adjustment":0}}}
+
+---------For VIN: 1J4FA54139L774935  ---------
+AVERAGE: 17504.31
+BELOW: 14753.09
+ABOVE: 20255.53 
+
+
+Ratio:  1.254789247311828
+Price:  $17,495 Vin:  1J4GA69167L211801
+{"vin":"1J4GA69167L211801","vehicle":"2007 Jeep Wrangler Unlimited Rubicon","mean":18721.24,"stdev":3348,"count":268,"mileage":126711,"certainty":99,"period":["2021-05-05","2022-10-14"],"prices":{"average":18721.24,"below":15372.85,"above":22069.63,"distribution":[{"group":{"min":10000,"max":14450,"count":27}},{"group":{"min":14450,"max":15900,"count":27}},{"group":{"min":15900,"max":16971,"count":27}},{"group":{"min":16971,"max":17500,"count":27}},{"group":{"min":17500,"max":18789,"count":27}},{"group":{"min":18789,"max":19495,"count":26}},{"group":{"min":19495,"max":19998,"count":27}},{"group":{"min":19998,"max":21900,"count":27}},{"group":{"min":21900,"max":22999,"count":27}},{"group":{"min":22999,"max":26999,"count":26}}]},"adjustments":{"mileage":{"average":126711.25,"input":126711.25,"adjustment":0}}}
+
+---------For VIN: 1J4GA69167L211801  ---------
+AVERAGE: 18721.24
+BELOW: 15372.85
+ABOVE: 22069.63 
+
+
+Ratio:  1.07009088310946
+Price:  $8,250 Vin:  1J4FY29P9XP418051
+{"vin":"1J4FY29P9XP418051","vehicle":"1999 Jeep Wrangler SE","mean":9662.4,"stdev":1938,"count":152,"mileage":134374,"certainty":99,"period":["2021-05-09","2022-10-14"],"prices":{"average":9662.4,"below":7723.69,"above":11601.11,"distribution":[{"group":{"min":5000,"max":7200,"count":16}},{"group":{"min":7200,"max":7981,"count":15}},{"group":{"min":7981,"max":8500,"count":15}},{"group":{"min":8500,"max":8995,"count":15}},{"group":{"min":8995,"max":9988,"count":16}},{"group":{"min":9988,"max":9995,"count":15}},{"group":{"min":9995,"max":10789,"count":15}},{"group":{"min":10789,"max":10999,"count":15}},{"group":{"min":10999,"max":11995,"count":15}},{"group":{"min":11995,"max":14991,"count":15}}]},"adjustments":{"mileage":{"average":134374.95,"input":134374.95,"adjustment":0}}}
+
+---------For VIN: 1J4FY29P9XP418051  ---------
+AVERAGE: 9662.4
+BELOW: 7723.69
+ABOVE: 11601.11 
+
+
+Ratio:  1.1712
+Price:  $16,990 Vin:  1J4FA59S6YP712406
+{"message":"You have exceeded the rate limit per second for your plan, BASIC, by the API provider"}
+
+---------For VIN: 1J4FA59S6YP712406  ---------
+AVERAGE: 12442.59
+BELOW: 9453.44
+ABOVE: 15431.74 
+
+
+Ratio:  0.7323478516774573
+Price:  $19,092 Vin:  1J4GA59168L532085
+{"vin":"1J4GA59168L532085","vehicle":"2008 Jeep Wrangler Unlimited Sahara","mean":17375.16,"stdev":2840,"count":2520,"mileage":138622,"certainty":99,"period":["2021-05-03","2022-10-14"],"prices":{"average":17375.16,"below":14534.36,"above":20215.96,"distribution":[{"group":{"min":8750,"max":13950,"count":253}},{"group":{"min":13950,"max":14995,"count":252}},{"group":{"min":14995,"max":15985,"count":252}},{"group":{"min":15985,"max":16598,"count":252}},{"group":{"min":16598,"max":16999,"count":252}},{"group":{"min":16999,"max":17995,"count":252}},{"group":{"min":17995,"max":18923,"count":252}},{"group":{"min":18923,"max":19900,"count":252}},{"group":{"min":19900,"max":20998,"count":252}},{"group":{"min":20998,"max":25000,"count":251}}]},"adjustments":{"mileage":{"average":138622.43,"input":138622.43,"adjustment":0}}}
+
+---------For VIN: 1J4GA59168L532085  ---------
+AVERAGE: 17375.16
+BELOW: 14534.36
+ABOVE: 20215.96 
+
+
+Ratio:  0.9100754242614708
+Price:  $18,995 Vin:  1J4GA39118L509060
+{"vin":"1J4GA39118L509060","vehicle":"2008 Jeep Wrangler Unlimited X","mean":16934.58,"stdev":2862,"count":2302,"mileage":134257,"certainty":99,"period":["2021-05-03","2022-10-14"],"prices":{"average":16934.58,"below":14072.45,"above":19796.71,"distribution":[{"group":{"min":8500,"max":13500,"count":231}},{"group":{"min":13500,"max":14821,"count":230}},{"group":{"min":14821,"max":15166,"count":230}},{"group":{"min":15166,"max":15995,"count":230}},{"group":{"min":15995,"max":16988,"count":231}},{"group":{"min":16988,"max":17500,"count":230}},{"group":{"min":17500,"max":18124,"count":230}},{"group":{"min":18124,"max":18999,"count":230}},{"group":{"min":18999,"max":20691,"count":230}},{"group":{"min":20691,"max":25000,"count":230}}]},"adjustments":{"mileage":{"average":134257.43,"input":134257.43,"adjustment":0}}}
+
+---------For VIN: 1J4GA39118L509060  ---------
+AVERAGE: 16934.58
+BELOW: 14072.45
+ABOVE: 19796.71 
+
+
+Ratio:  0.8915282969202423
+Price:  $14,999 Vin:  1J4GA59198L615719
+{"vin":"1J4GA59198L615719","vehicle":"2008 Jeep Wrangler Unlimited Sahara","mean":17375.16,"stdev":2840,"count":2520,"mileage":138622,"certainty":99,"period":["2021-05-03","2022-10-14"],"prices":{"average":17375.16,"below":14534.36,"above":20215.96,"distribution":[{"group":{"min":8750,"max":13950,"count":253}},{"group":{"min":13950,"max":14995,"count":252}},{"group":{"min":14995,"max":15985,"count":252}},{"group":{"min":15985,"max":16598,"count":252}},{"group":{"min":16598,"max":16999,"count":252}},{"group":{"min":16999,"max":17995,"count":252}},{"group":{"min":17995,"max":18923,"count":252}},{"group":{"min":18923,"max":19900,"count":252}},{"group":{"min":19900,"max":20998,"count":252}},{"group":{"min":20998,"max":25000,"count":251}}]},"adjustments":{"mileage":{"average":138622.43,"input":138622.43,"adjustment":0}}}
+
+---------For VIN: 1J4GA59198L615719  ---------
+AVERAGE: 17375.16
+BELOW: 14534.36
+ABOVE: 20215.96 
+
+
+Ratio:  1.1584212280818722
+Price:  $12,995 Vin:  1J4GA59128L505966
+{"vin":"1J4GA59128L505966","vehicle":"2008 Jeep Wrangler Unlimited Sahara","mean":17375.16,"stdev":2840,"count":2520,"mileage":138622,"certainty":99,"period":["2021-05-03","2022-10-14"],"prices":{"average":17375.16,"below":14534.36,"above":20215.96,"distribution":[{"group":{"min":8750,"max":13950,"count":253}},{"group":{"min":13950,"max":14995,"count":252}},{"group":{"min":14995,"max":15985,"count":252}},{"group":{"min":15985,"max":16598,"count":252}},{"group":{"min":16598,"max":16999,"count":252}},{"group":{"min":16999,"max":17995,"count":252}},{"group":{"min":17995,"max":18923,"count":252}},{"group":{"min":18923,"max":19900,"count":252}},{"group":{"min":19900,"max":20998,"count":252}},{"group":{"min":20998,"max":25000,"count":251}}]},"adjustments":{"mileage":{"average":138622.43,"input":138622.43,"adjustment":0}}}
+
+---------For VIN: 1J4GA59128L505966  ---------
+AVERAGE: 17375.16
+BELOW: 14534.36
+ABOVE: 20215.96 
+
+
+Ratio:  1.337065025009619
+Price:  $12,995 Vin:  1J4GA59198L573634
+{"vin":"1J4GA59198L573634","vehicle":"2008 Jeep Wrangler Unlimited Sahara","mean":17375.16,"stdev":2840,"count":2520,"mileage":138622,"certainty":99,"period":["2021-05-03","2022-10-14"],"prices":{"average":17375.16,"below":14534.36,"above":20215.96,"distribution":[{"group":{"min":8750,"max":13950,"count":253}},{"group":{"min":13950,"max":14995,"count":252}},{"group":{"min":14995,"max":15985,"count":252}},{"group":{"min":15985,"max":16598,"count":252}},{"group":{"min":16598,"max":16999,"count":252}},{"group":{"min":16999,"max":17995,"count":252}},{"group":{"min":17995,"max":18923,"count":252}},{"group":{"min":18923,"max":19900,"count":252}},{"group":{"min":19900,"max":20998,"count":252}},{"group":{"min":20998,"max":25000,"count":251}}]},"adjustments":{"mileage":{"average":138622.43,"input":138622.43,"adjustment":0}}}
+
+---------For VIN: 1J4GA59198L573634  ---------
+AVERAGE: 17375.16
+BELOW: 14534.36
+ABOVE: 20215.96 
+
+
+Ratio:  1.337065025009619
+Price:  $12,888 Vin:  1J4FA44S36P703757
+{"vin":"1J4FA44S36P703757","vehicle":"2006 Jeep Wrangler Unlimited","mean":18566.21,"stdev":4107,"count":452,"mileage":109694,"certainty":99,"period":["2021-05-03","2022-10-14"],"prices":{"average":18566.21,"below":14459.21,"above":22673.21,"distribution":[{"group":{"min":9800,"max":13000,"count":46}},{"group":{"min":13000,"max":14980,"count":45}},{"group":{"min":14980,"max":15999,"count":45}},{"group":{"min":15999,"max":16995,"count":45}},{"group":{"min":16995,"max":18500,"count":46}},{"group":{"min":18500,"max":19888,"count":45}},{"group":{"min":19888,"max":20600,"count":45}},{"group":{"min":20600,"max":22764,"count":45}},{"group":{"min":22764,"max":24271,"count":45}},{"group":{"min":24271,"max":27999,"count":45}}]},"adjustments":{"mileage":{"average":109694.7,"input":109694.7,"adjustment":0}}}
+
+---------For VIN: 1J4FA44S36P703757  ---------
+AVERAGE: 18566.21
+BELOW: 14459.21
+ABOVE: 22673.21 
+
+
+Ratio:  1.440581160769708
+Price:  $13,000 Vin:  1J4FA29146P782375
+{"vin":"1J4FA29146P782375","vehicle":"2006 Jeep Wrangler SE","mean":12995.42,"stdev":2832,"count":293,"mileage":106143,"certainty":99,"period":["2021-05-06","2022-10-14"],"prices":{"average":12995.42,"below":10163.15,"above":15827.69,"distribution":[{"group":{"min":6695,"max":9250,"count":30}},{"group":{"min":9250,"max":10000,"count":29}},{"group":{"min":10000,"max":11214,"count":29}},{"group":{"min":11214,"max":11999,"count":30}},{"group":{"min":11999,"max":12995,"count":29}},{"group":{"min":12995,"max":13972,"count":29}},{"group":{"min":13972,"max":14778,"count":30}},{"group":{"min":14778,"max":15950,"count":29}},{"group":{"min":15950,"max":16990,"count":29}},{"group":{"min":16990,"max":18999,"count":29}}]},"adjustments":{"mileage":{"average":106143.16,"input":106143.16,"adjustment":0}}}
+
+---------For VIN: 1J4FA29146P782375  ---------
+AVERAGE: 12995.42
+BELOW: 10163.15
+ABOVE: 15827.69 
+
+
+Ratio:  0.9996476923076923
+Price:  $12,965 Vin:  1J4FA39S65P300115
+{"vin":"1J4FA39S65P300115","vehicle":"2005 Jeep Wrangler X","mean":14365.88,"stdev":2990,"count":845,"mileage":115247,"certainty":99,"period":["2021-05-03","2022-10-14"],"prices":{"average":14365.88,"below":11375.17,"above":17356.59,"distribution":[{"group":{"min":7400,"max":10495,"count":85}},{"group":{"min":10495,"max":11650,"count":85}},{"group":{"min":11650,"max":12979,"count":84}},{"group":{"min":12979,"max":13500,"count":85}},{"group":{"min":13500,"max":14215,"count":84}},{"group":{"min":14215,"max":14999,"count":85}},{"group":{"min":14999,"max":15995,"count":84}},{"group":{"min":15995,"max":16990,"count":85}},{"group":{"min":16990,"max":18300,"count":84}},{"group":{"min":18300,"max":21750,"count":84}}]},"adjustments":{"mileage":{"average":115247.04,"input":115247.04,"adjustment":0}}}
+
+---------For VIN: 1J4FA39S65P300115  ---------
+AVERAGE: 14365.88
+BELOW: 11375.17
+ABOVE: 17356.59 
+
+
+Ratio:  1.108050906286155
+Price:  $8,500 Vin:  1J4FA29P0YP792635
+{"vin":"1J4FA29P0YP792635","vehicle":"2000 Jeep Wrangler SE","mean":9949.53,"stdev":2212,"count":220,"mileage":134766,"certainty":99,"period":["2021-05-03","2022-10-14"],"prices":{"average":9949.53,"below":7737.02,"above":12162.04,"distribution":[{"group":{"min":5000,"max":6900,"count":23}},{"group":{"min":6900,"max":8100,"count":22}},{"group":{"min":8100,"max":8995,"count":22}},{"group":{"min":8995,"max":9500,"count":22}},{"group":{"min":9500,"max":9995,"count":22}},{"group":{"min":9995,"max":10495,"count":22}},{"group":{"min":10495,"max":10995,"count":22}},{"group":{"min":10995,"max":11955,"count":22}},{"group":{"min":11955,"max":12995,"count":22}},{"group":{"min":12995,"max":14900,"count":21}}]},"adjustments":{"mileage":{"average":134766.52,"input":134766.52,"adjustment":0}}}
+
+---------For VIN: 1J4FA29P0YP792635  ---------
+AVERAGE: 9949.53
+BELOW: 7737.02
+ABOVE: 12162.04 
+
+
+Ratio:  1.1705329411764707
+Price:  $12,699 Vin:  1J4FA49S11P368189
+{"vin":"1J4FA49S11P368189","vehicle":"2001 Jeep Wrangler Sport","mean":12207.04,"stdev":2637,"count":525,"mileage":135288,"certainty":99,"period":["2021-05-03","2022-10-14"],"prices":{"average":12207.04,"below":9569.34,"above":14844.74,"distribution":[{"group":{"min":6000,"max":8900,"count":53}},{"group":{"min":8900,"max":9991,"count":53}},{"group":{"min":9991,"max":10900,"count":52}},{"group":{"min":10900,"max":11495,"count":53}},{"group":{"min":11495,"max":11998,"count":52}},{"group":{"min":11998,"max":12991,"count":53}},{"group":{"min":12991,"max":13895,"count":52}},{"group":{"min":13895,"max":14885,"count":53}},{"group":{"min":14885,"max":15977,"count":52}},{"group":{"min":15977,"max":17999,"count":52}}]},"adjustments":{"mileage":{"average":135288.45,"input":135288.45,"adjustment":0}}}
+
+---------For VIN: 1J4FA49S11P368189  ---------
+AVERAGE: 12207.04
+BELOW: 9569.34
+ABOVE: 14844.74 
+
+
+Ratio:  0.9612599417276951
+Price:  $13,999 Vin:  1J4FA24138L550142
+{"vin":"1J4FA24138L550142","vehicle":"2008 Jeep Wrangler X","mean":15432.69,"stdev":2589,"count":2240,"mileage":117490,"certainty":99,"period":["2021-05-03","2022-10-14"],"prices":{"average":15432.69,"below":12843.58,"above":18021.8,"distribution":[{"group":{"min":7900,"max":11995,"count":225}},{"group":{"min":11995,"max":13457,"count":224}},{"group":{"min":13457,"max":13998,"count":224}},{"group":{"min":13998,"max":14950,"count":224}},{"group":{"min":14950,"max":15000,"count":224}},{"group":{"min":15000,"max":15991,"count":224}},{"group":{"min":15991,"max":16888,"count":224}},{"group":{"min":16888,"max":17600,"count":224}},{"group":{"min":17600,"max":18991,"count":224}},{"group":{"min":18991,"max":22595,"count":223}}]},"adjustments":{"mileage":{"average":117490.55,"input":117490.55,"adjustment":0}}}
+
+---------For VIN: 1J4FA24138L550142  ---------
+AVERAGE: 15432.69
+BELOW: 12843.58
+ABOVE: 18021.8 
+
+
+Ratio:  1.1024137438388457
+Price:  $16,995 Vin:  1J4GA39179L722225
+{"vin":"1J4GA39179L722225","vehicle":"2009 Jeep Wrangler Unlimited X","mean":17853.8,"stdev":2979,"count":1565,"mileage":129603,"certainty":99,"period":["2021-05-03","2022-10-14"],"prices":{"average":17853.8,"below":14874.18,"above":20833.42,"distribution":[{"group":{"min":8995,"max":13995,"count":157}},{"group":{"min":13995,"max":15495,"count":157}},{"group":{"min":15495,"max":15999,"count":156}},{"group":{"min":15999,"max":16995,"count":157}},{"group":{"min":16995,"max":17900,"count":156}},{"group":{"min":17900,"max":18495,"count":157}},{"group":{"min":18495,"max":19000,"count":156}},{"group":{"min":19000,"max":19995,"count":157}},{"group":{"min":19995,"max":21990,"count":156}},{"group":{"min":21990,"max":26000,"count":156}}]},"adjustments":{"mileage":{"average":129603.75,"input":129603.75,"adjustment":0}}}
+
+---------For VIN: 1J4GA39179L722225  ---------
+AVERAGE: 17853.8
+BELOW: 14874.18
+ABOVE: 20833.42 
+
+
+Ratio:  1.0505325095616358
+Price:  $16,900 Vin:  1J4GA591X9L704863
+{"vin":"1J4GA591X9L704863","vehicle":"2009 Jeep Wrangler Unlimited Sahara","mean":18344.43,"stdev":2884,"count":1108,"mileage":133569,"certainty":99,"period":["2021-05-03","2022-10-14"],"prices":{"average":18344.43,"below":15459.68,"above":21229.18,"distribution":[{"group":{"min":9450,"max":14900,"count":111}},{"group":{"min":14900,"max":15995,"count":111}},{"group":{"min":15995,"max":16991,"count":111}},{"group":{"min":16991,"max":17753,"count":111}},{"group":{"min":17753,"max":17999,"count":111}},{"group":{"min":17999,"max":18990,"count":110}},{"group":{"min":18990,"max":19900,"count":111}},{"group":{"min":19900,"max":20495,"count":111}},{"group":{"min":20495,"max":21995,"count":111}},{"group":{"min":21995,"max":26995,"count":110}}]},"adjustments":{"mileage":{"average":133569.8,"input":133569.8,"adjustment":0}}}
+
+---------For VIN: 1J4GA591X9L704863  ---------
+AVERAGE: 18344.43
+BELOW: 15459.68
+ABOVE: 21229.18 
+
+
+Ratio:  1.0854692307692309
+Price:  $16,999 Vin:  1J8FA54157L134236
+{"vin":"1J8FA54157L134236","vehicle":"2007 Jeep Wrangler Sahara","mean":15669.95,"stdev":2706,"count":678,"mileage":124049,"certainty":99,"period":["2021-05-03","2022-10-14"],"prices":{"average":15669.95,"below":12963.01,"above":18376.89,"distribution":[{"group":{"min":7987,"max":11999,"count":68}},{"group":{"min":11999,"max":13000,"count":68}},{"group":{"min":13000,"max":14000,"count":68}},{"group":{"min":14000,"max":14988,"count":68}},{"group":{"min":14988,"max":15495,"count":68}},{"group":{"min":15495,"max":16000,"count":67}},{"group":{"min":16000,"max":16998,"count":68}},{"group":{"min":16998,"max":17995,"count":68}},{"group":{"min":17995,"max":19000,"count":68}},{"group":{"min":19000,"max":23199,"count":67}}]},"adjustments":{"mileage":{"average":124049.03,"input":124049.03,"adjustment":0}}}
+
+---------For VIN: 1J8FA54157L134236  ---------
+AVERAGE: 15669.95
+BELOW: 12963.01
+ABOVE: 18376.89 
+
+
+Ratio:  0.921815989175834
+Price:  $17,990 Vin:  1J4GA391X9L737057
+{"vin":"1J4GA391X9L737057","vehicle":"2009 Jeep Wrangler Unlimited X","mean":17853.8,"stdev":2979,"count":1565,"mileage":129603,"certainty":99,"period":["2021-05-03","2022-10-14"],"prices":{"average":17853.8,"below":14874.18,"above":20833.42,"distribution":[{"group":{"min":8995,"max":13995,"count":157}},{"group":{"min":13995,"max":15495,"count":157}},{"group":{"min":15495,"max":15999,"count":156}},{"group":{"min":15999,"max":16995,"count":157}},{"group":{"min":16995,"max":17900,"count":156}},{"group":{"min":17900,"max":18495,"count":157}},{"group":{"min":18495,"max":19000,"count":156}},{"group":{"min":19000,"max":19995,"count":157}},{"group":{"min":19995,"max":21990,"count":156}},{"group":{"min":21990,"max":26000,"count":156}}]},"adjustments":{"mileage":{"average":129603.75,"input":129603.75,"adjustment":0}}}
+
+---------For VIN: 1J4GA391X9L737057  ---------
+AVERAGE: 17853.8
+BELOW: 14874.18
+ABOVE: 20833.42 
+
+
+Ratio:  0.9924291272929405
+Price:  $15,717 Vin:  1J4GA39159L754865
+{"vin":"1J4GA39159L754865","vehicle":"2009 Jeep Wrangler Unlimited X","mean":17853.8,"stdev":2979,"count":1565,"mileage":129603,"certainty":99,"period":["2021-05-03","2022-10-14"],"prices":{"average":17853.8,"below":14874.18,"above":20833.42,"distribution":[{"group":{"min":8995,"max":13995,"count":157}},{"group":{"min":13995,"max":15495,"count":157}},{"group":{"min":15495,"max":15999,"count":156}},{"group":{"min":15999,"max":16995,"count":157}},{"group":{"min":16995,"max":17900,"count":156}},{"group":{"min":17900,"max":18495,"count":157}},{"group":{"min":18495,"max":19000,"count":156}},{"group":{"min":19000,"max":19995,"count":157}},{"group":{"min":19995,"max":21990,"count":156}},{"group":{"min":21990,"max":26000,"count":156}}]},"adjustments":{"mileage":{"average":129603.75,"input":129603.75,"adjustment":0}}}
+
+---------For VIN: 1J4GA39159L754865  ---------
+AVERAGE: 17853.8
+BELOW: 14874.18
+ABOVE: 20833.42 
+
+
+Ratio:  1.135954698733855
+Price:  $16,000 Vin:  1J4GA59188L531925
+{"message":"You have exceeded the rate limit per second for your plan, BASIC, by the API provider"}
+
+---------For VIN: 1J4GA59188L531925  ---------
+AVERAGE: 17375.16
+BELOW: 14534.36
+ABOVE: 20215.96 
+
+
+Ratio:  1.0859475
+Price:  $21,990 Vin:  1J4GA39169L741994
+{"vin":"1J4GA39169L741994","vehicle":"2009 Jeep Wrangler Unlimited X","mean":17853.8,"stdev":2979,"count":1565,"mileage":129603,"certainty":99,"period":["2021-05-03","2022-10-14"],"prices":{"average":17853.8,"below":14874.18,"above":20833.42,"distribution":[{"group":{"min":8995,"max":13995,"count":157}},{"group":{"min":13995,"max":15495,"count":157}},{"group":{"min":15495,"max":15999,"count":156}},{"group":{"min":15999,"max":16995,"count":157}},{"group":{"min":16995,"max":17900,"count":156}},{"group":{"min":17900,"max":18495,"count":157}},{"group":{"min":18495,"max":19000,"count":156}},{"group":{"min":19000,"max":19995,"count":157}},{"group":{"min":19995,"max":21990,"count":156}},{"group":{"min":21990,"max":26000,"count":156}}]},"adjustments":{"mileage":{"average":129603.75,"input":129603.75,"adjustment":0}}}
+
+---------For VIN: 1J4GA39169L741994  ---------
+AVERAGE: 17853.8
+BELOW: 14874.18
+ABOVE: 20833.42 
+
+
+Ratio:  0.8119054115507048
+Price:  $6,855 Vin:  1J4FA29P21P311130
+{"vin":"1J4FA29P21P311130","vehicle":"2001 Jeep Wrangler SE","mean":10389.89,"stdev":2176,"count":146,"mileage":121998,"certainty":99,"period":["2021-05-05","2022-10-14"],"prices":{"average":10389.89,"below":8213.5,"above":12566.28,"distribution":[{"group":{"min":5495,"max":7400,"count":15}},{"group":{"min":7400,"max":8700,"count":15}},{"group":{"min":8700,"max":9328,"count":14}},{"group":{"min":9328,"max":9900,"count":15}},{"group":{"min":9900,"max":9995,"count":15}},{"group":{"min":9995,"max":10977,"count":14}},{"group":{"min":10977,"max":11950,"count":15}},{"group":{"min":11950,"max":12450,"count":14}},{"group":{"min":12450,"max":12995,"count":15}},{"group":{"min":12995,"max":14999,"count":14}}]},"adjustments":{"mileage":{"average":121998.55,"input":121998.55,"adjustment":0}}}
+
+---------For VIN: 1J4FA29P21P311130  ---------
+AVERAGE: 10389.89
+BELOW: 8213.5
+ABOVE: 12566.28 
+
+
+Ratio:  1.515665937272064
+Price:  $14,999 Vin:  1J4FA24168L511626
+{"vin":"1J4FA24168L511626","vehicle":"2008 Jeep Wrangler X","mean":15432.69,"stdev":2589,"count":2240,"mileage":117490,"certainty":99,"period":["2021-05-03","2022-10-14"],"prices":{"average":15432.69,"below":12843.58,"above":18021.8,"distribution":[{"group":{"min":7900,"max":11995,"count":225}},{"group":{"min":11995,"max":13457,"count":224}},{"group":{"min":13457,"max":13998,"count":224}},{"group":{"min":13998,"max":14950,"count":224}},{"group":{"min":14950,"max":15000,"count":224}},{"group":{"min":15000,"max":15991,"count":224}},{"group":{"min":15991,"max":16888,"count":224}},{"group":{"min":16888,"max":17600,"count":224}},{"group":{"min":17600,"max":18991,"count":224}},{"group":{"min":18991,"max":22595,"count":223}}]},"adjustments":{"mileage":{"average":117490.55,"input":117490.55,"adjustment":0}}}
+
+---------For VIN: 1J4FA24168L511626  ---------
+AVERAGE: 15432.69
+BELOW: 12843.58
+ABOVE: 18021.8 
+
+
+Ratio:  1.0289145943062872
+Price:  $16,277 Vin:  1J4FA39S04P771417
+{"vin":"1J4FA39S04P771417","vehicle":"2004 Jeep Wrangler X","mean":13700.66,"stdev":2978,"count":779,"mileage":117353,"certainty":99,"period":["2021-05-03","2022-10-14"],"prices":{"average":13700.66,"below":10722.24,"above":16679.08,"distribution":[{"group":{"min":6980,"max":9900,"count":78}},{"group":{"min":9900,"max":10995,"count":78}},{"group":{"min":10995,"max":11995,"count":78}},{"group":{"min":11995,"max":12991,"count":78}},{"group":{"min":12991,"max":13900,"count":78}},{"group":{"min":13900,"max":14500,"count":78}},{"group":{"min":14500,"max":15000,"count":78}},{"group":{"min":15000,"max":16100,"count":78}},{"group":{"min":16100,"max":17955,"count":78}},{"group":{"min":17955,"max":20000,"count":77}}]},"adjustments":{"mileage":{"average":117353.87,"input":117353.87,"adjustment":0}}}
+
+---------For VIN: 1J4FA39S04P771417  ---------
+AVERAGE: 13700.66
+BELOW: 10722.24
+ABOVE: 16679.08 
+
+
+Ratio:  0.8417189899858696
+Price:  $16,799 Vin:  1J8GA59158L520668
+{"vin":"1J8GA59158L520668","vehicle":"2008 Jeep Wrangler Unlimited Sahara","mean":17375.16,"stdev":2840,"count":2520,"mileage":138622,"certainty":99,"period":["2021-05-03","2022-10-14"],"prices":{"average":17375.16,"below":14534.36,"above":20215.96,"distribution":[{"group":{"min":8750,"max":13950,"count":253}},{"group":{"min":13950,"max":14995,"count":252}},{"group":{"min":14995,"max":15985,"count":252}},{"group":{"min":15985,"max":16598,"count":252}},{"group":{"min":16598,"max":16999,"count":252}},{"group":{"min":16999,"max":17995,"count":252}},{"group":{"min":17995,"max":18923,"count":252}},{"group":{"min":18923,"max":19900,"count":252}},{"group":{"min":19900,"max":20998,"count":252}},{"group":{"min":20998,"max":25000,"count":251}}]},"adjustments":{"mileage":{"average":138622.43,"input":138622.43,"adjustment":0}}}
+
+---------For VIN: 1J8GA59158L520668  ---------
+AVERAGE: 17375.16
+BELOW: 14534.36
+ABOVE: 20215.96 
+
+
+Ratio:  1.034297279599976
+Price:  $13,790 Vin:  1J4FA44S26P775467
+{"vin":"1J4FA44S26P775467","vehicle":"2006 Jeep Wrangler Unlimited","mean":18566.21,"stdev":4107,"count":452,"mileage":109694,"certainty":99,"period":["2021-05-03","2022-10-14"],"prices":{"average":18566.21,"below":14459.21,"above":22673.21,"distribution":[{"group":{"min":9800,"max":13000,"count":46}},{"group":{"min":13000,"max":14980,"count":45}},{"group":{"min":14980,"max":15999,"count":45}},{"group":{"min":15999,"max":16995,"count":45}},{"group":{"min":16995,"max":18500,"count":46}},{"group":{"min":18500,"max":19888,"count":45}},{"group":{"min":19888,"max":20600,"count":45}},{"group":{"min":20600,"max":22764,"count":45}},{"group":{"min":22764,"max":24271,"count":45}},{"group":{"min":24271,"max":27999,"count":45}}]},"adjustments":{"mileage":{"average":109694.7,"input":109694.7,"adjustment":0}}}
+
+---------For VIN: 1J4FA44S26P775467  ---------
+AVERAGE: 18566.21
+BELOW: 14459.21
+ABOVE: 22673.21 
+
+
+Ratio:  1.3463531544597533
+Price:  $13,999 Vin:  1J4GA591X7L161463
+{"vin":"1J4GA591X7L161463","vehicle":"2007 Jeep Wrangler Unlimited Sahara","mean":16303.46,"stdev":2726,"count":1861,"mileage":142859,"certainty":99,"period":["2021-05-03","2022-10-14"],"prices":{"average":16303.46,"below":13576.72,"above":19030.2,"distribution":[{"group":{"min":8000,"max":12988,"count":187}},{"group":{"min":12988,"max":13995,"count":186}},{"group":{"min":13995,"max":14990,"count":186}},{"group":{"min":14990,"max":15595,"count":186}},{"group":{"min":15595,"max":15995,"count":186}},{"group":{"min":15995,"max":16987,"count":186}},{"group":{"min":16987,"max":17785,"count":186}},{"group":{"min":17785,"max":18700,"count":186}},{"group":{"min":18700,"max":19990,"count":186}},{"group":{"min":19990,"max":23995,"count":186}}]},"adjustments":{"mileage":{"average":142859.97,"input":142859.97,"adjustment":0}}}
+
+---------For VIN: 1J4GA591X7L161463  ---------
+AVERAGE: 16303.46
+BELOW: 13576.72
+ABOVE: 19030.2 
+
+
+Ratio:  1.164616044003143
+Price:  $15,999 Vin:  1J4GA39109L735365
+{"vin":"1J4GA39109L735365","vehicle":"2009 Jeep Wrangler Unlimited X","mean":17853.8,"stdev":2979,"count":1565,"mileage":129603,"certainty":99,"period":["2021-05-03","2022-10-14"],"prices":{"average":17853.8,"below":14874.18,"above":20833.42,"distribution":[{"group":{"min":8995,"max":13995,"count":157}},{"group":{"min":13995,"max":15495,"count":157}},{"group":{"min":15495,"max":15999,"count":156}},{"group":{"min":15999,"max":16995,"count":157}},{"group":{"min":16995,"max":17900,"count":156}},{"group":{"min":17900,"max":18495,"count":157}},{"group":{"min":18495,"max":19000,"count":156}},{"group":{"min":19000,"max":19995,"count":157}},{"group":{"min":19995,"max":21990,"count":156}},{"group":{"min":21990,"max":26000,"count":156}}]},"adjustments":{"mileage":{"average":129603.75,"input":129603.75,"adjustment":0}}}
+
+---------For VIN: 1J4GA39109L735365  ---------
+AVERAGE: 17853.8
+BELOW: 14874.18
+ABOVE: 20833.42 
+
+
+Ratio:  1.1159322457653602
+Price:  $16,348 Vin:  1J4FA24117L218473
+{"vin":"1J4FA24117L218473","vehicle":"2007 Jeep Wrangler X","mean":14832.17,"stdev":2518,"count":1590,"mileage":120356,"certainty":99,"period":["2021-05-03","2022-10-14"],"prices":{"average":14832.17,"below":12313.79,"above":17350.55,"distribution":[{"group":{"min":7490,"max":11799,"count":160}},{"group":{"min":11799,"max":12950,"count":159}},{"group":{"min":12950,"max":13701,"count":159}},{"group":{"min":13701,"max":13999,"count":159}},{"group":{"min":13999,"max":14950,"count":159}},{"group":{"min":14950,"max":15300,"count":159}},{"group":{"min":15300,"max":15995,"count":159}},{"group":{"min":15995,"max":16990,"count":159}},{"group":{"min":16990,"max":17995,"count":159}},{"group":{"min":17995,"max":22000,"count":158}}]},"adjustments":{"mileage":{"average":120356.96,"input":120356.96,"adjustment":0}}}
+
+---------For VIN: 1J4FA24117L218473  ---------
+AVERAGE: 14832.17
+BELOW: 12313.79
+ABOVE: 17350.55 
+
+
+Ratio:  0.9072773427942256
+Price:  $15,984 Vin:  1J4FA24177L227016
+{"vin":"1J4FA24177L227016","vehicle":"2007 Jeep Wrangler X","mean":14832.17,"stdev":2518,"count":1590,"mileage":120356,"certainty":99,"period":["2021-05-03","2022-10-14"],"prices":{"average":14832.17,"below":12313.79,"above":17350.55,"distribution":[{"group":{"min":7490,"max":11799,"count":160}},{"group":{"min":11799,"max":12950,"count":159}},{"group":{"min":12950,"max":13701,"count":159}},{"group":{"min":13701,"max":13999,"count":159}},{"group":{"min":13999,"max":14950,"count":159}},{"group":{"min":14950,"max":15300,"count":159}},{"group":{"min":15300,"max":15995,"count":159}},{"group":{"min":15995,"max":16990,"count":159}},{"group":{"min":16990,"max":17995,"count":159}},{"group":{"min":17995,"max":22000,"count":158}}]},"adjustments":{"mileage":{"average":120356.96,"input":120356.96,"adjustment":0}}}
+
+---------For VIN: 1J4FA24177L227016  ---------
+AVERAGE: 14832.17
+BELOW: 12313.79
+ABOVE: 17350.55 
+
+
+Ratio:  0.9279385635635635
+Price:  $14,900 Vin:  1J4GA39167L105556
+{"vin":"1J4GA39167L105556","vehicle":"2007 Jeep Wrangler Unlimited X","mean":15575.78,"stdev":2850,"count":1633,"mileage":142747,"certainty":99,"period":["2021-05-03","2022-10-14"],"prices":{"average":15575.78,"below":12725.05,"above":18426.51,"distribution":[{"group":{"min":7950,"max":11991,"count":164}},{"group":{"min":11991,"max":12995,"count":163}},{"group":{"min":12995,"max":13995,"count":163}},{"group":{"min":13995,"max":14900,"count":164}},{"group":{"min":14900,"max":15495,"count":163}},{"group":{"min":15495,"max":15999,"count":163}},{"group":{"min":15999,"max":16995,"count":164}},{"group":{"min":16995,"max":17991,"count":163}},{"group":{"min":17991,"max":19495,"count":163}},{"group":{"min":19495,"max":23099,"count":163}}]},"adjustments":{"mileage":{"average":142747.52,"input":142747.52,"adjustment":0}}}
+
+---------For VIN: 1J4GA39167L105556  ---------
+AVERAGE: 15575.78
+BELOW: 12725.05
+ABOVE: 18426.51 
+
+
+Ratio:  1.0453543624161075
+Price:  $15,995 Vin:  1J4FA39S26P780588
+{"vin":"1J4FA39S26P780588","vehicle":"2006 Jeep Wrangler X","mean":15212.44,"stdev":3048,"count":872,"mileage":105861,"certainty":99,"period":["2021-05-03","2022-10-14"],"prices":{"average":15212.44,"below":12164.25,"above":18260.63,"distribution":[{"group":{"min":7500,"max":10999,"count":88}},{"group":{"min":10999,"max":12850,"count":87}},{"group":{"min":12850,"max":13800,"count":87}},{"group":{"min":13800,"max":14500,"count":87}},{"group":{"min":14500,"max":14999,"count":88}},{"group":{"min":14999,"max":15995,"count":87}},{"group":{"min":15995,"max":16950,"count":87}},{"group":{"min":16950,"max":17850,"count":87}},{"group":{"min":17850,"max":19000,"count":87}},{"group":{"min":19000,"max":22500,"count":87}}]},"adjustments":{"mileage":{"average":105861.78,"input":105861.78,"adjustment":0}}}
+
+---------For VIN: 1J4FA39S26P780588  ---------
+AVERAGE: 15212.44
+BELOW: 12164.25
+ABOVE: 18260.63 
+
+
+Ratio:  0.9510747108471398
+Price:  $16,991 Vin:  1J4FA44S76P787243
+{"vin":"1J4FA44S76P787243","vehicle":"2006 Jeep Wrangler Unlimited","mean":18566.21,"stdev":4107,"count":452,"mileage":109694,"certainty":99,"period":["2021-05-03","2022-10-14"],"prices":{"average":18566.21,"below":14459.21,"above":22673.21,"distribution":[{"group":{"min":9800,"max":13000,"count":46}},{"group":{"min":13000,"max":14980,"count":45}},{"group":{"min":14980,"max":15999,"count":45}},{"group":{"min":15999,"max":16995,"count":45}},{"group":{"min":16995,"max":18500,"count":46}},{"group":{"min":18500,"max":19888,"count":45}},{"group":{"min":19888,"max":20600,"count":45}},{"group":{"min":20600,"max":22764,"count":45}},{"group":{"min":22764,"max":24271,"count":45}},{"group":{"min":24271,"max":27999,"count":45}}]},"adjustments":{"mileage":{"average":109694.7,"input":109694.7,"adjustment":0}}}
+
+---------For VIN: 1J4FA44S76P787243  ---------
+AVERAGE: 18566.21
+BELOW: 14459.21
+ABOVE: 22673.21 
+
+
+Ratio:  1.092708492731446
+Price:  $11,995 Vin:  1J4FA24198L632411
+{"vin":"1J4FA24198L632411","vehicle":"2008 Jeep Wrangler X","mean":15432.69,"stdev":2589,"count":2240,"mileage":117490,"certainty":99,"period":["2021-05-03","2022-10-14"],"prices":{"average":15432.69,"below":12843.58,"above":18021.8,"distribution":[{"group":{"min":7900,"max":11995,"count":225}},{"group":{"min":11995,"max":13457,"count":224}},{"group":{"min":13457,"max":13998,"count":224}},{"group":{"min":13998,"max":14950,"count":224}},{"group":{"min":14950,"max":15000,"count":224}},{"group":{"min":15000,"max":15991,"count":224}},{"group":{"min":15991,"max":16888,"count":224}},{"group":{"min":16888,"max":17600,"count":224}},{"group":{"min":17600,"max":18991,"count":224}},{"group":{"min":18991,"max":22595,"count":223}}]},"adjustments":{"mileage":{"average":117490.55,"input":117490.55,"adjustment":0}}}
+
+---------For VIN: 1J4FA24198L632411  ---------
+AVERAGE: 15432.69
+BELOW: 12843.58
+ABOVE: 18021.8 
+
+
+Ratio:  1.2865935806586077
+Price:  $22,950 Vin:  1J4FA69S26P726211
+{"vin":"1J4FA69S26P726211","vehicle":"2006 Jeep Wrangler Unlimited Rubicon","mean":19140.26,"stdev":4373,"count":322,"mileage":95915,"certainty":99,"period":["2021-05-03","2022-10-14"],"prices":{"average":19140.26,"below":14767.07,"above":23513.45,"distribution":[{"group":{"min":9850,"max":13912,"count":33}},{"group":{"min":13912,"max":15300,"count":32}},{"group":{"min":15300,"max":16699,"count":32}},{"group":{"min":16699,"max":17997,"count":32}},{"group":{"min":17997,"max":18995,"count":33}},{"group":{"min":18995,"max":19995,"count":32}},{"group":{"min":19995,"max":21777,"count":32}},{"group":{"min":21777,"max":22995,"count":32}},{"group":{"min":22995,"max":24990,"count":32}},{"group":{"min":24990,"max":28999,"count":32}}]},"adjustments":{"mileage":{"average":95915.46,"input":95915.46,"adjustment":0}}}
+
+---------For VIN: 1J4FA69S26P726211  ---------
+AVERAGE: 19140.26
+BELOW: 14767.07
+ABOVE: 23513.45 
+
+
+Ratio:  0.8339982570806099
+Price:  $12,500 Vin:  1J4FA49S94P761541
+{"vin":"1J4FA49S94P761541","vehicle":"2004 Jeep Wrangler Sport","mean":14023.92,"stdev":2998,"count":711,"mileage":124605,"certainty":99,"period":["2021-05-03","2022-10-14"],"prices":{"average":14023.92,"below":11025.88,"above":17021.96,"distribution":[{"group":{"min":7495,"max":9995,"count":72}},{"group":{"min":9995,"max":11326,"count":71}},{"group":{"min":11326,"max":12500,"count":71}},{"group":{"min":12500,"max":12999,"count":71}},{"group":{"min":12999,"max":13995,"count":71}},{"group":{"min":13995,"max":14888,"count":71}},{"group":{"min":14888,"max":15888,"count":71}},{"group":{"min":15888,"max":16732,"count":71}},{"group":{"min":16732,"max":17995,"count":71}},{"group":{"min":17995,"max":20995,"count":71}}]},"adjustments":{"mileage":{"average":124605.41,"input":124605.41,"adjustment":0}}}
+
+---------For VIN: 1J4FA49S94P761541  ---------
+AVERAGE: 14023.92
+BELOW: 11025.88
+ABOVE: 17021.96 
+
+
+Ratio:  1.1219136
+Price:  $13,999 Vin:  1J8GA69159L719162
+{"vin":"1J8GA69159L719162","vehicle":"2009 Jeep Wrangler Unlimited Rubicon","mean":21590.73,"stdev":3845,"count":468,"mileage":116634,"certainty":99,"period":["2021-05-04","2022-10-14"],"prices":{"average":21590.73,"below":17745.61,"above":25435.85,"distribution":[{"group":{"min":11795,"max":16750,"count":47}},{"group":{"min":16750,"max":18669,"count":47}},{"group":{"min":18669,"max":19499,"count":47}},{"group":{"min":19499,"max":19995,"count":47}},{"group":{"min":19995,"max":20999,"count":47}},{"group":{"min":20999,"max":22681,"count":46}},{"group":{"min":22681,"max":23771,"count":47}},{"group":{"min":23771,"max":24950,"count":47}},{"group":{"min":24950,"max":26995,"count":47}},{"group":{"min":26995,"max":30977,"count":46}}]},"adjustments":{"mileage":{"average":116634.45,"input":116634.45,"adjustment":0}}}
+
+---------For VIN: 1J8GA69159L719162  ---------
+AVERAGE: 21590.73
+BELOW: 17745.61
+ABOVE: 25435.85 
+
+
+Ratio:  1.5423051646546182
+Price:  $20,000 Vin:  1J8FA54149L744776
+{"message":"You have exceeded the rate limit per second for your plan, BASIC, by the API provider"}
+
+---------For VIN: 1J8FA54149L744776  ---------
+AVERAGE: 17504.31
+BELOW: 14753.09
+ABOVE: 20255.53 
+
+
+Ratio:  0.8752155
+Price:  $13,950 Vin:  1J4FA54139L774935
+{"vin":"1J4FA54139L774935","vehicle":"2009 Jeep Wrangler Sahara","mean":17504.31,"stdev":2751,"count":428,"mileage":112930,"certainty":99,"period":["2021-05-03","2022-10-14"],"prices":{"average":17504.31,"below":14753.09,"above":20255.53,"distribution":[{"group":{"min":9900,"max":13995,"count":43}},{"group":{"min":13995,"max":14999,"count":43}},{"group":{"min":14999,"max":15995,"count":43}},{"group":{"min":15995,"max":16980,"count":43}},{"group":{"min":16980,"max":17631,"count":43}},{"group":{"min":17631,"max":17995,"count":42}},{"group":{"min":17995,"max":18980,"count":43}},{"group":{"min":18980,"max":19553,"count":43}},{"group":{"min":19553,"max":20990,"count":43}},{"group":{"min":20990,"max":25850,"count":42}}]},"adjustments":{"mileage":{"average":112930.47,"input":112930.47,"adjustment":0}}}
+
+---------For VIN: 1J4FA54139L774935  ---------
+AVERAGE: 17504.31
+BELOW: 14753.09
+ABOVE: 20255.53 
+
+
+Ratio:  1.254789247311828
+Price:  $17,495 Vin:  1J4GA69167L211801
+{"vin":"1J4GA69167L211801","vehicle":"2007 Jeep Wrangler Unlimited Rubicon","mean":18721.24,"stdev":3348,"count":268,"mileage":126711,"certainty":99,"period":["2021-05-05","2022-10-14"],"prices":{"average":18721.24,"below":15372.85,"above":22069.63,"distribution":[{"group":{"min":10000,"max":14450,"count":27}},{"group":{"min":14450,"max":15900,"count":27}},{"group":{"min":15900,"max":16971,"count":27}},{"group":{"min":16971,"max":17500,"count":27}},{"group":{"min":17500,"max":18789,"count":27}},{"group":{"min":18789,"max":19495,"count":26}},{"group":{"min":19495,"max":19998,"count":27}},{"group":{"min":19998,"max":21900,"count":27}},{"group":{"min":21900,"max":22999,"count":27}},{"group":{"min":22999,"max":26999,"count":26}}]},"adjustments":{"mileage":{"average":126711.25,"input":126711.25,"adjustment":0}}}
+
+---------For VIN: 1J4GA69167L211801  ---------
+AVERAGE: 18721.24
+BELOW: 15372.85
+ABOVE: 22069.63 
+
+
+Ratio:  1.07009088310946
+Price:  $8,250 Vin:  1J4FY29P9XP418051
+{"vin":"1J4FY29P9XP418051","vehicle":"1999 Jeep Wrangler SE","mean":9662.4,"stdev":1938,"count":152,"mileage":134374,"certainty":99,"period":["2021-05-09","2022-10-14"],"prices":{"average":9662.4,"below":7723.69,"above":11601.11,"distribution":[{"group":{"min":5000,"max":7200,"count":16}},{"group":{"min":7200,"max":7981,"count":15}},{"group":{"min":7981,"max":8500,"count":15}},{"group":{"min":8500,"max":8995,"count":15}},{"group":{"min":8995,"max":9988,"count":16}},{"group":{"min":9988,"max":9995,"count":15}},{"group":{"min":9995,"max":10789,"count":15}},{"group":{"min":10789,"max":10999,"count":15}},{"group":{"min":10999,"max":11995,"count":15}},{"group":{"min":11995,"max":14991,"count":15}}]},"adjustments":{"mileage":{"average":134374.95,"input":134374.95,"adjustment":0}}}
+
+---------For VIN: 1J4FY29P9XP418051  ---------
+AVERAGE: 9662.4
+BELOW: 7723.69
+ABOVE: 11601.11 
+
+
+Ratio:  1.1712
+Price:  $16,990 Vin:  1J4FA59S6YP712406
+{"vin":"1J4FA59S6YP712406","vehicle":"2000 Jeep Wrangler Sahara","mean":12442.59,"stdev":2989,"count":264,"mileage":133484,"certainty":99,"period":["2021-05-03","2022-10-14"],"prices":{"average":12442.59,"below":9453.44,"above":15431.74,"distribution":[{"group":{"min":6373,"max":8888,"count":27}},{"group":{"min":8888,"max":9900,"count":26}},{"group":{"min":9900,"max":10700,"count":27}},{"group":{"min":10700,"max":11500,"count":26}},{"group":{"min":11500,"max":12500,"count":27}},{"group":{"min":12500,"max":12995,"count":26}},{"group":{"min":12995,"max":13995,"count":26}},{"group":{"min":13995,"max":14995,"count":27}},{"group":{"min":14995,"max":16895,"count":26}},{"group":{"min":16895,"max":18500,"count":26}}]},"adjustments":{"mileage":{"average":133484.39,"input":133484.39,"adjustment":0}}}
+
+---------For VIN: 1J4FA59S6YP712406  ---------
+AVERAGE: 12442.59
+BELOW: 9453.44
+ABOVE: 15431.74 
+
+
+Ratio:  0.7323478516774573
+Price:  $19,092 Vin:  1J4GA59168L532085
+{"message":"You have exceeded the rate limit per second for your plan, BASIC, by the API provider"}
+
+---------For VIN: 1J4GA59168L532085  ---------
+AVERAGE: 17375.16
+BELOW: 14534.36
+ABOVE: 20215.96 
+
+
+Ratio:  0.9100754242614708
+Price:  $18,995 Vin:  1J4GA39118L509060
+{"vin":"1J4GA39118L509060","vehicle":"2008 Jeep Wrangler Unlimited X","mean":16934.58,"stdev":2862,"count":2302,"mileage":134257,"certainty":99,"period":["2021-05-03","2022-10-14"],"prices":{"average":16934.58,"below":14072.45,"above":19796.71,"distribution":[{"group":{"min":8500,"max":13500,"count":231}},{"group":{"min":13500,"max":14821,"count":230}},{"group":{"min":14821,"max":15166,"count":230}},{"group":{"min":15166,"max":15995,"count":230}},{"group":{"min":15995,"max":16988,"count":231}},{"group":{"min":16988,"max":17500,"count":230}},{"group":{"min":17500,"max":18124,"count":230}},{"group":{"min":18124,"max":18999,"count":230}},{"group":{"min":18999,"max":20691,"count":230}},{"group":{"min":20691,"max":25000,"count":230}}]},"adjustments":{"mileage":{"average":134257.43,"input":134257.43,"adjustment":0}}}
+
+---------For VIN: 1J4GA39118L509060  ---------
+AVERAGE: 16934.58
+BELOW: 14072.45
+ABOVE: 19796.71 
+
+
+Ratio:  0.8915282969202423
+Price:  $14,999 Vin:  1J4GA59198L615719
+{"vin":"1J4GA59198L615719","vehicle":"2008 Jeep Wrangler Unlimited Sahara","mean":17375.16,"stdev":2840,"count":2520,"mileage":138622,"certainty":99,"period":["2021-05-03","2022-10-14"],"prices":{"average":17375.16,"below":14534.36,"above":20215.96,"distribution":[{"group":{"min":8750,"max":13950,"count":253}},{"group":{"min":13950,"max":14995,"count":252}},{"group":{"min":14995,"max":15985,"count":252}},{"group":{"min":15985,"max":16598,"count":252}},{"group":{"min":16598,"max":16999,"count":252}},{"group":{"min":16999,"max":17995,"count":252}},{"group":{"min":17995,"max":18923,"count":252}},{"group":{"min":18923,"max":19900,"count":252}},{"group":{"min":19900,"max":20998,"count":252}},{"group":{"min":20998,"max":25000,"count":251}}]},"adjustments":{"mileage":{"average":138622.43,"input":138622.43,"adjustment":0}}}
+
+---------For VIN: 1J4GA59198L615719  ---------
+AVERAGE: 17375.16
+BELOW: 14534.36
+ABOVE: 20215.96 
+
+
+Ratio:  1.1584212280818722
+Price:  $12,995 Vin:  1J4GA59128L505966
+{"vin":"1J4GA59128L505966","vehicle":"2008 Jeep Wrangler Unlimited Sahara","mean":17375.16,"stdev":2840,"count":2520,"mileage":138622,"certainty":99,"period":["2021-05-03","2022-10-14"],"prices":{"average":17375.16,"below":14534.36,"above":20215.96,"distribution":[{"group":{"min":8750,"max":13950,"count":253}},{"group":{"min":13950,"max":14995,"count":252}},{"group":{"min":14995,"max":15985,"count":252}},{"group":{"min":15985,"max":16598,"count":252}},{"group":{"min":16598,"max":16999,"count":252}},{"group":{"min":16999,"max":17995,"count":252}},{"group":{"min":17995,"max":18923,"count":252}},{"group":{"min":18923,"max":19900,"count":252}},{"group":{"min":19900,"max":20998,"count":252}},{"group":{"min":20998,"max":25000,"count":251}}]},"adjustments":{"mileage":{"average":138622.43,"input":138622.43,"adjustment":0}}}
+
+---------For VIN: 1J4GA59128L505966  ---------
+AVERAGE: 17375.16
+BELOW: 14534.36
+ABOVE: 20215.96 
+
+
+Ratio:  1.337065025009619
+Price:  $12,995 Vin:  1J4GA59198L573634
+{"vin":"1J4GA59198L573634","vehicle":"2008 Jeep Wrangler Unlimited Sahara","mean":17375.16,"stdev":2840,"count":2520,"mileage":138622,"certainty":99,"period":["2021-05-03","2022-10-14"],"prices":{"average":17375.16,"below":14534.36,"above":20215.96,"distribution":[{"group":{"min":8750,"max":13950,"count":253}},{"group":{"min":13950,"max":14995,"count":252}},{"group":{"min":14995,"max":15985,"count":252}},{"group":{"min":15985,"max":16598,"count":252}},{"group":{"min":16598,"max":16999,"count":252}},{"group":{"min":16999,"max":17995,"count":252}},{"group":{"min":17995,"max":18923,"count":252}},{"group":{"min":18923,"max":19900,"count":252}},{"group":{"min":19900,"max":20998,"count":252}},{"group":{"min":20998,"max":25000,"count":251}}]},"adjustments":{"mileage":{"average":138622.43,"input":138622.43,"adjustment":0}}}
+
+---------For VIN: 1J4GA59198L573634  ---------
+AVERAGE: 17375.16
+BELOW: 14534.36
+ABOVE: 20215.96 
+
+
+Ratio:  1.337065025009619
+Price:  $12,888 Vin:  1J4FA44S36P703757
+{"vin":"1J4FA44S36P703757","vehicle":"2006 Jeep Wrangler Unlimited","mean":18566.21,"stdev":4107,"count":452,"mileage":109694,"certainty":99,"period":["2021-05-03","2022-10-14"],"prices":{"average":18566.21,"below":14459.21,"above":22673.21,"distribution":[{"group":{"min":9800,"max":13000,"count":46}},{"group":{"min":13000,"max":14980,"count":45}},{"group":{"min":14980,"max":15999,"count":45}},{"group":{"min":15999,"max":16995,"count":45}},{"group":{"min":16995,"max":18500,"count":46}},{"group":{"min":18500,"max":19888,"count":45}},{"group":{"min":19888,"max":20600,"count":45}},{"group":{"min":20600,"max":22764,"count":45}},{"group":{"min":22764,"max":24271,"count":45}},{"group":{"min":24271,"max":27999,"count":45}}]},"adjustments":{"mileage":{"average":109694.7,"input":109694.7,"adjustment":0}}}
+
+---------For VIN: 1J4FA44S36P703757  ---------
+AVERAGE: 18566.21
+BELOW: 14459.21
+ABOVE: 22673.21 
+
+
+Ratio:  1.440581160769708
+Price:  $13,000 Vin:  1J4FA29146P782375
+{"vin":"1J4FA29146P782375","vehicle":"2006 Jeep Wrangler SE","mean":12995.42,"stdev":2832,"count":293,"mileage":106143,"certainty":99,"period":["2021-05-06","2022-10-14"],"prices":{"average":12995.42,"below":10163.15,"above":15827.69,"distribution":[{"group":{"min":6695,"max":9250,"count":30}},{"group":{"min":9250,"max":10000,"count":29}},{"group":{"min":10000,"max":11214,"count":29}},{"group":{"min":11214,"max":11999,"count":30}},{"group":{"min":11999,"max":12995,"count":29}},{"group":{"min":12995,"max":13972,"count":29}},{"group":{"min":13972,"max":14778,"count":30}},{"group":{"min":14778,"max":15950,"count":29}},{"group":{"min":15950,"max":16990,"count":29}},{"group":{"min":16990,"max":18999,"count":29}}]},"adjustments":{"mileage":{"average":106143.16,"input":106143.16,"adjustment":0}}}
+
+---------For VIN: 1J4FA29146P782375  ---------
+AVERAGE: 12995.42
+BELOW: 10163.15
+ABOVE: 15827.69 
+
+
+Ratio:  0.9996476923076923
+Price:  $12,965 Vin:  1J4FA39S65P300115
+{"vin":"1J4FA39S65P300115","vehicle":"2005 Jeep Wrangler X","mean":14365.88,"stdev":2990,"count":845,"mileage":115247,"certainty":99,"period":["2021-05-03","2022-10-14"],"prices":{"average":14365.88,"below":11375.17,"above":17356.59,"distribution":[{"group":{"min":7400,"max":10495,"count":85}},{"group":{"min":10495,"max":11650,"count":85}},{"group":{"min":11650,"max":12979,"count":84}},{"group":{"min":12979,"max":13500,"count":85}},{"group":{"min":13500,"max":14215,"count":84}},{"group":{"min":14215,"max":14999,"count":85}},{"group":{"min":14999,"max":15995,"count":84}},{"group":{"min":15995,"max":16990,"count":85}},{"group":{"min":16990,"max":18300,"count":84}},{"group":{"min":18300,"max":21750,"count":84}}]},"adjustments":{"mileage":{"average":115247.04,"input":115247.04,"adjustment":0}}}
+
+---------For VIN: 1J4FA39S65P300115  ---------
+AVERAGE: 14365.88
+BELOW: 11375.17
+ABOVE: 17356.59 
+
+
+Ratio:  1.108050906286155
+Price:  $8,500 Vin:  1J4FA29P0YP792635
+{"vin":"1J4FA29P0YP792635","vehicle":"2000 Jeep Wrangler SE","mean":9949.53,"stdev":2212,"count":220,"mileage":134766,"certainty":99,"period":["2021-05-03","2022-10-14"],"prices":{"average":9949.53,"below":7737.02,"above":12162.04,"distribution":[{"group":{"min":5000,"max":6900,"count":23}},{"group":{"min":6900,"max":8100,"count":22}},{"group":{"min":8100,"max":8995,"count":22}},{"group":{"min":8995,"max":9500,"count":22}},{"group":{"min":9500,"max":9995,"count":22}},{"group":{"min":9995,"max":10495,"count":22}},{"group":{"min":10495,"max":10995,"count":22}},{"group":{"min":10995,"max":11955,"count":22}},{"group":{"min":11955,"max":12995,"count":22}},{"group":{"min":12995,"max":14900,"count":21}}]},"adjustments":{"mileage":{"average":134766.52,"input":134766.52,"adjustment":0}}}
+
+---------For VIN: 1J4FA29P0YP792635  ---------
+AVERAGE: 9949.53
+BELOW: 7737.02
+ABOVE: 12162.04 
+
+
+Ratio:  1.1705329411764707
+Price:  $12,699 Vin:  1J4FA49S11P368189
+{"vin":"1J4FA49S11P368189","vehicle":"2001 Jeep Wrangler Sport","mean":12207.04,"stdev":2637,"count":525,"mileage":135288,"certainty":99,"period":["2021-05-03","2022-10-14"],"prices":{"average":12207.04,"below":9569.34,"above":14844.74,"distribution":[{"group":{"min":6000,"max":8900,"count":53}},{"group":{"min":8900,"max":9991,"count":53}},{"group":{"min":9991,"max":10900,"count":52}},{"group":{"min":10900,"max":11495,"count":53}},{"group":{"min":11495,"max":11998,"count":52}},{"group":{"min":11998,"max":12991,"count":53}},{"group":{"min":12991,"max":13895,"count":52}},{"group":{"min":13895,"max":14885,"count":53}},{"group":{"min":14885,"max":15977,"count":52}},{"group":{"min":15977,"max":17999,"count":52}}]},"adjustments":{"mileage":{"average":135288.45,"input":135288.45,"adjustment":0}}}
+
+---------For VIN: 1J4FA49S11P368189  ---------
+AVERAGE: 12207.04
+BELOW: 9569.34
+ABOVE: 14844.74 
+
+
+Ratio:  0.9612599417276951
+Price:  $13,999 Vin:  1J4FA24138L550142
+{"vin":"1J4FA24138L550142","vehicle":"2008 Jeep Wrangler X","mean":15432.69,"stdev":2589,"count":2240,"mileage":117490,"certainty":99,"period":["2021-05-03","2022-10-14"],"prices":{"average":15432.69,"below":12843.58,"above":18021.8,"distribution":[{"group":{"min":7900,"max":11995,"count":225}},{"group":{"min":11995,"max":13457,"count":224}},{"group":{"min":13457,"max":13998,"count":224}},{"group":{"min":13998,"max":14950,"count":224}},{"group":{"min":14950,"max":15000,"count":224}},{"group":{"min":15000,"max":15991,"count":224}},{"group":{"min":15991,"max":16888,"count":224}},{"group":{"min":16888,"max":17600,"count":224}},{"group":{"min":17600,"max":18991,"count":224}},{"group":{"min":18991,"max":22595,"count":223}}]},"adjustments":{"mileage":{"average":117490.55,"input":117490.55,"adjustment":0}}}
+
+---------For VIN: 1J4FA24138L550142  ---------
+AVERAGE: 15432.69
+BELOW: 12843.58
+ABOVE: 18021.8 
+
+
+Ratio:  1.1024137438388457
+Price:  $16,995 Vin:  1J4GA39179L722225
+{"vin":"1J4GA39179L722225","vehicle":"2009 Jeep Wrangler Unlimited X","mean":17853.8,"stdev":2979,"count":1565,"mileage":129603,"certainty":99,"period":["2021-05-03","2022-10-14"],"prices":{"average":17853.8,"below":14874.18,"above":20833.42,"distribution":[{"group":{"min":8995,"max":13995,"count":157}},{"group":{"min":13995,"max":15495,"count":157}},{"group":{"min":15495,"max":15999,"count":156}},{"group":{"min":15999,"max":16995,"count":157}},{"group":{"min":16995,"max":17900,"count":156}},{"group":{"min":17900,"max":18495,"count":157}},{"group":{"min":18495,"max":19000,"count":156}},{"group":{"min":19000,"max":19995,"count":157}},{"group":{"min":19995,"max":21990,"count":156}},{"group":{"min":21990,"max":26000,"count":156}}]},"adjustments":{"mileage":{"average":129603.75,"input":129603.75,"adjustment":0}}}
+
+---------For VIN: 1J4GA39179L722225  ---------
+AVERAGE: 17853.8
+BELOW: 14874.18
+ABOVE: 20833.42 
+
+
+Ratio:  1.0505325095616358
+Price:  $16,900 Vin:  1J4GA591X9L704863
+{"vin":"1J4GA591X9L704863","vehicle":"2009 Jeep Wrangler Unlimited Sahara","mean":18344.43,"stdev":2884,"count":1108,"mileage":133569,"certainty":99,"period":["2021-05-03","2022-10-14"],"prices":{"average":18344.43,"below":15459.68,"above":21229.18,"distribution":[{"group":{"min":9450,"max":14900,"count":111}},{"group":{"min":14900,"max":15995,"count":111}},{"group":{"min":15995,"max":16991,"count":111}},{"group":{"min":16991,"max":17753,"count":111}},{"group":{"min":17753,"max":17999,"count":111}},{"group":{"min":17999,"max":18990,"count":110}},{"group":{"min":18990,"max":19900,"count":111}},{"group":{"min":19900,"max":20495,"count":111}},{"group":{"min":20495,"max":21995,"count":111}},{"group":{"min":21995,"max":26995,"count":110}}]},"adjustments":{"mileage":{"average":133569.8,"input":133569.8,"adjustment":0}}}
+
+---------For VIN: 1J4GA591X9L704863  ---------
+AVERAGE: 18344.43
+BELOW: 15459.68
+ABOVE: 21229.18 
+
+
+Ratio:  1.0854692307692309
+Price:  $16,999 Vin:  1J8FA54157L134236
+{"vin":"1J8FA54157L134236","vehicle":"2007 Jeep Wrangler Sahara","mean":15669.95,"stdev":2706,"count":678,"mileage":124049,"certainty":99,"period":["2021-05-03","2022-10-14"],"prices":{"average":15669.95,"below":12963.01,"above":18376.89,"distribution":[{"group":{"min":7987,"max":11999,"count":68}},{"group":{"min":11999,"max":13000,"count":68}},{"group":{"min":13000,"max":14000,"count":68}},{"group":{"min":14000,"max":14988,"count":68}},{"group":{"min":14988,"max":15495,"count":68}},{"group":{"min":15495,"max":16000,"count":67}},{"group":{"min":16000,"max":16998,"count":68}},{"group":{"min":16998,"max":17995,"count":68}},{"group":{"min":17995,"max":19000,"count":68}},{"group":{"min":19000,"max":23199,"count":67}}]},"adjustments":{"mileage":{"average":124049.03,"input":124049.03,"adjustment":0}}}
+
+---------For VIN: 1J8FA54157L134236  ---------
+AVERAGE: 15669.95
+BELOW: 12963.01
+ABOVE: 18376.89 
+
+
+Ratio:  0.921815989175834
+Price:  $17,990 Vin:  1J4GA391X9L737057
+{"vin":"1J4GA391X9L737057","vehicle":"2009 Jeep Wrangler Unlimited X","mean":17853.8,"stdev":2979,"count":1565,"mileage":129603,"certainty":99,"period":["2021-05-03","2022-10-14"],"prices":{"average":17853.8,"below":14874.18,"above":20833.42,"distribution":[{"group":{"min":8995,"max":13995,"count":157}},{"group":{"min":13995,"max":15495,"count":157}},{"group":{"min":15495,"max":15999,"count":156}},{"group":{"min":15999,"max":16995,"count":157}},{"group":{"min":16995,"max":17900,"count":156}},{"group":{"min":17900,"max":18495,"count":157}},{"group":{"min":18495,"max":19000,"count":156}},{"group":{"min":19000,"max":19995,"count":157}},{"group":{"min":19995,"max":21990,"count":156}},{"group":{"min":21990,"max":26000,"count":156}}]},"adjustments":{"mileage":{"average":129603.75,"input":129603.75,"adjustment":0}}}
+
+---------For VIN: 1J4GA391X9L737057  ---------
+AVERAGE: 17853.8
+BELOW: 14874.18
+ABOVE: 20833.42 
+
+
+Ratio:  0.9924291272929405
+Price:  $15,717 Vin:  1J4GA39159L754865
+{"vin":"1J4GA39159L754865","vehicle":"2009 Jeep Wrangler Unlimited X","mean":17853.8,"stdev":2979,"count":1565,"mileage":129603,"certainty":99,"period":["2021-05-03","2022-10-14"],"prices":{"average":17853.8,"below":14874.18,"above":20833.42,"distribution":[{"group":{"min":8995,"max":13995,"count":157}},{"group":{"min":13995,"max":15495,"count":157}},{"group":{"min":15495,"max":15999,"count":156}},{"group":{"min":15999,"max":16995,"count":157}},{"group":{"min":16995,"max":17900,"count":156}},{"group":{"min":17900,"max":18495,"count":157}},{"group":{"min":18495,"max":19000,"count":156}},{"group":{"min":19000,"max":19995,"count":157}},{"group":{"min":19995,"max":21990,"count":156}},{"group":{"min":21990,"max":26000,"count":156}}]},"adjustments":{"mileage":{"average":129603.75,"input":129603.75,"adjustment":0}}}
+
+---------For VIN: 1J4GA39159L754865  ---------
+AVERAGE: 17853.8
+BELOW: 14874.18
+ABOVE: 20833.42 
+
+
+Ratio:  1.135954698733855
+Price:  $16,000 Vin:  1J4GA59188L531925
+{"vin":"1J4GA59188L531925","vehicle":"2008 Jeep Wrangler Unlimited Sahara","mean":17375.16,"stdev":2840,"count":2520,"mileage":138622,"certainty":99,"period":["2021-05-03","2022-10-14"],"prices":{"average":17375.16,"below":14534.36,"above":20215.96,"distribution":[{"group":{"min":8750,"max":13950,"count":253}},{"group":{"min":13950,"max":14995,"count":252}},{"group":{"min":14995,"max":15985,"count":252}},{"group":{"min":15985,"max":16598,"count":252}},{"group":{"min":16598,"max":16999,"count":252}},{"group":{"min":16999,"max":17995,"count":252}},{"group":{"min":17995,"max":18923,"count":252}},{"group":{"min":18923,"max":19900,"count":252}},{"group":{"min":19900,"max":20998,"count":252}},{"group":{"min":20998,"max":25000,"count":251}}]},"adjustments":{"mileage":{"average":138622.43,"input":138622.43,"adjustment":0}}}
+
+---------For VIN: 1J4GA59188L531925  ---------
+AVERAGE: 17375.16
+BELOW: 14534.36
+ABOVE: 20215.96 
+
+
+Ratio:  1.0859475
+Price:  $21,990 Vin:  1J4GA39169L741994
+{"vin":"1J4GA39169L741994","vehicle":"2009 Jeep Wrangler Unlimited X","mean":17853.8,"stdev":2979,"count":1565,"mileage":129603,"certainty":99,"period":["2021-05-03","2022-10-14"],"prices":{"average":17853.8,"below":14874.18,"above":20833.42,"distribution":[{"group":{"min":8995,"max":13995,"count":157}},{"group":{"min":13995,"max":15495,"count":157}},{"group":{"min":15495,"max":15999,"count":156}},{"group":{"min":15999,"max":16995,"count":157}},{"group":{"min":16995,"max":17900,"count":156}},{"group":{"min":17900,"max":18495,"count":157}},{"group":{"min":18495,"max":19000,"count":156}},{"group":{"min":19000,"max":19995,"count":157}},{"group":{"min":19995,"max":21990,"count":156}},{"group":{"min":21990,"max":26000,"count":156}}]},"adjustments":{"mileage":{"average":129603.75,"input":129603.75,"adjustment":0}}}
+
+---------For VIN: 1J4GA39169L741994  ---------
+AVERAGE: 17853.8
+BELOW: 14874.18
+ABOVE: 20833.42 
+
+
+Ratio:  0.8119054115507048
+Price:  $6,855 Vin:  1J4FA29P21P311130
+{"vin":"1J4FA29P21P311130","vehicle":"2001 Jeep Wrangler SE","mean":10389.89,"stdev":2176,"count":146,"mileage":121998,"certainty":99,"period":["2021-05-05","2022-10-14"],"prices":{"average":10389.89,"below":8213.5,"above":12566.28,"distribution":[{"group":{"min":5495,"max":7400,"count":15}},{"group":{"min":7400,"max":8700,"count":15}},{"group":{"min":8700,"max":9328,"count":14}},{"group":{"min":9328,"max":9900,"count":15}},{"group":{"min":9900,"max":9995,"count":15}},{"group":{"min":9995,"max":10977,"count":14}},{"group":{"min":10977,"max":11950,"count":15}},{"group":{"min":11950,"max":12450,"count":14}},{"group":{"min":12450,"max":12995,"count":15}},{"group":{"min":12995,"max":14999,"count":14}}]},"adjustments":{"mileage":{"average":121998.55,"input":121998.55,"adjustment":0}}}
+
+---------For VIN: 1J4FA29P21P311130  ---------
+AVERAGE: 10389.89
+BELOW: 8213.5
+ABOVE: 12566.28 
+
+
+Ratio:  1.515665937272064
+Price:  $14,999 Vin:  1J4FA24168L511626
+{"vin":"1J4FA24168L511626","vehicle":"2008 Jeep Wrangler X","mean":15432.69,"stdev":2589,"count":2240,"mileage":117490,"certainty":99,"period":["2021-05-03","2022-10-14"],"prices":{"average":15432.69,"below":12843.58,"above":18021.8,"distribution":[{"group":{"min":7900,"max":11995,"count":225}},{"group":{"min":11995,"max":13457,"count":224}},{"group":{"min":13457,"max":13998,"count":224}},{"group":{"min":13998,"max":14950,"count":224}},{"group":{"min":14950,"max":15000,"count":224}},{"group":{"min":15000,"max":15991,"count":224}},{"group":{"min":15991,"max":16888,"count":224}},{"group":{"min":16888,"max":17600,"count":224}},{"group":{"min":17600,"max":18991,"count":224}},{"group":{"min":18991,"max":22595,"count":223}}]},"adjustments":{"mileage":{"average":117490.55,"input":117490.55,"adjustment":0}}}
+
+---------For VIN: 1J4FA24168L511626  ---------
+AVERAGE: 15432.69
+BELOW: 12843.58
+ABOVE: 18021.8 
+
+
+Ratio:  1.0289145943062872
+Price:  $16,277 Vin:  1J4FA39S04P771417
+{"vin":"1J4FA39S04P771417","vehicle":"2004 Jeep Wrangler X","mean":13700.66,"stdev":2978,"count":779,"mileage":117353,"certainty":99,"period":["2021-05-03","2022-10-14"],"prices":{"average":13700.66,"below":10722.24,"above":16679.08,"distribution":[{"group":{"min":6980,"max":9900,"count":78}},{"group":{"min":9900,"max":10995,"count":78}},{"group":{"min":10995,"max":11995,"count":78}},{"group":{"min":11995,"max":12991,"count":78}},{"group":{"min":12991,"max":13900,"count":78}},{"group":{"min":13900,"max":14500,"count":78}},{"group":{"min":14500,"max":15000,"count":78}},{"group":{"min":15000,"max":16100,"count":78}},{"group":{"min":16100,"max":17955,"count":78}},{"group":{"min":17955,"max":20000,"count":77}}]},"adjustments":{"mileage":{"average":117353.87,"input":117353.87,"adjustment":0}}}
+
+---------For VIN: 1J4FA39S04P771417  ---------
+AVERAGE: 13700.66
+BELOW: 10722.24
+ABOVE: 16679.08 
+
+
+Ratio:  0.8417189899858696
+Price:  $16,799 Vin:  1J8GA59158L520668
+{"vin":"1J8GA59158L520668","vehicle":"2008 Jeep Wrangler Unlimited Sahara","mean":17375.16,"stdev":2840,"count":2520,"mileage":138622,"certainty":99,"period":["2021-05-03","2022-10-14"],"prices":{"average":17375.16,"below":14534.36,"above":20215.96,"distribution":[{"group":{"min":8750,"max":13950,"count":253}},{"group":{"min":13950,"max":14995,"count":252}},{"group":{"min":14995,"max":15985,"count":252}},{"group":{"min":15985,"max":16598,"count":252}},{"group":{"min":16598,"max":16999,"count":252}},{"group":{"min":16999,"max":17995,"count":252}},{"group":{"min":17995,"max":18923,"count":252}},{"group":{"min":18923,"max":19900,"count":252}},{"group":{"min":19900,"max":20998,"count":252}},{"group":{"min":20998,"max":25000,"count":251}}]},"adjustments":{"mileage":{"average":138622.43,"input":138622.43,"adjustment":0}}}
+
+---------For VIN: 1J8GA59158L520668  ---------
+AVERAGE: 17375.16
+BELOW: 14534.36
+ABOVE: 20215.96 
+
+
+Ratio:  1.034297279599976
+Price:  $13,790 Vin:  1J4FA44S26P775467
+{"vin":"1J4FA44S26P775467","vehicle":"2006 Jeep Wrangler Unlimited","mean":18566.21,"stdev":4107,"count":452,"mileage":109694,"certainty":99,"period":["2021-05-03","2022-10-14"],"prices":{"average":18566.21,"below":14459.21,"above":22673.21,"distribution":[{"group":{"min":9800,"max":13000,"count":46}},{"group":{"min":13000,"max":14980,"count":45}},{"group":{"min":14980,"max":15999,"count":45}},{"group":{"min":15999,"max":16995,"count":45}},{"group":{"min":16995,"max":18500,"count":46}},{"group":{"min":18500,"max":19888,"count":45}},{"group":{"min":19888,"max":20600,"count":45}},{"group":{"min":20600,"max":22764,"count":45}},{"group":{"min":22764,"max":24271,"count":45}},{"group":{"min":24271,"max":27999,"count":45}}]},"adjustments":{"mileage":{"average":109694.7,"input":109694.7,"adjustment":0}}}
+
+---------For VIN: 1J4FA44S26P775467  ---------
+AVERAGE: 18566.21
+BELOW: 14459.21
+ABOVE: 22673.21 
+
+
+Ratio:  1.3463531544597533
+Price:  $13,999 Vin:  1J4GA591X7L161463
+{"message":"You have exceeded the rate limit per second for your plan, BASIC, by the API provider"}
+
+---------For VIN: 1J4GA591X7L161463  ---------
+AVERAGE: 16303.46
+BELOW: 13576.72
+ABOVE: 19030.2 
+
+
+Ratio:  1.164616044003143
+Price:  $15,999 Vin:  1J4GA39109L735365
+{"vin":"1J4GA39109L735365","vehicle":"2009 Jeep Wrangler Unlimited X","mean":17853.8,"stdev":2979,"count":1565,"mileage":129603,"certainty":99,"period":["2021-05-03","2022-10-14"],"prices":{"average":17853.8,"below":14874.18,"above":20833.42,"distribution":[{"group":{"min":8995,"max":13995,"count":157}},{"group":{"min":13995,"max":15495,"count":157}},{"group":{"min":15495,"max":15999,"count":156}},{"group":{"min":15999,"max":16995,"count":157}},{"group":{"min":16995,"max":17900,"count":156}},{"group":{"min":17900,"max":18495,"count":157}},{"group":{"min":18495,"max":19000,"count":156}},{"group":{"min":19000,"max":19995,"count":157}},{"group":{"min":19995,"max":21990,"count":156}},{"group":{"min":21990,"max":26000,"count":156}}]},"adjustments":{"mileage":{"average":129603.75,"input":129603.75,"adjustment":0}}}
+
+---------For VIN: 1J4GA39109L735365  ---------
+AVERAGE: 17853.8
+BELOW: 14874.18
+ABOVE: 20833.42 
+
+
+Ratio:  1.1159322457653602
+Price:  $16,348 Vin:  1J4FA24117L218473
+{"vin":"1J4FA24117L218473","vehicle":"2007 Jeep Wrangler X","mean":14832.17,"stdev":2518,"count":1590,"mileage":120356,"certainty":99,"period":["2021-05-03","2022-10-14"],"prices":{"average":14832.17,"below":12313.79,"above":17350.55,"distribution":[{"group":{"min":7490,"max":11799,"count":160}},{"group":{"min":11799,"max":12950,"count":159}},{"group":{"min":12950,"max":13701,"count":159}},{"group":{"min":13701,"max":13999,"count":159}},{"group":{"min":13999,"max":14950,"count":159}},{"group":{"min":14950,"max":15300,"count":159}},{"group":{"min":15300,"max":15995,"count":159}},{"group":{"min":15995,"max":16990,"count":159}},{"group":{"min":16990,"max":17995,"count":159}},{"group":{"min":17995,"max":22000,"count":158}}]},"adjustments":{"mileage":{"average":120356.96,"input":120356.96,"adjustment":0}}}
+
+---------For VIN: 1J4FA24117L218473  ---------
+AVERAGE: 14832.17
+BELOW: 12313.79
+ABOVE: 17350.55 
+
+
+Ratio:  0.9072773427942256
+Price:  $15,984 Vin:  1J4FA24177L227016
+{"vin":"1J4FA24177L227016","vehicle":"2007 Jeep Wrangler X","mean":14832.17,"stdev":2518,"count":1590,"mileage":120356,"certainty":99,"period":["2021-05-03","2022-10-14"],"prices":{"average":14832.17,"below":12313.79,"above":17350.55,"distribution":[{"group":{"min":7490,"max":11799,"count":160}},{"group":{"min":11799,"max":12950,"count":159}},{"group":{"min":12950,"max":13701,"count":159}},{"group":{"min":13701,"max":13999,"count":159}},{"group":{"min":13999,"max":14950,"count":159}},{"group":{"min":14950,"max":15300,"count":159}},{"group":{"min":15300,"max":15995,"count":159}},{"group":{"min":15995,"max":16990,"count":159}},{"group":{"min":16990,"max":17995,"count":159}},{"group":{"min":17995,"max":22000,"count":158}}]},"adjustments":{"mileage":{"average":120356.96,"input":120356.96,"adjustment":0}}}
+
+---------For VIN: 1J4FA24177L227016  ---------
+AVERAGE: 14832.17
+BELOW: 12313.79
+ABOVE: 17350.55 
+
+
+Ratio:  0.9279385635635635
+Price:  $14,900 Vin:  1J4GA39167L105556
+{"vin":"1J4GA39167L105556","vehicle":"2007 Jeep Wrangler Unlimited X","mean":15575.78,"stdev":2850,"count":1633,"mileage":142747,"certainty":99,"period":["2021-05-03","2022-10-14"],"prices":{"average":15575.78,"below":12725.05,"above":18426.51,"distribution":[{"group":{"min":7950,"max":11991,"count":164}},{"group":{"min":11991,"max":12995,"count":163}},{"group":{"min":12995,"max":13995,"count":163}},{"group":{"min":13995,"max":14900,"count":164}},{"group":{"min":14900,"max":15495,"count":163}},{"group":{"min":15495,"max":15999,"count":163}},{"group":{"min":15999,"max":16995,"count":164}},{"group":{"min":16995,"max":17991,"count":163}},{"group":{"min":17991,"max":19495,"count":163}},{"group":{"min":19495,"max":23099,"count":163}}]},"adjustments":{"mileage":{"average":142747.52,"input":142747.52,"adjustment":0}}}
+
+---------For VIN: 1J4GA39167L105556  ---------
+AVERAGE: 15575.78
+BELOW: 12725.05
+ABOVE: 18426.51 
+
+
+Ratio:  1.0453543624161075
+Price:  $15,995 Vin:  1J4FA39S26P780588
+{"vin":"1J4FA39S26P780588","vehicle":"2006 Jeep Wrangler X","mean":15212.44,"stdev":3048,"count":872,"mileage":105861,"certainty":99,"period":["2021-05-03","2022-10-14"],"prices":{"average":15212.44,"below":12164.25,"above":18260.63,"distribution":[{"group":{"min":7500,"max":10999,"count":88}},{"group":{"min":10999,"max":12850,"count":87}},{"group":{"min":12850,"max":13800,"count":87}},{"group":{"min":13800,"max":14500,"count":87}},{"group":{"min":14500,"max":14999,"count":88}},{"group":{"min":14999,"max":15995,"count":87}},{"group":{"min":15995,"max":16950,"count":87}},{"group":{"min":16950,"max":17850,"count":87}},{"group":{"min":17850,"max":19000,"count":87}},{"group":{"min":19000,"max":22500,"count":87}}]},"adjustments":{"mileage":{"average":105861.78,"input":105861.78,"adjustment":0}}}
+
+---------For VIN: 1J4FA39S26P780588  ---------
+AVERAGE: 15212.44
+BELOW: 12164.25
+ABOVE: 18260.63 
+
+
+Ratio:  0.9510747108471398
+Price:  $16,991 Vin:  1J4FA44S76P787243
+{"vin":"1J4FA44S76P787243","vehicle":"2006 Jeep Wrangler Unlimited","mean":18566.21,"stdev":4107,"count":452,"mileage":109694,"certainty":99,"period":["2021-05-03","2022-10-14"],"prices":{"average":18566.21,"below":14459.21,"above":22673.21,"distribution":[{"group":{"min":9800,"max":13000,"count":46}},{"group":{"min":13000,"max":14980,"count":45}},{"group":{"min":14980,"max":15999,"count":45}},{"group":{"min":15999,"max":16995,"count":45}},{"group":{"min":16995,"max":18500,"count":46}},{"group":{"min":18500,"max":19888,"count":45}},{"group":{"min":19888,"max":20600,"count":45}},{"group":{"min":20600,"max":22764,"count":45}},{"group":{"min":22764,"max":24271,"count":45}},{"group":{"min":24271,"max":27999,"count":45}}]},"adjustments":{"mileage":{"average":109694.7,"input":109694.7,"adjustment":0}}}
+
+---------For VIN: 1J4FA44S76P787243  ---------
+AVERAGE: 18566.21
+BELOW: 14459.21
+ABOVE: 22673.21 
+
+
+Ratio:  1.092708492731446
+Price:  $11,995 Vin:  1J4FA24198L632411
+{"vin":"1J4FA24198L632411","vehicle":"2008 Jeep Wrangler X","mean":15432.69,"stdev":2589,"count":2240,"mileage":117490,"certainty":99,"period":["2021-05-03","2022-10-14"],"prices":{"average":15432.69,"below":12843.58,"above":18021.8,"distribution":[{"group":{"min":7900,"max":11995,"count":225}},{"group":{"min":11995,"max":13457,"count":224}},{"group":{"min":13457,"max":13998,"count":224}},{"group":{"min":13998,"max":14950,"count":224}},{"group":{"min":14950,"max":15000,"count":224}},{"group":{"min":15000,"max":15991,"count":224}},{"group":{"min":15991,"max":16888,"count":224}},{"group":{"min":16888,"max":17600,"count":224}},{"group":{"min":17600,"max":18991,"count":224}},{"group":{"min":18991,"max":22595,"count":223}}]},"adjustments":{"mileage":{"average":117490.55,"input":117490.55,"adjustment":0}}}
+
+---------For VIN: 1J4FA24198L632411  ---------
+AVERAGE: 15432.69
+BELOW: 12843.58
+ABOVE: 18021.8 
+
+
+Ratio:  1.2865935806586077
+Price:  $22,950 Vin:  1J4FA69S26P726211
+{"vin":"1J4FA69S26P726211","vehicle":"2006 Jeep Wrangler Unlimited Rubicon","mean":19140.26,"stdev":4373,"count":322,"mileage":95915,"certainty":99,"period":["2021-05-03","2022-10-14"],"prices":{"average":19140.26,"below":14767.07,"above":23513.45,"distribution":[{"group":{"min":9850,"max":13912,"count":33}},{"group":{"min":13912,"max":15300,"count":32}},{"group":{"min":15300,"max":16699,"count":32}},{"group":{"min":16699,"max":17997,"count":32}},{"group":{"min":17997,"max":18995,"count":33}},{"group":{"min":18995,"max":19995,"count":32}},{"group":{"min":19995,"max":21777,"count":32}},{"group":{"min":21777,"max":22995,"count":32}},{"group":{"min":22995,"max":24990,"count":32}},{"group":{"min":24990,"max":28999,"count":32}}]},"adjustments":{"mileage":{"average":95915.46,"input":95915.46,"adjustment":0}}}
+
+---------For VIN: 1J4FA69S26P726211  ---------
+AVERAGE: 19140.26
+BELOW: 14767.07
+ABOVE: 23513.45 
+
+
+Ratio:  0.8339982570806099
+Price:  $12,500 Vin:  1J4FA49S94P761541
+{"vin":"1J4FA49S94P761541","vehicle":"2004 Jeep Wrangler Sport","mean":14023.92,"stdev":2998,"count":711,"mileage":124605,"certainty":99,"period":["2021-05-03","2022-10-14"],"prices":{"average":14023.92,"below":11025.88,"above":17021.96,"distribution":[{"group":{"min":7495,"max":9995,"count":72}},{"group":{"min":9995,"max":11326,"count":71}},{"group":{"min":11326,"max":12500,"count":71}},{"group":{"min":12500,"max":12999,"count":71}},{"group":{"min":12999,"max":13995,"count":71}},{"group":{"min":13995,"max":14888,"count":71}},{"group":{"min":14888,"max":15888,"count":71}},{"group":{"min":15888,"max":16732,"count":71}},{"group":{"min":16732,"max":17995,"count":71}},{"group":{"min":17995,"max":20995,"count":71}}]},"adjustments":{"mileage":{"average":124605.41,"input":124605.41,"adjustment":0}}}
+
+---------For VIN: 1J4FA49S94P761541  ---------
+AVERAGE: 14023.92
+BELOW: 11025.88
+ABOVE: 17021.96 
+
+
+Ratio:  1.1219136
+Price:  $13,999 Vin:  1J8GA69159L719162
+{"vin":"1J8GA69159L719162","vehicle":"2009 Jeep Wrangler Unlimited Rubicon","mean":21590.73,"stdev":3845,"count":468,"mileage":116634,"certainty":99,"period":["2021-05-04","2022-10-14"],"prices":{"average":21590.73,"below":17745.61,"above":25435.85,"distribution":[{"group":{"min":11795,"max":16750,"count":47}},{"group":{"min":16750,"max":18669,"count":47}},{"group":{"min":18669,"max":19499,"count":47}},{"group":{"min":19499,"max":19995,"count":47}},{"group":{"min":19995,"max":20999,"count":47}},{"group":{"min":20999,"max":22681,"count":46}},{"group":{"min":22681,"max":23771,"count":47}},{"group":{"min":23771,"max":24950,"count":47}},{"group":{"min":24950,"max":26995,"count":47}},{"group":{"min":26995,"max":30977,"count":46}}]},"adjustments":{"mileage":{"average":116634.45,"input":116634.45,"adjustment":0}}}
+
+---------For VIN: 1J8GA69159L719162  ---------
+AVERAGE: 21590.73
+BELOW: 17745.61
+ABOVE: 25435.85 
+
+
+Ratio:  1.5423051646546182
+Price:  $20,000 Vin:  1J8FA54149L744776
+{"vin":"1J8FA54149L744776","vehicle":"2009 Jeep Wrangler Sahara","mean":17504.31,"stdev":2751,"count":428,"mileage":112930,"certainty":99,"period":["2021-05-03","2022-10-14"],"prices":{"average":17504.31,"below":14753.09,"above":20255.53,"distribution":[{"group":{"min":9900,"max":13995,"count":43}},{"group":{"min":13995,"max":14999,"count":43}},{"group":{"min":14999,"max":15995,"count":43}},{"group":{"min":15995,"max":16980,"count":43}},{"group":{"min":16980,"max":17631,"count":43}},{"group":{"min":17631,"max":17995,"count":42}},{"group":{"min":17995,"max":18980,"count":43}},{"group":{"min":18980,"max":19553,"count":43}},{"group":{"min":19553,"max":20990,"count":43}},{"group":{"min":20990,"max":25850,"count":42}}]},"adjustments":{"mileage":{"average":112930.47,"input":112930.47,"adjustment":0}}}
+
+---------For VIN: 1J8FA54149L744776  ---------
+AVERAGE: 17504.31
+BELOW: 14753.09
+ABOVE: 20255.53 
+
+
+Ratio:  0.8752155
+Price:  $13,950 Vin:  1J4FA54139L774935
+{"vin":"1J4FA54139L774935","vehicle":"2009 Jeep Wrangler Sahara","mean":17504.31,"stdev":2751,"count":428,"mileage":112930,"certainty":99,"period":["2021-05-03","2022-10-14"],"prices":{"average":17504.31,"below":14753.09,"above":20255.53,"distribution":[{"group":{"min":9900,"max":13995,"count":43}},{"group":{"min":13995,"max":14999,"count":43}},{"group":{"min":14999,"max":15995,"count":43}},{"group":{"min":15995,"max":16980,"count":43}},{"group":{"min":16980,"max":17631,"count":43}},{"group":{"min":17631,"max":17995,"count":42}},{"group":{"min":17995,"max":18980,"count":43}},{"group":{"min":18980,"max":19553,"count":43}},{"group":{"min":19553,"max":20990,"count":43}},{"group":{"min":20990,"max":25850,"count":42}}]},"adjustments":{"mileage":{"average":112930.47,"input":112930.47,"adjustment":0}}}
+
+---------For VIN: 1J4FA54139L774935  ---------
+AVERAGE: 17504.31
+BELOW: 14753.09
+ABOVE: 20255.53 
+
+
+Ratio:  1.254789247311828
+Price:  $17,495 Vin:  1J4GA69167L211801
+{"vin":"1J4GA69167L211801","vehicle":"2007 Jeep Wrangler Unlimited Rubicon","mean":18721.24,"stdev":3348,"count":268,"mileage":126711,"certainty":99,"period":["2021-05-05","2022-10-14"],"prices":{"average":18721.24,"below":15372.85,"above":22069.63,"distribution":[{"group":{"min":10000,"max":14450,"count":27}},{"group":{"min":14450,"max":15900,"count":27}},{"group":{"min":15900,"max":16971,"count":27}},{"group":{"min":16971,"max":17500,"count":27}},{"group":{"min":17500,"max":18789,"count":27}},{"group":{"min":18789,"max":19495,"count":26}},{"group":{"min":19495,"max":19998,"count":27}},{"group":{"min":19998,"max":21900,"count":27}},{"group":{"min":21900,"max":22999,"count":27}},{"group":{"min":22999,"max":26999,"count":26}}]},"adjustments":{"mileage":{"average":126711.25,"input":126711.25,"adjustment":0}}}
+
+---------For VIN: 1J4GA69167L211801  ---------
+AVERAGE: 18721.24
+BELOW: 15372.85
+ABOVE: 22069.63 
+
+
+Ratio:  1.07009088310946
+Price:  $8,250 Vin:  1J4FY29P9XP418051
+{"vin":"1J4FY29P9XP418051","vehicle":"1999 Jeep Wrangler SE","mean":9662.4,"stdev":1938,"count":152,"mileage":134374,"certainty":99,"period":["2021-05-09","2022-10-14"],"prices":{"average":9662.4,"below":7723.69,"above":11601.11,"distribution":[{"group":{"min":5000,"max":7200,"count":16}},{"group":{"min":7200,"max":7981,"count":15}},{"group":{"min":7981,"max":8500,"count":15}},{"group":{"min":8500,"max":8995,"count":15}},{"group":{"min":8995,"max":9988,"count":16}},{"group":{"min":9988,"max":9995,"count":15}},{"group":{"min":9995,"max":10789,"count":15}},{"group":{"min":10789,"max":10999,"count":15}},{"group":{"min":10999,"max":11995,"count":15}},{"group":{"min":11995,"max":14991,"count":15}}]},"adjustments":{"mileage":{"average":134374.95,"input":134374.95,"adjustment":0}}}
+
+---------For VIN: 1J4FY29P9XP418051  ---------
+AVERAGE: 9662.4
+BELOW: 7723.69
+ABOVE: 11601.11 
+
+
+Ratio:  1.1712
+Price:  $16,990 Vin:  1J4FA59S6YP712406
+{"vin":"1J4FA59S6YP712406","vehicle":"2000 Jeep Wrangler Sahara","mean":12442.59,"stdev":2989,"count":264,"mileage":133484,"certainty":99,"period":["2021-05-03","2022-10-14"],"prices":{"average":12442.59,"below":9453.44,"above":15431.74,"distribution":[{"group":{"min":6373,"max":8888,"count":27}},{"group":{"min":8888,"max":9900,"count":26}},{"group":{"min":9900,"max":10700,"count":27}},{"group":{"min":10700,"max":11500,"count":26}},{"group":{"min":11500,"max":12500,"count":27}},{"group":{"min":12500,"max":12995,"count":26}},{"group":{"min":12995,"max":13995,"count":26}},{"group":{"min":13995,"max":14995,"count":27}},{"group":{"min":14995,"max":16895,"count":26}},{"group":{"min":16895,"max":18500,"count":26}}]},"adjustments":{"mileage":{"average":133484.39,"input":133484.39,"adjustment":0}}}
+
+---------For VIN: 1J4FA59S6YP712406  ---------
+AVERAGE: 12442.59
+BELOW: 9453.44
+ABOVE: 15431.74 
+
+
+Ratio:  0.7323478516774573
+Price:  $19,092 Vin:  1J4GA59168L532085
+{"vin":"1J4GA59168L532085","vehicle":"2008 Jeep Wrangler Unlimited Sahara","mean":17375.16,"stdev":2840,"count":2520,"mileage":138622,"certainty":99,"period":["2021-05-03","2022-10-14"],"prices":{"average":17375.16,"below":14534.36,"above":20215.96,"distribution":[{"group":{"min":8750,"max":13950,"count":253}},{"group":{"min":13950,"max":14995,"count":252}},{"group":{"min":14995,"max":15985,"count":252}},{"group":{"min":15985,"max":16598,"count":252}},{"group":{"min":16598,"max":16999,"count":252}},{"group":{"min":16999,"max":17995,"count":252}},{"group":{"min":17995,"max":18923,"count":252}},{"group":{"min":18923,"max":19900,"count":252}},{"group":{"min":19900,"max":20998,"count":252}},{"group":{"min":20998,"max":25000,"count":251}}]},"adjustments":{"mileage":{"average":138622.43,"input":138622.43,"adjustment":0}}}
+
+---------For VIN: 1J4GA59168L532085  ---------
+AVERAGE: 17375.16
+BELOW: 14534.36
+ABOVE: 20215.96 
+
+
+Ratio:  0.9100754242614708
+Price:  $18,995 Vin:  1J4GA39118L509060
+{"vin":"1J4GA39118L509060","vehicle":"2008 Jeep Wrangler Unlimited X","mean":16934.58,"stdev":2862,"count":2302,"mileage":134257,"certainty":99,"period":["2021-05-03","2022-10-14"],"prices":{"average":16934.58,"below":14072.45,"above":19796.71,"distribution":[{"group":{"min":8500,"max":13500,"count":231}},{"group":{"min":13500,"max":14821,"count":230}},{"group":{"min":14821,"max":15166,"count":230}},{"group":{"min":15166,"max":15995,"count":230}},{"group":{"min":15995,"max":16988,"count":231}},{"group":{"min":16988,"max":17500,"count":230}},{"group":{"min":17500,"max":18124,"count":230}},{"group":{"min":18124,"max":18999,"count":230}},{"group":{"min":18999,"max":20691,"count":230}},{"group":{"min":20691,"max":25000,"count":230}}]},"adjustments":{"mileage":{"average":134257.43,"input":134257.43,"adjustment":0}}}
+
+---------For VIN: 1J4GA39118L509060  ---------
+AVERAGE: 16934.58
+BELOW: 14072.45
+ABOVE: 19796.71 
+
+
+Ratio:  0.8915282969202423
+Price:  $14,999 Vin:  1J4GA59198L615719
+{"message":"You have exceeded the rate limit per second for your plan, BASIC, by the API provider"}
+
+---------For VIN: 1J4GA59198L615719  ---------
+AVERAGE: 17375.16
+BELOW: 14534.36
+ABOVE: 20215.96 
+
+
+Ratio:  1.1584212280818722
+Price:  $12,995 Vin:  1J4GA59128L505966
+{"vin":"1J4GA59128L505966","vehicle":"2008 Jeep Wrangler Unlimited Sahara","mean":17375.16,"stdev":2840,"count":2520,"mileage":138622,"certainty":99,"period":["2021-05-03","2022-10-14"],"prices":{"average":17375.16,"below":14534.36,"above":20215.96,"distribution":[{"group":{"min":8750,"max":13950,"count":253}},{"group":{"min":13950,"max":14995,"count":252}},{"group":{"min":14995,"max":15985,"count":252}},{"group":{"min":15985,"max":16598,"count":252}},{"group":{"min":16598,"max":16999,"count":252}},{"group":{"min":16999,"max":17995,"count":252}},{"group":{"min":17995,"max":18923,"count":252}},{"group":{"min":18923,"max":19900,"count":252}},{"group":{"min":19900,"max":20998,"count":252}},{"group":{"min":20998,"max":25000,"count":251}}]},"adjustments":{"mileage":{"average":138622.43,"input":138622.43,"adjustment":0}}}
+
+---------For VIN: 1J4GA59128L505966  ---------
+AVERAGE: 17375.16
+BELOW: 14534.36
+ABOVE: 20215.96 
+
+
+Ratio:  1.337065025009619
+Price:  $12,995 Vin:  1J4GA59198L573634
+{"vin":"1J4GA59198L573634","vehicle":"2008 Jeep Wrangler Unlimited Sahara","mean":17375.16,"stdev":2840,"count":2520,"mileage":138622,"certainty":99,"period":["2021-05-03","2022-10-14"],"prices":{"average":17375.16,"below":14534.36,"above":20215.96,"distribution":[{"group":{"min":8750,"max":13950,"count":253}},{"group":{"min":13950,"max":14995,"count":252}},{"group":{"min":14995,"max":15985,"count":252}},{"group":{"min":15985,"max":16598,"count":252}},{"group":{"min":16598,"max":16999,"count":252}},{"group":{"min":16999,"max":17995,"count":252}},{"group":{"min":17995,"max":18923,"count":252}},{"group":{"min":18923,"max":19900,"count":252}},{"group":{"min":19900,"max":20998,"count":252}},{"group":{"min":20998,"max":25000,"count":251}}]},"adjustments":{"mileage":{"average":138622.43,"input":138622.43,"adjustment":0}}}
+
+---------For VIN: 1J4GA59198L573634  ---------
+AVERAGE: 17375.16
+BELOW: 14534.36
+ABOVE: 20215.96 
+
+
+Ratio:  1.337065025009619
+Price:  $12,888 Vin:  1J4FA44S36P703757
+{"vin":"1J4FA44S36P703757","vehicle":"2006 Jeep Wrangler Unlimited","mean":18566.21,"stdev":4107,"count":452,"mileage":109694,"certainty":99,"period":["2021-05-03","2022-10-14"],"prices":{"average":18566.21,"below":14459.21,"above":22673.21,"distribution":[{"group":{"min":9800,"max":13000,"count":46}},{"group":{"min":13000,"max":14980,"count":45}},{"group":{"min":14980,"max":15999,"count":45}},{"group":{"min":15999,"max":16995,"count":45}},{"group":{"min":16995,"max":18500,"count":46}},{"group":{"min":18500,"max":19888,"count":45}},{"group":{"min":19888,"max":20600,"count":45}},{"group":{"min":20600,"max":22764,"count":45}},{"group":{"min":22764,"max":24271,"count":45}},{"group":{"min":24271,"max":27999,"count":45}}]},"adjustments":{"mileage":{"average":109694.7,"input":109694.7,"adjustment":0}}}
+
+---------For VIN: 1J4FA44S36P703757  ---------
+AVERAGE: 18566.21
+BELOW: 14459.21
+ABOVE: 22673.21 
+
+
+Ratio:  1.440581160769708
+Price:  $13,000 Vin:  1J4FA29146P782375
+{"vin":"1J4FA29146P782375","vehicle":"2006 Jeep Wrangler SE","mean":12995.42,"stdev":2832,"count":293,"mileage":106143,"certainty":99,"period":["2021-05-06","2022-10-14"],"prices":{"average":12995.42,"below":10163.15,"above":15827.69,"distribution":[{"group":{"min":6695,"max":9250,"count":30}},{"group":{"min":9250,"max":10000,"count":29}},{"group":{"min":10000,"max":11214,"count":29}},{"group":{"min":11214,"max":11999,"count":30}},{"group":{"min":11999,"max":12995,"count":29}},{"group":{"min":12995,"max":13972,"count":29}},{"group":{"min":13972,"max":14778,"count":30}},{"group":{"min":14778,"max":15950,"count":29}},{"group":{"min":15950,"max":16990,"count":29}},{"group":{"min":16990,"max":18999,"count":29}}]},"adjustments":{"mileage":{"average":106143.16,"input":106143.16,"adjustment":0}}}
+
+---------For VIN: 1J4FA29146P782375  ---------
+AVERAGE: 12995.42
+BELOW: 10163.15
+ABOVE: 15827.69 
+
+
+Ratio:  0.9996476923076923
+Price:  $12,965 Vin:  1J4FA39S65P300115
+{"vin":"1J4FA39S65P300115","vehicle":"2005 Jeep Wrangler X","mean":14365.88,"stdev":2990,"count":845,"mileage":115247,"certainty":99,"period":["2021-05-03","2022-10-14"],"prices":{"average":14365.88,"below":11375.17,"above":17356.59,"distribution":[{"group":{"min":7400,"max":10495,"count":85}},{"group":{"min":10495,"max":11650,"count":85}},{"group":{"min":11650,"max":12979,"count":84}},{"group":{"min":12979,"max":13500,"count":85}},{"group":{"min":13500,"max":14215,"count":84}},{"group":{"min":14215,"max":14999,"count":85}},{"group":{"min":14999,"max":15995,"count":84}},{"group":{"min":15995,"max":16990,"count":85}},{"group":{"min":16990,"max":18300,"count":84}},{"group":{"min":18300,"max":21750,"count":84}}]},"adjustments":{"mileage":{"average":115247.04,"input":115247.04,"adjustment":0}}}
+
+---------For VIN: 1J4FA39S65P300115  ---------
+AVERAGE: 14365.88
+BELOW: 11375.17
+ABOVE: 17356.59 
+
+
+Ratio:  1.108050906286155
+Price:  $8,500 Vin:  1J4FA29P0YP792635
+{"vin":"1J4FA29P0YP792635","vehicle":"2000 Jeep Wrangler SE","mean":9949.53,"stdev":2212,"count":220,"mileage":134766,"certainty":99,"period":["2021-05-03","2022-10-14"],"prices":{"average":9949.53,"below":7737.02,"above":12162.04,"distribution":[{"group":{"min":5000,"max":6900,"count":23}},{"group":{"min":6900,"max":8100,"count":22}},{"group":{"min":8100,"max":8995,"count":22}},{"group":{"min":8995,"max":9500,"count":22}},{"group":{"min":9500,"max":9995,"count":22}},{"group":{"min":9995,"max":10495,"count":22}},{"group":{"min":10495,"max":10995,"count":22}},{"group":{"min":10995,"max":11955,"count":22}},{"group":{"min":11955,"max":12995,"count":22}},{"group":{"min":12995,"max":14900,"count":21}}]},"adjustments":{"mileage":{"average":134766.52,"input":134766.52,"adjustment":0}}}
+
+---------For VIN: 1J4FA29P0YP792635  ---------
+AVERAGE: 9949.53
+BELOW: 7737.02
+ABOVE: 12162.04 
+
+
+Ratio:  1.1705329411764707
+Price:  $12,699 Vin:  1J4FA49S11P368189
+{"vin":"1J4FA49S11P368189","vehicle":"2001 Jeep Wrangler Sport","mean":12207.04,"stdev":2637,"count":525,"mileage":135288,"certainty":99,"period":["2021-05-03","2022-10-14"],"prices":{"average":12207.04,"below":9569.34,"above":14844.74,"distribution":[{"group":{"min":6000,"max":8900,"count":53}},{"group":{"min":8900,"max":9991,"count":53}},{"group":{"min":9991,"max":10900,"count":52}},{"group":{"min":10900,"max":11495,"count":53}},{"group":{"min":11495,"max":11998,"count":52}},{"group":{"min":11998,"max":12991,"count":53}},{"group":{"min":12991,"max":13895,"count":52}},{"group":{"min":13895,"max":14885,"count":53}},{"group":{"min":14885,"max":15977,"count":52}},{"group":{"min":15977,"max":17999,"count":52}}]},"adjustments":{"mileage":{"average":135288.45,"input":135288.45,"adjustment":0}}}
+
+---------For VIN: 1J4FA49S11P368189  ---------
+AVERAGE: 12207.04
+BELOW: 9569.34
+ABOVE: 14844.74 
+
+
+Ratio:  0.9612599417276951
+Price:  $13,999 Vin:  1J4FA24138L550142
+{"vin":"1J4FA24138L550142","vehicle":"2008 Jeep Wrangler X","mean":15432.69,"stdev":2589,"count":2240,"mileage":117490,"certainty":99,"period":["2021-05-03","2022-10-14"],"prices":{"average":15432.69,"below":12843.58,"above":18021.8,"distribution":[{"group":{"min":7900,"max":11995,"count":225}},{"group":{"min":11995,"max":13457,"count":224}},{"group":{"min":13457,"max":13998,"count":224}},{"group":{"min":13998,"max":14950,"count":224}},{"group":{"min":14950,"max":15000,"count":224}},{"group":{"min":15000,"max":15991,"count":224}},{"group":{"min":15991,"max":16888,"count":224}},{"group":{"min":16888,"max":17600,"count":224}},{"group":{"min":17600,"max":18991,"count":224}},{"group":{"min":18991,"max":22595,"count":223}}]},"adjustments":{"mileage":{"average":117490.55,"input":117490.55,"adjustment":0}}}
+
+---------For VIN: 1J4FA24138L550142  ---------
+AVERAGE: 15432.69
+BELOW: 12843.58
+ABOVE: 18021.8 
+
+
+Ratio:  1.1024137438388457
+Price:  $16,995 Vin:  1J4GA39179L722225
+{"vin":"1J4GA39179L722225","vehicle":"2009 Jeep Wrangler Unlimited X","mean":17853.8,"stdev":2979,"count":1565,"mileage":129603,"certainty":99,"period":["2021-05-03","2022-10-14"],"prices":{"average":17853.8,"below":14874.18,"above":20833.42,"distribution":[{"group":{"min":8995,"max":13995,"count":157}},{"group":{"min":13995,"max":15495,"count":157}},{"group":{"min":15495,"max":15999,"count":156}},{"group":{"min":15999,"max":16995,"count":157}},{"group":{"min":16995,"max":17900,"count":156}},{"group":{"min":17900,"max":18495,"count":157}},{"group":{"min":18495,"max":19000,"count":156}},{"group":{"min":19000,"max":19995,"count":157}},{"group":{"min":19995,"max":21990,"count":156}},{"group":{"min":21990,"max":26000,"count":156}}]},"adjustments":{"mileage":{"average":129603.75,"input":129603.75,"adjustment":0}}}
+
+---------For VIN: 1J4GA39179L722225  ---------
+AVERAGE: 17853.8
+BELOW: 14874.18
+ABOVE: 20833.42 
+
+
+Ratio:  1.0505325095616358
+Price:  $16,991  Vin:  1J4FA44S76P787243
+{"vin":"1J4FA44S76P787243","vehicle":"2006 Jeep Wrangler Unlimited","mean":18566.21,"stdev":4107,"count":452,"mileage":109694,"certainty":99,"period":["2021-05-03","2022-10-14"],"prices":{"average":18566.21,"below":14459.21,"above":22673.21,"distribution":[{"group":{"min":9800,"max":13000,"count":46}},{"group":{"min":13000,"max":14980,"count":45}},{"group":{"min":14980,"max":15999,"count":45}},{"group":{"min":15999,"max":16995,"count":45}},{"group":{"min":16995,"max":18500,"count":46}},{"group":{"min":18500,"max":19888,"count":45}},{"group":{"min":19888,"max":20600,"count":45}},{"group":{"min":20600,"max":22764,"count":45}},{"group":{"min":22764,"max":24271,"count":45}},{"group":{"min":24271,"max":27999,"count":45}}]},"adjustments":{"mileage":{"average":109694.7,"input":109694.7,"adjustment":0}}}
+
+---------For VIN: 1J4FA44S76P787243  ---------
+AVERAGE: 18566.21
+BELOW: 14459.21
+ABOVE: 22673.21 
+
+
+Ratio:  1.092708492731446
+Price:  $22,990  Vin:  1J4FA24119L759719
+{"vin":"1J4FA24119L759719","vehicle":"2009 Jeep WRANGLER X","mean":16406.88,"stdev":2610,"count":1816,"mileage":112027,"certainty":99,"period":["2021-05-03","2022-10-14"],"prices":{"average":16406.88,"below":13796.24,"above":19017.52,"distribution":[{"group":{"min":8500,"max":12998,"count":182}},{"group":{"min":12998,"max":14027,"count":182}},{"group":{"min":14027,"max":14995,"count":181}},{"group":{"min":14995,"max":15900,"count":182}},{"group":{"min":15900,"max":16000,"count":182}},{"group":{"min":16000,"max":16990,"count":181}},{"group":{"min":16990,"max":17588,"count":182}},{"group":{"min":17588,"max":18350,"count":181}},{"group":{"min":18350,"max":19970,"count":182}},{"group":{"min":19970,"max":24000,"count":181}}]},"adjustments":{"mileage":{"average":112027.14,"input":112027.14,"adjustment":0}}}
+
+---------For VIN: 1J4FA24119L759719  ---------
+AVERAGE: 16406.88
+BELOW: 13796.24
+ABOVE: 19017.52 
+
+
+Ratio:  0.7136528925619835
+Price:  $20,990  Vin:  1J4FA24109L753717
+{"vin":"1J4FA24109L753717","vehicle":"2009 Jeep WRANGLER X","mean":16406.88,"stdev":2610,"count":1816,"mileage":112027,"certainty":99,"period":["2021-05-03","2022-10-14"],"prices":{"average":16406.88,"below":13796.24,"above":19017.52,"distribution":[{"group":{"min":8500,"max":12998,"count":182}},{"group":{"min":12998,"max":14027,"count":182}},{"group":{"min":14027,"max":14995,"count":181}},{"group":{"min":14995,"max":15900,"count":182}},{"group":{"min":15900,"max":16000,"count":182}},{"group":{"min":16000,"max":16990,"count":181}},{"group":{"min":16990,"max":17588,"count":182}},{"group":{"min":17588,"max":18350,"count":181}},{"group":{"min":18350,"max":19970,"count":182}},{"group":{"min":19970,"max":24000,"count":181}}]},"adjustments":{"mileage":{"average":112027.14,"input":112027.14,"adjustment":0}}}
+
+---------For VIN: 1J4FA24109L753717  ---------
+AVERAGE: 16406.88
+BELOW: 13796.24
+ABOVE: 19017.52 
+
+
+Ratio:  0.7816522153406384
+Price:  $20,000  Vin:  1J8GA59148L624892
+{"vin":"1J8GA59148L624892","vehicle":"2008 Jeep Wrangler Unlimited Sahara","mean":17375.16,"stdev":2840,"count":2520,"mileage":138622,"certainty":99,"period":["2021-05-03","2022-10-14"],"prices":{"average":17375.16,"below":14534.36,"above":20215.96,"distribution":[{"group":{"min":8750,"max":13950,"count":253}},{"group":{"min":13950,"max":14995,"count":252}},{"group":{"min":14995,"max":15985,"count":252}},{"group":{"min":15985,"max":16598,"count":252}},{"group":{"min":16598,"max":16999,"count":252}},{"group":{"min":16999,"max":17995,"count":252}},{"group":{"min":17995,"max":18923,"count":252}},{"group":{"min":18923,"max":19900,"count":252}},{"group":{"min":19900,"max":20998,"count":252}},{"group":{"min":20998,"max":25000,"count":251}}]},"adjustments":{"mileage":{"average":138622.43,"input":138622.43,"adjustment":0}}}
+
+---------For VIN: 1J8GA59148L624892  ---------
+AVERAGE: 17375.16
+BELOW: 14534.36
+ABOVE: 20215.96 
+
+
+Ratio:  0.868758
+Price:  $17,495  Vin:  1J4GA69167L211801
+{"vin":"1J4GA69167L211801","vehicle":"2007 Jeep Wrangler Unlimited Rubicon","mean":18721.24,"stdev":3348,"count":268,"mileage":126711,"certainty":99,"period":["2021-05-05","2022-10-14"],"prices":{"average":18721.24,"below":15372.85,"above":22069.63,"distribution":[{"group":{"min":10000,"max":14450,"count":27}},{"group":{"min":14450,"max":15900,"count":27}},{"group":{"min":15900,"max":16971,"count":27}},{"group":{"min":16971,"max":17500,"count":27}},{"group":{"min":17500,"max":18789,"count":27}},{"group":{"min":18789,"max":19495,"count":26}},{"group":{"min":19495,"max":19998,"count":27}},{"group":{"min":19998,"max":21900,"count":27}},{"group":{"min":21900,"max":22999,"count":27}},{"group":{"min":22999,"max":26999,"count":26}}]},"adjustments":{"mileage":{"average":126711.25,"input":126711.25,"adjustment":0}}}
+
+---------For VIN: 1J4GA69167L211801  ---------
+AVERAGE: 18721.24
+BELOW: 15372.85
+ABOVE: 22069.63 
+
+
+Ratio:  1.07009088310946
+Price:  $11,881  Vin:  1J4FA24178L546319
+{"vin":"1J4FA24178L546319","vehicle":"2008 Jeep Wrangler X","mean":15432.69,"stdev":2589,"count":2240,"mileage":117490,"certainty":99,"period":["2021-05-03","2022-10-14"],"prices":{"average":15432.69,"below":12843.58,"above":18021.8,"distribution":[{"group":{"min":7900,"max":11995,"count":225}},{"group":{"min":11995,"max":13457,"count":224}},{"group":{"min":13457,"max":13998,"count":224}},{"group":{"min":13998,"max":14950,"count":224}},{"group":{"min":14950,"max":15000,"count":224}},{"group":{"min":15000,"max":15991,"count":224}},{"group":{"min":15991,"max":16888,"count":224}},{"group":{"min":16888,"max":17600,"count":224}},{"group":{"min":17600,"max":18991,"count":224}},{"group":{"min":18991,"max":22595,"count":223}}]},"adjustments":{"mileage":{"average":117490.55,"input":117490.55,"adjustment":0}}}
+
+---------For VIN: 1J4FA24178L546319  ---------
+AVERAGE: 15432.69
+BELOW: 12843.58
+ABOVE: 18021.8 
+
+
+Ratio:  1.298938641528491
+Price:  $16,978  Vin:  1J4FA39S16P705462
+{"message":"You have exceeded the rate limit per second for your plan, BASIC, by the API provider"}
+
+---------For VIN: 1J4FA39S16P705462  ---------
+AVERAGE: 15212.44
+BELOW: 12164.25
+ABOVE: 18260.63 
+
+
+Ratio:  0.8960089527623984
+Price:  $21,400  Vin:  1J4FA44S76P719041
+{"vin":"1J4FA44S76P719041","vehicle":"2006 Jeep Wrangler Unlimited","mean":18566.21,"stdev":4107,"count":452,"mileage":109694,"certainty":99,"period":["2021-05-03","2022-10-14"],"prices":{"average":18566.21,"below":14459.21,"above":22673.21,"distribution":[{"group":{"min":9800,"max":13000,"count":46}},{"group":{"min":13000,"max":14980,"count":45}},{"group":{"min":14980,"max":15999,"count":45}},{"group":{"min":15999,"max":16995,"count":45}},{"group":{"min":16995,"max":18500,"count":46}},{"group":{"min":18500,"max":19888,"count":45}},{"group":{"min":19888,"max":20600,"count":45}},{"group":{"min":20600,"max":22764,"count":45}},{"group":{"min":22764,"max":24271,"count":45}},{"group":{"min":24271,"max":27999,"count":45}}]},"adjustments":{"mileage":{"average":109694.7,"input":109694.7,"adjustment":0}}}
+
+---------For VIN: 1J4FA44S76P719041  ---------
+AVERAGE: 18566.21
+BELOW: 14459.21
+ABOVE: 22673.21 
+
+
+Ratio:  0.8675799065420561
+Price:  $18,900  Vin:  1J4FA39S45P304096
+{"message":"You have exceeded the rate limit per second for your plan, BASIC, by the API provider"}
+
+---------For VIN: 1J4FA39S45P304096  ---------
+AVERAGE: 14365.88
+BELOW: 11375.17
+ABOVE: 17356.59 
+
+
+Ratio:  0.7600994708994708
+Price:  $12,994  Vin:  1J4FA24118L533985
+{"vin":"1J4FA24118L533985","vehicle":"2008 Jeep Wrangler X","mean":15432.69,"stdev":2589,"count":2240,"mileage":117490,"certainty":99,"period":["2021-05-03","2022-10-14"],"prices":{"average":15432.69,"below":12843.58,"above":18021.8,"distribution":[{"group":{"min":7900,"max":11995,"count":225}},{"group":{"min":11995,"max":13457,"count":224}},{"group":{"min":13457,"max":13998,"count":224}},{"group":{"min":13998,"max":14950,"count":224}},{"group":{"min":14950,"max":15000,"count":224}},{"group":{"min":15000,"max":15991,"count":224}},{"group":{"min":15991,"max":16888,"count":224}},{"group":{"min":16888,"max":17600,"count":224}},{"group":{"min":17600,"max":18991,"count":224}},{"group":{"min":18991,"max":22595,"count":223}}]},"adjustments":{"mileage":{"average":117490.55,"input":117490.55,"adjustment":0}}}
+
+---------For VIN: 1J4FA24118L533985  ---------
+AVERAGE: 15432.69
+BELOW: 12843.58
+ABOVE: 18021.8 
+
+
+Ratio:  1.187678159150377
+Price:  $16,000  Vin:  1J4GA59188L531925
+{"vin":"1J4GA59188L531925","vehicle":"2008 Jeep Wrangler Unlimited Sahara","mean":17375.16,"stdev":2840,"count":2520,"mileage":138622,"certainty":99,"period":["2021-05-03","2022-10-14"],"prices":{"average":17375.16,"below":14534.36,"above":20215.96,"distribution":[{"group":{"min":8750,"max":13950,"count":253}},{"group":{"min":13950,"max":14995,"count":252}},{"group":{"min":14995,"max":15985,"count":252}},{"group":{"min":15985,"max":16598,"count":252}},{"group":{"min":16598,"max":16999,"count":252}},{"group":{"min":16999,"max":17995,"count":252}},{"group":{"min":17995,"max":18923,"count":252}},{"group":{"min":18923,"max":19900,"count":252}},{"group":{"min":19900,"max":20998,"count":252}},{"group":{"min":20998,"max":25000,"count":251}}]},"adjustments":{"mileage":{"average":138622.43,"input":138622.43,"adjustment":0}}}
+
+---------For VIN: 1J4GA59188L531925  ---------
+AVERAGE: 17375.16
+BELOW: 14534.36
+ABOVE: 20215.96 
+
+
+Ratio:  1.0859475
+Price:  $15,999  Vin:  1J4GA39138L646517
+{"vin":"1J4GA39138L646517","vehicle":"2008 Jeep Wrangler Unlimited X","mean":16934.58,"stdev":2862,"count":2302,"mileage":134257,"certainty":99,"period":["2021-05-03","2022-10-14"],"prices":{"average":16934.58,"below":14072.45,"above":19796.71,"distribution":[{"group":{"min":8500,"max":13500,"count":231}},{"group":{"min":13500,"max":14821,"count":230}},{"group":{"min":14821,"max":15166,"count":230}},{"group":{"min":15166,"max":15995,"count":230}},{"group":{"min":15995,"max":16988,"count":231}},{"group":{"min":16988,"max":17500,"count":230}},{"group":{"min":17500,"max":18124,"count":230}},{"group":{"min":18124,"max":18999,"count":230}},{"group":{"min":18999,"max":20691,"count":230}},{"group":{"min":20691,"max":25000,"count":230}}]},"adjustments":{"mileage":{"average":134257.43,"input":134257.43,"adjustment":0}}}
+
+---------For VIN: 1J4GA39138L646517  ---------
+AVERAGE: 16934.58
+BELOW: 14072.45
+ABOVE: 19796.71 
+
+
+Ratio:  1.0584774048378025
+Price:  $15,000  Vin:  1J4FA29P81P353950
+{"vin":"1J4FA29P81P353950","vehicle":"2001 Jeep Wrangler SE","mean":10389.89,"stdev":2176,"count":146,"mileage":121998,"certainty":99,"period":["2021-05-05","2022-10-14"],"prices":{"average":10389.89,"below":8213.5,"above":12566.28,"distribution":[{"group":{"min":5495,"max":7400,"count":15}},{"group":{"min":7400,"max":8700,"count":15}},{"group":{"min":8700,"max":9328,"count":14}},{"group":{"min":9328,"max":9900,"count":15}},{"group":{"min":9900,"max":9995,"count":15}},{"group":{"min":9995,"max":10977,"count":14}},{"group":{"min":10977,"max":11950,"count":15}},{"group":{"min":11950,"max":12450,"count":14}},{"group":{"min":12450,"max":12995,"count":15}},{"group":{"min":12995,"max":14999,"count":14}}]},"adjustments":{"mileage":{"average":121998.55,"input":121998.55,"adjustment":0}}}
+
+---------For VIN: 1J4FA29P81P353950  ---------
+AVERAGE: 10389.89
+BELOW: 8213.5
+ABOVE: 12566.28 
+
+
+Ratio:  0.6926593333333333
+Price:  $13,743  Vin:  1J4FA54157L169439
+{"message":"You have exceeded the rate limit per second for your plan, BASIC, by the API provider"}
+
+---------For VIN: 1J4FA54157L169439  ---------
+AVERAGE: 15669.95
+BELOW: 12963.01
+ABOVE: 18376.89 
+
+
+Ratio:  1.1402131994469913
+Price:  $10,995  Vin:  1J4FA49S02P702052
+{"vin":"1J4FA49S02P702052","vehicle":"2002 Jeep Wrangler Sport","mean":12186.13,"stdev":2788,"count":400,"mileage":127407,"certainty":99,"period":["2021-05-03","2022-10-14"],"prices":{"average":12186.13,"below":9398.0,"above":14974.26,"distribution":[{"group":{"min":6499,"max":8495,"count":41}},{"group":{"min":8495,"max":9900,"count":40}},{"group":{"min":9900,"max":10500,"count":40}},{"group":{"min":10500,"max":10999,"count":40}},{"group":{"min":10999,"max":11998,"count":40}},{"group":{"min":11998,"max":12990,"count":40}},{"group":{"min":12990,"max":13950,"count":40}},{"group":{"min":13950,"max":14952,"count":40}},{"group":{"min":14952,"max":15995,"count":40}},{"group":{"min":15995,"max":18000,"count":39}}]},"adjustments":{"mileage":{"average":127407.91,"input":127407.91,"adjustment":0}}}
+
+---------For VIN: 1J4FA49S02P702052  ---------
+AVERAGE: 12186.13
+BELOW: 9398.0
+ABOVE: 14974.26 
+
+
+Ratio:  1.1083337880854933
+
+deals:  [('1J8GA69159L719162', 1.5423051646546182), ('1J8GA69159L719162', 1.5423051646546182), ('1J8GA69159L719162', 1.5423051646546182), ('1J4FA29P21P311130', 1.515665937272064), ('1J4FA29P21P311130', 1.515665937272064), ('1J4FA44S36P703757', 1.440581160769708), ('1J4FA44S36P703757', 1.440581160769708), ('1J4FA44S36P703757', 1.440581160769708), ('1J4FA44S26P775467', 1.3463531544597533), ('1J4FA44S26P775467', 1.3463531544597533), ('1J4GA59128L505966', 1.337065025009619), ('1J4GA59198L573634', 1.337065025009619), ('1J4GA59128L505966', 1.337065025009619), ('1J4GA59198L573634', 1.337065025009619), ('1J4GA59128L505966', 1.337065025009619), ('1J4GA59198L573634', 1.337065025009619), ('1J4FA24178L546319', 1.298938641528491), ('1J4FA24198L632411', 1.2865935806586077), ('1J4FA24198L632411', 1.2865935806586077), ('1J4FA54139L774935', 1.254789247311828), ('1J4FA54139L774935', 1.254789247311828), ('1J4FA54139L774935', 1.254789247311828), ('1J4FA24118L533985', 1.187678159150377), ('1J4FY29P9XP418051', 1.1712), ('1J4FY29P9XP418051', 1.1712), ('1J4FY29P9XP418051', 1.1712), ('1J4FA29P0YP792635', 1.1705329411764707), ('1J4FA29P0YP792635', 1.1705329411764707), ('1J4FA29P0YP792635', 1.1705329411764707), ('1J4GA591X7L161463', 1.164616044003143), ('1J4GA591X7L161463', 1.164616044003143), ('1J4GA59198L615719', 1.1584212280818722), ('1J4GA59198L615719', 1.1584212280818722), ('1J4GA59198L615719', 1.1584212280818722), ('1J4FA54157L169439', 1.1402131994469913), ('1J4GA39159L754865', 1.135954698733855), ('1J4GA39159L754865', 1.135954698733855), ('1J4FA49S94P761541', 1.1219136), ('1J4FA49S94P761541', 1.1219136), ('1J4FA49S94P761541', 1.1219136), ('1J4FA49S94P761541', 1.1219136), ('1J4GA39109L735365', 1.1159322457653602), ('1J4GA39109L735365', 1.1159322457653602), ('1J4FA49S02P702052', 1.1083337880854933), ('1J4FA39S65P300115', 1.108050906286155), ('1J4FA39S65P300115', 1.108050906286155), ('1J4FA39S65P300115', 1.108050906286155), ('1J4FA24138L550142', 1.1024137438388457), ('1J4FA24138L550142', 1.1024137438388457), ('1J4FA24138L550142', 1.1024137438388457), ('1J4FA44S76P787243', 1.092708492731446), ('1J4FA44S76P787243', 1.092708492731446), ('1J4FA44S76P787243', 1.092708492731446), ('1J4GA59188L531925', 1.0859475), ('1J4GA59188L531925', 1.0859475), ('1J4GA59188L531925', 1.0859475), ('1J4GA591X9L704863', 1.0854692307692309), ('1J4GA591X9L704863', 1.0854692307692309), ('1J4GA69167L211801', 1.07009088310946), ('1J4GA69167L211801', 1.07009088310946), ('1J4GA69167L211801', 1.07009088310946), ('1J4GA69167L211801', 1.07009088310946), ('1J4GA39138L646517', 1.0584774048378025), ('1J4GA39179L722225', 1.0505325095616358), ('1J4GA39179L722225', 1.0505325095616358), ('1J4GA39179L722225', 1.0505325095616358), ('1J4GA39167L105556', 1.0453543624161075), ('1J4GA39167L105556', 1.0453543624161075), ('1J8GA59158L520668', 1.034297279599976), ('1J8GA59158L520668', 1.034297279599976), ('1J4FA24168L511626', 1.0289145943062872), ('1J4FA24168L511626', 1.0289145943062872), ('1J4FA29146P782375', 0.9996476923076923), ('1J4FA29146P782375', 0.9996476923076923), ('1J4FA29146P782375', 0.9996476923076923), ('1J4GA391X9L737057', 0.9924291272929405), ('1J4GA391X9L737057', 0.9924291272929405), ('1J4FA49S11P368189', 0.9612599417276951), ('1J4FA49S11P368189', 0.9612599417276951), ('1J4FA49S11P368189', 0.9612599417276951), ('1J4FA39S26P780588', 0.9510747108471398), ('1J4FA39S26P780588', 0.9510747108471398), ('1J4FA39S14P722940', 0.9448731034482758), ('1J4FA24177L227016', 0.9279385635635635), ('1J4FA24177L227016', 0.9279385635635635), ('1J8FA54157L134236', 0.921815989175834), ('1J8FA54157L134236', 0.921815989175834), ('1J4GA59168L532085', 0.9100754242614708), ('1J4GA59168L532085', 0.9100754242614708), ('1J4GA59168L532085', 0.9100754242614708), ('1J4FA24117L218473', 0.9072773427942256), ('1J4FA24117L218473', 0.9072773427942256), ('1J4FA39S16P705462', 0.8960089527623984), ('1J4GA39118L509060', 0.8915282969202423), ('1J4GA39118L509060', 0.8915282969202423), ('1J4GA39118L509060', 0.8915282969202423), ('1J8FA54149L744776', 0.8752155), ('1J8FA54149L744776', 0.8752155), ('1J8FA54149L744776', 0.8752155), ('1J8GA59148L624892', 0.868758), ('1J4FA44S76P719041', 0.8675799065420561), ('1J4FA39S04P771417', 0.8417189899858696), ('1J4FA39S04P771417', 0.8417189899858696), ('1J4FA69S26P726211', 0.8339982570806099), ('1J4FA69S26P726211', 0.8339982570806099), ('1J4GA39169L741994', 0.8119054115507048), ('1J4GA39169L741994', 0.8119054115507048), ('1J4FA24109L753717', 0.7816522153406384), ('1J4FA39S45P304096', 0.7600994708994708), ('1J4FA59S6YP712406', 0.7323478516774573), ('1J4FA59S6YP712406', 0.7323478516774573), ('1J4FA59S6YP712406', 0.7323478516774573), ('1J4FA24119L759719', 0.7136528925619835), ('1J4FA29P81P353950', 0.6926593333333333), ('1J8FA54149L744776 ', 0.0), ('1J4FA24158L539790 ', 0.0), ('1J4GA39179L722225 ', 0.0), ('1J4FA541X8L650157 ', 0.0), ('1J4FA24198L632411 ', 0.0), ('1J4F449SX5P368639 ', 0.0), ('1J4FA39S06P720437 ', 0.0), ('1J4GA59108L505349 ', 0.0), ('1J4FA44S26P775467 ', 0.0), ('1J4FA54107L209040 ', 0.0), ('1J4FA24158L539790 ', 0.0), ('1J4FA39S26P780588 ', 0.0), ('1J4GA39109L735365 ', 0.0), ('1J4FA29146P782375 ', 0.0), ('1J8FA54149L744776 ', 0.0), ('1J4FA49S7YP781003 ', 0.0), ('1J4FA24168L511626 ', 0.0), ('1J4GA39179L722225 ', 0.0), ('1J8FA54149L744776 ', 0.0), ('1J4FA24158L539790 ', 0.0), ('1J4GA39179L722225 ', 0.0), ('1J4FA541X8L650157 ', 0.0), ('1J4FA24198L632411 ', 0.0), ('1J4F449SX5P368639 ', 0.0), ('1J4FA39S06P720437 ', 0.0), ('1J4GA59108L505349 ', 0.0), ('1J4FA44S26P775467 ', 0.0), ('1J4FA54107L209040 ', 0.0), ('1J4FA24158L539790 ', 0.0), ('1J4FA39S26P780588 ', 0.0), ('1J4GA39109L735365 ', 0.0), ('1J4FA29146P782375 ', 0.0), ('1J8FA54149L744776 ', 0.0), ('1J4FA49S7YP781003 ', 0.0), ('1J4FA24168L511626 ', 0.0), ('1J4GA39179L722225 ', 0.0), ('1J8FA54149L744776 ', 0.0), ('1J4FA24158L539790 ', 0.0), ('1J4GA39179L722225 ', 0.0), ('1J4FA541X8L650157 ', 0.0), ('1J4FA24198L632411 ', 0.0), ('1J4F449SX5P368639 ', 0.0), ('1J4FA39S06P720437 ', 0.0), ('1J4GA59108L505349 ', 0.0), ('1J4FA44S26P775467 ', 0.0), ('1J4FA54107L209040 ', 0.0), ('1J4FA24158L539790 ', 0.0), ('1J4FA39S26P780588 ', 0.0), ('1J4GA39109L735365 ', 0.0), ('1J4FA29146P782375 ', 0.0), ('1J8FA54149L744776 ', 0.0), ('1J4FA49S7YP781003 ', 0.0), ('1J4FA24168L511626 ', 0.0), ('1J4GA39179L722225 ', 0.0), ('1J8FA54149L744776 ', 0.0), ('1J4FA24158L539790 ', 0.0), ('1J4GA39179L722225 ', 0.0), ('1J4FA541X8L650157 ', 0.0), ('1J4FA24198L632411 ', 0.0), ('1J4F449SX5P368639 ', 0.0), ('1J4FA39S06P720437 ', 0.0), ('1J4GA59108L505349 ', 0.0), ('1J4FA44S26P775467 ', 0.0), ('1J4FA54107L209040 ', 0.0), ('1J4FA24158L539790 ', 0.0), ('1J4FA39S26P780588 ', 0.0), ('1J4GA39109L735365 ', 0.0), ('1J4FA29146P782375 ', 0.0), ('1J8FA54149L744776 ', 0.0), ('1J4FA49S7YP781003 ', 0.0), ('1J4FA24168L511626 ', 0.0), ('1J4GA39179L722225 ', 0.0), ('1J8FA54149L744776 ', 0.0), ('1J4FA24158L539790 ', 0.0), ('1J4GA39179L722225 ', 0.0), ('1J4FA541X8L650157 ', 0.0), ('1J4FA24198L632411 ', 0.0), ('1J4F449SX5P368639 ', 0.0), ('1J4FA39S06P720437 ', 0.0), ('1J4GA59108L505349 ', 0.0), ('1J4FA44S26P775467 ', 0.0), ('1J4FA54107L209040 ', 0.0), ('1J4FA24158L539790 ', 0.0), ('1J4FA39S26P780588 ', 0.0), ('1J4GA39109L735365 ', 0.0), ('1J4FA29146P782375 ', 0.0), ('1J8FA54149L744776 ', 0.0), ('1J4FA49S7YP781003 ', 0.0), ('1J4FA24168L511626 ', 0.0), ('1J4GA39179L722225 ', 0.0)]
+------
+------
+[{'Make': 'Jeep', 'Model': 'Wrangler', 'Year': '2009', 'Mileage': '140,000 miles', 'Price': '$13,999', 'VIN': '1J8GA69159L719162', 'url': 'https://www.edmunds.com/jeep/wrangler/2009/vin/1J8GA69159L719162/?radius=50'}, {'Make': 'Jeep', 'Model': 'Wrangler', 'Year': '2009', 'Mileage': '140,000 miles', 'Price': '$13,999', 'VIN': '1J8GA69159L719162', 'url': 'https://www.edmunds.com/jeep/wrangler/2009/vin/1J8GA69159L719162/?radius=50'}, {'Make': 'Jeep', 'Model': 'Wrangler', 'Year': '2009', 'Mileage': '140,000 miles', 'Price': '$13,999', 'VIN': '1J8GA69159L719162', 'url': 'https://www.edmunds.com/jeep/wrangler/2009/vin/1J8GA69159L719162/?radius=50'}, {'Make': 'Jeep', 'Model': 'Wrangler', 'Year': '2009', 'Mileage': '140,000 miles', 'Price': '$13,999', 'VIN': '1J8GA69159L719162', 'url': 'https://www.edmunds.com/jeep/wrangler/2009/vin/1J8GA69159L719162/?radius=50'}, {'Make': 'Jeep', 'Model': 'Wrangler', 'Year': '2009', 'Mileage': '140,000 miles', 'Price': '$13,999', 'VIN': '1J8GA69159L719162', 'url': 'https://www.edmunds.com/jeep/wrangler/2009/vin/1J8GA69159L719162/?radius=50'}, {'Make': 'Jeep', 'Model': 'Wrangler', 'Year': '2009', 'Mileage': '140,000 miles', 'Price': '$13,999', 'VIN': '1J8GA69159L719162', 'url': 'https://www.edmunds.com/jeep/wrangler/2009/vin/1J8GA69159L719162/?radius=50'}, {'Make': 'Jeep', 'Model': 'Wrangler', 'Year': '2009', 'Mileage': '140,000 miles', 'Price': '$13,999', 'VIN': '1J8GA69159L719162', 'url': 'https://www.edmunds.com/jeep/wrangler/2009/vin/1J8GA69159L719162/?radius=50'}, {'Make': 'Jeep', 'Model': 'Wrangler', 'Year': '2009', 'Mileage': '140,000 miles', 'Price': '$13,999', 'VIN': '1J8GA69159L719162', 'url': 'https://www.edmunds.com/jeep/wrangler/2009/vin/1J8GA69159L719162/?radius=50'}, {'Make': 'Jeep', 'Model': 'Wrangler', 'Year': '2009', 'Mileage': '140,000 miles', 'Price': '$13,999', 'VIN': '1J8GA69159L719162', 'url': 'https://www.edmunds.com/jeep/wrangler/2009/vin/1J8GA69159L719162/?radius=50'}, {'Make': 'Jeep', 'Model': 'Wrangler', 'Year': '2001', 'Mileage': '149,674 miles', 'Price': '$6,855', 'VIN': '1J4FA29P21P311130', 'url': 'https://www.edmunds.com/jeep/wrangler/2001/vin/1J4FA29P21P311130/?radius=50'}, {'Make': 'Jeep', 'Model': 'Wrangler', 'Year': '2001', 'Mileage': '149,674 miles', 'Price': '$6,855', 'VIN': '1J4FA29P21P311130', 'url': 'https://www.edmunds.com/jeep/wrangler/2001/vin/1J4FA29P21P311130/?radius=50'}, {'Make': 'Jeep', 'Model': 'Wrangler', 'Year': '2001', 'Mileage': '149,674 miles', 'Price': '$6,855', 'VIN': '1J4FA29P21P311130', 'url': 'https://www.edmunds.com/jeep/wrangler/2001/vin/1J4FA29P21P311130/?radius=50'}, {'Make': 'Jeep', 'Model': 'Wrangler', 'Year': '2001', 'Mileage': '149,674 miles', 'Price': '$6,855', 'VIN': '1J4FA29P21P311130', 'url': 'https://www.edmunds.com/jeep/wrangler/2001/vin/1J4FA29P21P311130/?radius=50'}]
+127.0.0.1 - - [08/Nov/2022 10:04:08] "GET /getUrl/https:%3E%3Ewww.edmunds.com%3Ejeep%3Ewrangler%3E2004%3Evin%3E1j4fa49s94p761541%3E HTTP/1.1" 200 -

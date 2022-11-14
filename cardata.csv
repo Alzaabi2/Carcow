@@ -1,47 +1,99 @@
 Make,Model,Year,Mileage,Price,VIN,url
-Audi,A7 3.0 TDI Prestige quattro,2014,"132,963 mi.","$17,000",WAU2MAFC1EN036050,http://cars.com/vehicledetail/e83f0981-bc52-4302-b0c8-24d926d14c6d/
-Audi,A7 3.0T Premium Plus quattro,2013,"49,645 mi.","$25,990",WAUYGAFC2DN090294,http://cars.com/vehicledetail/c2a97e11-86e0-46b7-bde9-26079a5a95d4/
-Audi,A7 3.0T Prestige,2019,"25,286 mi.","$53,000",WAUS2AF22KN095875,http://cars.com/vehicledetail/226e8f3b-0c13-4893-85e4-956627bb16cc/
-Audi,A7 3.0T Prestige quattro,2014,"135,218 mi.","$18,376",WAU2GAFC3EN014557,http://cars.com/vehicledetail/9133feac-6650-4cb7-b5ed-5522a7958734/
-Audi,A7 3.0T Premium Plus quattro,2012,"97,157 mi.","$18,995",WAUSGAFC7CN016471,http://cars.com/vehicledetail/e5fac043-6e94-476f-86a7-a7fa2ff57da8/
-Audi,A7 3.0T Premium Plus,2019,"58,962 mi.","$47,995",WAUU2AF25KN041379,http://cars.com/vehicledetail/d0b11609-92e0-4fc5-b900-c48181199e79/
-Audi,A7 3.0 TDI Premium Plus quattro,2014,"71,431 mi.","$25,977",WAUWMAFC9EN134339,http://cars.com/vehicledetail/55c10702-653f-47cf-bd7b-da4683177ef4/
-Audi,A7 3.0 Premium Plus,2012,"93,035 mi.","$19,995",WAUSGAFC4CN014225,http://cars.com/vehicledetail/f29b5bed-815b-4933-8111-25bceab7c21f/
-Audi,A7 3.0T Premium Plus quattro,2014,"103,798 mi.","$23,995",WAUWGAFC6EN113701,http://cars.com/vehicledetail/dfcb123b-0a83-4989-8b71-8d5ed0bf6cba/
-Audi,A7 3.0T Premium Plus,2013,"104,793 mi.","$22,877",WAUYGAFC1DN064964,http://cars.com/vehicledetail/a21df049-09ee-499a-89e7-b34b7bb51140/
-Audi,A7 3.0T Premium Plus,2013,"119,275 mi.","$17,877",WAUYGAFC1DN067699,http://cars.com/vehicledetail/bdafea63-1879-47be-92c8-289584a11cd1/
-Audi,A7 3.0T Prestige quattro,2013,"101,637 mi.","$23,000",WAU3GAFC2DN017890,http://cars.com/vehicledetail/f0faed37-f127-4b8a-b68e-50a620a27149/
-Audi,A7 3.0T Prestige quattro,2012,"71,955 mi.","$21,995",WAU2GAFC7CN065279,http://cars.com/vehicledetail/71e44054-3d75-4128-80c7-3b1d1c45c25e/
-Audi,A7 3.0T Prestige,2016,"80,915 mi.","$25,001",WAU2GAFC4GN128988,http://cars.com/vehicledetail/56b5a641-d0dc-460d-b7ff-6ec048f79bfc/
-Audi,A7 3.0T quattro Premium,2019,"11,380 mi.","$61,999",WAUV2AF20KN085200,http://cars.com/vehicledetail/d74280e6-4e16-4fe3-b45d-b5df3514de1e/
-Audi,A7 Premium,2012,"60,000 mi.","$24,999",WAU2GAFC0CN084126,http://cars.com/vehicledetail/329aeac6-1f1b-40b1-b4df-73ad411669a2/
-Audi,A7 3.0T Prestige,2019,"28,632 mi.","$52,999",WAUS2AF22KN116241,http://cars.com/vehicledetail/a2a2aecf-28e5-4265-be5e-b0f64b62724e/
-Audi,A7 3.0T Prestige quattro,2014,"72,135 mi.","$26,977",WAU2GAFC9EN020881,http://cars.com/vehicledetail/f252fff4-e749-4eb8-b6b6-b4e20d954db1/
-Audi,A7 3.0T Premium Plus,2019,"17,152 mi.","$55,998",WAUU2AF26KN093376,http://cars.com/vehicledetail/d2b4a1e0-aabd-47a9-a0f7-03a11e62bd54/
-Audi,A7 3.0T Prestige,2019,"10,070 mi.","$52,975",WAUS2AF29KN028139,http://cars.com/vehicledetail/50e87760-bd5e-45c0-a008-213768e0e193/
-Audi,A7 3.0T Prestige,2017,"46,205 mi.","$34,995",WAU22AFC3HN041776,http://cars.com/vehicledetail/40013b2b-560f-434e-9ec2-13c80abf2071/
-Audi,A7 3.0T Prestige,2019,"14,184 mi.","$60,250",WAUS2AF20KN072644,http://cars.com/vehicledetail/b8f66d5d-efb9-4804-997a-122b473229f3/
-Audi,A7 3.0T Prestige,2016,"60,834 mi.","$29,995",WAU2GAFC5GN003417,http://cars.com/vehicledetail/b41b6761-067a-4294-9b8e-11c42770cc97/
-Audi,A7 3.0T Prestige quattro,2013,"114,330 mi.","$17,995",WAU2GBFCXDN127667,http://cars.com/vehicledetail/227d3c43-fe78-41b5-af99-e03d4d9c0f1c/
-Audi,A7 3.0T Premium Plus,2017,"77,941 mi.","$34,995",WAU22AFC4HN083485,http://cars.com/vehicledetail/9bb05d32-792b-49ca-bc2a-0fe6f18394ec/
-Audi,A7 3.0T Premium Plus,2018,"39,764 mi.","$46,988",WAUW3AFC9JN011380,http://cars.com/vehicledetail/ceedc39e-7b14-4322-809b-dc55731e2dc4/
-Audi,A7 3.0T Premium Plus,2016,"122,920 mi.","$21,599",WAUWGAFC0GN071724,http://cars.com/vehicledetail/85dbc053-8efe-4046-9d57-dc6e84f82841/
-Audi,A7 3.0T Premium Plus,2017,"86,159 mi.","$29,995",WAUW2AFC3HN015745,http://cars.com/vehicledetail/6baaec21-ba47-49c4-ba50-4603563a036b/
-Audi,A7 3.0T Competition Prestige,2017,"52,335 mi.","$41,995",WAUW3AFC8HN042078,http://cars.com/vehicledetail/d13e07e2-aeac-4838-990e-58253e6470ad/
-Audi,A7 3.0T quattro Premium,2019,"31,023 mi.","$58,888",WAUS2AF21KN050930,http://cars.com/vehicledetail/4167ce7a-50ab-4066-b4e5-b68e3b9bea90/
-Audi,A7 3.0T Prestige,2019,"44,184 mi.","$55,990",WAUS2AF22KN061774,http://cars.com/vehicledetail/721d9430-0a22-4035-85b0-5c060b68f2bd/
-Audi,A7 3.0 TDI Premium Plus quattro,2014,"70,172 mi.","$24,977",WAUWMAFC5EN051684,http://cars.com/vehicledetail/bd063ed0-aab2-4d9d-8c89-2e2fac73035e/
-Audi,A7 3.0 Prestige,2012,"85,390 mi.","$21,699",WAU3GAFC6CN090047,http://cars.com/vehicledetail/203914d1-2170-4426-8b87-b1c623b77f96/
-Audi,A7 3.0T Prestige,2017,"57,808 mi.","$40,599",WAUW3AFC6HN075127,http://cars.com/vehicledetail/a7d96ea1-9354-4217-aa9f-c42284a99772/
-Audi,A7 3.0T Premium Plus,2017,"72,944 mi.","$33,977",WAUW2AFC0HN027304,http://cars.com/vehicledetail/2d532e9e-72e7-4b81-8bb6-c51f84c72bcd/
-Audi,A7 3.0T Prestige,2017,"88,945 mi.","$32,992",WAU22AFC6HN030402,http://cars.com/vehicledetail/5429b213-95a8-446e-a6a6-a9b492aa6ce6/
-Audi,A7 3.0T Premium Plus,2016,"74,394 mi.","$29,995",WAU2GAFC2GN101160,http://cars.com/vehicledetail/6cd85a6d-9da6-4b24-b116-a07d098ed3cc/
-Audi,A7 3.0T Premium Plus,2014,"87,154 mi.","$23,595",WAUWGAFC4EN133722,http://cars.com/vehicledetail/4fb268d8-5b38-40dd-8cc7-675f81f9e124/
-Audi,A7 3.0T Premium Plus,2018,"20,633 mi.","$41,503",WAUW3AFC2JN057598,http://cars.com/vehicledetail/a2775f92-09a7-45c5-b666-8676dcbe6533/
-Audi,A7 3.0 TDI Prestige,2015,"90,111 mi.","$29,500",WAU2MAFCXFN022679,http://cars.com/vehicledetail/8c11288e-81ac-434f-bfd1-19acebf21a44/
-Audi,A7 3.0T Premium Plus,2021,"9,245 mi.","$78,784",WAUU2AF21MN080750,http://cars.com/vehicledetail/b3a76205-1249-46aa-93dd-6dc595ce8bca/
-Audi,A7 3.0T Premium Plus,2018,"41,000 mi.","$47,995",WAU23AFC6JN004465,http://cars.com/vehicledetail/01f98b45-a598-4b19-abba-3c006d25468a/
-Audi,A7 55 Premium Plus,2022,"2,100 mi.","$81,000",WAUU2BF28NN014767,http://cars.com/vehicledetail/d380d7f5-772c-416e-8322-7af09733f6ba/
-Audi,A7 3.0T Premium Plus,2016,"38,913 mi.","$39,998",WAUWGAFC2GN009807,http://cars.com/vehicledetail/b32946c1-73a0-423f-beda-c1e4603fd142/
-Audi,A7 3.0T Prestige quattro,2012,"59,432 mi.","$25,487",WAUSGAFC3CN004091,http://cars.com/vehicledetail/2f66de94-0006-4dae-9058-0986de0797c3/
-Audi,A7 3.0T Premium Plus quattro,2013,"54,100 mi.","$23,999",WAUYGAFCXDN097512,http://cars.com/vehicledetail/f46541c0-6855-476c-a623-a0ebe65ccf33/
+Dodge,Challenger R/T Scat Pack,2020,"34,873 mi.","$42,966",2C3CDZFJ6LH243418,http://cars.com/vehicledetail/fa69f331-94f7-409e-8e3d-660257f51bf9/
+Dodge,Challenger GT,2021,"18,764 mi.","$30,000",2C3CDZJG8MH517733,http://cars.com/vehicledetail/fe9956e5-8006-4fd2-b001-0b8a04837648/
+Dodge,Challenger R/T Scat Pack,2022,"4,470 mi.","$46,720",2C3CDZFJXNH118344,http://cars.com/vehicledetail/ec8fd382-ec72-48b8-8254-ec60aa349a2c/
+Dodge,Challenger SXT,2017,"49,839 mi.","$25,590",2C3CDZAG2HH532265,http://cars.com/vehicledetail/4ee3f1fd-6342-476b-80e6-6842de17fea6/
+Dodge,Challenger R/T,2012,"96,531 mi.","$22,590",2C3CDYBTXCH244007,http://cars.com/vehicledetail/63346cd8-383b-4951-911f-fda0ce903e07/
+Dodge,Challenger R/T Scat Pack,2021,"18,892 mi.","$54,500",2C3CDZFJ1MH602823,http://cars.com/vehicledetail/b13440b4-915e-458c-88a9-c22fb3c64425/
+Dodge,Challenger R/T,2020,"4,997 mi.","$41,577",2C3CDZBT3LH218936,http://cars.com/vehicledetail/c06b0c88-c242-4e8b-99b1-f1d2e6dd338c/
+Dodge,Challenger R/T Scat Pack,2021,"18,235 mi.","$45,000",2C3CDZFJ5MH513711,http://cars.com/vehicledetail/6eef63c8-745c-4a00-b35b-76de7505192f/
+Dodge,Challenger R/T Scat Pack,2021,"4,063 mi.","$59,000",2C3CDZFJ4MH563841,http://cars.com/vehicledetail/7eb9d629-9e9e-4781-b39c-77b6397b484a/
+Dodge,Challenger R/T Scat Pack,2021,"5,042 mi.","$53,877",2C3CDZFJ3MH668032,http://cars.com/vehicledetail/ae46561a-d693-46b2-a977-1cb812ae8258/
+Dodge,Challenger SXT,2020,"42,289 mi.","$26,500",2C3CDZAG1LH178845,http://cars.com/vehicledetail/d6333bde-2721-4f0f-9310-cc16f318674b/
+Dodge,Challenger SRT8,2009,"82,263 mi.","$21,500",2B3LJ74W19H524317,http://cars.com/vehicledetail/5681e9e6-433a-44bf-9919-8deaf98a1497/
+Dodge,Challenger Base,1973,"19,585 mi.","$69,800",0000JH23G3B358405,http://cars.com/vehicledetail/8a029c84-c765-446b-a25e-c404fe04c093/
+Dodge,Challenger GT,2021,"7,065 mi.","$30,000",2C3CDZJGXMH563564,http://cars.com/vehicledetail/087c8403-3456-4eb6-ab4a-581949b6bb59/
+Dodge,Challenger SXT,2021,"5,088 mi.","$33,998",2C3CDZAGXMH638375,http://cars.com/vehicledetail/a222044b-134e-4349-9c61-e725ff78c780/
+Dodge,Challenger R/T,2013,"10,690 mi.","$23,995",2C3CDYBT3DH725010,http://cars.com/vehicledetail/dc81e069-5c1a-4c2c-ade9-39f10e331d3e/
+Dodge,Challenger R/T,2020,"34,681 mi.","$38,995",2C3CDZBT1LH118558,http://cars.com/vehicledetail/e6e1a01f-db95-4b57-93ce-b5aaccaa1f42/
+Dodge,Challenger SXT Plus,2012,"67,071 mi.","$16,995",2C3CDYAG0CH153705,http://cars.com/vehicledetail/ca663ea5-7d2f-4322-8807-002e30805bc7/
+Dodge,Challenger SXT,2013,"100,647 mi.","$14,990",2C3CDYAG8DH570121,http://cars.com/vehicledetail/8264cd25-7aef-46c5-915f-e4ce63268686/
+Dodge,Challenger SXT,2013,"80,148 mi.","$16,995",2C3CDYAG9DH627796,http://cars.com/vehicledetail/bb4a7fd8-ef35-40a6-9a47-9597fe538c81/
+Dodge,Challenger R/T Scat Pack,2021,"3,800 mi.","$43,450",2C3CDZFJ6MH661124,http://cars.com/vehicledetail/1d1e173f-4228-4a65-9e50-b194369271b7/
+Dodge,Challenger GT,2021,"9,271 mi.","$31,856",2C3CDZJG9MH610731,http://cars.com/vehicledetail/a7ba93dc-a464-47fc-a79a-743441438d70/
+Dodge,Challenger R/T,2010,"101,782 mi.","$18,990",2B3CJ5DT3AH139324,http://cars.com/vehicledetail/395494e6-d6d2-4c18-9272-5a470e864640/
+Dodge,Challenger SRT Hellcat,2016,"6,310 mi.","$59,990",2C3CDZC91GH137278,http://cars.com/vehicledetail/fd479897-bcb9-4c1d-b1d6-4da588936434/
+Dodge,Challenger SRT8,2014,"10,197 mi.","$37,990",2C3CDYCJ6EH257420,http://cars.com/vehicledetail/8cc39bae-99dd-4e6e-b4c4-4769f46ff3fe/
+Dodge,Challenger R/T Scat Pack,2016,"15,187 mi.","$39,990",2C3CDZFJ9GH245461,http://cars.com/vehicledetail/5e6bda7f-4dda-40e1-9d84-07cc4c1cabd6/
+Dodge,Challenger SRT8,2013,"100,196 mi.","$23,988",2C3CDYCJ8DH596629,http://cars.com/vehicledetail/3d461520-f61f-433a-9dbe-0a795569db63/
+Dodge,Challenger R/T Scat Pack,2020,"3,230 mi.","$43,895",2C3CDZFJ3LH159685,http://cars.com/vehicledetail/fc1b7043-3a6e-4a7b-8b4a-44d5713e1911/
+Dodge,Challenger SRT Hellcat,2020,"1,050 mi.","$77,974",2C3CDZC90LH242582,http://cars.com/vehicledetail/61114870-d527-4ad1-a7db-655109edb947/
+Dodge,Challenger R/T Scat Pack,2021,"4,339 mi.","$45,000",2C3CDZFJ4MH620460,http://cars.com/vehicledetail/87906ba7-d4f2-4c8d-88ac-ff600f113c91/
+Dodge,Challenger R/T Scat Pack,2021,"14,599 mi.","$45,622",2C3CDZFJ0MH627745,http://cars.com/vehicledetail/b2e030b4-58e9-4edd-b90e-503942a4dc28/
+Dodge,Challenger R/T Scat Pack,2021,"22,080 mi.","$45,888",2C3CDZFJ1MH662472,http://cars.com/vehicledetail/ac8a8543-fb82-48ce-8157-dae561af0ed2/
+Dodge,Challenger R/T,2012,"90,289 mi.","$18,495",2C3CDYBT3CH280668,http://cars.com/vehicledetail/b49f5d57-7bde-4153-9c17-e46967137e30/
+Dodge,Challenger R/T Scat Pack,2022,577 mi.,"$58,790",2C3CDZFJXNH168581,http://cars.com/vehicledetail/3ac63f18-07a9-416a-9fad-6a52a3b48275/
+Dodge,Challenger SXT,2012,"18,081 mi.","$23,990",2C3CDYAG6CH293998,http://cars.com/vehicledetail/30a5b18e-c34c-4437-99c0-b81712e280a8/
+Dodge,Challenger SRT Hellcat,2018,"35,190 mi.","$57,990",2C3CDZC98JH110585,http://cars.com/vehicledetail/190cf64f-8463-4146-96fa-ddf99d8c592f/
+Dodge,Challenger R/T,2018,"82,942 mi.","$28,590",2C3CDZBT3JH212972,http://cars.com/vehicledetail/5bd741d6-c8ac-4723-a9fd-a42689cbc3e6/
+Dodge,Challenger R/T,2018,"63,702 mi.","$28,485",2C3CDZBT1JH300676,http://cars.com/vehicledetail/d687d11a-9ed5-4131-a7ac-bb9998edd8c6/
+Dodge,Challenger R/T,2020,"71,716 mi.","$29,000",2C3CDZBT8LH124793,http://cars.com/vehicledetail/7ab91a77-c0f6-49e4-bfe7-a28e162e3050/
+Dodge,Challenger R/T,2021,"30,622 mi.","$35,490",2C3CDZBT3MH524410,http://cars.com/vehicledetail/3c2b3593-5be4-4f5a-81d6-a2666d874001/
+Dodge,Challenger R/T,2018,"41,105 mi.","$31,282",2C3CDZBT6JH328022,http://cars.com/vehicledetail/8573feca-af2b-46b0-b55c-64bcd4d1b298/
+Dodge,Challenger R/T Scat Pack,2020,"1,581 mi.","$46,500",2C3CDZFJ5LH213746,http://cars.com/vehicledetail/8d097beb-5fa2-4c87-b7bd-bee54b5d402f/
+Dodge,Challenger SXT,2020,"33,195 mi.","$26,500",2C3CDZAG3LH206774,http://cars.com/vehicledetail/eb97acd6-88c2-4afc-b31d-3e20ee0bdd8b/
+Dodge,Challenger Rallye Redline,2013,"2,768 mi.","$22,990",2C3CDYAG2DH553881,http://cars.com/vehicledetail/58e14622-6870-42e6-b3c8-ee5dc170e31d/
+Dodge,Challenger R/T,2019,"46,305 mi.","$30,000",2C3CDZBT5KH747867,http://cars.com/vehicledetail/eee616fe-f524-4098-86c1-4a88c4d1860e/
+Dodge,Challenger GT,2022,"12,653 mi.","$34,750",2C3CDZJG7NH108754,http://cars.com/vehicledetail/3c093a62-67fd-4850-a36a-1cd9d45ac139/
+Dodge,Challenger SRT8 392,2012,"63,900 mi.","$27,498",2C3CDYCJ5CH154275,http://cars.com/vehicledetail/e927c072-d9d2-4405-9945-883f34fa7a3f/
+Dodge,Challenger R/T,2013,"99,225 mi.","$16,990",2C3CDYBT4DH605037,http://cars.com/vehicledetail/889db00c-a54c-476e-b866-50b279342c30/
+Dodge,Challenger R/T Plus,2018,"59,329 mi.","$27,900",2C3CDZBT8JH300738,http://cars.com/vehicledetail/30ee09d5-ffa1-4a02-a1c8-be080930dfb9/
+Dodge,Challenger SXT,2020,"5,797 mi.","$31,998",2C3CDZAG5LH240263,http://cars.com/vehicledetail/980d4ab2-c113-426e-9583-3a4f8d58cca1/
+Dodge,Challenger R/T Scat Pack Widebody,2020,"17,019 mi.","$47,998",2C3CDZFJXLH196314,http://cars.com/vehicledetail/53763684-d4a0-49b4-9b22-cbd49b147b12/
+Dodge,Challenger R/T Scat Pack,2020,"5,955 mi.","$42,998",2C3CDZFJ7LH198585,http://cars.com/vehicledetail/8d5160b7-7602-4a0c-8dcb-d2020bbf6ad6/
+Dodge,Challenger GT,2021,"8,033 mi.","$35,996",2C3CDZKG9MH556300,http://cars.com/vehicledetail/fb3242d9-b44e-4860-b326-c7e6a7f012f7/
+Dodge,Challenger SXT,2021,"21,189 mi.","$29,989",2C3CDZAG2MH573554,http://cars.com/vehicledetail/a79d130f-8956-4032-82cd-e13f549e0985/
+Dodge,Challenger R/T,2016,"32,662 mi.","$28,990",2C3CDZBT4GH322017,http://cars.com/vehicledetail/270263e4-8154-423b-84b6-0abd8812c5c3/
+Dodge,Challenger SXT,2015,"88,467 mi.","$19,990",2C3CDZAG9FH774709,http://cars.com/vehicledetail/526eb572-603a-45a0-9071-ca743536f735/
+Dodge,Challenger R/T,2012,"116,537 mi.","$15,995",2C3CDYBT8CH158002,http://cars.com/vehicledetail/8a63a796-2300-41a8-bc34-082831c9a38e/
+Dodge,Challenger R/T,2015,"3,740 mi.","$33,039",2C3CDZBT5FH913858,http://cars.com/vehicledetail/163d0acc-90c8-449f-b1ff-d7b8979abfc1/
+Dodge,Challenger SRT Hellcat,2021,"3,586 mi.","$75,995",2C3CDZC98MH680218,http://cars.com/vehicledetail/36270a29-e5ec-4536-9efd-1f2f146bfe87/
+Dodge,Challenger SXT,2016,"70,398 mi.","$29,990",2C3CDZAG3GH232295,http://cars.com/vehicledetail/82d74564-68bd-4200-b6c3-5d9caeb2bfdd/
+Dodge,Challenger R/T,2018,"32,256 mi.","$36,990",2C3CDZBT2JH143238,http://cars.com/vehicledetail/3a966b32-67a3-45b6-9183-61a01ada922f/
+Dodge,Challenger R/T Scat Pack,2021,"4,142 mi.","$48,977",2C3CDZFJ0MH583780,http://cars.com/vehicledetail/5dcbbb60-d752-42d1-a40e-756c4dd3d4a5/
+Dodge,Challenger R/T Scat Pack,2022,"4,094 mi.","$48,977",2C3CDZFJ1NH125067,http://cars.com/vehicledetail/abee6617-3831-49cc-b4fa-dee5c64738a6/
+Dodge,Challenger R/T,2019,"2,182 mi.","$37,995",2C3CDZBTXKH677086,http://cars.com/vehicledetail/9afae11a-bff5-4efc-8d70-a8fcd3718e33/
+Dodge,Challenger R/T Scat Pack,2022,"2,779 mi.","$46,999",2C3CDZFJ4NH135494,http://cars.com/vehicledetail/953fbd3f-e033-4904-8d44-bc1d648bf084/
+Dodge,Challenger R/T Scat Pack,2021,945 mi.,"$56,999",2C3CDZFJ5MH542190,http://cars.com/vehicledetail/cc6a8250-5e80-4ff5-b46e-2c4d25dba123/
+Dodge,Challenger R/T Scat Pack,2021,"7,549 mi.","$53,995",2C3CDZFJ6MH583654,http://cars.com/vehicledetail/3c74d7ac-36ec-4aa6-8774-2b05f398f77c/
+Dodge,Challenger GT,2019,"10,310 mi.","$34,999",2C3CDZKG5KH595561,http://cars.com/vehicledetail/a19c9c06-666d-47a0-a2da-4e31fe708a81/
+Dodge,Challenger SE,2009,"94,930 mi.","$12,950",2B3LJ44V79H522903,http://cars.com/vehicledetail/dc5b9c36-5733-4421-8fd8-b45e489ba44f/
+Dodge,Challenger SXT,2018,"30,035 mi.","$28,295",2C3CDZAG4JH215352,http://cars.com/vehicledetail/4a88ae2c-95db-4f07-9cf5-65831cd88d78/
+Dodge,Challenger GT,2021,"12,309 mi.","$32,392",2C3CDZJG6MH615658,http://cars.com/vehicledetail/41366656-62c8-447f-8e21-ab3270fafea2/
+Dodge,Challenger R/T Scat Pack,2020,"19,665 mi.","$47,589",2C3CDZFJ6LH253768,http://cars.com/vehicledetail/3a005c3a-fde3-4b74-af2b-575cccbe8ace/
+Dodge,Challenger R/T,2019,"16,461 mi.","$32,794",2C3CDZBT0KH521865,http://cars.com/vehicledetail/6febf754-55fc-43cb-8177-cf9d09455bcc/
+Dodge,Challenger SRT8 392,2012,"21,767 mi.","$35,590",2C3CDYCJ6CH239030,http://cars.com/vehicledetail/75d5274a-569e-4c86-862e-4e99aef525c9/
+Dodge,Challenger R/T Plus,2015,"88,777 mi.","$26,990",2C3CDZBT7FH715055,http://cars.com/vehicledetail/de2a94df-32bc-4fd6-bb44-13d1a22a468e/
+Dodge,Challenger R/T Scat Pack,2019,"31,726 mi.","$41,590",2C3CDZFJ2KH674997,http://cars.com/vehicledetail/b211ec3e-dcad-47a2-b3e7-2c052b837836/
+Dodge,Challenger SXT,2018,"53,383 mi.","$25,590",2C3CDZAG5JH131458,http://cars.com/vehicledetail/dd0ec0e0-66d2-402f-9b58-dd667180b6fb/
+Dodge,Challenger R/T,2017,"44,805 mi.","$31,990",2C3CDZBTXHH531795,http://cars.com/vehicledetail/d16ad295-8cc3-43d1-94ce-3cd0ddf83c3c/
+Dodge,Challenger GT,2019,"17,837 mi.","$30,590",2C3CDZJG1KH663226,http://cars.com/vehicledetail/4226016d-2748-46c2-a315-74e02730f902/
+Dodge,Challenger SXT,2012,"80,626 mi.","$19,590",2C3CDYAG9CH268321,http://cars.com/vehicledetail/8d256223-18fb-42c6-98a6-f706148131e4/
+Dodge,Challenger SXT,2019,"53,258 mi.","$26,990",2C3CDZAG6KH662475,http://cars.com/vehicledetail/e0ee1580-6247-4702-8ead-b46003088e2f/
+Dodge,Challenger SXT,2018,"74,424 mi.","$25,900",2C3CDZAG7JH161738,http://cars.com/vehicledetail/df941a73-da6e-457e-aa63-b42ac40389c7/
+Dodge,Challenger SXT,2018,"61,238 mi.","$25,710",2C3CDZAG7JH314554,http://cars.com/vehicledetail/e6b0cdb0-236c-4328-8c55-8ee5a3bdb197/
+Dodge,Challenger R/T Scat Pack,2015,"18,555 mi.","$38,590",2C3CDZFJ2FH744066,http://cars.com/vehicledetail/54aaafa0-38ee-4f9a-b325-3ec53f449645/
+Dodge,Challenger R/T Scat Pack,2021,"4,025 mi.","$47,987",2C3CDZFJ5MH651460,http://cars.com/vehicledetail/ae5065a5-d675-4558-9981-2770ee9753ec/
+Dodge,Challenger R/T Scat Pack,2019,"23,330 mi.","$47,987",2C3CDZFJ9KH594001,http://cars.com/vehicledetail/dc9253e3-71e5-4e3d-b37b-1262954cd2b3/
+Dodge,Challenger R/T Scat Pack,2021,"2,769 mi.","$53,991",2C3CDZFJ8MH637875,http://cars.com/vehicledetail/82b3a66a-c085-4bbe-be65-8fecd16b17b3/
+Dodge,Challenger R/T Scat Pack,2021,"16,221 mi.","$45,491",2C3CDZFJ9MH615996,http://cars.com/vehicledetail/13ba4c75-7054-40b9-8a8d-ba2b024b32e3/
+Dodge,Challenger R/T Scat Pack,2016,"11,159 mi.","$38,990",2C3CDZFJ8GH136540,http://cars.com/vehicledetail/67ff0bfa-ffba-466b-a9cf-71cbed0e95d1/
+Dodge,Challenger SRT 392,2016,"34,238 mi.","$39,990",2C3CDZDJ7GH120204,http://cars.com/vehicledetail/45af2352-9f08-4fa8-ad4d-190468c4210c/
+Dodge,Challenger R/T Scat Pack,2015,"101,220 mi.","$28,990",2C3CDZFJ9FH782555,http://cars.com/vehicledetail/14b84254-ca6a-4724-8198-e5c54d7aa7fc/
+Dodge,Challenger SXT,2015,"38,083 mi.","$24,990",2C3CDZAG6FH873908,http://cars.com/vehicledetail/538b4371-bb35-4f91-a34d-6c89b0e171b6/
+Dodge,Challenger R/T Scat Pack,2019,"3,094 mi.","$44,990",2C3CDZFJ1KH741508,http://cars.com/vehicledetail/eb5a58f8-f7f4-4f63-9bf1-1f0bedf8a220/
+Dodge,Challenger R/T Plus,2015,"59,240 mi.","$29,590",2C3CDZBT8FH718479,http://cars.com/vehicledetail/14d60e5a-5372-4c18-98d9-c02959057e44/
+Dodge,Challenger R/T 392,2017,"23,559 mi.","$40,990",2C3CDZFJ0HH604469,http://cars.com/vehicledetail/12211f6d-101f-46a3-9dd9-71444f20ccab/
+Dodge,Challenger R/T Scat Pack,2016,"9,649 mi.","$37,990",2C3CDZFJ2GH271853,http://cars.com/vehicledetail/8db2c59f-bc65-41b8-aabe-cd9907bf1333/
+Dodge,Challenger SXT,2013,"98,414 mi.","$18,995",2C3CDYAG9DH510753,http://cars.com/vehicledetail/5e48edb1-56a3-4b72-a42e-42155248b8bf/
+Dodge,Challenger R/T Scat Pack,2017,"19,116 mi.","$41,495",2C3CDZFJ4HH669132,http://cars.com/vehicledetail/44537da3-43a4-4259-9190-1be185f9c7a9/

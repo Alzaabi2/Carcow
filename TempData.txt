@@ -1,0 +1,6 @@
+Make,Model,Year,Mileage,Price,VIN,url
+Dodge,Challenger,2014,"105,458 miles","$12,500",2C3CDYAG6EH262074,https://www.edmunds.com/dodge/challenger/2014/vin/2C3CDYAG6EH262074/?radius=50
+Dodge,Challenger SRT8,2009,"82,263 mi.","$21,500",2B3LJ74W19H524317,http://cars.com/vehicledetail/5681e9e6-433a-44bf-9919-8deaf98a1497/
+Dodge,Challenger SRT8,2013,"100,196 mi.","$23,988",2C3CDYCJ8DH596629,http://cars.com/vehicledetail/3d461520-f61f-433a-9dbe-0a795569db63/
+Dodge,Challenger R/T,2012,"116,537 mi.","$15,995",2C3CDYBT8CH158002,http://cars.com/vehicledetail/8a63a796-2300-41a8-bc34-082831c9a38e/
+Dodge,Challenger R/T,2013,"99,225 mi.","$16,990",2C3CDYBT4DH605037,http://cars.com/vehicledetail/889db00c-a54c-476e-b866-50b279342c30/

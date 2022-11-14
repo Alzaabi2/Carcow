@@ -1,3 +1,4 @@
+from ast import Continue
 import csv
 import time
 from turtle import goto
@@ -14,6 +15,7 @@ from selenium.webdriver.chrome.options import Options
 import concurrent.futures
 import itertools 
 import json
+from CarDepreciationValue import *
 
 carlist = []
 
@@ -33,12 +35,21 @@ def main():
                 {'Make': 'BMW', 'Model': '228 Gran Coupe i xDrive', 'Year': '2021', 'Mileage': '124,681', 'Price': '$80,450', 'VIN': 'WBA73AK03M7H21242', 'url': '5'},
                 {'Make': 'BMW', 'Model': '228 i', 'Year': '2014', 'Mileage': '756,547', 'Price': '$52,590', 'VIN': 'WBA1F5C50EV255231', 'url': '6'}]
 
+    # print(demoDict)
+    # dollarValue('Audi', 'A7', '2016', 130065, 22701) # Need to know which car from chrome extension
+    # dollarValueVin('WAUP2AF20KN116129')
+    
+
+    #runs in 5 seconds per car:
+    # print("threading")
+    # list = createList()
+    # with concurrent.futures.ThreadPoolExecutor() as executer:
+    #     executer.map(dollarValueVin2, list)  
  
  
     # getTopCars test
     # deals = [('WBA1G9C51GV599609', 7.357627118644068), ('WBA73AK03M7H21242', 0.9995336076817558), ('WBA1G9C51GV599609', 0.869939879759519), ('WBA1F5C50EV255231', 0.700531208499336), ('WBA73AK03M7H21242', 0.45286513362336855), ('WBA1F5C50EV255231', 0.3009127210496292)]
     # deals = rate(createList())
-
     # list = createList()
     # deals = [('ZHWUC1ZD4ELA02158', 1.1615157732751988), ('ZHWUC1ZD0ELA02996', 1.0945740025740025), ('ZHWUC1ZD6ELA02419', 1.0391110222217417), ('ZHWUC1ZD0CLA00114', 0.9697389581524244), ('ZHWUG4ZD2HLA06039', 0.9664653979314289), ('ZHWUF3ZD8GLA04324', 0.5678466881216022), ('ZHWUR1ZD5ELA02331', 0.48796481503795636), ('ZHWUC1ZD0FLA03633', 0.48796481503795636), ('ZHWUR1ZD9FLA03502', 0.21584448056007)]
     # print(getTopCars(list, rate(list)))
@@ -70,6 +81,10 @@ def main():
 
 
 
+    # dollarValueVin3("WAUYGAFC2DN090294")
+
+
+
 
 def createList():
     csv_filename = 'cardata.csv'
@@ -85,16 +100,19 @@ def createList():
 #incomplete
 def rate(list):
     # carlist = createList()
-
+    print(list)
     deals = []
+    if list is None:
+        return []
     for i in range(len(list)):
-        price = list[i]['Price']
+        priceListed = list[i]['Price']
         vin   = list[i]['VIN']
-        print("Price: ", price, "Vin: ", vin)
-        suggested = dollarValueVin3(vin)
-        suggested = suggested.replace(',', '')
-        price = price.replace(',', '')
-        suggested = suggested.replace('$', '')
+        print("Price: ", priceListed, "Vin: ", vin)
+        # suggested = dollarValueVin3(vin)
+        suggested = finalValue(list[i]['Make'], list[i]['Model'], '', list[i]['Year'], 0, list[i]['Mileage'], 0)
+        # suggested = suggested.replace(',', '')
+        price = priceListed.replace(',', '')
+        # suggested = suggested.replace('$', '')
         price = price.replace('$', '')
         price = price.replace(' ', '')
         # print('no', i, 'p: ',price)
@@ -104,7 +122,7 @@ def rate(list):
         except: 
             ratio == 'No Ratio'
             
-        row = (vin,ratio)
+        row = (vin,ratio,priceListed)
         deals.append(row)
         print("Ratio: ", ratio)
     
@@ -156,9 +174,13 @@ def getTopCars(car_list, deals):
     #     print(i)
     topCars = []
     for n in range(len(deals)):
+        found = False
         for c in car_list:
-            if(c['VIN'] == deals[n][0]):
+            if found == True:
+                continue
+            if(c['VIN'] == deals[n][0] and c['Price'] == deals[n][2]):
                 topCars.append(c)
+                found = True
     return topCars
     
 
@@ -311,7 +333,6 @@ def dollarValueVin3(vin):
         "X-RapidAPI-Key": "eabb27e940mshbaf991f2c492656p1afbb7jsnc31638e26d33",
         "X-RapidAPI-Host": "car-utils.p.rapidapi.com"
     }
-    
     response = requests.request("GET", url, headers=headers, params=querystring)
 
 
@@ -426,12 +447,20 @@ def dollarValueVin4(vin, mileage):
             apiResponse = response.text
         else:
             break
-
+    
+    if '"message":"invalid vin"' in response.text:
+        return '0'
 
     start = re.search('"prices":', response.text)
     end = re.search(',"distribution"', response.text)
-
+    
+    if start is None or end is None:
+        return '0'
+    if start.span() is None:
+        return '0'
     listOfstart = start.span()
+    if end.span() is None:
+        return '0'
     listOfEnd   = end.span()
     start2      = listOfstart[1]
     end2        = listOfEnd[0]
