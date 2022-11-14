@@ -7,7 +7,6 @@ import axios from 'axios';
 function App() {
   const [urlCall, setUrl] = useState('');
   const [isCars, setIsCars] = useState(false);
-
   const [error, setError] = useState(null);
   const [carData, setCarData] = useState(null);
   /**

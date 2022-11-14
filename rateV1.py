@@ -15,7 +15,7 @@ from selenium.webdriver.chrome.options import Options
 import concurrent.futures
 import itertools 
 import json
-from CarDepreciationValue import *
+# from CarDepreciationValue import *
 
 carlist = []
 
