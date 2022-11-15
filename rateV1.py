@@ -1,5 +1,8 @@
+from ast import Continue
 import csv
 import time
+import requests
+import re
 from selenium import webdriver
 from selenium.webdriver.support.ui import Select
 from selenium.webdriver.chrome.service import Service
@@ -10,6 +13,8 @@ from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.chrome.options import Options
 import concurrent.futures
 import itertools 
+import json
+from CarDepreciationValue import *
 
 carlist = []
 
@@ -39,21 +44,22 @@ def main():
     #getTopCars test
     # deals = [('WBA1G9C51GV599609', 7.357627118644068), ('WBA73AK03M7H21242', 0.9995336076817558), ('WBA1G9C51GV599609', 0.869939879759519), ('WBA1F5C50EV255231', 0.700531208499336), ('WBA73AK03M7H21242', 0.45286513362336855), ('WBA1F5C50EV255231', 0.3009127210496292)]
     # deals = rate(createList())
-    list = createList()
-    deals = [('ZHWUC1ZD4ELA02158', 1.1615157732751988), ('ZHWUC1ZD0ELA02996', 1.0945740025740025), ('ZHWUC1ZD6ELA02419', 1.0391110222217417), ('ZHWUC1ZD0CLA00114', 0.9697389581524244), ('ZHWUG4ZD2HLA06039', 0.9664653979314289), ('ZHWUF3ZD8GLA04324', 0.5678466881216022), ('ZHWUR1ZD5ELA02331', 0.48796481503795636), ('ZHWUC1ZD0FLA03633', 0.48796481503795636), ('ZHWUR1ZD9FLA03502', 0.21584448056007)]
-    print(getTopCars(list, rate(list)))
+    # list = createList()
+    # deals = [('ZHWUC1ZD4ELA02158', 1.1615157732751988), ('ZHWUC1ZD0ELA02996', 1.0945740025740025), ('ZHWUC1ZD6ELA02419', 1.0391110222217417), ('ZHWUC1ZD0CLA00114', 0.9697389581524244), ('ZHWUG4ZD2HLA06039', 0.9664653979314289), ('ZHWUF3ZD8GLA04324', 0.5678466881216022), ('ZHWUR1ZD5ELA02331', 0.48796481503795636), ('ZHWUC1ZD0FLA03633', 0.48796481503795636), ('ZHWUR1ZD9FLA03502', 0.21584448056007)]
+    # print(getTopCars(list, rate(list)))
  
     # listOfCars = createList()
     # print(listOfCars)
     # dollarValueVin('ZHWUC1ZD4ELA02158')
 
-    print(rate(createList()))
+    # print(rate(createList()))
+    # dollarValueVin3('ZHWUC1ZD4ELA02158')
 
     
 
 
 
-    dollarValueVin3("WAUYGAFC2DN090294")
+    # dollarValueVin3("WAUYGAFC2DN090294")
 
 
 
@@ -74,7 +80,43 @@ def createList():
     return carlist
 
 
-# #incomplete
+#incomplete
+def rate(list):
+    # carlist = createList()
+    print(list)
+    deals = []
+    if list is None:
+        return []
+    for i in range(len(list)):
+        priceListed = list[i]['Price']
+        vin   = list[i]['VIN']
+        print("Price: ", priceListed, "Vin: ", vin)
+        # suggested = dollarValueVin3(vin)
+        suggested = finalValue(list[i]['Make'], list[i]['Model'], '', list[i]['Year'], 0, list[i]['Mileage'], 0)
+        # suggested = suggested.replace(',', '')
+        price = priceListed.replace(',', '')
+        # suggested = suggested.replace('$', '')
+        price = price.replace('$', '')
+        price = price.replace(' ', '')
+        # print('no', i, 'p: ',price)
+        
+        try:
+            ratio = float(suggested)/float(price) #metric for rating deal
+        except: 
+            ratio == 'No Ratio'
+            
+        row = (vin,ratio,priceListed)
+        deals.append(row)
+        print("Ratio: ", ratio)
+    
+    # Sorted list of deals in descending order from best to worst deal
+    deals.sort(key=lambda y: -y[1])
+    print("\ndeals: ", deals)
+    topDeals = [deals[0], deals[1], deals[2], deals[3], deals[4]]
+    return topDeals
+
+
+# #temp
 # def rate(list):
 #     # carlist = createList()
 
@@ -82,8 +124,8 @@ def createList():
 #     for i in range(len(list)):
 #         price = list[i]['Price']
 #         vin   = list[i]['VIN']
-#         print("Price: ", price, "Vin: ", vin)
-#         suggested = dollarValueVin(vin)
+#         # print("Price: ", price, "Vin: ", vin)
+#         suggested = price
 #         suggested = suggested.replace(',', '')
 #         price = price.replace(',', '')
 #         suggested = suggested.replace('$', '')
@@ -98,46 +140,13 @@ def createList():
             
 #         row = (vin,ratio)
 #         deals.append(row)
-#         print("Ratio: ", ratio)
+#         # print("Ratio: ", ratio)
     
 #     # Sorted list of deals in descending order from best to worst deal
 #     deals.sort(key=lambda y: -y[1])
-#     print("\ndeals: ", deals)
-#     topDeals = [deals[0], deals[1], deals[2]]
+#     # print("\ndeals: ", deals)
+#     topDeals = [deals[0], deals[1], deals[2], deals[3], deals[4]]
 #     return topDeals
-
-
-#temp
-def rate(list):
-    # carlist = createList()
-
-    deals = []
-    for i in range(len(list)):
-        price = list[i]['Price']
-        vin   = list[i]['VIN']
-        # print("Price: ", price, "Vin: ", vin)
-        suggested = price
-        suggested = suggested.replace(',', '')
-        price = price.replace(',', '')
-        suggested = suggested.replace('$', '')
-        price = price.replace('$', '')
-        price = price.replace(' ', '')
-        # print('no', i, 'p: ',price)
-        
-        try:
-            ratio = int(suggested)/int(price) #metric for rating deal
-        except: 
-            ratio == 'No Ratio'
-            
-        row = (vin,ratio)
-        deals.append(row)
-        # print("Ratio: ", ratio)
-    
-    # Sorted list of deals in descending order from best to worst deal
-    deals.sort(key=lambda y: -y[1])
-    # print("\ndeals: ", deals)
-    topDeals = [deals[0], deals[1], deals[2]]
-    return topDeals
 
 
 
@@ -147,19 +156,14 @@ def getTopCars(car_list, deals):
     # for i, val in enumerate(itertools.islice(deals, 2)):
     #     print(i)
     topCars = []
-    for c in car_list:
-        if(c['VIN'] == deals[0][0]):
-            print(c['VIN'])
-            print(deals[0])
-            topCars.append(c)
-    for c in car_list:
-        if(c['VIN'] == deals[1][0]):
-            print(c['url'])
-            topCars.append(c)
-    for c in car_list:
-        if(c['VIN'] == deals[2][0]):
-            print(c['url'])
-            topCars.append(c)
+    for n in range(len(deals)):
+        found = False
+        for c in car_list:
+            if found == True:
+                continue
+            if(c['VIN'] == deals[n][0] and c['Price'] == deals[n][2]):
+                topCars.append(c)
+                found = True
     return topCars
     
 
@@ -303,8 +307,6 @@ def dollarValueVin2(c):
                     (end-start) * 10**3, "ms")
             return price
 
-
-
 def dollarValueVin3(vin):
     url = "https://car-utils.p.rapidapi.com/marketvalue"
 
@@ -314,7 +316,6 @@ def dollarValueVin3(vin):
         "X-RapidAPI-Key": "eabb27e940mshbaf991f2c492656p1afbb7jsnc31638e26d33",
         "X-RapidAPI-Host": "car-utils.p.rapidapi.com"
     }
-
     response = requests.request("GET", url, headers=headers, params=querystring)
 
 
@@ -335,13 +336,31 @@ def dollarValueVin3(vin):
 
     
     apiResponse = response.text
-
-    # print(apiResponse)
+    print(response.text)
+    #if no market value data
+    if '"vehicle":null' in response.text:
+        return "0"
+    while(1):
+        if 'You have exceeded the rate limit per second for your plan, BASIC, by the API provider' in response.text:
+            time.sleep(1)
+            response = requests.request("GET", url, headers=headers, params=querystring)
+            apiResponse = response.text
+        else:
+            break
     
+    if '"message":"invalid vin"' in response.text:
+        return '0'
+
     start = re.search('"prices":', response.text)
     end = re.search(',"distribution"', response.text)
-
+    
+    if start is None or end is None:
+        return '0'
+    if start.span() is None:
+        return '0'
     listOfstart = start.span()
+    if end.span() is None:
+        return '0'
     listOfEnd   = end.span()
     start2      = listOfstart[1]
     end2        = listOfEnd[0]
@@ -357,6 +376,7 @@ def dollarValueVin3(vin):
     blw2   = blw.span()
     blwStart = blw2[0]
     blwEnd = blw2[1]
+    
 
     abv = re.search('"above":', prices)
     abv2   = abv.span()
@@ -372,9 +392,8 @@ def dollarValueVin3(vin):
 
     above = prices[abvEnd:]
     print("ABOVE:", above, "\n\n")
-
+    time.sleep(1)
     return average
-
 
 if __name__ == '__main__':
     main()

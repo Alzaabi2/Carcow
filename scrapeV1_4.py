@@ -15,6 +15,8 @@ from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
+import re
+
 
 #This version of Scrape works on cars.com, it takes car specifications and outputs a csv file
 # with the first 20 car search results. Each car will be described by Make,Model,Year,Mileage,Price.
@@ -68,13 +70,17 @@ def Scrape(make, model, year, zipcode):
             #     break
 
 #Autotrader.com
-#zipcode not considered 
 def Scrape2(make, model, year, zipcode):
 
     make = make.lower()
     model = model.lower()
     
-    url = 'https://www.autotrader.com/cars-for-sale/all-cars/'+make+'/'+model+'woodbridge-va-'+zipcode+'?requestId=2152820002&dma=&searchRadius=50&location=&marketExtension=include&startYear='+year+'&endYear='+year+'&isNewSearch=true&showAccelerateBanner=false&sortBy=relevance&numRecords=100'
+    zipdata = json.loads(getZipData(zipcode))
+    city =str(zipdata['results'][zipcode][0]['city']).replace(' ', '')
+    state = str(zipdata['results'][zipcode][0]['state_code'])
+
+    # url = 'https://www.autotrader.com/cars-for-sale/all-cars/'+make+'/'+model+'/'+city+'-'+state+'-'+zipcode+'?requestId=2152820002&dma=&searchRadius=50&location=&marketExtension=include&startYear='+year+'&endYear='+year+'&isNewSearch=true&showAccelerateBanner=false&sortBy=relevance&numRecords=100'
+    url = 'https://www.autotrader.com/cars-for-sale/all-cars/nissan/altima/newyork-ny-10003?requestId=2152820002&dma=&searchRadius=50&location=&marketExtension=include&startYear=2014&endYear=2014&isNewSearch=true&showAccelerateBanner=false&sortBy=relevance&numRecords=100'
     vins = ScrapeVin2(make, model, year, zipcode)
     
     # search first 10 pages
@@ -84,24 +90,34 @@ def Scrape2(make, model, year, zipcode):
         w.writerow(header)
         vincount = 0
         # for n in range(1):
-        page = requests.get(url)
-        soup = BeautifulSoup(page.content, 'html.parser')
+        page = requests.get(url, timeout=10000)
+        soup = BeautifulSoup(page.content, 'html.parser') 
+        # print(browser.page_source)
         cars = soup.find_all('div', class_="item-card-body margin-bottom-auto")
-    
+        # print(cars)
         for c in cars:
+            if c == None:
+                continue
+            if c.find('h2', class_="text-bold text-size-400 text-size-sm-500 link-unstyled") == None:
+                continue
             title = c.find('h2', class_="text-bold text-size-400 text-size-sm-500 link-unstyled").text
-            # print(title)
+            print(title)
             title = title.split(' ')
             year = title[1]
             make = title[2]
             model = title[3]
+            if c.find('span', class_="first-price") == None:
+                continue
             price = c.find('span', class_="first-price").text
             carpage = 'https://www.autotrader.com' + c.find('a', rel="nofollow").get('href')
-            if not c.find('div', class_="item-card-specifications col-xs-9 margin-top-4 text-subdued-lighter").find('span', class_='text-bold'):
-                mileage = ' '#assume its brand new??
+            if c.find('div', class_="item-card-specifications col-xs-9 margin-top-4 text-subdued-lighter"):
+                mileageDivider = c.find('div', class_="item-card-specifications col-xs-9 margin-top-4 text-subdued-lighter")
+                if not mileageDivider.find('span', class_='text-bold'):
+                    mileage = ' '#assume its brand new??
+                else:
+                    mileage = c.find('div', class_="item-card-specifications col-xs-9 margin-top-4 text-subdued-lighter").find('span', class_='text-bold').text
             else:
-                mileage = c.find('div', class_="item-card-specifications col-xs-9 margin-top-4 text-subdued-lighter").find('span', class_='text-bold').text
-            
+                mileage = ' '
             vin = vins[vincount]    
             row = [make, model, year, mileage, price, vin, carpage]
 
@@ -111,7 +127,6 @@ def Scrape2(make, model, year, zipcode):
             # if url == None:
             #     break
 
-#not working
 #cargurus.com
 def Scrape3(make, model, year, zipcode):
     year = int(year)
@@ -171,12 +186,12 @@ def Scrape3(make, model, year, zipcode):
         header = ['Make', 'Model', 'Year', 'Mileage', 'Price', 'VIN', 'url']
         w.writerow(header)
         for i in range(5):
-            if i == 0:
-                soup = BeautifulSoup(browser.page_source, 'html.parser')
-            else:
-                page = requests.get(url)
-                print("nexthtml:")
-                soup = BeautifulSoup(page.content, 'html.parser')
+            # if i == 0:
+            soup = BeautifulSoup(browser.page_source, 'html.parser')
+            # else:
+            #     page = requests.get(url)
+            #     print("nexthtml:")
+            #     soup = BeautifulSoup(page.content, 'html.parser')
             
             
             cars = soup.find_all('div', class_='soQyMy')
@@ -230,49 +245,6 @@ def Scrape3(make, model, year, zipcode):
             print(url)
                 
     
-    
-
-    
-    # make = make.lower()
-    # model = model.lower()
-    
-    # url = 'https://www.cargurus.com/Cars/inventorylisting/viewDetailsFilterViewInventoryListing.action?sourceContext=carGurusHomePageModel&entitySelectingHelper.selectedEntity=d894&zip=22191'
-    # url = 'https://www.cargurus.com/Cars/inventorylisting/viewDetailsFilterViewInventoryListing.action?zip=22191&showNegotiable=true&sortDir=ASC&sourceContext=carGurusHomePageModel&distance=50&sortType=DEAL_SCORE&entitySelectingHelper.selectedEntity=d896'
-    # vins = ScrapeVin2(make, model, year, zipcode)
-    
-    # # search first 10 pages
-    # with open('cardata2.csv', 'w', encoding='utf8', newline='') as f:
-    #     w = writer(f)
-    #     header = ['Make', 'Model', 'Year', 'Mileage', 'Price', 'VIN', 'url']
-    #     w.writerow(header)
-    #     vincount = 0
-    #     # for n in range(1):
-    #     page = requests.get(url)
-    #     soup = BeautifulSoup(page.content, 'html.parser')
-    #     cars = soup.find_all('div', class_="item-card-body margin-bottom-auto")
-    
-    #     for c in cars:
-    #         title = c.find('h2', class_="text-bold text-size-400 text-size-sm-500 link-unstyled").text
-    #         # print(title)
-    #         title = title.split(' ')
-    #         year = title[1]
-    #         make = title[2]
-    #         model = title[3]
-    #         price = c.find('span', class_="first-price").text
-    #         carpage = 'https://www.autotrader.com' + c.find('a', rel="nofollow").get('href')
-    #         if not c.find('div', class_="item-card-specifications col-xs-9 margin-top-4 text-subdued-lighter").find('span', class_='text-bold'):
-    #             mileage = ' '#assume its brand new??
-    #         else:
-    #             mileage = c.find('div', class_="item-card-specifications col-xs-9 margin-top-4 text-subdued-lighter").find('span', class_='text-bold').text
-            
-    #         vin = vins[vincount]    
-    #         row = [make, model, year, mileage, price, vin, carpage]
-
-    #         w.writerow(row)
-    #         vincount+=1
-    #         # url = getNextPage(soup)
-    #         # if url == None:
-    #         #     break
 
 #cars.com 
 def getNextPage(soup):
@@ -319,12 +291,17 @@ def ScrapeVin(make,model,year,zipcode):
 def ScrapeVin2(make,model,year,zipcode):
     make = make.lower()
     model = model.lower()
-    url = 'https://www.autotrader.com/cars-for-sale/all-cars/'+make+'/'+model+'woodbridge-va-'+zipcode+'?requestId=2152820002&dma=&searchRadius=50&location=&marketExtension=include&startYear='+year+'&endYear='+year+'&isNewSearch=true&showAccelerateBanner=false&sortBy=relevance&numRecords=100'
+    
+    zipdata = json.loads(getZipData(zipcode))
+    city =str(zipdata['results'][zipcode][0]['city']).replace(' ', '')
+    state = str(zipdata['results'][zipcode][0]['state_code'])
 
+    url = 'https://www.autotrader.com/cars-for-sale/all-cars/'+make+'/'+model+'/'+city+'-'+state+'-'+zipcode+'?requestId=2152820002&dma=&searchRadius=50&location=&marketExtension=include&startYear='+year+'&endYear='+year+'&isNewSearch=true&showAccelerateBanner=false&sortBy=relevance&numRecords=100'
+    print(url)
     with open('carvins2.csv', 'w', encoding='utf8', newline='') as f:
         vins = []
         # for n in range(1):
-        page = requests.get(url)
+        page = requests.get(url, timeout=10000)
         soup = BeautifulSoup(page.content, 'html.parser') 
         searchContent = soup.find_all('script')
         for n in searchContent:
@@ -382,6 +359,13 @@ def ScrapeToList(make, model, year, zipcode):
 def scrapeTrimPrice(make, model, year, trim):
     url = 'https://www.cars.com/research/audi-a3-2018/specs/'
     
+#get data from ZIP    
+def getZipData(zipcode):
+    apikey = "84f30620-5c5d-11ed-a2ab-01db54110476"
+    response = requests.get('https://app.zipcodebase.com/api/v1/search?apikey='+apikey+'&country=US&codes='+zipcode)
+    return response.text
 
-Scrape3('Jeep', 'Wrangler', '2020', '22043')
-# ScrapeVin2('Toyota', 'Camry', '2014', '22043')
+
+
+# Scrape3('Jeep', 'Wrangler', '2020', '22043')
+Scrape3('Nissan', 'Altima', '2014', '10003')
