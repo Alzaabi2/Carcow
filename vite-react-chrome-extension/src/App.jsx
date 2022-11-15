@@ -24,22 +24,23 @@ function App() {
           if(conditions.some(element => urlCall.includes(element))){ //check if website is valid (potential edge case if website is something like cars.com.google.com)
             setIsCars(true) //set isCars to true
           }
-        console.log("new version");
-        const parsedURL2 = urlCall.replace(/\//g, 'slash').replace(/\./g, 'dot').replace(/:/g, 'colon')
-        console.log(urlCall)
-        console.log(parsedURL2)
-        const fetchURL =  'http://127.0.0.1:8080/getUrl/' + parsedURL2;
-        console.log(fetchURL)
-        axios.get(fetchURL)
-            .then((response) => {
-                setCarData(response.data);
-                setError(null);                
-                console.log("json test")
-                console.warn(xhr.responseText)
-                console.log(response)
-                console.log(response.data[0]['Year'])
-                console.log("json test end")      
-            })
+            console.log("new version");
+            // let parsedURL2 = urlCall.replace(/\//g, 'slash').replace(/\./g, 'dot').replace(/:/g, 'colon')
+            const parsedURL2 = "just_blank"
+            console.log(urlCall)
+            console.log(parsedURL2)
+            const fetchURL =  'http://127.0.0.1:8080/getUrl/' + parsedURL2;
+            console.log(fetchURL)
+            axios.get(fetchURL)
+                .then((response) => {
+                    setCarData(response.data);
+                    setError(null);                
+                    console.log("json test")
+                    console.warn(xhr.responseText)
+                    console.log(response)
+                    console.log(response.data[0]['Year'])
+                    console.log("json test end")      
+                })
         
 
             
