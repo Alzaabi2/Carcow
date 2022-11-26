@@ -53,7 +53,7 @@ def main():
     # print(listOfCars)
     # dollarValueVin('ZHWUC1ZD4ELA02158')
 
-    print(rate(createList()))
+    rate(createList())
     # dollarValueVin3('ZHWUC1ZD4ELA02158')
 
     
@@ -84,43 +84,13 @@ def createList():
 #incomplete
 def rate(list):
     # carlist = createList()
-    
     print(list)
     deals = []
-    suggestedPrices = {}
     if list is None:
         return []
     for i in range(len(list)):
-        roundedMileage = int(list[i]['Mileage'].replace(',', '').replace(' ', '').replace('mi', '').replace('.', ''))
-        roundedMileage = round(roundedMileage/10000)*10000
-        print(roundedMileage)
-        parsedModel = list[i]['Model'].replace(' ', '').lower()
-        groupedYear = (round(int(list[i]['Year'])/2))*2
-        
-        key = str(groupedYear) + '//' + parsedModel + '//' + str(roundedMileage)
-        if key in suggestedPrices:
-            priceListed = list[i]['Price']
-            vin   = list[i]['VIN']
-            print("Price: ", priceListed, "Vin: ", vin)
-            suggested = suggestedPrices[key]
-            price = priceListed.replace(',', '')
-            price = price.replace('$', '')
-            price = price.replace(' ', '')
-            
-            try:
-                ratio = float(suggested)/float(price) #metric for rating deal
-            except: 
-                ratio = 0
-                
-            row = (vin,int(ratio),priceListed)
-            deals.append(row)
-            continue
-        
         priceListed = list[i]['Price']
         vin   = list[i]['VIN']
-        miles = list[i]['Mileage']
-        miles = miles.replace(',', '').replace(' ', '').replace('mi', '').replace('.', '')
-        
         print("Price: ", priceListed, "Vin: ", vin)
         suggested = dollarValueVin3(vin)
         # suggested = finalValue(list[i]['Make'], list[i]['Model'], '', list[i]['Year'], 0, list[i]['Mileage'], 0)
@@ -130,36 +100,20 @@ def rate(list):
         price = price.replace('$', '')
         price = price.replace(' ', '')
         # print('no', i, 'p: ',price)
-        roundedSuggested = round(float(suggested)/100)*100
+        
         try:
-            ratio = float(roundedSuggested)/float(price) #metric for rating deal
+            ratio = float(suggested)/float(price) #metric for rating deal
         except: 
             ratio = 0
-        
-        # row = ratio
-        
+            
         row = (vin,int(ratio),priceListed)
         deals.append(row)
-        
-        # if roundedSuggested not in suggestedPrices:
-        #     suggestedPrices[roundedSuggested] = []
-        #     print("not found list")
-        suggestedPrices[key] = roundedSuggested
-        
-        # print("Ratio: ", ratio)
+        print("Ratio: ", ratio)
     
     # Sorted list of deals in descending order from best to worst deal
     deals.sort(key=lambda y: -y[1])
-    # print("\ndeals: ", deals)
+    print("\ndeals: ", deals)
     topDeals = [deals[0], deals[1], deals[2], deals[3], deals[4]]
-    
-    print("length: " + str(len(deals)))
-    
-    print("length: " + str(len(suggestedPrices)))
-    
-    print(suggestedPrices)
-    
-    
     return topDeals
 
 
@@ -441,98 +395,6 @@ def dollarValueVin3(vin):
     print("ABOVE:", above, "\n\n")
     time.sleep(1)
     return average
-
-
-# Car Utils with Mileage
-def dollarValueVin4(vin, mileage):
-    url = "https://car-utils.p.rapidapi.com/marketvalue"
-
-    querystring = {"vin": vin, "mileage": mileage}
-
-    headers = {
-        "X-RapidAPI-Key": "eabb27e940mshbaf991f2c492656p1afbb7jsnc31638e26d33",
-        "X-RapidAPI-Host": "car-utils.p.rapidapi.com"
-    }
-    
-    response = requests.request("GET", url, headers=headers, params=querystring)
-
-
-    ### MIGHT NEED THIS ###
-    # while(True):
-    #     response = requests.request("GET", url, headers=headers, params=querystring)
-
-    #     print(response.text)
-    #     err = re.search('"message":', response.text)
-    #     print( err )
-    #     if (err):
-    #         time.sleep(2)
-    #         continue
-    #     else:
-    #         break
-
-
-
-    
-    apiResponse = response.text
-    # print(response.text)
-    #if no market value data
-    if '"vehicle":null' in response.text:
-        return "0"
-    while(1):
-        if 'You have exceeded the rate limit per second for your plan, BASIC, by the API provider' in response.text:
-            time.sleep(1)
-            response = requests.request("GET", url, headers=headers, params=querystring)
-            apiResponse = response.text
-        else:
-            break
-    
-    if '"message":"invalid vin"' in response.text:
-        return '0'
-
-    start = re.search('"prices":', response.text)
-    end = re.search(',"distribution"', response.text)
-    
-    if start is None or end is None:
-        return '0'
-    if start.span() is None:
-        return '0'
-    listOfstart = start.span()
-    if end.span() is None:
-        return '0'
-    listOfEnd   = end.span()
-    start2      = listOfstart[1]
-    end2        = listOfEnd[0]
-
-
-    prices = apiResponse[start2 + 1:end2]
-
-    avg  = re.search('"average":', prices)
-    avg2 = avg.span()
-    avgEnd = avg2[1]
-
-    blw = re.search('"below":', prices)
-    blw2   = blw.span()
-    blwStart = blw2[0]
-    blwEnd = blw2[1]
-    
-
-    abv = re.search('"above":', prices)
-    abv2   = abv.span()
-    abvStart = abv2[0]
-    abvEnd = abv2[1]
-
-    print("\n---------For VIN:", vin, " ---------")
-    average = prices[avgEnd:blwStart - 1]
-    print("AVERAGE:", average)
-
-    below = prices[blwEnd:abvStart - 1]
-    print("BELOW:", below)
-
-    above = prices[abvEnd:]
-    print("ABOVE:", above, "\n\n")
-    time.sleep(1)
-    return average
-
 
 if __name__ == '__main__':
     main()
