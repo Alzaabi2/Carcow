@@ -1,7 +1,7 @@
 from ast import Continue
 import csv
 import time
-from turtle import goto
+# from turtle import goto
 import requests
 import re
 from selenium import webdriver

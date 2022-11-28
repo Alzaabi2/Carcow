@@ -651,7 +651,7 @@ def Scrape5(make, model):
                 
                 
                 carpage = c.find('meta').get('content')
-                url = 'https://www.carsdirect.com' + carpage
+                carpage = 'https://www.carsdirect.com' + carpage
                 
                 # row = [make, model, trim, year, mileage, price, vin, url]
                 row = [make, model,trim, year, mileage, price, vin, carpage, img]
@@ -929,5 +929,5 @@ def cleanData(list):
 # print(str(len(l)))
 
 
-   
+# Scrape1('land_rover')
 # ScrapeAlpha('Jeep', 'Wrangler', '2014', '10003')
