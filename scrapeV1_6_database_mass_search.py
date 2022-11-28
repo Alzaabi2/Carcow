@@ -15,6 +15,9 @@ from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
+from lxml import etree
+import re
+
 
 #This Version of Scrape will be used to scrape all models across the washington DC area
 
@@ -26,7 +29,7 @@ def Scrape1(make):
     
     # url = 'https://www.cars.com/shopping/results/?list_price_max=&makes[]=' + make + '&maximum_distance=100&models[]=' + make + '-' + model +'&page=1&page_size=100&stock_type=used&zip=' + zipcode
     url = 'https://www.cars.com/shopping/results/?stock_type=used&makes%5B%5D='+make+'&models%5B%5D=&list_price_max=&page_size=100&maximum_distance=50&zip=20001'
-    vins = ScrapeVin(make)
+    # vins = ScrapeVin(make)
     
     scrapedList = []
     
@@ -38,6 +41,7 @@ def Scrape1(make):
         vincount = 0
         # page = requests.get(url)
         while url != None:
+            print(url)
             headers = {
                 'Accept': 'html',
                 'Authorization': 'Basic VTAwMDAwODk4NzQ6U2FpZjIwMDI=',
@@ -60,10 +64,11 @@ def Scrape1(make):
                 if not c.find('h2', class_="title"):
                     continue
                 title = c.find('h2', class_="title").text
-                title = title.split(' ', 2)
+                title = title.split(' ', 3)
                 year = title[0]
                 make = title[1]
                 model = title[2]
+                trim = title[3]
                 
                 if not c.find('span', class_="primary-price"):
                     continue
@@ -72,19 +77,43 @@ def Scrape1(make):
                 if not c.find('a', class_="vehicle-card-link js-gallery-click-link"):
                     continue
                 carpage = 'http://cars.com' + c.find('a', class_="vehicle-card-link js-gallery-click-link").get('href')
-            
+
                 if not c.find('div', class_="mileage"):
                     mileage = ' '#assume its brand new??
                 else:
                     mileage = c.find('div', class_="mileage").text
                 
-                vin = vins[vincount]    
+                currentCarPage = requests.get(carpage)
+                currentCarSoup = BeautifulSoup(currentCarPage.content, 'html.parser')
+                imgDiv = currentCarSoup.find('img', class_="swipe-main-image image-index-0")
+                if imgDiv is not None:
+                    img = imgDiv.get('src')
+                else:
+                    img = ''
                 
-                row = [make, model, year, mileage, price, vin, carpage]
-                rowlist = {'Make': make, 'Model':model, 'Year':year, 'Mileage':mileage, 'Price':price, 'VIN':vin, 'url':carpage}
+                # dom = etree.HTML(str(currentCarSoup))
+                # vinPath = dom.xpath('/html/body/section/div[5]/div[2]/section[1]/dl/dd')
+                vinPath = currentCarSoup.find('dl', class_='fancy-description-list').find_all('dd')
+                # print(vinPath)
+                vin = []
+                for i in vinPath:
+                    vinMatch = re.search(r'[0-9A-Z]{17}', i.text)
+                    if vinMatch != None:
+                        vin.append(vinMatch.group())
+
+                # print(vin)
+                # if len(vinPath) == 0:
+                #     vin = ''
+                #     print('Path: ' + vinPath)
+                # else:
+                #     vin = vinPath[0].text
+                #     if vin
+                print(vin)
+                
+                row = [make, model, trim, year, mileage, price, vin, carpage, img]
+                rowlist = {'Make': make, 'Model':model, 'Trim':trim, 'Year':year, 'Mileage':mileage, 'Price':price, 'VIN':vin, 'url':carpage, 'img':img}
                 w.writerow(row)
                 scrapedList.append(rowlist)
-                vincount+=1
             url = getNextPage(soup)
             print(url)
             
@@ -107,27 +136,40 @@ def Scrape2(make, model):
     scrapedList = []
     with open('cardata2.csv', 'w', encoding='utf8', newline='') as f:
         w = writer(f)
-        header = ['Make', 'Model', 'Year', 'Mileage', 'Price', 'VIN', 'url']
+        header = ['Make', 'Model', 'Trim', 'Year', 'Mileage', 'Price', 'VIN', 'url', 'img']
         w.writerow(header)
         vincount = 0
         while url != None:
             page = requests.get(url, timeout=10000)
             soup = BeautifulSoup(page.content, 'html.parser') 
-            cars = soup.find_all('div', class_="item-card-body margin-bottom-auto")
+            cars = soup.find_all('div', class_="item-card row display-flex align-items-stretch")
             for c in cars:
+                print('-----')
                 if c == None:
                     continue
                 if c.find('h2', class_="text-bold text-size-400 text-size-sm-500 link-unstyled") == None:
                     continue
                 title = c.find('h2', class_="text-bold text-size-400 text-size-sm-500 link-unstyled").text
-                title = title.split(' ')
+                title = title.split(' ', 4)
                 year = title[1]
                 make = title[2]
                 model = title[3]
+                if len(title) < 5:
+                    trim = ''
+                else:
+                    trim = title[4]
+                
                 if c.find('span', class_="first-price") == None:
                     continue
                 price = c.find('span', class_="first-price").text
                 carpage = 'https://www.autotrader.com' + c.find('a', rel="nofollow").get('href')
+                currentCarPage = requests.get(carpage)
+                currentCarSoup = BeautifulSoup(currentCarPage.content, 'html.parser')
+                imgDiv = currentCarSoup.find('img', class_="carousel-image css-1tknha6-StyledImage e1nnhggb0")
+                if imgDiv is not None:
+                    img = imgDiv.get('src')
+                else:
+                    img = ''
                 if c.find('div', class_="item-card-specifications col-xs-9 margin-top-4 text-subdued-lighter"):
                     mileageDivider = c.find('div', class_="item-card-specifications col-xs-9 margin-top-4 text-subdued-lighter")
                     if not mileageDivider.find('span', class_='text-bold'):
@@ -136,9 +178,17 @@ def Scrape2(make, model):
                         mileage = c.find('div', class_="item-card-specifications col-xs-9 margin-top-4 text-subdued-lighter").find('span', class_='text-bold').text
                 else:
                     mileage = ' '
+                
+                # if c.find('img', class_='image-vertically-aligned') is None:
+                #     img = ''
+                #     print('no pic')
+                # else:
+                #     img = c.find('img', class_='image-vertically-aligned').get('src')
+
+                print(img)
                 vin = vins[vincount]    
-                row = [make, model, year, mileage, price, vin, carpage]
-                rowlist = {'Make': make, 'Model':model, 'Year':year, 'Mileage':mileage, 'Price':price, 'VIN':vin, 'url':carpage}
+                row = [make, model, trim, year, mileage, price, vin, carpage, img]
+                rowlist = {'Make': make, 'Model':model, 'Trim':trim, 'Year':year, 'Mileage':mileage, 'Price':price, 'VIN':vin, 'url':carpage, 'img':img}
                 w.writerow(row)
                 scrapedList.append(rowlist)
                 vincount+=1
@@ -293,7 +343,7 @@ def Scrape3(make):
     # numPages = 6
     with open('cardata3.csv', 'w', encoding='utf8', newline='') as f:
         w = writer(f)
-        header = ['Make', 'Model', 'Year', 'Mileage', 'Price', 'VIN', 'url']
+        header = ['Make', 'Model', 'Trim', 'Year', 'Mileage', 'Price', 'VIN', 'url', 'img']
         w.writerow(header)
         
         for i in range(numPages):
@@ -349,11 +399,22 @@ def Scrape3(make):
                     vin = extradata2[vinIndex-1].text
                     carpagepart = c.find('a', class_='lmXF4B c7jzqC A1f6zD').get('href')
                     carpage = 'https://www.cargurus.com/Cars/inventorylisting/viewDetailsFilterViewInventoryListing.action?entitySelectingHelper.selectedEntity='+makeID+'&distance=50&zip='+zipcode+'&sourceContext=carSelectorAPI' + carpagepart
-                    price = c.find('span', class_='JzvPHo').text.split(' ', 1)
-                    price = price[0]
+                    priceText = c.find('span', class_='JzvPHo')
+                    if priceText is not None:
+                        price = priceText.text.split(' ', 1)
+                        price = price[0]
+                    else:
+                        price = ''
                     
-                    row = [make, model, year, mileage, price, vin, carpage]
-                    rowlist = {'Make': make, 'Model':model, 'Year':year, 'Mileage':mileage, 'Price':price, 'VIN':vin, 'url':carpage}
+                    if c.find('img', class_='C6f2e2 bmTmAy') is None:
+                        img = ''
+                    else:
+                        img = c.find('img', class_='C6f2e2 bmTmAy').get('src')
+                        if '.svg' in img:
+                            img = ''
+                    
+                    row = [make, model, trim, year, mileage, price, vin, carpage, img]
+                    rowlist = {'Make': make, 'Model':model, 'Trim':trim, 'Year':year, 'Mileage':mileage, 'Price':price, 'VIN':vin, 'url':carpage, 'img':img}
                     w.writerow(row)
                     scrapedList.append(rowlist)
 
@@ -380,7 +441,7 @@ def Scrape4(make, model):
     with open('cardata4.csv', 'w', encoding='utf8', newline='') as f:
         w = writer(f)
         # header = ['Make', 'Model', 'Trim', 'Year', 'Mileage', 'Price', 'VIN', 'url']
-        header = ['Make', 'Model', 'Year', 'Mileage', 'Price', 'VIN', 'url']
+        header = ['Make', 'Model', 'Trim', 'Year', 'Mileage', 'Price', 'VIN', 'url', 'img']
         w.writerow(header)
         vincount = 0
         i = 1
@@ -423,6 +484,19 @@ def Scrape4(make, model):
                 trim = c.find('div', class_='font-weight-normal size-14 text-gray-dark').text
                 if c.find('span', class_='icon-meter text-gray-darker key-point-icon d-inline-block size-12 mr-0_5') == None:
                     continue
+                img_cont = c.find('figure', class_='usurp-inventory-card-photo-image pos-r m-0')
+                if img_cont == None:
+                    continue
+                img = img_cont.find('img')
+                if img == None:
+                    continue
+                img_link = img.get('src')
+                
+                if c.find('div', class_='font-weight-normal size-14 text-gray-dark') == None:
+                    trim = ''
+                else:
+                    trim = c.find('div', class_='font-weight-normal size-14 text-gray-dark').text
+                
                 mileage = c.find('span', class_='').text
                 title = title.split(' ')
                 year = title[0]
@@ -434,9 +508,9 @@ def Scrape4(make, model):
                 parseLink = link.split('/')
                 vin = parseLink[5]
 
-                # row = [make, model, trim, year, mileage, price, vin, carpage]
-                row = [make, model, year, mileage, price, vin, carpage]
-                rowlist = {'Make': make, 'Model':model, 'Year':year, 'Mileage':mileage, 'Price':price, 'VIN':vin, 'url':carpage}
+                row = [make, model, trim, year, mileage, price, vin, carpage]
+                # row = [make, model, year, mileage, price, vin, carpage, img]
+                rowlist = {'Make': make, 'Model':model, 'Trim':trim, 'Year':year, 'Mileage':mileage, 'Price':price, 'VIN':vin, 'url':carpage, 'img':img}
                 w.writerow(row)
                 scrapedList.append(rowlist)
             url = 'https://www.edmunds.com/inventory/srp.html?inventorytype=used&make='+make+'&model='+model+'&radius=50&pagenumber='+str(i)
@@ -533,8 +607,8 @@ def Scrape5(make, model):
     # search first 3 pages
     with open('cardata5.csv', 'w', encoding='utf8', newline='') as f:
         w = writer(f)
-        # header = ['Make', 'Model', 'Trim', 'Year', 'Mileage', 'Price', 'VIN', 'url']
-        header = ['Make', 'Model', 'Year', 'Mileage', 'Price', 'VIN', 'url']
+        header = ['Make', 'Model', 'Trim', 'Year', 'Mileage', 'Price', 'VIN', 'url', 'img']
+        # header = ['Make', 'Model', 'Year', 'Mileage', 'Price', 'VIN', 'url']
         w.writerow(header)
         vincount = 0
         while url != None:
@@ -550,6 +624,7 @@ def Scrape5(make, model):
                 year = title[0]
                 make = title[1]
                 model = title[2]
+                
                 if c.find('a', class_='detail-price').find('span') is None:
                     continue
                 price = c.find('a', class_='detail-price').find('span').text
@@ -564,12 +639,23 @@ def Scrape5(make, model):
                 vin = c.find('span', class_='WrapperButtonSave').get('vin')
                 if c.find('meta') is None:
                     continue
+                if c.find('a', class_='list-img') is None:
+                    img = ''
+                else:
+                    img = c.find('a', class_='list-img').find('span').find('img').get('src')
+                
+                if c.find('span', class_='trimspan') is None:
+                    trim = ''
+                else:
+                    trim = c.find('span', class_='trimspan').text
+                
+                
                 carpage = c.find('meta').get('content')
                 url = 'https://www.carsdirect.com' + carpage
                 
                 # row = [make, model, trim, year, mileage, price, vin, url]
-                row = [make, model, year, mileage, price, vin, carpage]
-                rowlist = {'Make': make, 'Model':model, 'Year':year, 'Mileage':mileage, 'Price':price, 'VIN':vin, 'url':carpage}
+                row = [make, model,trim, year, mileage, price, vin, carpage, img]
+                rowlist = {'Make': make, 'Model':model, 'Trim':trim, 'Year':year, 'Mileage':mileage, 'Price':price, 'VIN':vin, 'url':carpage, 'img':img}
                 w.writerow(row)
                 scrapedList.append(rowlist)
             url = getNextPage5(soup)
@@ -838,9 +924,9 @@ def cleanData(list):
     return res_list      
     
     
-l = Scrape2('Chevrolet', 'Trailblazer')
-print(l)
-print(str(len(l)))
+# l = Scrape1('GMC')
+# print(l)
+# print(str(len(l)))
 
 
    
