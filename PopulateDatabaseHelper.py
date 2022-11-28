@@ -17,6 +17,7 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from lxml import etree
 from scrapeV1_6_database_mass_search import *
+from database import *
 
 def getMakes():
     page = requests.get('https://www.cars.com/')
@@ -81,7 +82,7 @@ def massScrape1():
     for i in makesList:
         try:
             scrapedData = Scrape1(i)
-            #append to database
+            populateScraped(scrapedData)
             print('Completed '+i)
         except:
             errorList.append('Scrape1 Error: '+i)
@@ -94,7 +95,7 @@ def massScrape2():
     for i in modelsList:
         try:
             scrapedData = Scrape2(i[0],i[1])
-            #append to database
+            populateScraped(scrapedData)
             print('Completed '+i)
         except:
             errorList.append('Scrape2 Error: '+i)
@@ -107,7 +108,7 @@ def massScrape3():
     for i in makesList:
         try:
             scrapedData = Scrape3(i)
-            #append to database
+            populateScraped(scrapedData)
             print('Completed '+i)
         except:
             errorList.append('Scrape3 Error: '+i)            
@@ -120,7 +121,7 @@ def massScrape4():
     for i in modelsList:
         try:
             scrapedData = Scrape4(i[0],i[1])
-            #append to database
+            populateScraped(scrapedData)
             print('Completed '+i)
         except:
             errorList.append('Scrape4 Error: '+i)
@@ -133,7 +134,7 @@ def massScrape5():
     for i in modelsList:
         try:
             scrapedData = Scrape5(i[0],i[1])
-            #append to database
+            populateScraped(scrapedData)
             print('Completed '+i)
         except:
             errorList.append('Scrape5 Error: '+i)
