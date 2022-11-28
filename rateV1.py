@@ -19,9 +19,14 @@ import json
 
 carlist = []
 
-carlist = []
 
 def main():
+
+    # runs in 5 seconds per car:
+    # print("threading")
+    # list = createList()
+    # with concurrent.futures.ThreadPoolExecutor() as executer:
+    #     executer.map(dollarValueVin2, list)  
 
     demoDict = [{'Make': 'BMW', 'Model': '228i xDrive', 'Year': '2016', 'Mileage': '65,956', 'Price': '$24,950', 'VIN': 'WBA1G9C51GV599609', 'url': '1'},
                 {'Make': 'BMW', 'Model': '228 Gran Coupe i xDrive', 'Year': '2021', 'Mileage': '24,681', 'Price': '$36,450', 'VIN': 'WBA73AK03M7H21242', 'url': '2'},
@@ -42,7 +47,7 @@ def main():
     #     executer.map(dollarValueVin2, list)  
  
  
-    #getTopCars test
+    # getTopCars test
     # deals = [('WBA1G9C51GV599609', 7.357627118644068), ('WBA73AK03M7H21242', 0.9995336076817558), ('WBA1G9C51GV599609', 0.869939879759519), ('WBA1F5C50EV255231', 0.700531208499336), ('WBA73AK03M7H21242', 0.45286513362336855), ('WBA1F5C50EV255231', 0.3009127210496292)]
     # deals = rate(createList())
     # list = createList()
@@ -57,6 +62,33 @@ def main():
     # dollarValueVin3('ZHWUC1ZD4ELA02158')
 
     
+    # list = createList()
+    # count = 0
+    # for i in range(len(list)):
+    #     vin   = list[i]['VIN']
+    #     print("No. ", count)
+    #     suggested = dollarValueVin3(vin)
+    #     time.sleep(1)
+    #     count += 1
+
+
+    # vinOnly = dollarValueVin3("1GYS4TKJ7FR633162")
+    # print("VIN ONLY suggested price: ", vinOnly)
+
+    # miles = 51000
+    # vinAndMiles = dollarValueVin4("W1KUG6EB3LA528856", miles)
+    # print("VIN AND MILEAGE suggested price: ", vinAndMiles)
+
+    # print("From finalValue:")
+    # rating1 = rate(createList())
+    # print("Deals from using FinalValue function:", rating1)
+
+    # print("\nFrom carUtils:")
+    # rating2 = rate2(createList())
+    # print("Deals from using Car Utils API:", rating2)
+
+    # print("\nFrom new function:")
+    # rating2 = rate3(createList())
 
 
 
@@ -67,16 +99,11 @@ def main():
 
 def createList():
     csv_filename = 'cardata.csv'
-    # carlist =[]
+    carlist =[]
     with open(csv_filename) as f:
         reader = csv.DictReader(f)
         for row in reader:
             carlist.append(row)
-    # print("Done")
-
-    # for i in range(len(carlist)):
-    #     print("|",carlist[i]['Price'],"|")
-    #     # print(carlist[i])
     
     return carlist
 
@@ -84,73 +111,36 @@ def createList():
 #incomplete
 def rate(list):
     # carlist = createList()
-    
     print(list)
     deals = []
     suggestedPrices = {}
     if list is None:
         return []
     for i in range(len(list)):
-        roundedMileage = int(list[i]['Mileage'].replace(',', '').replace(' ', '').replace('mi', '').replace('.', ''))
-        roundedMileage = round(roundedMileage/10000)*10000
-        print(roundedMileage)
-        parsedModel = list[i]['Model'].replace(' ', '').lower()
-        groupedYear = (round(int(list[i]['Year'])/2))*2
-        
-        key = str(groupedYear) + '//' + parsedModel + '//' + str(roundedMileage)
-        if key in suggestedPrices:
-            priceListed = list[i]['Price']
-            vin   = list[i]['VIN']
-            print("Price: ", priceListed, "Vin: ", vin)
-            suggested = suggestedPrices[key]
-            price = priceListed.replace(',', '')
-            price = price.replace('$', '')
-            price = price.replace(' ', '')
-            
-            try:
-                ratio = float(suggested)/float(price) #metric for rating deal
-            except: 
-                ratio = 0
-                
-            row = (vin,int(ratio),priceListed)
-            deals.append(row)
-            continue
-        
         priceListed = list[i]['Price']
         vin   = list[i]['VIN']
-        miles = list[i]['Mileage']
-        miles = miles.replace(',', '').replace(' ', '').replace('mi', '').replace('.', '')
-        
         print("Price: ", priceListed, "Vin: ", vin)
-        suggested = dollarValueVin3(vin)
-        # suggested = finalValue(list[i]['Make'], list[i]['Model'], '', list[i]['Year'], 0, list[i]['Mileage'], 0)
-        suggested = suggested.replace(',', '')
+        # suggested = dollarValueVin3(vin)
+        suggested = finalValue(list[i]['Make'], list[i]['Model'], '', list[i]['Year'], 0, list[i]['Mileage'], 0)
+        # suggested = suggested.replace(',', '')
         price = priceListed.replace(',', '')
-        suggested = suggested.replace('$', '')
+        # suggested = suggested.replace('$', '')
         price = price.replace('$', '')
         price = price.replace(' ', '')
         # print('no', i, 'p: ',price)
-        roundedSuggested = round(float(suggested)/100)*100
+        
         try:
-            ratio = float(roundedSuggested)/float(price) #metric for rating deal
+            ratio = float(suggested)/float(price) #metric for rating deal
         except: 
-            ratio = 0
-        
-        # row = ratio
-        
-        row = (vin,int(ratio),priceListed)
+            ratio == 'No Ratio'
+            
+        row = (vin,ratio,priceListed)
         deals.append(row)
-        
-        # if roundedSuggested not in suggestedPrices:
-        #     suggestedPrices[roundedSuggested] = []
-        #     print("not found list")
-        suggestedPrices[key] = roundedSuggested
-        
-        # print("Ratio: ", ratio)
+        print("Ratio: ", ratio)
     
     # Sorted list of deals in descending order from best to worst deal
     deals.sort(key=lambda y: -y[1])
-    # print("\ndeals: ", deals)
+    print("\ndeals: ", deals)
     topDeals = [deals[0], deals[1], deals[2], deals[3], deals[4]]
     
     print("length: " + str(len(deals)))
@@ -162,6 +152,54 @@ def rate(list):
     
     return topDeals
 
+def rate3(list):
+    # carlist = createList()
+    # print(list)
+    deals = []
+    if list is None:
+        return []
+    count = 1
+
+    # for i in range(len(list)):
+    for i in range(20):
+        priceListed = list[i]['Price']
+        vin   = list[i]['VIN']
+        # print("Price: ", priceListed, "Vin: ", vin)
+
+        modelAndTrim = list[i]['Model']
+        allWords = modelAndTrim.split(' ',1)
+        model = allWords[0]
+        trim = allWords[1]
+
+        mileage = list[i]['Mileage']
+        mileage2 = mileage.replace(',','')
+        miles = re.findall(r'\d+\d+', mileage2)
+
+        msrp = getMSRP(list[i]["Make"], model, trim, list[i]["Year"])
+        print("MSRP is:", msrp)
+
+
+
+        price = priceListed.replace(',', '')
+        # suggested = suggested.replace('$', '')
+        price = price.replace('$', '')
+        price = price.replace(' ', '')
+
+        try:
+            ratio = float(price)/float(msrp) #metric for rating deal
+        except: 
+            ratio == 'No Ratio'
+ 
+        row = (str(count), vin,ratio,priceListed)
+        count += 1
+        deals.append(row)
+        # print("Ratio for vin ", vin, ": ", ratio)
+    
+    # Sorted list of deals in descending order from best to worst deal
+    deals.sort(key=lambda y: y[2])
+    print("\ndeals: ", deals)
+    topDeals = [deals[0], deals[1], deals[2], deals[3], deals[4]]
+    return topDeals
 
 # #temp
 # def rate(list):
@@ -383,7 +421,90 @@ def dollarValueVin3(vin):
 
     
     apiResponse = response.text
-    print(response.text)
+    # print(response.text)
+    #if no market value data
+    if '"vehicle":null' in response.text:
+        return "0"
+    while(1):
+        if 'You have exceeded the rate limit per second for your plan, BASIC, by the API provider' in response.text:
+            time.sleep(1)
+            response = requests.request("GET", url, headers=headers, params=querystring)
+            apiResponse = response.text
+        else:
+            break
+
+
+    start = re.search('"prices":', response.text)
+    end = re.search(',"distribution"', response.text)
+
+    listOfstart = start.span()
+    listOfEnd   = end.span()
+    start2      = listOfstart[1]
+    end2        = listOfEnd[0]
+
+
+    prices = apiResponse[start2 + 1:end2]
+
+    avg  = re.search('"average":', prices)
+    avg2 = avg.span()
+    avgEnd = avg2[1]
+
+    blw = re.search('"below":', prices)
+    blw2   = blw.span()
+    blwStart = blw2[0]
+    blwEnd = blw2[1]
+    
+
+    abv = re.search('"above":', prices)
+    abv2   = abv.span()
+    abvStart = abv2[0]
+    abvEnd = abv2[1]
+
+    print("\n---------For VIN:", vin, " ---------")
+    average = prices[avgEnd:blwStart - 1]
+    print("AVERAGE:", average)
+
+    below = prices[blwEnd:abvStart - 1]
+    print("BELOW:", below)
+
+    above = prices[abvEnd:]
+    print("ABOVE:", above, "\n\n")
+    time.sleep(1)
+    return below
+
+
+# Car Utils with Mileage
+def dollarValueVin4(vin, mileage):
+    url = "https://car-utils.p.rapidapi.com/marketvalue"
+
+    querystring = {"vin": vin, "mileage": mileage}
+
+    headers = {
+        "X-RapidAPI-Key": "eabb27e940mshbaf991f2c492656p1afbb7jsnc31638e26d33",
+        "X-RapidAPI-Host": "car-utils.p.rapidapi.com"
+    }
+    
+    response = requests.request("GET", url, headers=headers, params=querystring)
+
+
+    ### MIGHT NEED THIS ###
+    # while(True):
+    #     response = requests.request("GET", url, headers=headers, params=querystring)
+
+    #     print(response.text)
+    #     err = re.search('"message":', response.text)
+    #     print( err )
+    #     if (err):
+    #         time.sleep(2)
+    #         continue
+    #     else:
+    #         break
+
+
+
+    
+    apiResponse = response.text
+    # print(response.text)
     #if no market value data
     if '"vehicle":null' in response.text:
         return "0"
@@ -430,17 +551,17 @@ def dollarValueVin3(vin):
     abvStart = abv2[0]
     abvEnd = abv2[1]
 
-    print("\n---------For VIN:", vin, " ---------")
+    # print("\n---------For VIN:", vin, " ---------")
     average = prices[avgEnd:blwStart - 1]
-    print("AVERAGE:", average)
+    # print("AVERAGE:", average)
 
     below = prices[blwEnd:abvStart - 1]
-    print("BELOW:", below)
+    # print("BELOW:", below)
 
     above = prices[abvEnd:]
-    print("ABOVE:", above, "\n\n")
+    # print("ABOVE:", above, "\n\n")
     time.sleep(1)
-    return average
+    return below
 
 
 # Car Utils with Mileage
