@@ -16,9 +16,7 @@ from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 
-#This version of Scrape works on cars.com, it takes car specifications and outputs a csv file
-# with the first 20 car search results. Each car will be described by Make,Model,Year,Mileage,Price.
-# The scraping api used is BeautifulSoup
+#This version of Scrape rotates through proxies using smartproxies API
 
 
 
@@ -40,8 +38,24 @@ def Scrape1(make, model, year, zipcode):
         header = ['Make', 'Model', 'Year', 'Mileage', 'Price', 'VIN', 'url']
         w.writerow(header)
         vincount = 0
-        page = requests.get(url)
-        soup = BeautifulSoup(page.content, 'html.parser')
+        # page = requests.get(url)
+        
+        headers = {
+            'Accept': 'html',
+            'Authorization': 'Basic VTAwMDAwODk4NzQ6U2FpZjIwMDI=',
+            # Already added when you pass json= but not when you pass data=
+            # 'Content-Type': 'application/json',
+        }
+
+        json_data = {
+            'target': 'universal',
+            'parse': False,
+            'url': url,
+        }
+
+        page = requests.post('https://scrape.smartproxy.com/v1/tasks', headers=headers, json=json_data)
+        p = str(page.content).replace('\\n', '').replace('\\', '').replace("b'", '').replace('{"results":[{"content":"', '')
+        soup = BeautifulSoup(p, 'html.parser')
         cars = soup.find_all('div', class_="vehicle-card")
     
         for c in cars:
@@ -96,7 +110,25 @@ def Scrape2(make, model, year, zipcode):
         w.writerow(header)
         vincount = 0
         page = requests.get(url, timeout=10000)
-        soup = BeautifulSoup(page.content, 'html.parser') 
+        
+        # headers = {
+        #     'Accept': 'html',
+        #     'Authorization': 'Basic VTAwMDAwODk4NzQ6U2FpZjIwMDI=',
+        #     # Already added when you pass json= but not when you pass data=
+        #     # 'Content-Type': 'application/json',
+        # }
+
+        # json_data = {
+        #     'target': 'universal',
+        #     'parse': False,
+        #     'url': url,
+        # }
+
+        # page = requests.post('https://scrape.smartproxy.com/v1/tasks', headers=headers, json=json_data, timeout=10)
+        # p = str(page.content).replace('\\n', '').replace('\\', '').replace("b'", '').replace('{"results":[{"content":"', '')
+        # print(url)
+        soup = BeautifulSoup(page.content, 'html.parser')
+         
         cars = soup.find_all('div', class_="item-card-body margin-bottom-auto")
         for c in cars:
             if c == None:
@@ -191,7 +223,6 @@ def Scrape3(make, model, year, zipcode):
         for i in range(5):
             soup = BeautifulSoup(browser.page_source, 'html.parser')
 
-            
             cars = soup.find_all('div', class_='soQyMy')
             if cars is not None:
                 for c in cars:
@@ -254,10 +285,27 @@ def Scrape4(make, model, year, zipcode):
         w.writerow(header)
         vincount = 0
         for n in range(5):
-            headers = {'User-Agent': 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/56.0.2924.76 Safari/537.36', "Upgrade-Insecure-Requests": "1","DNT": "1","Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8","Accept-Language": "en-US,en;q=0.5","Accept-Encoding": "gzip, deflate"}
+            # headers = {'User-Agent': 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/56.0.2924.76 Safari/537.36', "Upgrade-Insecure-Requests": "1","DNT": "1","Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8","Accept-Language": "en-US,en;q=0.5","Accept-Encoding": "gzip, deflate"}
 
-            page = requests.get(url, headers=headers)
-            soup = BeautifulSoup(page.content, 'html.parser')
+            # page = requests.get(url, headers=headers)
+            # soup = BeautifulSoup(page.content, 'html.parser')
+            headers = {
+                'Accept': 'html',
+                'Authorization': 'Basic VTAwMDAwODk4NzQ6U2FpZjIwMDI=',
+                # Already added when you pass json= but not when you pass data=
+                # 'Content-Type': 'application/json',
+            }
+
+            json_data = {
+                'target': 'universal',
+                'parse': False,
+                'url': url,
+            }
+
+            page = requests.post('https://scrape.smartproxy.com/v1/tasks', headers=headers, json=json_data)
+            p = str(page.content).replace('\\n', '').replace('\\', '').replace("b'", '').replace('{"results":[{"content":"', '')
+            soup = BeautifulSoup(p, 'html.parser')
+            
             cars = soup.find_all('div', class_="d-flex flex-column usurp-inventory-card w-100 srp-expanded")
                 
             for c in cars:
@@ -311,10 +359,33 @@ def Scrape5(make, model, year, zipcode):
         w.writerow(header)
         vincount = 0
         for n in range(3):
-            headers = {'User-Agent': 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/56.0.2924.76 Safari/537.36', "Upgrade-Insecure-Requests": "1","DNT": "1","Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8","Accept-Language": "en-US,en;q=0.5","Accept-Encoding": "gzip, deflate"}
+            # headers = {'User-Agent': 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/56.0.2924.76 Safari/537.36', "Upgrade-Insecure-Requests": "1","DNT": "1","Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8","Accept-Language": "en-US,en;q=0.5","Accept-Encoding": "gzip, deflate"}
 
-            page = requests.get(url, headers=headers)
-            soup = BeautifulSoup(page.content, 'html.parser')
+            # page = requests.get(url, headers=headers)
+            # soup = BeautifulSoup(page.content, 'html.parser')
+            headers = {
+                'Accept': 'html',
+                'Authorization': 'Basic VTAwMDAwODk4NzQ6U2FpZjIwMDI=',
+                # Already added when you pass json= but not when you pass data=
+                # 'Content-Type': 'application/json',
+                'User-Agent': 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/56.0.2924.76 Safari/537.36',
+                "Upgrade-Insecure-Requests": "1",
+                "DNT": "1",
+                "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8",
+                "Accept-Language": "en-US,en;q=0.5",
+                "Accept-Encoding": "gzip, deflate"
+            }
+
+            json_data = {
+                'target': 'universal',
+                'parse': False,
+                'url': url,
+            }
+
+            page = requests.post('https://scrape.smartproxy.com/v1/tasks', headers=headers, json=json_data)
+            p = str(page.content).replace('\\n', '').replace('\\', '').replace("b'", '').replace('{"results":[{"content":"', '')
+            soup = BeautifulSoup(p, 'html.parser')
+            
             cars = soup.find_all('div', class_="list-row")
             for c in cars:
                 title = c.find('span', class_='listing-header').text
@@ -403,8 +474,22 @@ def ScrapeVin(make,model,year,zipcode):
     with open('carvins.csv', 'w', encoding='utf8', newline='') as f:
         vins = []
         for n in range(10):
-            page = requests.get(url)
-            soup = BeautifulSoup(page.content, 'html.parser') 
+            headers = {
+                'Accept': 'html',
+                'Authorization': 'Basic VTAwMDAwODk4NzQ6U2FpZjIwMDI=',
+                # Already added when you pass json= but not when you pass data=
+                # 'Content-Type': 'application/json',
+            }
+
+            json_data = {
+                'target': 'universal',
+                'parse': False,
+                'url': url,
+            }
+
+            page = requests.post('https://scrape.smartproxy.com/v1/tasks', headers=headers, json=json_data)
+            p = str(page.content).replace('\\n', '').replace('\\', '').replace("b'", '').replace('{"results":[{"content":"', '')
+            soup = BeautifulSoup(p, 'html.parser')
             searchContent = soup.find('div', class_="sds-page-section listings-page").get('data-site-activity')
             seperator = searchContent.split(',')
             for c in seperator:
@@ -437,6 +522,23 @@ def ScrapeVin2(make,model,year,zipcode):
         # for n in range(1):
         page = requests.get(url, timeout=10000)
         soup = BeautifulSoup(page.content, 'html.parser') 
+        # headers = {
+        #     'Accept': 'html',
+        #     'Authorization': 'Basic VTAwMDAwODk4NzQ6U2FpZjIwMDI=',
+        #     # Already added when you pass json= but not when you pass data=
+        #     # 'Content-Type': 'application/json',
+        # }
+
+        # json_data = {
+        #     'target': 'universal',
+        #     'parse': False,
+        #     'url': url,
+        # }
+
+        # page = requests.post('https://scrape.smartproxy.com/v1/tasks', headers=headers, json=json_data, timeout=10)
+        # p = str(page.content).replace('\\n', '').replace('\\', '').replace("b'", '').replace('{"results":[{"content":"', '')
+        # soup = BeautifulSoup(p, 'html.parser')
+        
         searchContent = soup.find_all('script')
         for n in searchContent:
             if 'vehicleIdentificationNumber' in n.text:
@@ -447,26 +549,26 @@ def ScrapeVin2(make,model,year,zipcode):
     return vins
 
         
-def ScrapeToList(make, model, year, zipcode):
-    make = make.lower()
-    model = model.lower()
-    url = 'https://www.cars.com/shopping/results/?stock_type=used&makes%5B%5D=' + make + '&models%5B%5D=' + make + '-' + model +'&list_price_max=&maximum_distance=20&zip=' + zipcode
-    url2 = 'https://www.cars.com/shopping/results/?list_price_max=&makes[]=' + make + '&maximum_distance=20&models[]=' + make + '-' + model +'&page=1&page_size=100&stock_type=used&zip=' + zipcode
-    page = requests.get(url2)
-    soup = BeautifulSoup(page.content, 'html.parser')
-    cars = soup.find_all('div', class_="vehicle-card")
-    ret_list = []
-    for c in cars:
-        title = c.find('h2', class_="title").text
-        title = title.split(' ', 2)
-        year = title[0]
-        make = title[1]
-        model = title[2]
-        price = c.find('span', class_="primary-price").text
-        mileage = c.find('div', class_="mileage").text
-        row = [make, model, year, mileage, price]
-        ret_list.append(row)
-    return ret_list
+# def ScrapeToList(make, model, year, zipcode):
+#     make = make.lower()
+#     model = model.lower()
+#     url = 'https://www.cars.com/shopping/results/?stock_type=used&makes%5B%5D=' + make + '&models%5B%5D=' + make + '-' + model +'&list_price_max=&maximum_distance=20&zip=' + zipcode
+#     url2 = 'https://www.cars.com/shopping/results/?list_price_max=&makes[]=' + make + '&maximum_distance=20&models[]=' + make + '-' + model +'&page=1&page_size=100&stock_type=used&zip=' + zipcode
+#     page = requests.get(url2)
+#     soup = BeautifulSoup(page.content, 'html.parser')
+#     cars = soup.find_all('div', class_="vehicle-card")
+#     ret_list = []
+#     for c in cars:
+#         title = c.find('h2', class_="title").text
+#         title = title.split(' ', 2)
+#         year = title[0]
+#         make = title[1]
+#         model = title[2]
+#         price = c.find('span', class_="primary-price").text
+#         mileage = c.find('div', class_="mileage").text
+#         row = [make, model, year, mileage, price]
+#         ret_list.append(row)
+#     return ret_list
 
 
 #incomplete
@@ -527,6 +629,6 @@ def cleanData(list):
     return res_list      
     
     
-# print(Scrape1('Acura', 'RLX', '2020', '22201'))
+print(Scrape2('Acura', 'RLX', '2020', '22201'))
     
-ScrapeAlpha('Nissan', 'Altima', '2014', '10003')
+# ScrapeAlpha('Jeep', 'Wrangler', '2014', '10003')

@@ -1,3 +1,10 @@
+####
+# V1.7
+# Scrape with threading
+# incomplete
+###
+
+
 import string
 from bs4 import BeautifulSoup
 import requests
@@ -20,7 +27,11 @@ from selenium.webdriver.support import expected_conditions as EC
 # with the first 20 car search results. Each car will be described by Make,Model,Year,Mileage,Price.
 # The scraping api used is BeautifulSoup
 
+vins1 = []
+    
+scrapedList1 = []
 
+vincount1 = 0
 
 #Cars.com
 def Scrape1(make, model, year, zipcode):
@@ -30,50 +41,65 @@ def Scrape1(make, model, year, zipcode):
     
     url = 'https://www.cars.com/shopping/results/?list_price_max=&makes[]=' + make + '&maximum_distance=100&models[]=' + make + '-' + model +'&page=1&page_size=100&stock_type=used&zip=' + zipcode
     
-    vins = ScrapeVin(make, model, year, zipcode)
+    global vins1 
+    vins1 = ScrapeVin(make, model, year, zipcode)
     
-    scrapedList = []
+    global scrapedList1 
+    scrapedList1 = []
+    
+    global vincount1
+    vincount1 = 0
     
     # search first 10 pages
     with open('cardata.csv', 'w', encoding='utf8', newline='') as f:
         w = writer(f)
         header = ['Make', 'Model', 'Year', 'Mileage', 'Price', 'VIN', 'url']
         w.writerow(header)
-        vincount = 0
         page = requests.get(url)
         soup = BeautifulSoup(page.content, 'html.parser')
         cars = soup.find_all('div', class_="vehicle-card")
+        print(str(len(cars)))
+        with ThreadPoolExecutor() as executor:
+            executor.map(Scrape1Loop,cars)
+        
+    print('Scraped '+str(len(scrapedList1))+' cars from Cars.com')
+    return scrapedList1
+
+def Scrape1Loop(c):
+        global vincount1
+        global scrapedList1
+        global vins1
+
+        if not c.find('h2', class_="title"):
+            return
+        title = c.find('h2', class_="title").text
+        title = title.split(' ', 2)
+        year = title[0]
+        make = title[1]
+        model = title[2]
+        
+        if not c.find('span', class_="primary-price"):
+            return
+        price = c.find('span', class_="primary-price").text
+        
+        if not c.find('a', class_="vehicle-card-link js-gallery-click-link"):
+            return
+        carpage = 'http://cars.com' + c.find('a', class_="vehicle-card-link js-gallery-click-link").get('href')
+        
+        if not c.find('div', class_="mileage"):
+            mileage = ' '#assume its brand new??
+        else:
+            mileage = c.find('div', class_="mileage").text
+        
+        vin = vins1[vincount1]    
+        
+        row = [make, model, year, mileage, price, vin, carpage]
+        rowlist = {'Make': make, 'Model':model, 'Year':year, 'Mileage':mileage, 'Price':price, 'VIN':vin, 'url':carpage}
+        # w.writerow(row)
+        scrapedList1.append(rowlist)
+        vincount1+=1
     
-        for c in cars:
-            if not c.find('h2', class_="title"):
-                continue
-            title = c.find('h2', class_="title").text
-            title = title.split(' ', 2)
-            year = title[0]
-            make = title[1]
-            model = title[2]
-            
-            if not c.find('span', class_="primary-price"):
-                continue
-            price = c.find('span', class_="primary-price").text
-            
-            if not c.find('a', class_="vehicle-card-link js-gallery-click-link"):
-                continue
-            carpage = 'http://cars.com' + c.find('a', class_="vehicle-card-link js-gallery-click-link").get('href')
-           
-            if not c.find('div', class_="mileage"):
-                mileage = ' '#assume its brand new??
-            else:
-                mileage = c.find('div', class_="mileage").text
-            
-            vin = vins[vincount]    
-            
-            row = [make, model, year, mileage, price, vin, carpage]
-            rowlist = {'Make': make, 'Model':model, 'Year':year, 'Mileage':mileage, 'Price':price, 'VIN':vin, 'url':carpage}
-            w.writerow(row)
-            scrapedList.append(rowlist)
-            vincount+=1
-    return scrapedList
+    
 
 
 #Autotrader.com
@@ -126,6 +152,7 @@ def Scrape2(make, model, year, zipcode):
             w.writerow(row)
             scrapedList.append(rowlist)
             vincount+=1
+    print('Scraped '+str(len(scrapedList))+' cars from autotrader.com')
     return scrapedList
 
 
@@ -231,7 +258,8 @@ def Scrape3(make, model, year, zipcode):
                 # next page
                 
             url = 'https://www.cargurus.com/Cars/api/1.0/carselector/listingSearch.action?searchType=USED&entityId='+modelID+'&postalCode='+zipcode+'&distance=50&sourceContext=carSelectorAPI#resultsPage=' + str(i+2)
-            time.sleep(5)            
+            time.sleep(5)    
+    print('Scraped '+str(len(scrapedList))+' cars from cargurus.com')    
     return scrapedList
 
 
@@ -290,7 +318,8 @@ def Scrape4(make, model, year, zipcode):
                 scrapedList.append(rowlist)
             url = getNextPage4(soup)
             if url == None:
-                break 
+                break
+    print('Scraped '+str(len(scrapedList))+' cars from edmunds.com')
     return scrapedList
 
 #carsdirect.com
@@ -347,6 +376,7 @@ def Scrape5(make, model, year, zipcode):
             url = getNextPage5(soup)
             if url == None:
                 break 
+    print('Scraped '+str(len(scrapedList))+' cars from carsdirect.com')
     return scrapedList
 
 #cars.com       
@@ -402,25 +432,25 @@ def ScrapeVin(make,model,year,zipcode):
     
     with open('carvins.csv', 'w', encoding='utf8', newline='') as f:
         vins = []
-        for n in range(10):
-            page = requests.get(url)
-            soup = BeautifulSoup(page.content, 'html.parser') 
-            searchContent = soup.find('div', class_="sds-page-section listings-page").get('data-site-activity')
-            seperator = searchContent.split(',')
-            for c in seperator:
-                seperator2 = c.split(':')
-                
-                if(seperator2[0] == '"vin"'):
-                    vin = seperator2[1].replace('"', '')
-                    f.write(str(vin))
-                    f.write('\n')
-                    vins.append(str(vin))
-            url = getNextPage(soup)
-            if url == None:
-                break
-                
-    return vins
+        # for n in range(10):
+        page = requests.get(url)
+        soup = BeautifulSoup(page.content, 'html.parser') 
+        searchContent = soup.find('div', class_="sds-page-section listings-page").get('data-site-activity')
+        seperator = searchContent.split(',')
+        with ThreadPoolExecutor() as executor:
+            executor.map(scrapeVinLoop,seperator)           
+            # url = getNextPage(soup)
+            # if url == None:
+            #     break         
+    return vins1
 
+def scrapeVinLoop(c):
+    global vins1
+    
+    seperator2 = c.split(':')      
+    if(seperator2[0] == '"vin"'):
+        vin = seperator2[1].replace('"', '')
+        vins1.append(str(vin))
 
 #autotrader.com
 def ScrapeVin2(make,model,year,zipcode):
@@ -482,38 +512,129 @@ def getZipData(zipcode):
     response = requests.get('https://app.zipcodebase.com/api/v1/search?apikey='+apikey+'&country=US&codes='+zipcode)
     return response.text
 
+from concurrent.futures import ThreadPoolExecutor
+
 def ScrapeAlpha(make, model, year, zipcode):
-    try:
-        l1 = Scrape1(make, model, year, zipcode) 
-    except:
-        "Scrape1 failed"
-        l1 = []
-    try:
-        l2 = Scrape2(make, model, year, zipcode)
-    except:
-        "Scrape2 failed"
-        l2 = []
-    try:
-        l3 = Scrape3(make, model, year, zipcode)
-    except:
-        "Scrape3 failed"
-        l3 = []
-    try:
-        l4 = Scrape4(make, model, year, zipcode)
-    except:
-        "Scrape4 failed"
-        l4 = []
-    try:
-        l5 = Scrape5(make, model, year, zipcode)
-    except:
-        "Scrape5 failed"
-        l5 = []
+
+    with ThreadPoolExecutor() as executor:
+        try:
+            executor.submit(Scrape1(make, model, year, zipcode))
+        except:
+            "Scrape1 failed"
+            l1 = []
+        try:
+            l2 = Scrape2(make, model, year, zipcode)
+        except:
+            "Scrape2 failed"
+            l2 = []
+        try:
+            l3 = Scrape3(make, model, year, zipcode)
+        except:
+            "Scrape3 failed"
+            l3 = []
+        try:
+            l4 = Scrape4(make, model, year, zipcode)
+        except:
+            "Scrape4 failed"
+            l4 = []
+        try:
+            l5 = Scrape5(make, model, year, zipcode)
+        except:
+            "Scrape5 failed"
+            l5 = []
     
     scrapedList = l1 + l2 + l3 + l4 + l5
     # for c in scrapedList:
     #     print(scrapedList)
     print('length = [' + str(len(l1)) + ' + ' + str(len(l2)) + ' + ' + str(len(l3)) + ' + '+ str(len(l4)) + ' + '+ str(len(l5)) + '] = ' + str(len(scrapedList)))
     return scrapedList
+
+
+def ScrapeAlpha(make, model, year, zipcode):
+
+    with ThreadPoolExecutor() as executor:
+        try:
+            f1 = executor.submit(Scrape1(make, model, year, zipcode))
+            l1 = f1.result()
+        except:
+            "Scrape1 failed"
+            l1 = []
+        try:
+            f2 = executor.submit(Scrape2(make, model, year, zipcode))
+            l2 = f2.result()
+        except:
+            "Scrape2 failed"
+            l2 = []
+        try:
+            f3 = executor.submit(Scrape3(make, model, year, zipcode))
+            l3 = f3.result()
+        except:
+            "Scrape3 failed"
+            l3 = []
+        try:
+            f4 = executor.submit(Scrape4(make, model, year, zipcode))
+            l4 = f4.result()
+        except:
+            "Scrape4 failed"
+            l4 = []
+        try:
+            f5 = executor.submit(Scrape5(make, model, year, zipcode))
+            l5 = f5.result()
+        except:
+            "Scrape5 failed"
+            l5 = []
+    
+    scrapedList = l1 + l2 + l3 + l4 + l5
+    # for c in scrapedList:
+    #     print(scrapedList)
+    print('length = [' + str(len(l1)) + ' + ' + str(len(l2)) + ' + ' + str(len(l3)) + ' + '+ str(len(l4)) + ' + '+ str(len(l5)) + '] = ' + str(len(scrapedList)))
+    return scrapedList
+
+
+def ScrapeAlpha2(make, model, year, zipcode):
+    
+    
+    try:
+        l1 = Scrape1(make, model, year, zipcode)
+    except:
+        "Scrape1 failed"
+        l1 = []
+    time2 = time.perf_counter()
+    try:
+        l2 = Scrape2(make, model, year, zipcode)
+    except:
+        "Scrape2 failed"
+        l2 = []
+    time3 = time.perf_counter()
+    print("scrape2:" + str(time3-time2))
+    try:
+        l3 = Scrape3(make, model, year, zipcode)
+    except:
+        "Scrape3 failed"
+        l3 = []
+    time4 = time.perf_counter()
+    print("scrape3:" + str(time4-time3))
+    try:
+        l4 = Scrape4(make, model, year, zipcode)
+    except:
+        "Scrape4 failed"
+        l4 = []
+    time5 = time.perf_counter()
+    print("scrape4:" + str(time5-time4))
+    try:
+        l5 = Scrape5(make, model, year, zipcode)
+    except:
+        "Scrape5 failed"
+        l5 = []
+    time6 = time.perf_counter()
+    print("scrape5:" + str(time6-time5))
+        
+    scrapedList = l1 + l2 + l3 + l4 + l5
+    # for c in scrapedList:
+    #     print(scrapedList)
+    print('length = [' + str(len(l1)) + ' + ' + str(len(l2)) + ' + ' + str(len(l3)) + ' + '+ str(len(l4)) + ' + '+ str(len(l5)) + '] = ' + str(len(scrapedList)))
+    return scrapedList
+
 
 #removes duplicate data
 def cleanData(list):
@@ -527,6 +648,13 @@ def cleanData(list):
     return res_list      
     
     
-# print(Scrape1('Acura', 'RLX', '2020', '22201'))
-    
+
+# time1 = time.perf_counter()
 ScrapeAlpha('Nissan', 'Altima', '2014', '10003')
+# Scrape1('Nissan', 'Altima', '2021', '22201')
+
+# time2 = time.perf_counter()
+# print("timer Threads:" + str(time2-time1))
+# ScrapeAlpha2('Nissan', 'Altima', '2014', '10003')
+# time3 = time.perf_counter()
+# print("timer regular:" + str(time3-time2))

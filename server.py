@@ -7,7 +7,7 @@ from scrapeV1_1 import *
 from rateV1 import *
 from flask import render_template
 from extension import *
-from scrapeV1_6 import ScrapeAlpha, cleanData
+from scrapeV1_7 import ScrapeAlpha, cleanData
 app = Flask('app')
 
 
@@ -38,7 +38,7 @@ def getScrape(make, model, car_year, zip):
 def getUrl(url):
     time1 = time.perf_counter()
     url = url.replace('slash', '/')
-    url = url.replace('colon', ':')
+    url = url.replace('colum', ':')
     url = url.replace('dot', '.')
     print(url)
     if 'cars.com' in url:
