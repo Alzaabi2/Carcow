@@ -40,7 +40,7 @@ function App() {
                     console.log("json test")
                     // console.warn(xhr.responseText)
                     console.log(response)
-                    console.log(response.data[0]['Year'])
+                    // console.log(response.data[0]['year'])
                     console.log("json test end")      
                 })
             
@@ -79,9 +79,9 @@ function App() {
                                     <img src="https://platform.cstatic-images.com/xlarge/in/v2/ba68b77e-18eb-5a53-ae3e-0f4ee3dcf547/8c3800b9-3377-4ab1-a8d2-7bc365242b85/TE9b9NPjC2nkWbiKvQzHSTR0T_w.jpg" alt="Image Not Found"/>
                                 </td>
                                 <td><a href = {car.url} target="_blank">
-                                    <div class="car-basics">{car.Year} {car.Make} {car.Model}</div>{"\n"}
+                                    <div class="car-basics">{car.year} {car.make} {car.model}</div>{"\n"}
                                     <div class="display-container">
-                                        <div class="car-price">{car.Price} </div>&nbsp;<div class="car-mileage"> {car.Mileage}</div>
+                                        <div class="car-price">{car.price} </div>&nbsp;<div class="car-mileage"> {car.mileage}</div>
                                     </div>
                                 </a></td>
                             </tr>

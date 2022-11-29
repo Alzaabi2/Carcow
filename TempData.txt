@@ -1,6 +1,6 @@
 Make,Model,Year,Mileage,Price,VIN,url
-Honda,Accord EX-L,2006,"123,085 mi.","$7,200",1HGCM56826A049409,http://cars.com/vehicledetail/6d55fae2-3055-49c5-9797-40bac8885973/
-Honda,Accord EX-L,2008,"131,477 mi.","$8,495",1HGCP36818A011300,http://cars.com/vehicledetail/9439ea7c-e841-43bb-888a-6294e54b68ea/
-Honda,Accord LX,2002,"80,306 mi.","$7,495",1HGCG56402A072654,http://cars.com/vehicledetail/717cbf43-df24-46b3-98b9-76b58f5c5502/
-Honda,Accord SE,2007,"128,259 mi.","$7,900",1HGCM66417A005017,http://cars.com/vehicledetail/91b81c3a-bd82-4fe2-a37c-b3041c519221/
-Honda,Accord EX-L,2007,"132,325 mi.","$8,900",1HGCM56827A007212,http://cars.com/vehicledetail/c2f28c37-5f9c-436b-a5cf-cfb683a6c4c3/
+Acura,NSX,2021,8594,174777,19UNC1B04MY000074,https://www.carsdirect.com/used_cars/vehicle-detail/ul2161607309/acura/nsx
+Acura,NSX,2017,-1,177084,19UNC1B08HY000133,https://www.carsdirect.com/used_cars/vehicle-detail/ul2162763330/acura/nsx
+Acura,MDX,2018,62401,28990,5J8YD4H33JL021018,https://www.carsdirect.com/used_cars/vehicle-detail/ul2167332504/acura/mdx
+Acura,MDX,2018,60946,29590,5J8YD4H36JL012846,https://www.carsdirect.com/used_cars/vehicle-detail/ul2168233774/acura/mdx
+Acura,MDX,2018,30120,33990,5J8YD4H37JL019059,https://www.carsdirect.com/used_cars/vehicle-detail/ul2165336792/acura/mdx

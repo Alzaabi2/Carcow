@@ -529,4 +529,4 @@ def cleanData(list):
     
 # print(Scrape1('Acura', 'RLX', '2020', '22201'))
     
-ScrapeAlpha('Nissan', 'Altima', '2014', '10003')
+# ScrapeAlpha('Nissan', 'Altima', '2014', '10003')

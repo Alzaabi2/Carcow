@@ -7,12 +7,19 @@ from scrapeV1_1 import *
 from rateV1 import *
 from flask import render_template
 from extension import *
-from scrapeV1_7 import ScrapeAlpha, cleanData
+from scrapeV1_6 import ScrapeAlpha, cleanData
+import mysql.connector
 app = Flask('app')
 
 
 carbrands = ['bmw', 'audi']
 
+mydb = mysql.connector.connect(
+    host="carcow.ce0uqlnzw4og.us-east-1.rds.amazonaws.com",
+    user="admin",
+    password="Hevcy4-gumden-wypjav",
+    database="CarCowDB"
+)
 
 @app.route('/')
 def index():
@@ -36,6 +43,8 @@ def getScrape(make, model, car_year, zip):
 
 @app.route('/getUrl/<string:url>')
 def getUrl(url):
+    cursor = mydb.cursor(dictionary=True)
+
     time1 = time.perf_counter()
     url = url.replace('slash', '/')
     url = url.replace('colum', ':')
@@ -84,24 +93,28 @@ def getUrl(url):
     print(lastCar)
     print('tempdata ^ single car v')
     print(singleCar)
-    if lastCar != {}:  
-        if lastCar['Make'] == singleCar['Make'] and lastCar['Model'] == singleCar['Model'] and lastCar['Year'] == singleCar['Year']:
-            print(tempData)
-            return tempData
+    # if lastCar != {}:  
+    #     if lastCar['Make'] == singleCar['Make'] and lastCar['Model'] == singleCar['Model'] and lastCar['Year'] == singleCar['Year']:
+    #         print(tempData)
+    #         return tempData
 
     time3 = time.perf_counter()
     print("Timer2 tempData:" + str(time3-time2))
 
-    
-    list = ScrapeAlpha(singleCar['Make'], singleCar['Model'], singleCar['Year'], '22201')
+
+    # list = ScrapeAlpha(singleCar['Make'], singleCar['Model'], singleCar['Year'], '22201')
+    print(singleCar['Make'])
+    cursor.execute("SELECT * FROM scraped WHERE make = %s", (singleCar['Make'],))
+    list = cursor.fetchall()
+    print(list)
     time4 = time.perf_counter()
     print("Timer3 ScrapeAlpha():" + str(time4-time3))
     
-    list = cleanData(list)
+    # list = cleanData(list)
     time5 = time.perf_counter()
     print("Timer4 cleanData():" + str(time5-time4))
     
-    rating = rate(list)
+    rating = rate3(list)
     time6 = time.perf_counter()
     print("Timer5 rate:" + str(time6-time5))
     
@@ -111,7 +124,7 @@ def getUrl(url):
     
     print('------')
     print('------')
-    # print(topCars)
+    print(topCars)
     
     #data for last scraped car
     with open('lastCar.txt', 'w', encoding='utf8', newline='\n') as f:
@@ -127,7 +140,7 @@ def getUrl(url):
         header = ['Make', 'Model', 'Year', 'Mileage', 'Price', 'VIN', 'url']
         w.writerow(header)
         for i in range(len(topCars)):
-            row = [topCars[i]['Make'], topCars[i]['Model'], topCars[i]['Year'], topCars[i]['Mileage'], topCars[i]['Price'], topCars[i]['VIN'], topCars[i]['url']]
+            row = [topCars[i]['make'], topCars[i]['model'], topCars[i]['year'], topCars[i]['mileage'], topCars[i]['price'], topCars[i]['VIN'], topCars[i]['url']]
             w.writerow(row)
     
     # topCars = [
