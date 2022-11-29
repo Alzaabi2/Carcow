@@ -75,9 +75,20 @@ def main():
     # vinOnly = dollarValueVin3("1GYS4TKJ7FR633162")
     # print("VIN ONLY suggested price: ", vinOnly)
 
-    miles = 83801
-    vinAndMiles = dollarValueVin4("3C3CFFFH3DT608684", miles)
-    print("VIN AND MILEAGE suggested price: ", vinAndMiles)
+    # miles = 51000
+    # vinAndMiles = dollarValueVin4("W1KUG6EB3LA528856", miles)
+    # print("VIN AND MILEAGE suggested price: ", vinAndMiles)
+
+    # print("From finalValue:")
+    # rating1 = rate(createList())
+    # print("Deals from using FinalValue function:", rating1)
+
+    # print("\nFrom carUtils:")
+    # rating2 = rate2(createList())
+    # print("Deals from using Car Utils API:", rating2)
+
+    # print("\nFrom new function:")
+    # rating2 = rate3(createList())
 
 
 
@@ -100,16 +111,30 @@ def createList():
 #incomplete
 def rate(list):
     # carlist = createList()
-    print(list)
+    # print(list)
     deals = []
     if list is None:
         return []
-    for i in range(len(list)):
+    count = 1
+
+    # for i in range(len(list)):
+    for i in range(20):
         priceListed = list[i]['Price']
         vin   = list[i]['VIN']
-        print("Price: ", priceListed, "Vin: ", vin)
+        
+        modelAndTrim = list[i]['Model']
+        allWords = modelAndTrim.split(' ',1)
+        model = allWords[0]
+        trim = allWords[1]
+
+        mileage = list[i]['Mileage']
+        mileage2 = mileage.replace(',','')
+        miles = re.findall(r'\d+\d+', mileage2)
+
+
+        # print("Price: ", priceListed, "Vin: ", vin)
         # suggested = dollarValueVin3(vin)
-        suggested = finalValue(list[i]['Make'], list[i]['Model'], '', list[i]['Year'], 0, list[i]['Mileage'], 0)
+        suggested = finalValue(list[i]['Make'], model, trim, list[i]['Year'], 0, miles[0], 0)
         # suggested = suggested.replace(',', '')
         price = priceListed.replace(',', '')
         # suggested = suggested.replace('$', '')
@@ -121,17 +146,113 @@ def rate(list):
             ratio = float(suggested)/float(price) #metric for rating deal
         except: 
             ratio == 'No Ratio'
-            
-        row = (vin,ratio,priceListed)
+
+        row = (str(count), vin,ratio,priceListed)
+        count += 1
         deals.append(row)
-        print("Ratio: ", ratio)
+        # print("Ratio for vin ", vin, ": ", ratio)
     
     # Sorted list of deals in descending order from best to worst deal
-    deals.sort(key=lambda y: -y[1])
+    deals.sort(key=lambda y: -y[2])
     print("\ndeals: ", deals)
     topDeals = [deals[0], deals[1], deals[2], deals[3], deals[4]]
     return topDeals
 
+def rate2(list):
+    # carlist = createList()
+    # print(list)
+    deals = []
+    if list is None:
+        return []
+    count = 1
+
+    # for i in range(len(list)):
+    for i in range(20):
+        priceListed = list[i]['Price']
+        vin   = list[i]['VIN']
+        # print("Price: ", priceListed, "Vin: ", vin)
+
+        modelAndTrim = list[i]['Model']
+        allWords = modelAndTrim.split(' ',1)
+        model = allWords[0]
+        trim = allWords[1]
+
+        mileage = list[i]['Mileage']
+        mileage2 = mileage.replace(',','')
+        miles = re.findall(r'\d+\d+', mileage2)
+
+        suggested = dollarValueVin4(vin, miles[0])
+        # suggested = suggested.replace(',', '')
+        price = priceListed.replace(',', '')
+        # suggested = suggested.replace('$', '')
+        price = price.replace('$', '')
+        price = price.replace(' ', '')
+        # print('no', i, 'p: ',price)
+        
+        try:
+            ratio = float(suggested)/float(price) #metric for rating deal
+        except: 
+            ratio == 'No Ratio'
+ 
+        row = (str(count), vin,ratio,priceListed)
+        count += 1
+        deals.append(row)
+        # print("Ratio for vin ", vin, ": ", ratio)
+    
+    # Sorted list of deals in descending order from best to worst deal
+    deals.sort(key=lambda y: -y[2])
+    print("\ndeals: ", deals)
+    topDeals = [deals[0], deals[1], deals[2], deals[3], deals[4]]
+    return topDeals
+
+def rate3(list):
+    # carlist = createList()
+    # print(list)
+    deals = []
+    if list is None:
+        return []
+    count = 1
+
+    # for i in range(len(list)):
+    for i in range(20):
+        priceListed = list[i]['Price']
+        vin   = list[i]['VIN']
+        # print("Price: ", priceListed, "Vin: ", vin)
+
+        modelAndTrim = list[i]['Model']
+        allWords = modelAndTrim.split(' ',1)
+        model = allWords[0]
+        trim = allWords[1]
+
+        mileage = list[i]['Mileage']
+        mileage2 = mileage.replace(',','')
+        miles = re.findall(r'\d+\d+', mileage2)
+
+        msrp = getMSRP(list[i]["Make"], model, trim, list[i]["Year"])
+        print("MSRP is:", msrp)
+
+
+
+        price = priceListed.replace(',', '')
+        # suggested = suggested.replace('$', '')
+        price = price.replace('$', '')
+        price = price.replace(' ', '')
+
+        try:
+            ratio = float(price)/float(msrp) #metric for rating deal
+        except: 
+            ratio == 'No Ratio'
+ 
+        row = (str(count), vin,ratio,priceListed)
+        count += 1
+        deals.append(row)
+        # print("Ratio for vin ", vin, ": ", ratio)
+    
+    # Sorted list of deals in descending order from best to worst deal
+    deals.sort(key=lambda y: y[2])
+    print("\ndeals: ", deals)
+    topDeals = [deals[0], deals[1], deals[2], deals[3], deals[4]]
+    return topDeals
 
 # #temp
 # def rate(list):
@@ -483,15 +604,15 @@ def dollarValueVin4(vin, mileage):
     abvStart = abv2[0]
     abvEnd = abv2[1]
 
-    print("\n---------For VIN:", vin, " ---------")
+    # print("\n---------For VIN:", vin, " ---------")
     average = prices[avgEnd:blwStart - 1]
-    print("AVERAGE:", average)
+    # print("AVERAGE:", average)
 
     below = prices[blwEnd:abvStart - 1]
-    print("BELOW:", below)
+    # print("BELOW:", below)
 
     above = prices[abvEnd:]
-    print("ABOVE:", above, "\n\n")
+    # print("ABOVE:", above, "\n\n")
     time.sleep(1)
     return below
 
