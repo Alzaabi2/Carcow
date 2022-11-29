@@ -1,4 +1,6 @@
+
 # from rateV1 import *
+
 from bs4 import BeautifulSoup
 import requests
 import datetime
@@ -68,9 +70,7 @@ def finalValue(Make, Model, Trim, Year, noOwners, mileage, collisions):
     ageInMonths = localAge * 12
     lossAge = initVal * (ageInMonths * 0.003)
     
-    # adjustedValue = initVal - (lossAge) - (lossMiles)
-    adjustedValue = initVal - (lossAge)
-
+    adjustedValue = initVal - lossAge - lossCollisions - lossMiles - lossOwners
     if noOwners == 1:
         adjustedValue *= 1.1
     return adjustedValue
@@ -91,17 +91,17 @@ def calcDepreciation(value, step, causeValue, causeLimit, percentage):
     return value - tempValue
     
 
-#Dodge Challenger Coupe R/T V8 2019 32,157 mi listed for $26,966
+# #Dodge Challenger Coupe R/T V8 2019 32,157 mi listed for $26,966
 # initVal = 34545
 # noOwners = 3
 # collisions = 0
 # year = 2019
-# age = 2022 - year
+# # age = 2022 - year
 # mileage = 32157
 
 # vin = '2C3CDZBT5KH524440'
 
-# #FIAT 500 Abarth 2013 83,801 mi listed for $10,995
+#FIAT 500 Abarth 2013 83,801 mi listed for $10,995
 initVal = 22095
 noOwners = 2
 collisions = 0
@@ -111,16 +111,13 @@ mileage = 83801
 
 vin = '3C3CFFFH3DT608684'
 
-
-# val = finalValue('Dodge', 'Challenger', 'R/T', '2019', noOwners, mileage, collisions)
-
-# val = finalValue('Fiat', '500', 'Abarth', '2013', noOwners, mileage, collisions)
-
 # val = finalValue('Mercedes-Benz', 'S-class', 'S 550 4matic', '2013', noOwners, 47000, collisions)
 
-# print("\nSuggested value:", val, "\n")
+val = finalValue('Fiat', '500', 'Abarth', '2013', noOwners, mileage, collisions)
+print(val)
 
 # apiVal = dollarValueVin3(vin)
 
-# a = getMSRP('dodge', 'challenger', 'r/t', '2021')
+# a = getMSRP('dodge', 'challenger', 'r/t', '2019')
 # print(a)
+# print(apiVal)

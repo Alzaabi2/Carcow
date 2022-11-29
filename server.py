@@ -7,7 +7,7 @@ from scrapeV1_1 import *
 from rateV1 import *
 from flask import render_template
 from extension import *
-from scrapeV1_6 import ScrapeAlpha, cleanData
+from scrapeV1_7 import ScrapeAlpha, cleanData
 app = Flask('app')
 
 
