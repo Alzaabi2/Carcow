@@ -38,7 +38,7 @@ def getScrape(make, model, car_year, zip):
 def getUrl(url):
     time1 = time.perf_counter()
     url = url.replace('slash', '/')
-    url = url.replace('colum', ':')
+    url = url.replace('colon', ':')
     url = url.replace('dot', '.')
     print(url)
     if 'cars.com' in url:
