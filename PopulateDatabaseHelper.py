@@ -184,4 +184,5 @@ def massScrape5():
             errorList.append('Scrape5 Error: '+i[0]+'-'+i[1])
     print(errorList)
               
-massScrape5()
+massScrape4()
+

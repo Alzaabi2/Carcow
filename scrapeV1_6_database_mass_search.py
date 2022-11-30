@@ -416,7 +416,7 @@ def Scrape3(make):
                     rowlist = {'Make': make, 'Model':model, 'Trim':trim, 'Year':year, 'Mileage':mileage, 'Price':price, 'VIN':vin, 'url':carpage, 'img':img}
                     w.writerow(row)
                     scrapedList.append(rowlist)
-
+                print('scraped:' + str(len(scrapedList)))
                 # next page
             else:
                 break
@@ -507,12 +507,13 @@ def Scrape4(make, model):
                 parseLink = link.split('/')
                 vin = parseLink[5]
 
-                row = [make, model, trim, year, mileage, price, vin, carpage]
+                row = [make, model, trim, year, mileage, price, vin, carpage, img_link]
                 # row = [make, model, year, mileage, price, vin, carpage, img]
-                rowlist = {'Make': make, 'Model':model, 'Trim':trim, 'Year':year, 'Mileage':mileage, 'Price':price, 'VIN':vin, 'url':carpage, 'img':img}
+                rowlist = {'Make': make, 'Model':model, 'Trim':trim, 'Year':year, 'Mileage':mileage, 'Price':price, 'VIN':vin, 'url':carpage, 'img':img_link}
                 w.writerow(row)
                 scrapedList.append(rowlist)
             url = 'https://www.edmunds.com/inventory/srp.html?inventorytype=used&make='+make+'&model='+model+'&radius=50&pagenumber='+str(i)
+    # print('Scrape4 returning '+str(len(scrapedList))+' cars')
     return scrapedList
 
 #carsdirect.com

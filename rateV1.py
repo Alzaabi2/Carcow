@@ -642,15 +642,15 @@ def dollarValueVin4(vin, mileage):
     abvStart = abv2[0]
     abvEnd = abv2[1]
 
-    print("\n---------For VIN:", vin, " ---------")
+    # print("\n---------For VIN:", vin, " ---------")
     average = prices[avgEnd:blwStart - 1]
-    print("AVERAGE:", average)
+    # print("AVERAGE:", average)
 
     below = prices[blwEnd:abvStart - 1]
-    print("BELOW:", below)
+    # print("BELOW:", below)
 
     above = prices[abvEnd:]
-    print("ABOVE:", above, "\n\n")
+    # print("ABOVE:", above, "\n\n")
     time.sleep(1)
     return average
 

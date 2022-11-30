@@ -1,5 +1,6 @@
 import mysql.connector 
 from rateV1 import *
+from scrapeV1_6_database_mass_search import *
 
 
 
@@ -14,29 +15,32 @@ def populateScraped(list):
     cursor = mydb.cursor(buffered=True,dictionary=True)
 
     # list = createList()
-    if len(list) == 0:
+    if len(list) == 0 or list is None:
         print("List is empty")
         return
 
-    for i in range(len(list)):
-        vin   = list[i]['VIN']
-        make  = list[i]['Make']
-        model = list[i]['Model']
-        trim  = list[i]['Trim']
+    for i in list:
+        if i['VIN'] is None:
+            vin = 'Invalid'
+        else:
+            vin   = i['VIN']
+        make  = i['Make']
+        model = i['Model']
+        trim  = i['Trim']
         # trim = ''
-        year  = list[i]['Year'].replace(' ', '')
+        year  = i['Year'].replace(' ', '')
         year2 = re.findall(r'\d+\d+', year)
         if len(year2) == 0:
             year2.append('-1')
 
-        mileage = list[i]['Mileage']
+        mileage = i['Mileage']
         mileage2 = mileage.replace(',','')
         miles = re.findall(r'\d+\d+', mileage2)
         if len(miles) == 0:
             miles.append('-1')
             
-        price2  = list[i]['Price'].replace('$','').replace(' ','').replace(',', '')
-        print(price2)
+        price2  = i['Price'].replace('$','').replace(' ','').replace(',', '')
+        # print(price2)
         # try:
         #     price = float(price)
         #     price = str(price)
@@ -46,24 +50,35 @@ def populateScraped(list):
         if len(price2) == 0:
             price2.append('-1')
 
-        url   = list[i]['url']
+        url   = i['url']
 
-        imageurl = list[i]['img']
+        imageurl = i['img']
         # imageurl = ''
-
+        
+        cmd = "SELECT VIN from scraped WHERE VIN = '" + vin+"'"
+        # print(cmd)
+        cursor.execute(cmd)
+        result = cursor.fetchall()
+        if len(result) != 0:
+            continue
+        
         suggested = dollarValueVin4(vin, int(miles[0]))
 
-        print("Model:", model)
+        # print("Model:", model)
         # print("Trim:", trim)
-        # cmd = "SELECT VIN from scraped WHERE VIN = '" + vin+"'"
-        # print(cmd)
-        # list = cursor.execute(cmd)
-        try:
-            cursor.execute("INSERT INTO scraped (VIN, make, model, year, trim, mileage, price, suggested, url, imageurl, date)VALUES (%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,NOW())", (vin, make, model, year2[0], trim, miles[0], price2, suggested, url, imageurl))
-            mydb.commit()
-        except:
-            print('duplicate entry')
+        
+        # try:
 
+        # print("Inserting text:  (%s,%s,%s,%s,%s,%s,%s,%s,%s,%s)", (vin, make, model, year2[0], trim, miles[0], price2, suggested, url, imageurl))
+        # print(str(vin, make, model, year2[0], trim, miles[0], price2, suggested, url, imageurl))
+        cursor.execute("INSERT INTO scraped (VIN, make, model, year, trim, mileage, price, suggested, url, imageurl, date)VALUES (%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,NOW())", (vin, make, model, year2[0], trim, miles[0], price2, suggested, url, imageurl))
+
+        mydb.commit()
+        # print('its in')
+        # except:
+        #     print('entry error')
+    print('inserted : '+ str(len(list)))
+    print('example vin: '+ list[0]['VIN'])
 
     # # get vin, make, model, and trim of cars stored within the last 30 days
     # cursor.execute("SELECT VIN,make,model,trim FROM scraped WHERE DATE_SUB(CURDATE(),INTERVAL 30 DAY) <= DATE(date)")
@@ -72,8 +87,9 @@ def populateScraped(list):
 
 
 
-# list = 
-# populateScraped()
+# list = Scrape4('Fiat', '500')
+# print(list)
+# populateScraped(list)
 
 
 
