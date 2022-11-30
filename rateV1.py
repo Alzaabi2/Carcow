@@ -219,10 +219,12 @@ def rate3(list):
 
         ### Need to not include cars with suggested price of $0. Change here! ###
         suggested = list[i]['suggested']
+        if suggested == '0':
+            continue
         print("\nSuggested price is:\n", suggested, "and it's type is:", type(suggested))
 
         try:
-            ratio = float(suggested)/float(price) #metric for rating deal
+            ratio = float(price)/float(suggested) #metric for rating deal
         except: 
             ratio == 'No Ratio'
  

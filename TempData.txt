@@ -1,6 +1,6 @@
 Make,Model,Year,Mileage,Price,VIN,url
-Acura,NSX,2021,8594,174777,19UNC1B04MY000074,https://www.carsdirect.com/used_cars/vehicle-detail/ul2161607309/acura/nsx
-Acura,NSX,2017,-1,177084,19UNC1B08HY000133,https://www.carsdirect.com/used_cars/vehicle-detail/ul2162763330/acura/nsx
-Acura,MDX,2018,62401,28990,5J8YD4H33JL021018,https://www.carsdirect.com/used_cars/vehicle-detail/ul2167332504/acura/mdx
-Acura,MDX,2018,60946,29590,5J8YD4H36JL012846,https://www.carsdirect.com/used_cars/vehicle-detail/ul2168233774/acura/mdx
-Acura,MDX,2018,30120,33990,5J8YD4H37JL019059,https://www.carsdirect.com/used_cars/vehicle-detail/ul2165336792/acura/mdx
+BMW,X1,2013,150497,6900,WBAVM1C59DVW42486,https://www.edmunds.com/bmw/x1/2013/vin/WBAVM1C59DVW42486/?radius=50
+BMW,X1,2015,119258,10999,WBAVL1C54FVY36347,https://www.edmunds.com/bmw/x1/2015/vin/WBAVL1C54FVY36347/?radius=50
+BMW,X1,2015,94654,11997,WBAVL1C51FVY36340,https://www.edmunds.com/bmw/x1/2015/vin/WBAVL1C51FVY36340/?radius=50
+BMW,X1,2013,154964,8599,WBAVL1C57DVR91102,https://www.edmunds.com/bmw/x1/2013/vin/WBAVL1C57DVR91102/?radius=50
+BMW,X1,2018,89998,18966,WBXHT3C31J5K30249,https://www.edmunds.com/bmw/x1/2018/vin/WBXHT3C31J5K30249/?radius=50

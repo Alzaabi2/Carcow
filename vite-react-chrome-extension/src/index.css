@@ -29,6 +29,11 @@ h1 {
 
 }
 
+h2{
+  color:rgb(0, 0, 0);
+  font-size: 1.2em;
+}
+
 .banner{
   margin: 0px;
   padding: 0px;
@@ -62,7 +67,7 @@ button:focus-visible {
 
 @media (prefers-color-scheme: light) {
   :root {
-    background-color: #e0e0e0d1;
+    background-color: #ffffff;
   }
   a {
     font-weight: 500;
@@ -74,15 +79,24 @@ button:focus-visible {
     color: #000000;
   } 
   table{
-    width: 300px;
+    width: 170px;
     border-radius: 8px;
+    table-layout: fixed;
   }
-  td {
-    background-color: rgb(106, 103, 103);
+  .info-display{
+    background-color: rgb(211, 200, 200);
     border-radius: 8px;
     text-align: left;
+    border-left: none;
+    border-right: none;
+    width: 140px;
+    height: 110px;
+    overflow: hidden;
   }
-  td:hover{
+  .info-display:hover{
     background-color: #2d2d2d00;
+  }
+  img{
+    border-radius: 8px;
   }
 }

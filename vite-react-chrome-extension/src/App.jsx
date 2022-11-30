@@ -35,6 +35,7 @@ function App() {
             console.log(fetchURL)
             axios.get(fetchURL)
                 .then((response) => {
+                    // if(!car.imgurl.includes('https:')){car.imgurl = 'https:'+car.imgurl}
                     setCarData(response.data);
                     setError(null);                
                     console.log("json test")
@@ -72,18 +73,21 @@ function App() {
                     : 
                     'Not Valid Website'}
                 </h2><br/>
-                    <table border="1">
+                    <table >
                         {carData.map(car=>(
                             <tr>
-                                <td>
-                                    <img src="https://platform.cstatic-images.com/xlarge/in/v2/ba68b77e-18eb-5a53-ae3e-0f4ee3dcf547/8c3800b9-3377-4ab1-a8d2-7bc365242b85/TE9b9NPjC2nkWbiKvQzHSTR0T_w.jpg" alt="Image Not Found"/>
+                                <td>      
+                                    <img width="100%" height="100%" src={car.imageurl} alt="Image Not Found"/>
                                 </td>
-                                <td><a href = {car.url} target="_blank">
-                                    <div class="car-basics">{car.year} {car.make} {car.model}</div>{"\n"}
-                                    <div class="display-container">
-                                        <div class="car-price">{car.price} </div>&nbsp;<div class="car-mileage"> {car.mileage}</div>
-                                    </div>
-                                </a></td>
+                                <div class="info-display">
+                                    <td>
+                                    <a href = {car.url} target="_blank">
+                                            <div class="car-basics">{car.year} {car.make} {car.model}</div>{"\n"}
+                                            <div class="display-container">
+                                                <div class="car-price">${car.price} </div>&nbsp;<div class="car-mileage"> {car.mileage}mi</div>
+                                            </div>
+                                    </a></td>
+                                </div>
                             </tr>
                         ))}      
                     </table>

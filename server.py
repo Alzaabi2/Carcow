@@ -104,7 +104,7 @@ def getUrl(url):
 
     # list = ScrapeAlpha(singleCar['Make'], singleCar['Model'], singleCar['Year'], '22201')
     print(singleCar['Make'])
-    cursor.execute("SELECT * FROM scraped WHERE make = %s", (singleCar['Make'],))
+    cursor.execute("SELECT * FROM scraped WHERE model = %s", (singleCar['Model'],))
     list = cursor.fetchall()
     print(list)
     time4 = time.perf_counter()
@@ -152,6 +152,11 @@ def getUrl(url):
     # ]
     time8 = time.perf_counter()
     print("Timer7 tempDataWrite:" + str(time8-time7))
+
+    for i in range(len(topCars)):
+        if "https:" not in topCars[i]['imageurl']:
+            topCars[i]['imageurl'] = "https:" + topCars[i]['imageurl']
+
     return topCars
 
 app.run(host='0.0.0.0', port=8080)
