@@ -1,21 +1,20 @@
 Make,Model,Year,Mileage,Price,VIN,url
 Jeep,Wrangler Sport,2021,"22,885 mi.","$34,001",1C4GJXAN6MW639050,http://cars.com/vehicledetail/746f9184-340d-45c8-8004-bd4b4e5d239b/
 Jeep,Wrangler Unlimited Rubicon,2007,"118,761 mi.","$16,995",1J4GA69167L211801,http://cars.com/vehicledetail/b2cdaf47-3dee-4140-8ec4-8c9c862a7261/
-Jeep,Wrangler Rubicon,2020,"33,499 mi.","$38,700",1C4HJXCN2LW153660,http://cars.com/vehicledetail/c0557b41-f329-444c-8681-8d669b68f185/
+Jeep,Wrangler Rubicon,2020,"33,499 mi.","$38,300",1C4HJXCN2LW153660,http://cars.com/vehicledetail/c0557b41-f329-444c-8681-8d669b68f185/
 Jeep,Wrangler Sport,2015,"40,288 mi.","$27,590",1C4AJWAG3FL671850,http://cars.com/vehicledetail/fe3f9ba7-6a6a-4278-b3e1-dfdd53c69e92/
 Jeep,Wrangler Sport,2021,"10,346 mi.","$37,000",1C4GJXANXMW715238,http://cars.com/vehicledetail/51e6dd86-092a-42c6-ba41-e54290b3b873/
-Jeep,Wrangler Sport,2012,"106,470 mi.","$19,500",1C4AJWAG7CL167331,http://cars.com/vehicledetail/261cb4f4-f2ab-4962-9345-08df7869ef97/
 Jeep,Wrangler Unlimited Sport S,2021,"10,036 mi.","$35,991",1C4HJXDG8MW760695,http://cars.com/vehicledetail/8c81a6f7-fadb-49d5-8a93-52345b577775/
 Jeep,Wrangler Unlimited Islander,2021,"28,592 mi.","$37,861",1C4HJXDN5MW601115,http://cars.com/vehicledetail/3ab255a3-f7e0-4092-b618-04edf6a20962/
 Jeep,Wrangler X,2008,"106,979 mi.","$11,990",1J4FA24158L539790,http://cars.com/vehicledetail/a646c287-e294-4bd0-b76f-34e542bc1214/
-Jeep,Wrangler Sport S,2021,"13,889 mi.","$33,994",1C4GJXANXMW563249,http://cars.com/vehicledetail/6e962ffd-13ca-43cc-9352-a5e4c84e3739/
+Jeep,Wrangler Sport S,2021,"13,889 mi.","$31,990",1C4GJXANXMW563249,http://cars.com/vehicledetail/6e962ffd-13ca-43cc-9352-a5e4c84e3739/
 Jeep,Wrangler Sport,2021,"24,095 mi.","$33,525",1C4GJXAN3MW578627,http://cars.com/vehicledetail/4910c2b0-b88d-4f0c-bfb8-5fb928669595/
 Jeep,Wrangler Sport,2020,"14,353 mi.","$35,998",1C4GJXAN9LW156795,http://cars.com/vehicledetail/70549e9e-0d9f-4317-813d-d4b1ab18aad8/
 Jeep,Wrangler Unlimited Rubicon,2005,"42,245 mi.","$30,890",1J4FA64S95P380728,http://cars.com/vehicledetail/1217bc51-bff8-4f2e-96e0-8f28125e1c41/
 Jeep,Wrangler Sahara,2009,"148,397 mi.","$14,495",1J4FA54149L748568,http://cars.com/vehicledetail/d8c525b8-1761-46bf-8e8f-7f7b51ec67f8/
-Jeep,Wrangler Rubicon,2013,"183,096 mi.","$16,450",1C4HJWCG6DL508408,http://cars.com/vehicledetail/e2eba9d7-d550-46aa-9ca9-0facd2fa32dc/
+Jeep,Wrangler Rubicon,2013,"183,096 mi.","$16,000",1C4HJWCG6DL508408,http://cars.com/vehicledetail/e2eba9d7-d550-46aa-9ca9-0facd2fa32dc/
 Jeep,Wrangler Unlimited,2006,"125,655 mi.","$12,990",1J4FA44S26P775467,http://cars.com/vehicledetail/265cb738-62fc-453a-bccf-4850a84ddb62/
-Jeep,Wrangler Rubicon,2013,"116,098 mi.","$20,647",1C4HJWCG5DL650992,http://cars.com/vehicledetail/6bc0cd8a-5550-4de5-aa98-5ae63aa7f692/
+Jeep,Wrangler Rubicon,2013,"116,098 mi.","$20,500",1C4HJWCG5DL650992,http://cars.com/vehicledetail/6bc0cd8a-5550-4de5-aa98-5ae63aa7f692/
 Jeep,Wrangler Unlimited Rubicon,2021,"8,067 mi.","$45,000",1C4HJXFN2MW610173,http://cars.com/vehicledetail/ec28a930-4289-4a59-b59d-40bf720bfc99/
 Jeep,Wrangler Unlimited Sport S,2021,"20,827 mi.","$37,000",1C4HJXDN8MW631256,http://cars.com/vehicledetail/42cde968-33cd-4c65-9ae9-8faa61d487ed/
 Jeep,Wrangler Unlimited Rubicon,2021,"4,524 mi.","$45,000",1C4HJXFN4MW614872,http://cars.com/vehicledetail/df778cbc-a1d8-4d20-8d27-6598d00768bf/
@@ -27,17 +26,19 @@ Jeep,Wrangler Sport S,2021,"34,515 mi.","$32,500",1C4GJXAG9MW610448,http://cars.
 Jeep,Wrangler Unlimited X,2007,"172,349 mi.","$13,999",1J4GA39147L222682,http://cars.com/vehicledetail/51a625b0-c76b-499f-9c5b-10eeacbe0176/
 Jeep,Wrangler Sport,2016,"56,544 mi.","$26,998",1C4AJWAG0GL332805,http://cars.com/vehicledetail/23784217-43ac-4e04-b8e1-8b978e8bfc2c/
 Jeep,Wrangler Rubicon,2021,"15,377 mi.","$44,047",1C4HJXCG5MW647241,http://cars.com/vehicledetail/17449e3f-7a52-404a-b058-8dfc77e31b53/
-Jeep,Wrangler Sport,2020,"25,777 mi.","$32,900",1C4GJXAN0LW228970,http://cars.com/vehicledetail/522c5210-c6ac-4461-bd2e-3bdc8b8752b3/
+Jeep,Wrangler Sport,2020,"25,777 mi.","$32,800",1C4GJXAN0LW228970,http://cars.com/vehicledetail/522c5210-c6ac-4461-bd2e-3bdc8b8752b3/
 Jeep,Wrangler Sahara,2015,"46,499 mi.","$27,990",1C4AJWBG7FL606451,http://cars.com/vehicledetail/a0f0840e-861e-4320-bb07-b3ca7a98c1ee/
+Jeep,Wrangler Sport,2014,"31,414 mi.","$27,990",1C4AJWAG5EL325460,http://cars.com/vehicledetail/a2610c08-e2ce-493c-86b4-91b42ee53e35/
 Jeep,Wrangler Sport,2012,"30,060 mi.","$25,990",1C4AJWAG3CL193974,http://cars.com/vehicledetail/e5e2cac7-759b-4049-b536-b28b0c593520/
 Jeep,Wrangler Sport,2019,"6,949 mi.","$33,990",1C4GJXAG6KW644103,http://cars.com/vehicledetail/38eafe30-429d-4090-aab9-0b0657be3f62/
 Jeep,Wrangler Sport,2014,"45,184 mi.","$27,590",1C4AJWAGXEL229372,http://cars.com/vehicledetail/24241e55-c699-4fc5-9bc6-96653f46c490/
+Jeep,Wrangler Sport,2016,"34,633 mi.","$30,990",1C4AJWAG9GL220911,http://cars.com/vehicledetail/02120620-5881-483f-878a-98309a4d80c6/
 Jeep,Wrangler Sport,2017,"48,148 mi.","$28,990",1C4GJWAG4HL628955,http://cars.com/vehicledetail/8ee5298a-d72a-4cea-9bf6-409708526e22/
 Jeep,Wrangler Sahara,2013,"44,699 mi.","$27,990",1C4AJWBG6DL588506,http://cars.com/vehicledetail/23c9a91f-a7b2-46a9-b97d-89e7cdfa4c40/
-Jeep,Wrangler Sport,2012,"34,497 mi.","$25,990",1C4AJWAGXCL122304,http://cars.com/vehicledetail/af7cbab5-d284-4e5d-9770-d5a8098b4848/
 Jeep,Wrangler Sport,2015,"66,040 mi.","$23,778",1C4AJWAG6FL543974,http://cars.com/vehicledetail/70c18f31-586a-4989-a326-a91160c071b5/
-Jeep,Wrangler Unlimited Sahara Altitude,2021,"20,548 mi.","$45,682",1C4HJXEG5MW703806,http://cars.com/vehicledetail/0b49c506-ff72-40cb-b0fe-449b01d5ddb5/
-Jeep,Wrangler Unlimited Rubicon 392,2022,"1,883 mi.","$83,994",1C4JJXSJXNW215468,http://cars.com/vehicledetail/3e01f9b5-9ff3-48f1-97a2-c15de842d559/
+Jeep,Wrangler Unlimited Sahara,2008,"106,607 mi.","$15,999",1J4GA59198L549852,http://cars.com/vehicledetail/f43a8649-eaf5-4b70-a054-161728c7df37/
+Jeep,Wrangler Unlimited Sahara Altitude,2021,"20,548 mi.","$45,583",1C4HJXEG5MW703806,http://cars.com/vehicledetail/0b49c506-ff72-40cb-b0fe-449b01d5ddb5/
+Jeep,Wrangler Unlimited Rubicon 392,2022,"1,883 mi.","$83,600",1C4JJXSJXNW215468,http://cars.com/vehicledetail/3e01f9b5-9ff3-48f1-97a2-c15de842d559/
 Jeep,Wrangler Rubicon,2018,"78,969 mi.","$32,481",1C4HJXCG0JW155289,http://cars.com/vehicledetail/01d6ca13-1de7-43a0-a74b-5f0135ae836e/
 Jeep,Wrangler Sport,2021,"19,912 mi.","$35,000",1C4GJXAN9MW663424,http://cars.com/vehicledetail/fbed8eb4-99af-42d3-93de-9c5acc11b4c1/
 Jeep,Wrangler Rubicon,2021,"10,037 mi.","$46,495",1C4HJXCN3MW626452,http://cars.com/vehicledetail/d646ad66-d925-4be6-99a1-eff1d07bfb0e/
@@ -53,7 +54,8 @@ Jeep,Wrangler Rubicon,2020,"54,445 mi.","$36,400",1C4HJXCGXLW147509,http://cars.
 Jeep,Wrangler Unlimited,2006,"54,461 mi.","$21,400",1J4FA44S76P719041,http://cars.com/vehicledetail/472b604a-e5b7-447e-9bcc-322a7321db37/
 Jeep,Wrangler Rubicon,2021,"10,266 mi.","$42,299",1C4HJXCG4MW644380,http://cars.com/vehicledetail/80bfc036-cc63-493b-adab-17be96d118fa/
 Jeep,Wrangler Sport,2020,"27,845 mi.","$32,000",1C4GJXAG6LW157839,http://cars.com/vehicledetail/99167c22-bf8a-429e-972c-456337c1fa0c/
-Jeep,Wrangler Rubicon,2020,"26,846 mi.","$37,000",1C4HJXCG8LW347143,http://cars.com/vehicledetail/6ec492b3-05fe-4419-99f9-38b8f12a1426/
+Jeep,Wrangler Rubicon,2020,"26,846 mi.","$36,000",1C4HJXCG8LW347143,http://cars.com/vehicledetail/6ec492b3-05fe-4419-99f9-38b8f12a1426/
+Jeep,Wrangler Sport,2019,"50,003 mi.","$28,998",1C4GJXAG5KW573895,http://cars.com/vehicledetail/7ea9270d-cd96-4722-94f2-bb2b6ebbbe46/
 Jeep,Wrangler Sport,1997,"99,909 mi.","$13,900",1J4FY19S5VP451012,http://cars.com/vehicledetail/9a4e9e74-f2f0-40a6-a8d0-22285afede57/
 Jeep,Wrangler Sport,2019,"28,505 mi.","$30,906",1C4GJXAGXKW510047,http://cars.com/vehicledetail/1974561d-7a72-45ef-b89e-f4d2ef1b0a15/
 Jeep,Wrangler Sahara,2003,"145,841 mi.","$14,990",1J4FA59S83P325834,http://cars.com/vehicledetail/a41bdbdb-2e9c-40e5-9666-cb403da14990/
@@ -61,24 +63,22 @@ Jeep,Wrangler Renegade,1993,"90,985 mi.","$17,358",1J4FY69S4PP223745,http://cars
 Jeep,Wrangler Sport,2018,"5,980 mi.","$34,995",1C4GJXAG2JW300928,http://cars.com/vehicledetail/e39d83ed-1ae0-4cb1-89fb-0399b94133be/
 Jeep,Wrangler Rubicon,2019,"37,580 mi.","$40,547",1C4HJXCG8KW580938,http://cars.com/vehicledetail/092f0d2e-3210-4401-a452-bab0d454c68c/
 Jeep,Wrangler Sahara,2015,"67,400 mi.","$27,990",1C4AJWBG2FL660837,http://cars.com/vehicledetail/cbf52cc2-d616-4461-9673-b8dd02bc47b1/
-Jeep,Wrangler Rubicon,2018,"30,955 mi.","$44,982",1C4HJXCN4JW238478,http://cars.com/vehicledetail/bb51baba-5b7f-4c31-8ce0-dec15da69e14/
 Jeep,Wrangler Rubicon,2012,"52,325 mi.","$27,590",1C4BJWCG0CL287246,http://cars.com/vehicledetail/c98c3a96-d3ac-479d-b5cf-9b9d22bd9968/
 Jeep,Wrangler Unlimited Rubicon 392,2022,"2,081 mi.","$88,477",1C4JJXSJ3NW161155,http://cars.com/vehicledetail/6edf1416-21d3-4318-8325-fc79f87d3a2d/
 Jeep,Wrangler Unlimited Sahara,2007,"136,524 mi.","$17,500",1J8GA59117L195354,http://cars.com/vehicledetail/eda2bdc0-bed7-43b0-bf60-90093e482ed6/
 Jeep,Wrangler Sport,2018,"39,044 mi.","$29,996",1C4GJXAN4JW263072,http://cars.com/vehicledetail/2d916ca3-795b-4c5e-ace6-a5fa5f3b3caa/
 Jeep,Wrangler Sport S,2018,"23,692 mi.","$30,990",1C4GJXAN5JW221560,http://cars.com/vehicledetail/60d20990-de2a-4cbe-8bfa-4016e0bddb15/
 Jeep,Wrangler Sport,2020,"15,083 mi.","$32,537",1C4GJXAGXLW143460,http://cars.com/vehicledetail/e0438398-1377-4dc1-98eb-26f2d7eae694/
+Jeep,Wrangler Sport,2011,"44,912 mi.","$25,998",1J4AA2D19BL505918,http://cars.com/vehicledetail/bdd83809-1f8c-4a21-a8f0-f9b295452c46/
 Jeep,Wrangler Sport,2020,"36,212 mi.","$29,998",1C4GJXAG6LW315290,http://cars.com/vehicledetail/e679c19e-5378-40e5-9bf6-a6f96057f13d/
+Jeep,Wrangler Sport,2014,"62,728 mi.","$21,000",1C4AJWAG4EL206895,http://cars.com/vehicledetail/397188b7-24b1-4fb4-9a3c-0ce410ef79e5/
 Jeep,Wrangler X,2006,"87,000 mi.","$13,900",1J4FA39S66P759694,http://cars.com/vehicledetail/d3448056-8d48-45a2-8668-0af0131908a5/
 Jeep,Wrangler Unlimited X,2008,"126,903 mi.","$15,999",1J4GA39138L646517,http://cars.com/vehicledetail/f6295a15-28d1-472b-8f88-080a2a4d8088/
 Jeep,Wrangler Sport,2013,"90,287 mi.","$21,990",1C4AJWAG3DL670484,http://cars.com/vehicledetail/9e728212-7610-4d12-931f-42d477aa68a4/
-Jeep,Wrangler Sport,2016,"53,123 mi.","$27,590",1C4AJWAG4GL247661,http://cars.com/vehicledetail/35e1f612-54e9-40e6-90cf-4a5ecf97546f/
-Jeep,Wrangler Sport,2010,"52,729 mi.","$21,990",1J4AA2D15AL139292,http://cars.com/vehicledetail/a18570a9-ae4d-4322-95ff-12396a0b8fcc/
+Jeep,Wrangler Sport,2016,"53,123 mi.","$26,990",1C4AJWAG4GL247661,http://cars.com/vehicledetail/35e1f612-54e9-40e6-90cf-4a5ecf97546f/
 Jeep,Wrangler Sport,2011,"98,886 mi.","$20,590",1J4AA2D1XBL525630,http://cars.com/vehicledetail/c84e7f9a-673b-4344-b53f-cbce6d0bce11/
 Jeep,Wrangler Sport,2014,"64,870 mi.","$24,590",1C4AJWAG9EL252688,http://cars.com/vehicledetail/e38e6a51-263e-4001-8c44-7b577713f3d7/
-Jeep,Wrangler Sport,2015,"42,890 mi.","$26,990",1C4AJWAG2FL718298,http://cars.com/vehicledetail/71d56ddf-34f8-446c-97ea-3f87ff6774cc/
 Jeep,Wrangler Sport,2021,"8,371 mi.","$36,598",1C4GJXAN3MW756570,http://cars.com/vehicledetail/99eb0fe4-3984-4951-888e-54a8e80c815f/
-Jeep,Wrangler Sport,2016,"48,854 mi.","$26,990",1C4AJWAG9GL274418,http://cars.com/vehicledetail/801a9a83-ce52-4bc4-ace2-87db4990f67c/
 Jeep,Wrangler Unlimited Rubicon,2021,"15,801 mi.","$47,500",1C4HJXFNXMW561143,http://cars.com/vehicledetail/3e02670d-f635-4034-aca1-5bd729d80f9d/
 Jeep,Wrangler Sahara,2017,"45,183 mi.","$30,990",1C4AJWBG7HL704852,http://cars.com/vehicledetail/542e1892-80bb-4500-910b-9ee78dc6f022/
 Jeep,Wrangler Sport,2016,"40,347 mi.","$27,990",1C4AJWAG5GL169570,http://cars.com/vehicledetail/08f18f60-86c2-465c-a75e-97445ae1953d/
@@ -93,7 +93,7 @@ Jeep,Wrangler Rubicon,2021,"3,114 mi.","$43,500",1C4HJXCN0MW707392,http://cars.c
 Jeep,Wrangler Unlimited X,2008,"149,219 mi.","$17,495",1J4GA39158L519123,http://cars.com/vehicledetail/50ccd765-9328-417f-8401-f4b7e762147c/
 Jeep,Wrangler X,2009,"135,163 mi.","$16,599",1J4FA24149L722082,http://cars.com/vehicledetail/f525144a-8fec-4937-8aeb-4a882c8433aa/
 Jeep,Wrangler Sport,2013,"64,672 mi.","$20,990",1C4AJWAG4DL585492,http://cars.com/vehicledetail/c53519a7-33bf-4f3c-8587-fbc070daffa8/
-Jeep,Wrangler Rubicon,2012,"45,800 mi.","$30,990",1C4HJWCG4CL106501,http://cars.com/vehicledetail/61501c88-a559-4928-a7f7-fce76b229196/
+Jeep,Wrangler Sport,2017,"41,534 mi.","$28,990",1C4AJWAG4HL661606,http://cars.com/vehicledetail/0ff8eaa0-ae51-4e95-b3a4-3724e4ef53d5/
 Jeep,Wrangler Sport,2015,"42,779 mi.","$26,990",1C4AJWAG8FL574062,http://cars.com/vehicledetail/7aa86dbe-8db4-4da0-8c3a-8603e9a18d96/
 Jeep,Wrangler Sport,2017,"19,689 mi.","$29,990",1C4AJWAG0HL731361,http://cars.com/vehicledetail/19dc44c5-94d4-4ce8-8ca5-55bcfa6ea126/
 Jeep,Wrangler Sport,2017,"25,304 mi.","$29,590",1C4AJWAG5HL512508,http://cars.com/vehicledetail/8e9d12c4-8650-493b-af78-a649940811fd/
