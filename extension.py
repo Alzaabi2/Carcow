@@ -27,8 +27,15 @@ def singleCarData1(url):
     #get page html
     page = requests.get(url)
     soup = BeautifulSoup(page.content, 'html.parser')
+    with open('current.html', 'w', encoding='utf8', newline='') as f:
+        f.write(str(soup))
+
     #find title text from class
-    title = soup.find('h1', class_='listing-title').text
+    titleObj = soup.find('h1', class_='listing-title')
+    if titleObj == None:
+        titleObj = soup.find('h1', class_='sticky-header-listing-title')
+    title = titleObj.text
+
     
     title = title.split(' ', 3)
     #find make
