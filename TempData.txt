@@ -1,6 +1,6 @@
 Make,Model,Year,Mileage,Price,VIN,url
-BMW,X1,2013,150497,6900,WBAVM1C59DVW42486,https://www.edmunds.com/bmw/x1/2013/vin/WBAVM1C59DVW42486/?radius=50
-BMW,X1,2015,119258,10999,WBAVL1C54FVY36347,https://www.edmunds.com/bmw/x1/2015/vin/WBAVL1C54FVY36347/?radius=50
-BMW,X1,2015,94654,11997,WBAVL1C51FVY36340,https://www.edmunds.com/bmw/x1/2015/vin/WBAVL1C51FVY36340/?radius=50
-BMW,X1,2013,154964,8599,WBAVL1C57DVR91102,https://www.edmunds.com/bmw/x1/2013/vin/WBAVL1C57DVR91102/?radius=50
-BMW,X1,2018,89998,18966,WBXHT3C31J5K30249,https://www.edmunds.com/bmw/x1/2018/vin/WBXHT3C31J5K30249/?radius=50
+Audi,S5,2016,99874,17888,WAUC4CF5XJA014406,https://www.autotrader.com/cars-for-sale/vehicledetails.xhtml?listingId=650896977&allListingType=all-cars&makeCodeList=AUDI&modelCodeList=S5&city=Washington&state=DC&zip=20001&requestId=USED&searchRadius=50&marketExtension=include&isNewSearch=false&showAc
+Audi,S5,2018,98025,30850,WAUC4CF53PA016846,https://www.autotrader.com/cars-for-sale/vehicledetails.xhtml?listingId=658441706&allListingType=all-cars&makeCodeList=AUDI&modelCodeList=S5&city=Washington&state=DC&zip=20001&requestId=USED&searchRadius=50&marketExtension=include&isNewSearch=false&showAc
+Audi,S5,2016,99874,20999,WAUC4AFR5GA054571,https://www.edmunds.com/audi/s5/2016/vin/WAUC4AFR5GA054571/?radius=50
+Audi,S5,2018,114109,28450,WAUC4CF54JA033047,https://www.edmunds.com/audi/s5/2018/vin/WAUC4CF54JA033047/?radius=50
+Audi,S5,2018,98227,28999,WAUB4DF50JA008485,https://www.edmunds.com/audi/s5/2018/vin/WAUB4DF50JA008485/?radius=50
