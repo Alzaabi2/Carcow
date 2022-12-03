@@ -42,10 +42,10 @@ def Scrape1(make):
         while url != None:
             print(url)
             headers = {
-                'Accept': 'html',
-                'Authorization': 'Basic VTAwMDAwODk4NzQ6U2FpZjIwMDI=',
+                'Accept': 'aplication/json',
+                'Authorization': 'Basic VTAwMDAwOTA5MTg6Q2FyY293MTIz',
                 # Already added when you pass json= but not when you pass data=
-                # 'Content-Type': 'application/json',
+                'Content-Type': 'application/json',
             }
 
             json_data = {
@@ -54,9 +54,11 @@ def Scrape1(make):
                 'url': url,
             }
 
-            page = requests.post('https://scrape.smartproxy.com/v1/tasks', headers=headers, json=json_data)
-            p = str(page.content).replace('\\n', '').replace('\\', '').replace("b'", '').replace('{"results":[{"content":"', '')
-            soup = BeautifulSoup(p, 'html.parser')
+            # page = requests.post('https://scrape.smartproxy.com/v1/tasks', headers=headers, json=json_data)
+            # p = str(page.content).replace('\\n', '').replace('\\', '').replace("b'", '').replace('{"results":[{"content":"', '')
+            p = requests.get(url)
+            soup = BeautifulSoup(p.content, 'html.parser')
+            print(str(soup))
             cars = soup.find_all('div', class_="vehicle-card")
         
             for c in cars:
@@ -82,7 +84,11 @@ def Scrape1(make):
                 else:
                     mileage = c.find('div', class_="mileage").text
                 
-                currentCarPage = requests.get(carpage)
+                try:
+                    currentCarPage = requests.get(carpage)
+                except:
+                    continue
+
                 currentCarSoup = BeautifulSoup(currentCarPage.content, 'html.parser')
                 imgDiv = currentCarSoup.find('img', class_="swipe-main-image image-index-0")
                 if imgDiv is not None:
@@ -92,13 +98,17 @@ def Scrape1(make):
                 
                 # dom = etree.HTML(str(currentCarSoup))
                 # vinPath = dom.xpath('/html/body/section/div[5]/div[2]/section[1]/dl/dd')
-                vinPath = currentCarSoup.find('dl', class_='fancy-description-list').find_all('dd')
-                # print(vinPath)
-                vin = []
-                for i in vinPath:
-                    vinMatch = re.search(r'[0-9A-Z]{17}', i.text)
-                    if vinMatch != None:
-                        vin.append(vinMatch.group())
+                try:
+                    vinPath = currentCarSoup.find('dl', class_='fancy-description-list')
+                    vinPath2 = vinPath.findall('dd')
+                    # print(vinPath)
+                    vin = []
+                    for i in vinPath2:
+                        vinMatch = re.search(r'[0-9A-Z]{17}', i.text)
+                        if vinMatch != None:
+                            vin.append(vinMatch.group())
+                except:
+                    continue
 
                 # print(vin)
                 # if len(vinPath) == 0:
@@ -107,10 +117,13 @@ def Scrape1(make):
                 # else:
                 #     vin = vinPath[0].text
                 #     if vin
-                print(vin)
-                
-                row = [make, model, trim, year, mileage, price, vin, carpage, img]
-                rowlist = {'Make': make, 'Model':model, 'Trim':trim, 'Year':year, 'Mileage':mileage, 'Price':price, 'VIN':vin, 'url':carpage, 'img':img}
+                # print(vin)
+                try: 
+                    vin2 = vin[0]
+                except:
+                    continue
+                row = [make, model, trim, year, mileage, price, vin2, carpage, img]
+                rowlist = {'Make': make, 'Model':model, 'Trim':trim, 'Year':year, 'Mileage':mileage, 'Price':price, 'VIN':vin2, 'url':carpage, 'img':img}
                 w.writerow(row)
                 scrapedList.append(rowlist)
             url = getNextPage(soup)
@@ -924,9 +937,9 @@ def cleanData(list):
     return res_list      
     
     
-# l = Scrape1('GMC')
-# print(l)
-# print(str(len(l)))
+l = Scrape1('audi')
+print(l)
+print(str(len(l)))
 
 
 # Scrape1('land_rover')

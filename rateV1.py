@@ -480,7 +480,7 @@ def dollarValueVin4(vin, mileage):
     querystring = {"vin": vin, "mileage": mileage}
 
     headers = {
-        "X-RapidAPI-Key": "eabb27e940mshbaf991f2c492656p1afbb7jsnc31638e26d33",
+        "X-RapidAPI-Key": "c5a7699a6emshc065a2313889734p1ff12ajsnbbb93d852e0f",
         "X-RapidAPI-Host": "car-utils.p.rapidapi.com"
     }
     

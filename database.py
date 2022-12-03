@@ -87,9 +87,9 @@ def populateScraped(list):
 
 
 
-# list = Scrape4('Fiat', '500')
-# print(list)
-# populateScraped(list)
+list = Scrape1('Fiat')
+print(list)
+populateScraped(list)
 
 
 
