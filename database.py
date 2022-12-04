@@ -53,8 +53,7 @@ def populateScraped(listOfScraped):
     # test = cursor.fetchall()
     # print(test)
 
-
-
+     
 # populateScraped()
 
 

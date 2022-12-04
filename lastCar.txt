@@ -1,2 +1,2 @@
 Make,Model,Year,Zip
-Cadillac,XT6,2023,22201
+Lincoln,Aviator,2023,22201

@@ -1,6 +1,6 @@
 Make,Model,Year,Mileage,Price,VIN,url
-Cadillac,XT6,2020,40100,34944,1GYKPDRS5LZ100850,https://www.edmunds.com/cadillac/xt6/2020/vin/1GYKPDRS5LZ100850/?radius=50
-Cadillac,XT6,2020,54364,38511,1GYKPHRS1LZ113067,https://www.edmunds.com/cadillac/xt6/2020/vin/1GYKPHRS1LZ113067/?radius=50
-Cadillac,XT6,2020,45188,36991,1GYKPCRS9LZ140360,https://www.edmunds.com/cadillac/xt6/2020/vin/1GYKPCRS9LZ140360/?radius=50
-Cadillac,XT6,2020,36574,37900,1GYKPCRS8LZ152001,https://www.edmunds.com/cadillac/xt6/2020/vin/1GYKPCRS8LZ152001/?radius=50
-Cadillac,XT6,2021,18594,42000,1GYKPCRS4MZ101323,https://www.edmunds.com/cadillac/xt6/2021/vin/1GYKPCRS4MZ101323/?radius=50
+Lincoln,Aviator,2021,15174,53590,5LM5J7WC8MGL18340,https://www.autotrader.com/cars-for-sale/vehicledetails.xhtml?listingId=665546731&allListingType=all-cars&makeCodeList=LINC&modelCodeList=AVIATOR&city=Washington&state=DC&zip=20001&requestId=USED&searchRadius=50&marketExtension=include&isNewSearch=false&s
+Lincoln,Aviator,2021,21692,66991,5LMYJ9YY1MNL02185,https://www.carsdirect.com/used_cars/vehicle-detail/ul2167345231/lincoln/aviator
+Lincoln,Aviator,2021,21607,55500,5LM5J7XC8MGL10883,https://www.autotrader.com/cars-for-sale/vehicledetails.xhtml?listingId=663924183&allListingType=all-cars&makeCodeList=LINC&modelCodeList=AVIATOR&city=Washington&state=DC&zip=20001&requestId=USED&searchRadius=50&marketExtension=include&isNewSearch=false&s
+Lincoln,Aviator,2021,28082,69990,5LMYJ9YY7MNL00098,https://www.carsdirect.com/used_cars/vehicle-detail/ul2167078273/lincoln/aviator
+Lincoln,Aviator,2021,9021,68777,5LM5J9XC7MGL12426,https://www.edmunds.com/lincoln/aviator/2021/vin/5LM5J9XC7MGL12426/?radius=50
