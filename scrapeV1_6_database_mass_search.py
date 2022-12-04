@@ -16,6 +16,7 @@ from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 import re
+import random
 
 
 #This Version of Scrape will be used to scrape all models across the washington DC area
@@ -40,23 +41,27 @@ def Scrape1(make):
         vincount = 0
         # page = requests.get(url)
         while url != None:
+            rand = random.random()
+            time.sleep(rand*10)
             print(url)
-            headers = {
-                'Accept': 'html',
-                'Authorization': 'Basic VTAwMDAwODk4NzQ6U2FpZjIwMDI=',
-                # Already added when you pass json= but not when you pass data=
-                # 'Content-Type': 'application/json',
-            }
+            # headers = {
+            #     'Accept': 'aplication/json',
+            #     'Authorization': 'Basic VTAwMDAwOTA5MTg6Q2FyY293MTIz',
+            #     # Already added when you pass json= but not when you pass data=
+            #     'Content-Type': 'application/json',
+            # }
+            
+            # json_data = {
+            #     'target': 'universal',
+            #     'parse': False,
+            #     'url': url,
+            # }
 
-            json_data = {
-                'target': 'universal',
-                'parse': False,
-                'url': url,
-            }
-
-            page = requests.post('https://scrape.smartproxy.com/v1/tasks', headers=headers, json=json_data)
-            p = str(page.content).replace('\\n', '').replace('\\', '').replace("b'", '').replace('{"results":[{"content":"', '')
-            soup = BeautifulSoup(p, 'html.parser')
+            # page = requests.post('https://scrape.smartproxy.com/v1/tasks', headers=headers, json=json_data)
+            
+            # p = str(page.content).replace('\\n', '').replace('\\', '').replace("b'", '').replace('{"results":[{"content":"', '')
+            p = requests.get(url)
+            soup = BeautifulSoup(p.content, 'html.parser')
             cars = soup.find_all('div', class_="vehicle-card")
         
             for c in cars:
@@ -82,7 +87,12 @@ def Scrape1(make):
                 else:
                     mileage = c.find('div', class_="mileage").text
                 
-                currentCarPage = requests.get(carpage)
+                try:
+                    currentCarPage = requests.get(carpage)
+                except:
+                    # print('carpage error')
+                    continue
+                
                 currentCarSoup = BeautifulSoup(currentCarPage.content, 'html.parser')
                 imgDiv = currentCarSoup.find('img', class_="swipe-main-image image-index-0")
                 if imgDiv is not None:
@@ -92,14 +102,18 @@ def Scrape1(make):
                 
                 # dom = etree.HTML(str(currentCarSoup))
                 # vinPath = dom.xpath('/html/body/section/div[5]/div[2]/section[1]/dl/dd')
-                vinPath = currentCarSoup.find('dl', class_='fancy-description-list').find_all('dd')
-                # print(vinPath)
-                vin = []
-                for i in vinPath:
-                    vinMatch = re.search(r'[0-9A-Z]{17}', i.text)
-                    if vinMatch != None:
-                        vin.append(vinMatch.group())
-
+                try:
+                    vinPath = currentCarSoup.find('dl', class_='fancy-description-list')
+                    vinPath2 = vinPath.find_all('dd')
+                    # print(vinPath)
+                    vin = []
+                    for i in vinPath2:
+                        vinMatch = re.search(r'[0-9A-Z]{17}', i.text)
+                        if vinMatch != None:
+                            vin.append(vinMatch.group())
+                except:
+                    # print('vin error')
+                    continue
                 # print(vin)
                 # if len(vinPath) == 0:
                 #     vin = ''
@@ -107,10 +121,14 @@ def Scrape1(make):
                 # else:
                 #     vin = vinPath[0].text
                 #     if vin
-                print(vin)
+                # print(vin)
+                if len(vin) == 0:
+                    continue
                 
-                row = [make, model, trim, year, mileage, price, vin, carpage, img]
-                rowlist = {'Make': make, 'Model':model, 'Trim':trim, 'Year':year, 'Mileage':mileage, 'Price':price, 'VIN':vin, 'url':carpage, 'img':img}
+                vin2 = vin[0]
+                
+                row = [make, model, trim, year, mileage, price, vin2, carpage, img]
+                rowlist = {'Make': make, 'Model':model, 'Trim':trim, 'Year':year, 'Mileage':mileage, 'Price':price, 'VIN':vin2, 'url':carpage, 'img':img}
                 w.writerow(row)
                 scrapedList.append(rowlist)
             url = getNextPage(soup)
@@ -924,7 +942,7 @@ def cleanData(list):
     return res_list      
     
     
-# l = Scrape1('GMC')
+# l = Scrape1('audi')
 # print(l)
 # print(str(len(l)))
 
