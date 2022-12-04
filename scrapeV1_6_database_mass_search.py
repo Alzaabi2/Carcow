@@ -124,9 +124,7 @@ def Scrape1(make):
                 # print(vin)
                 if len(vin) == 0:
                     continue
-                
                 vin2 = vin[0]
-                
                 row = [make, model, trim, year, mileage, price, vin2, carpage, img]
                 rowlist = {'Make': make, 'Model':model, 'Trim':trim, 'Year':year, 'Mileage':mileage, 'Price':price, 'VIN':vin2, 'url':carpage, 'img':img}
                 w.writerow(row)
