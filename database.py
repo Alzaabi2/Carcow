@@ -21,7 +21,7 @@ def populateScraped(list):
 
     for i in list:
         if i['VIN'] is None:
-            vin = 'Invalid'
+            continue
         else:
             vin   = i['VIN']
         make  = i['Make']
@@ -87,7 +87,7 @@ def populateScraped(list):
 
 
 
-# list = Scrape4('Fiat', '500')
+# list = Scrape1('Fiat')
 # print(list)
 # populateScraped(list)
 
