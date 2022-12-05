@@ -104,7 +104,14 @@ def getUrl(url):
 
     # list = ScrapeAlpha(singleCar['Make'], singleCar['Model'], singleCar['Year'], '22201')
     print(singleCar['Make'])
-    cursor.execute("SELECT * FROM scraped WHERE model = %s", (singleCar['Model'],))
+    # cursor.execute("SELECT * FROM scraped WHERE model = %s", (singleCar['Model'],))
+
+    year = float(singleCar['Year'])
+    yearUp = year + 2
+    yearDown = year - 2
+    cursor.execute("SELECT * FROM scraped WHERE model = %s AND (year <= %s AND year >= %s)", (singleCar['Model'], yearUp, yearDown,))
+
+
     list = cursor.fetchall()
     print(list)
     time4 = time.perf_counter()
