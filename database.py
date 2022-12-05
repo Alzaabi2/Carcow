@@ -2,12 +2,14 @@ import mysql.connector
 from rateV1 import *
 from scrapeV1_6_database_mass_search import *
 
+from dotenv import load_dotenv
 
+load_dotenv()
 
 mydb = mysql.connector.connect(
     host="carcow.ce0uqlnzw4og.us-east-1.rds.amazonaws.com",
     user="admin",
-    password="Hevcy4-gumden-wypjav",
+    password="AWSPASSWORD",
     database="CarCowDB"
 )
 
