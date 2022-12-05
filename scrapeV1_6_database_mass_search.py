@@ -130,7 +130,7 @@ def Scrape2(make, model):
     city =str(zipdata['results'][zipcode][0]['city']).replace(' ', '')
     state = str(zipdata['results'][zipcode][0]['state_code'])
 
-    url = 'https://www.autotrader.com/cars-for-sale/all-cars/'+make+'/'+model+'/washington-dc-20001?requestId=2152820002&dma=&searchRadius=50&location=&marketExtension=include&isNewSearch=true&showAccelerateBanner=false&sortBy=relevance&numRecords=100'
+    url = 'https://www.autotrader.com/cars-for-sale/all-cars/'+make+'/'+model+'/washington-dc-20001?requestId=USED&dma=&searchRadius=50&location=&marketExtension=include&isNewSearch=true&showAccelerateBanner=false&sortBy=relevance&numRecords=100'
     vins = ScrapeVin2(make, model)
     scrapedList = []
     with open('cardata2.csv', 'w', encoding='utf8', newline='') as f:
@@ -139,16 +139,19 @@ def Scrape2(make, model):
         w.writerow(header)
         vincount = 0
         while url != None:
+            print(url)
             page = requests.get(url, timeout=10000)
             soup = BeautifulSoup(page.content, 'html.parser') 
             cars = soup.find_all('div', class_="item-card row display-flex align-items-stretch")
             for c in cars:
-                print('-----')
+                # print('-----')
                 if c == None:
                     continue
                 if c.find('h2', class_="text-bold text-size-400 text-size-sm-500 link-unstyled") == None:
                     continue
                 title = c.find('h2', class_="text-bold text-size-400 text-size-sm-500 link-unstyled").text
+                if "New" in title:
+                    continue
                 title = title.split(' ', 4)
                 year = title[1]
                 make = title[2]
@@ -184,7 +187,7 @@ def Scrape2(make, model):
                 # else:
                 #     img = c.find('img', class_='image-vertically-aligned').get('src')
 
-                print(img)
+                # print(img)
                 vin = vins[vincount]    
                 row = [make, model, trim, year, mileage, price, vin, carpage, img]
                 rowlist = {'Make': make, 'Model':model, 'Trim':trim, 'Year':year, 'Mileage':mileage, 'Price':price, 'VIN':vin, 'url':carpage, 'img':img}
