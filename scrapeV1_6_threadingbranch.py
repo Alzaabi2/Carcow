@@ -720,9 +720,9 @@ def cleanData(list):
     return res_list      
     
     
-l = Scrape3('JEEP')
-print(l)
-print(str(len(l)))
+# l = Scrape3('JEEP')
+# print(l)
+# print(str(len(l)))
 
 
    

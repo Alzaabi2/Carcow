@@ -68,9 +68,46 @@ def singleCarData2(url):
     if(url == ''):
         print('no url')
         return
+    url = url.replace('alllistingtype', 'allListingType').replace('listingid', 'listingId').replace('makecodelist', 'makeCodeList').replace('modelcodelist', 'modelCodeList').replace('requestid', 'requestId').replace('searchradius', 'searchRadius').replace('marketextension', 'marketExtension').replace('isnewsearch', 'isNewSearch').replace('showac', 'showAc').replace('used', 'USED')
+    urlArr = url.split('makeCodeList=')
+    print(urlArr[0])
+    temp = urlArr[1]
+    urlArr = temp.split('modelCodeList=')
+    makeCodeList = urlArr[0]
+    url = url.replace(makeCodeList, makeCodeList.upper())
+
+
+    temp = urlArr[1]
+    urlArr = temp.split('city=')
+    modelCodeList = urlArr[0]
+    url = url.replace(modelCodeList, modelCodeList.upper())
+
+    temp = urlArr[1]
+    urlArr = temp.split('state=')
+    city = urlArr[0]
+    url = url.replace(city, city.capitalize())
+
+    temp = urlArr[1]
+    urlArr = temp.split('zip=')
+    state = urlArr[0]
+    url = url.replace(state, state.upper())
+
+    # print('\nmake list: '+ makeCodeList +'\n')
+    # print('\nmodel list: '+ modelCodeList +'\n')
+    # print('\ncity list: '+ city +'\n')
+    # print('\nstate list: '+ state +'\n')
+
+    # print('\nurl so far: ' + url + '\n')
+
     #get page html
     page = requests.get(url)
     soup = BeautifulSoup(page.content, 'html.parser')
+
+    print(url)
+
+    with open('currentPage.html', 'w', encoding='utf8', newline='') as f:
+        f.write(str(soup))
+
     #find title text from class
     title = soup.find('h1', class_='text-bold text-size-400 text-size-sm-700 col-xs-12 col-sm-7 col-md-8').text
     

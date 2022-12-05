@@ -629,6 +629,6 @@ def cleanData(list):
     return res_list      
     
     
-print(Scrape2('Acura', 'RLX', '2020', '22201'))
+# print(Scrape2('Acura', 'RLX', '2020', '22201'))
     
 # ScrapeAlpha('Jeep', 'Wrangler', '2014', '10003')

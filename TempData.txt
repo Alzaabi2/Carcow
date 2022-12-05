@@ -1,6 +1,6 @@
 Make,Model,Year,Mileage,Price,VIN,url
+Audi,A4,2017,85637,15995,WAUENAF47HN036349,http://cars.com/vehicledetail/e6e8e0c9-4cda-4a4b-9864-5ae16899d292/
 Audi,A4,2019,20826,30995,WAUEABF43PA010824,https://www.autotrader.com/cars-for-sale/vehicledetails.xhtml?listingId=662022338&allListingType=all-cars&makeCodeList=AUDI&modelCodeList=A4&city=Washington&state=DC&zip=20001&requestId=USED&searchRadius=50&marketExtension=include&isNewSearch=false&showAc
-Audi,A4,2019,74817,24357,WAUENAF40KA118213,https://www.edmunds.com/audi/a4/2019/vin/WAUENAF40KA118213/?radius=50
-Audi,A4,2019,33643,22977,WAUGMAF4XKN012937,https://www.edmunds.com/audi/a4/2019/vin/WAUGMAF4XKN012937/?radius=50
-Audi,A4,2022,10107,37990,WAUABAF44NA014058,https://www.carsdirect.com/used_cars/vehicle-detail/ul2168284606/audi/a4
-Audi,A4,2019,44347,26600,WAUENAF4XKN018564,https://www.carsdirect.com/used_cars/vehicle-detail/ul2166384924/audi/a4
+Audi,A4,2017,84172,18295,WAUFNAF47HA079004,http://cars.com/vehicledetail/e3b1f0a7-fee8-4995-bc5d-53927fa10ad4/
+Audi,A4,2019,74392,20400,WAUHMAF49KN006583,http://cars.com/vehicledetail/46d5fc2e-ec32-42ab-8d05-f880630d4a2b/
+Audi,A4,2017,132473,16495,WAUENAF46HN014648,http://cars.com/vehicledetail/fab5fb69-1689-4c2a-902c-0091af9bcad1/

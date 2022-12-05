@@ -28,7 +28,7 @@ function App() {
             // }
             
             console.log("new version");
-            const parsedURL2 = urlCall.replace(/\//g, 'slash').replace(/\./g, 'dot').replace(/:/g, 'colum')
+            const parsedURL2 = urlCall.replace(/https:\/\/www\.autotrader\.com\/cars-for-sale\/vehicledetails.xhtml/g, 'constautotraderurl').replace(/\//g, 'slash').replace(/\./g, 'dot').replace(/:/g, 'colum').replace(/\?/g, 'questionmark')
             console.log(urlCall)
             console.log(parsedURL2)
             const fetchURL =  'http://127.0.0.1:8080/getUrl/' + parsedURL2;

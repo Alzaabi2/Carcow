@@ -140,4 +140,4 @@ def massScrape5():
             errorList.append('Scrape5 Error: '+i)
     print(errorList)
               
-getModels()
+# getModels()

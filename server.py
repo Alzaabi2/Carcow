@@ -9,6 +9,13 @@ from flask import render_template
 from extension import *
 from scrapeV1_6 import ScrapeAlpha, cleanData
 import mysql.connector
+import os
+from dotenv import load_dotenv
+
+load_dotenv()
+
+AWSPASSWORD = os.getenv('AWSPASSWORD')
+
 app = Flask('app')
 
 
@@ -17,7 +24,7 @@ carbrands = ['bmw', 'audi']
 mydb = mysql.connector.connect(
     host="carcow.ce0uqlnzw4og.us-east-1.rds.amazonaws.com",
     user="admin",
-    password="Hevcy4-gumden-wypjav",
+    password= AWSPASSWORD,
     database="CarCowDB"
 )
 
@@ -49,6 +56,9 @@ def getUrl(url):
     url = url.replace('slash', '/')
     url = url.replace('colum', ':')
     url = url.replace('dot', '.')
+    url = url.replace('questionmark', '?')
+    url = url.replace('constautotraderurl', 'https://www.autotrader.com/cars-for-sale/vehicledetails.xhtml')
+    
     print(url)
     if 'cars.com' in url:
         singleCar = singleCarData1(url)
