@@ -1,6 +1,13 @@
 __pycache__/
 *.py[cod]
 *$py.class
+cardata.csv
+cardata2.csv
+cardata3.csv
+cardata4.csv
+cardata5.csv
+carvins.csv
+carvins2.csv
 .env
 
 

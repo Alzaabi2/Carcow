@@ -25,7 +25,7 @@ def populateScraped(list):
 
     for i in list:
         if i['VIN'] is None:
-            vin = 'Invalid'
+            continue
         else:
             vin   = i['VIN']
         make  = i['Make']
@@ -66,7 +66,7 @@ def populateScraped(list):
         if len(result) != 0:
             continue
         
-        suggested = dollarValueVin4(vin, int(miles[0]))
+        # suggested = dollarValueVin4(vin, int(miles[0]))
 
         # print("Model:", model)
         # print("Trim:", trim)

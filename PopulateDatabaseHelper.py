@@ -18,9 +18,14 @@ from selenium.webdriver.support import expected_conditions as EC
 # from lxml import etree
 from scrapeV1_6_database_mass_search import *
 from database import *
+import random
 
 makes = ['acura', 'audi', 'bmw', 'buick', 'cadillac', 'chevrolet', 'chrysler', 'dodge', 'ford', 'gmc', 'honda', 'hyundai', 'infiniti', 'jaguar', 'jeep', 'kia', 'land_rover', 'lexus', 'lincoln', 'mazda', 'mercedes_benz', 'mitsubishi', 'nissan', 'porsche', 'ram', 'subaru', 'tesla', 'toyota', 'volkswagen', 'volvo', 'ac', 'alfa_romeo', 'am_general', 'american_motors', 'aston_martin', 'austin_healey', 'avanti_motors', 'bentley', 'bugatti', 'citroen', 'datsun', 'delorean', 'desoto', 'detomaso', 'edsel', 'ferrari', 'fiat', 'fisker', 'genesis', 'geo', 'hudson', 'hummer', 'international', 'isuzu', 'jensen', 'kaiser', 'karma', 'lamborghini', 'lasalle', 'lotus', 'lucid', 'maserati', 'maybach', 'mclaren', 'mercury', 'mg', 'mini', 'morgan', 'nash', 'oldsmobile', 'opel', 'packard', 'pagani', 'plymouth', 'polestar', 'pontiac', 'qvale', 'rivian', 'rolls_royce', 'saab', 'saleen', 'saturn', 'scion', 'smart', 'studebaker', 'sunbeam', 'suzuki', 'triumph', 'willys']
-models = [['kia', 'sportage_plug_in_hybrid'], ['kia', 'stinger'], ['kia', 'telluride'], ['land_rover', 'defender'], ['land_rover', 'discovery'], ['land_rover', 'discovery_sport'], ['land_rover', 'freelander'], ['land_rover', 'lr2'], ['land_rover', 'lr3'], ['land_rover', 'lr4'], ['land_rover', 'range_rover'], ['land_rover', 'range_rover_evoque'], ['land_rover', 'range_rover_sport'], ['land_rover', 'range_rover_velar'], ['land_rover', 'series_ii'], ['land_rover', 'series_iii'], ['lexus', 'ct_200h'], ['lexus', 'es_all'], ['lexus', 'es_250'], ['lexus', 'es_300'], ['lexus', 'es_300h'], ['lexus', 'es_330'], ['lexus', 'es_350'], ['lexus', 'gs_all'], ['lexus', 'gs_200t'], ['lexus', 'gs_300'], ['lexus', 'gs_350'], ['lexus', 'gs_400'], ['lexus', 'gs_430'], ['lexus', 'gs_450h'], ['lexus', 'gs_460'], ['lexus', 'gs_f'], ['lexus', 'gx_460'], ['lexus', 'gx_470'], ['lexus', 'hs_250h'], ['lexus', 'is_all'], ['lexus', 'is_200t'], ['lexus', 'is_250'], ['lexus', 'is_250c'], ['lexus', 'is_300'], ['lexus', 'is_350'], ['lexus', 'is_350c'], ['lexus', 'is_500'], ['lexus', 'is_f'], ['lexus', 'lc_500'], ['lexus', 'lc_500h'], ['lexus', 'ls_all'], ['lexus', 'ls_400'], ['lexus', 'ls_430'], ['lexus', 'ls_460'], ['lexus', 'ls_500'], ['lexus', 'ls_500h'], ['lexus', 'ls_600h_l'], ['lexus', 'lx_all'], ['lexus', 'lx_450'], ['lexus', 'lx_470'], ['lexus', 'lx_570'], ['lexus', 'lx_600'], ['lexus', 'nx_200t'], ['lexus', 'nx_250'], ['lexus', 'nx_300'], ['lexus', 'nx_300h'], ['lexus', 'nx_350'], ['lexus', 'nx_350h'], ['lexus', 'nx_450h_plus'], ['lexus', 'rc_200t'], ['lexus', 'rc_300'], ['lexus', 'rc_350'], ['lexus', 'rc_f'], ['lexus', 'rx_all'], ['lexus', 'rx_300'], ['lexus', 'rx_330'], ['lexus', 'rx_350'], ['lexus', 'rx_350l'], ['lexus', 'rx_400h'], ['lexus', 'rx_450h'], ['lexus', 'rx_450hl'], ['lexus', 'sc_all'], ['lexus', 'sc_300'], ['lexus', 'sc_400'], ['lexus', 'sc_430'], ['lexus', 'ux_200'], ['lexus', 'ux_250h'], ['lincoln', 'aviator'], ['lincoln', 'blackwood'], ['lincoln', 'capri'], ['lincoln', 'continental'], ['lincoln', 'corsair'], ['lincoln', 'custom'], ['lincoln', 'ls'], ['lincoln', 'mkc'], ['lincoln', 'mks'], ['lincoln', 'mkt'], ['lincoln', 
+models = [['honda', 'cr_v'], ['honda', 'cr_v_hybrid'], ['honda', 'cr_z'], ['honda', 'civic'], ['honda', 'civic_hybrid'], ['honda', 'civic_si'], ['honda', 'civic_type_r'], ['honda', 'clarity_plug_in_hybrid'], ['honda', 'crosstour'], ['honda', 'element'], ['honda', 
+'fit'], ['honda', 'hr_v'], ['honda', 'insight'], ['honda', 'odyssey'], ['honda', 'passport'], ['honda', 
+'pilot'], ['honda', 'prelude'], ['honda', 'ridgeline'], ['honda', 's2000'], ['honda', 'del_sol'], ['hyundai', 'accent'], ['hyundai', 'azera'], ['hyundai', 'elantra'], ['hyundai', 'elantra_gt'], ['hyundai', 'elantra_hev'], ['hyundai', 'elantra_n'], ['hyundai', 'elantra_touring'], ['hyundai', 'entourage'], ['hyundai', 'equus'], ['hyundai', 'genesis'], ['hyundai', 'genesis_coupe'], ['hyundai', 'ioniq_5'], ['hyundai', 'ioniq_ev'], ['hyundai', 'ioniq_hybrid'], ['hyundai', 'ioniq_plug_in_hybrid'], ['hyundai', 'kona'], ['hyundai', 'kona_ev'], ['hyundai', 'kona_n'], ['hyundai', 'nexo'], ['hyundai', 'palisade'], ['hyundai', 'santa_cruz'], ['hyundai', 'santa_fe'], ['hyundai', 'santa_fe_hev'], ['hyundai', 'santa_fe_plug_in_hybrid'], ['hyundai', 'santa_fe_sport'], ['hyundai', 'santa_fe_xl'], ['hyundai', 'sonata'], ['hyundai', 'sonata_hybrid'], ['hyundai', 'sonata_plug_in_hybrid'], ['hyundai', 'tiburon'], ['hyundai', 'tucson'], ['hyundai', 'tucson_hybrid'], ['hyundai', 'tucson_plug_in_hybrid'], ['hyundai', 'veloster'], ['hyundai', 'veloster_n'], ['hyundai', 'venue'], ['hyundai', 'veracruz'], ['hyundai', 'xg350'], ['infiniti', 'ex35'], ['infiniti', 'ex37'], ['infiniti', 'fx_all'], ['infiniti', 'fx35'], ['infiniti', 'fx37'], ['infiniti', 'fx45'], ['infiniti', 'fx50'], ['infiniti', 'g_all'], ['infiniti', 'g20'], ['infiniti', 'g25'], ['infiniti', 
+'g25x'], ['infiniti', 'g35'], ['infiniti', 'g35x'], ['infiniti', 'g37'], ['infiniti', 'g37x'], ['infiniti', 'i_all'], ['infiniti', 'i30'], ['infiniti', 'i35'], ['infiniti', 'ipl_g'], ['infiniti', 'j30'], ['infiniti', 'jx35'], ['infiniti', 'm_all'], ['infiniti', 'm30'], ['infiniti', 'm35'], ['infiniti', 'm35h'], ['infiniti', 'm35x'], ['infiniti', 'm37'], ['infiniti', 'm37x'], ['infiniti', 'm45'], ['infiniti', 'm45x'], ['infiniti', 'm56'], ['infiniti', 'm56x'], ['infiniti', 'q40'], ['infiniti', 'q45'], ['infiniti', 'q50'], ['infiniti', 'q50_hybrid'], ['infiniti', 'q60'], ['infiniti', 'q60_ipl'], ['infiniti', 'q70'], ['infiniti', 'q70l'], ['infiniti', 'q70h'], ['infiniti', 'qx_all'], ['infiniti', 'qx30'], ['infiniti', 'qx4'], ['infiniti', 'qx50'], ['infiniti', 'qx55'], ['infiniti', 'qx56'], ['infiniti', 'qx60'], ['infiniti', 'qx60_hybrid'], ['infiniti', 'qx70'], ['infiniti', 'qx80'], ['jaguar', '340'], ['jaguar', '420'], ['jaguar', 'd_type'], ['jaguar', 'e_pace'], ['jaguar', 'f_pace'], ['jaguar', 'f_type'], ['jaguar', 'i_pace'], ['jaguar', 'mark_ii'], ['jaguar', 'mark_v'], ['jaguar', 'mark_vii'], ['jaguar', 'mark_viii'], ['jaguar', 's_type'], ['jaguar', 'x_type'], ['jaguar', 'xe'], ['jaguar', 'xf'], ['jaguar', 'xj'], ['jaguar', 'xj6'], ['jaguar', 'xj8'], ['jaguar', 'xjr'], ['jaguar', 'xjs'], ['jaguar', 'xk'], ['jaguar', 'xk_120'], ['jaguar', 'xk_140'], ['jaguar', 'xk_150'], ['jaguar', 'xk8'], ['jaguar', 'xke'], ['jaguar', 'xkr'], ['jeep', 'cj'], ['jeep', 'cj_5'], ['jeep', 'cj_7'], ['jeep', 'cherokee'], ['jeep', 'comanche'], ['jeep', 'commander'], ['jeep', 'commando'], ['jeep', 'compass'], ['jeep', 'gladiator'], ['jeep', 'grand_cherokee'], 
+['jeep', 'grand_cherokee_4xe'], ['jeep', 'grand_cherokee_l'], ['jeep', 'grand_cherokee_wk'], ['jeep', 'grand_wagoneer'], ['jeep', 'j10'], ['jeep', 'jeepster'], ['jeep', 'liberty'], ['jeep', 'new_compass'], ['jeep', 'patriot'], ['jeep', 'renegade'], ['jeep', 'scrambler'], ['jeep', 'wagoneer'], ['jeep', 'wrangler'], ['jeep', 'wrangler_4xe'], ['jeep', 'wrangler_jk'], ['jeep', 'wrangler_jk_unlimited'], ['jeep', 'wrangler_unlimited'], ['jeep', 'wrangler_unlimited_4xe'], ['kia', 'amanti'], ['kia', 'borrego'], ['kia', 'cadenza'], ['kia', 'carnival'], ['kia', 'ev6'], ['kia', 'forte'], ['kia', 'forte_koup'], ['kia', 'k5'], ['kia', 'k900'], ['kia', 'niro'], ['kia', 'niro_ev'], ['kia', 'niro_plug_in_hybrid'], ['kia', 'optima'], ['kia', 'optima_hybrid'], ['kia', 'optima_plug_in_hybrid'], ['kia', 'rio'], ['kia', 'rio5'], ['kia', 'rondo'], ['kia', 'sedona'], ['kia', 'seltos'], ['kia', 'sorento'], ['kia', 'sorento_hybrid'], ['kia', 'sorento_plug_in_hybrid'], ['kia', 'soul'], ['kia', 'soul_ev'], ['kia', 'spectra'], ['kia', 'spectra5'], ['kia', 'sportage'], ['kia', 'sportage_hybrid'], ['kia', 'sportage_plug_in_hybrid'], ['kia', 'stinger'], ['kia', 'telluride'], ['land_rover', 'defender'], ['land_rover', 'discovery'], ['land_rover', 'discovery_sport'], ['land_rover', 'freelander'], ['land_rover', 'lr2'], ['land_rover', 'lr3'], ['land_rover', 'lr4'], ['land_rover', 'range_rover'], ['land_rover', 'range_rover_evoque'], ['land_rover', 'range_rover_sport'], ['land_rover', 'range_rover_velar'], ['land_rover', 'series_ii'], ['land_rover', 'series_iii'], ['lexus', 'ct_200h'], ['lexus', 'es_all'], ['lexus', 'es_250'], ['lexus', 'es_300'], ['lexus', 'es_300h'], ['lexus', 'es_330'], ['lexus', 'es_350'], ['lexus', 'gs_all'], ['lexus', 'gs_200t'], ['lexus', 'gs_300'], ['lexus', 'gs_350'], ['lexus', 'gs_400'], ['lexus', 'gs_430'], ['lexus', 'gs_450h'], ['lexus', 'gs_460'], ['lexus', 'gs_f'], ['lexus', 'gx_460'], ['lexus', 'gx_470'], ['lexus', 'hs_250h'], ['lexus', 'is_all'], ['lexus', 'is_200t'], ['lexus', 'is_250'], ['lexus', 'is_250c'], ['lexus', 'is_300'], ['lexus', 'is_350'], ['lexus', 'is_350c'], ['lexus', 'is_500'], ['lexus', 'is_f'], ['lexus', 'lc_500'], ['lexus', 'lc_500h'], ['lexus', 'ls_all'], ['lexus', 'ls_400'], ['lexus', 'ls_430'], ['lexus', 'ls_460'], ['lexus', 'ls_500'], ['lexus', 'ls_500h'], ['lexus', 'ls_600h_l'], ['lexus', 'lx_all'], ['lexus', 'lx_450'], ['lexus', 'lx_470'], ['lexus', 'lx_570'], ['lexus', 'lx_600'], ['lexus', 'nx_200t'], ['lexus', 'nx_250'], ['lexus', 'nx_300'], ['lexus', 'nx_300h'], ['lexus', 'nx_350'], ['lexus', 'nx_350h'], ['lexus', 'nx_450h_plus'], ['lexus', 'rc_200t'], ['lexus', 'rc_300'], ['lexus', 'rc_350'], ['lexus', 'rc_f'], ['lexus', 'rx_all'], ['lexus', 'rx_300'], ['lexus', 'rx_330'], ['lexus', 'rx_350'], ['lexus', 'rx_350l'], ['lexus', 'rx_400h'], ['lexus', 'rx_450h'], ['lexus', 'rx_450hl'], ['lexus', 'sc_all'], ['lexus', 'sc_300'], ['lexus', 'sc_400'], ['lexus', 'sc_430'], ['lexus', 'ux_200'], ['lexus', 'ux_250h'], ['lincoln', 'aviator'], ['lincoln', 'blackwood'], ['lincoln', 'capri'], ['lincoln', 'continental'], ['lincoln', 'corsair'], ['lincoln', 'custom'], ['lincoln', 'ls'], ['lincoln', 'mkc'], ['lincoln', 'mks'], ['lincoln', 'mkt'], ['lincoln', 
 'mkx'], ['lincoln', 'mkz'], ['lincoln', 'mkz_hybrid'], ['lincoln', 'mark_ii'], ['lincoln', 'mark_iii'], 
 ['lincoln', 'mark_iv'], ['lincoln', 'mark_lt'], ['lincoln', 'mark_v'], ['lincoln', 'mark_vi'], ['lincoln', 'mark_vii'], ['lincoln', 'mark_viii'], ['lincoln', 'nautilus'], ['lincoln', 'navigator'], ['lincoln', 'navigator_l'], ['lincoln', 'premiere'], ['lincoln', 'town_car'], ['lincoln', 'versailles'], ['lincoln', 'zephyr'], ['mazda', '1200'], ['mazda', '323'], ['mazda', '626'], ['mazda', 'b_series_trucks'], ['mazda', 'b2000'], ['mazda', 'b2200'], ['mazda', 'b2300'], ['mazda', 'b2600'], ['mazda', 'b3000'], ['mazda', 
 'b4000'], ['mazda', 'b2500'], ['mazda', 'cx_3'], ['mazda', 'cx_30'], ['mazda', 'cx_5'], ['mazda', 'cx_50'], ['mazda', 'cx_7'], ['mazda', 'cx_9'], ['mazda', 'mpv'], ['mazda', 'mx_3'], ['mazda', 'mx_30'], ['mazda', 'mx_5_miata'], ['mazda', 'mx_5_miata_rf'], ['mazda', 'mazda2'], ['mazda', 'mazda3'], ['mazda', 'mazda5'], ['mazda', 'mazda6'], ['mazda', 'mazdaspeed_miata_mx_5'], ['mazda', 'mazdaspeed3'], ['mazda', 'millenia'], ['mazda', 'pickup_truck'], ['mazda', 'protege'], ['mazda', 'protege5'], ['mazda', 'rx_7'], ['mazda', 'rx_8'], ['mazda', 'tribute'], ['mazda', 'tribute_hybrid'], ['mercedes_benz', '190'], ['mercedes_benz', '190sl'], ['mercedes_benz', '200'], ['mercedes_benz', '230'], ['mercedes_benz', '230sl'], ['mercedes_benz', '240'], ['mercedes_benz', '280se'], ['mercedes_benz', '280sl'], ['mercedes_benz', '300'], ['mercedes_benz', '300c'], ['mercedes_benz', '380sl'], ['mercedes_benz', '450sl'], ['mercedes_benz', '600'], ['mercedes_benz', 'a_class'], ['mercedes_benz', 'amg_a_35'], ['mercedes_benz', 'amg_glb_35'], ['mercedes_benz', 'amg_gt'], ['mercedes_benz', 'amg_gt_43'], ['mercedes_benz', 'amg_gt_53'], ['mercedes_benz', 'amg_gt_63'], ['mercedes_benz', 'b_class'], ['mercedes_benz', 'b_class_electric_drive'], ['mercedes_benz', 'c_all'], ['mercedes_benz', 'amg_c'], ['mercedes_benz', 'amg_c_43'], ['mercedes_benz', 'amg_c_63'], ['mercedes_benz', 'c_class'], ['mercedes_benz', 'cl_class'], ['mercedes_benz', 'cla_all'], ['mercedes_benz', 'amg_cla'], ['mercedes_benz', 'amg_cla_35'], ['mercedes_benz', 'amg_cla_45'], ['mercedes_benz', 'cla_250'], ['mercedes_benz', 'cla_class'], ['mercedes_benz', 'clk_class'], ['mercedes_benz', 'cls_all'], ['mercedes_benz', 'amg_cls_53'], ['mercedes_benz', 'amg_cls_63'], ['mercedes_benz', 'cls_450'], ['mercedes_benz', 'cls_550'], ['mercedes_benz', 'cls_class'], ['mercedes_benz', 'e_all'], ['mercedes_benz', 'amg_e'], ['mercedes_benz', 'amg_e_43'], ['mercedes_benz', 'amg_e_53'], ['mercedes_benz', 'amg_e_63'], ['mercedes_benz', 'e_class'], ['mercedes_benz', 'eqb_350'], ['mercedes_benz', 'eqs_450_plus'], ['mercedes_benz', 
@@ -49,6 +54,8 @@ models = [['kia', 'sportage_plug_in_hybrid'], ['kia', 'stinger'], ['kia', 'tellu
 ['pontiac', 'super_deluxe'], ['pontiac', 'tempest'], ['pontiac', 'torrent'], ['pontiac', 'vibe'], ['qvale', 'mangusta'], ['rivian', 'r1s'], ['rivian', 'r1t'], ['rolls_royce', 'corniche'], ['rolls_royce', 'cullinan'], ['rolls_royce', 'dawn'], ['rolls_royce', 'ghost'], ['rolls_royce', 'phantom'], ['rolls_royce', 
 'phantom_coupe'], ['rolls_royce', 'phantom_drophead_coupe'], ['rolls_royce', 'phantom_v'], ['rolls_royce', 'phantom_vi'], ['rolls_royce', 'silver_cloud_i'], ['rolls_royce', 'silver_cloud_ii'], ['rolls_royce', 'silver_cloud_iii'], ['rolls_royce', 'silver_dawn'], ['rolls_royce', 'silver_seraph'], ['rolls_royce', 
 'silver_shadow'], ['rolls_royce', 'silver_shadow_ii'], ['rolls_royce', 'silver_spirit'], ['rolls_royce', 'silver_spur'], ['rolls_royce', 'silver_spur_ii'], ['rolls_royce', 'silver_wraith'], ['rolls_royce', 'silver_wraith_ii'], ['rolls_royce', 'wraith'], ['saab', '9_3'], ['saab', '9_3x'], ['saab', '9_4x'], ['saab', '9_5'], ['saab', '9_7x'], ['saab', '900'], ['saab', '9000'], ['saab', '96'], ['saab', 'gt'], ['saab', 'monte_carlo'], ['saab', 'sonett'], ['saleen', 's7'], ['saturn', 'astra'], ['saturn', 'aura'], ['saturn', 'aura_hybrid_all'], ['saturn', 'aura_green_line'], ['saturn', 'ion'], ['saturn', 'l'], ['saturn', 'ls'], ['saturn', 'lw'], ['saturn', 'outlook'], ['saturn', 'sc'], ['saturn', 'sl'], ['saturn', 'sw'], ['saturn', 'sky'], ['saturn', 'vue'], ['saturn', 'vue_hybrid_all'], ['saturn', 'vue_green_line'], ['saturn', 'vue_hybrid'], ['scion', 'fr_s'], ['scion', 'ia'], ['scion', 'im'], ['scion', 'iq'], ['scion', 'tc'], ['scion', 'xa'], ['scion', 'xb'], ['scion', 'xd'], ['smart', 'eq_fortwo'], ['smart', 'fortwo'], ['smart', 'fortwo_electric_drive'], ['studebaker', '440'], ['studebaker', 'avanti'], ['studebaker', 'challenger'], ['studebaker', 'champion'], ['studebaker', 'commander'], ['studebaker', 'daytona'], ['studebaker', 'dictator'], ['studebaker', 'golden_hawk'], ['studebaker', 'gran_turismo_hawk'], ['studebaker', 'land_cruiser'], ['studebaker', 'lark'], ['studebaker', 'model_a'], ['studebaker', 'model_b'], ['studebaker', 'model_h'], ['studebaker', 'pickup_truck'], ['studebaker', 'president'], ['studebaker', 'regal'], ['sunbeam', 'alpine'], ['sunbeam', 'tiger'], ['suzuki', 'aerio'], ['suzuki', 'equator'], ['suzuki', 'forenza'], ['suzuki', 'grand_vitara'], ['suzuki', 'kizashi'], ['suzuki', 'reno'], ['suzuki', 'sx4'], ['suzuki', 'samurai'], ['suzuki', 'sidekick'], ['suzuki', 'vitara'], ['suzuki', 'xl7'], ['triumph', '1200'], ['triumph', '2000'], ['triumph', 'gt6'], ['triumph', 'spitfire'], ['triumph', 'tr250'], ['triumph', 'tr3'], ['triumph', 'tr4'], ['triumph', 'tr6'], ['triumph', 'tr7'], ['triumph', 'tr8'], ['willys', 'cj_5'], ['willys', 'jeepster'], ['willys', 'maverick'], ['willys', 'pickup_truck']]
+
+
 
 
 def getMakes():
@@ -114,12 +121,12 @@ def massScrape1():
     makesList = makes
     errorList = []
     for i in makesList:
-        try:
-            scrapedData = Scrape1(i)
-            populateScraped(scrapedData)
-            print('Completed '+i)
-        except:
-            errorList.append('Scrape1 Error: '+i)
+        # try:
+        scrapedData = Scrape1(i)
+        populateScraped(scrapedData)
+        print('Completed '+i)
+        # except:
+        #     errorList.append('Scrape1 Error: '+i)
     print(errorList)
 
 def massScrape2():
@@ -130,7 +137,7 @@ def massScrape2():
         try:
             scrapedData = Scrape2(i[0],i[1])
             populateScraped(scrapedData)
-            print('Completed '+i)
+            print('Completed '+i[1])
         except:
             errorList.append('Scrape2 Error: '+i[0]+'-'+i[1])
     print(errorList)
@@ -153,12 +160,15 @@ def massScrape4():
     makesList = makes
     errorList = []
     for i in modelsList:
-        try:
-            scrapedData = Scrape4(i[0],i[1])
-            populateScraped(scrapedData)
-            print('Completed '+i)
-        except:
-            errorList.append('Scrape4 Error: '+i[0]+'-'+i[1])
+        # try:
+        scrapedData = Scrape4(i[0],i[1])
+        print('scraped '+str(len(scrapedData))+' '+i[1]+ 's')
+        # except:
+        # errorList.append('Scrape4 Error: '+i[0]+'-'+i[1])
+        # print('Scrape4 Error: '+i[0]+'-'+i[1])
+        # scrapedData = ''
+        populateScraped(scrapedData)
+        print('Completed '+i[1])
     print(errorList)
     
 def massScrape5():
@@ -169,10 +179,10 @@ def massScrape5():
         try:
             scrapedData = Scrape5(i[0],i[1])
             populateScraped(scrapedData)
-            print('Completed '+i)
+            print('Completed '+i[1])
         except:
             errorList.append('Scrape5 Error: '+i[0]+'-'+i[1])
     print(errorList)
               
-massScrape2()
+massScrape1()
 
