@@ -15,7 +15,7 @@ from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
-from lxml import etree
+# from lxml import etree
 from scrapeV1_6_database_mass_search import *
 from database import *
 import random
