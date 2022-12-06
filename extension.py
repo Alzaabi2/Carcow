@@ -76,7 +76,7 @@ def singleCarData2(url):
     makeCodeList = urlArr[0]
     url = url.replace(makeCodeList, makeCodeList.upper())
 
-
+    
     temp = urlArr[1]
     urlArr = temp.split('city=')
     modelCodeList = urlArr[0]
