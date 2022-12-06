@@ -38,7 +38,7 @@ def cars():
     return {'car brands' : carbrands}
 
 @app.route('/year/<int:car_year>')
-def getYear(car_year):
+def getyear(car_year):
     print(car_year)
     return render_template("home.html")
     
@@ -94,32 +94,32 @@ def getUrl(url):
     
     # print('temp:')
     
-    # print(tempData[0]['Make'] + ' =? ' + singleCar['Make'])
-    # print(tempData[0]['Model'] + ' =? ' + singleCar['Model'])
-    # print(tempData[0]['Year'] + ' =? ' + singleCar['Year'])
+    # print(tempData[0]['make'] + ' =? ' + singleCar['make'])
+    # print(tempData[0]['model'] + ' =? ' + singleCar['model'])
+    # print(tempData[0]['year'] + ' =? ' + singleCar['year'])
     
    
     # No Zip
     print(lastCar)
     print('tempdata ^ single car v')
     print(singleCar)
-    # if lastCar != {}:  
-    #     if lastCar['Make'] == singleCar['Make'] and lastCar['Model'] == singleCar['Model'] and lastCar['Year'] == singleCar['Year']:
-    #         print(tempData)
-    #         return tempData
+    if lastCar != {}:  
+        if lastCar['make'] == singleCar['make'] and lastCar['model'] == singleCar['model'] and lastCar['year'] == singleCar['year']:
+            print('temp')
+            print(tempData)
+            return tempData
 
     time3 = time.perf_counter()
     print("Timer2 tempData:" + str(time3-time2))
 
 
-    # list = ScrapeAlpha(singleCar['Make'], singleCar['Model'], singleCar['Year'], '22201')
-    print(singleCar['Make'])
-    # cursor.execute("SELECT * FROM scraped WHERE model = %s", (singleCar['Model'],))
+    # list = ScrapeAlpha(singleCar['make'], singleCar['model'], singleCar['year'], '22201')
+    # cursor.execute("SELECT * FROM scraped WHERE model = %s", (singleCar['model'],))
 
-    year = float(singleCar['Year'])
+    year = float(singleCar['year'])
     yearUp = year + 2
     yearDown = year - 2
-    cursor.execute("SELECT * FROM scraped WHERE model = %s AND (year <= %s AND year >= %s)", (singleCar['Model'], yearUp, yearDown,))
+    cursor.execute("SELECT * FROM scraped WHERE model = %s AND (year <= %s AND year >= %s) AND searchID IS NULL", (singleCar['model'], yearUp, yearDown,))
 
 
     list = cursor.fetchall()
@@ -131,7 +131,7 @@ def getUrl(url):
     time5 = time.perf_counter()
     print("Timer4 cleanData():" + str(time5-time4))
     
-    rating = rate3(list)
+    rating = rate4(list)
     time6 = time.perf_counter()
     print("Timer5 rate:" + str(time6-time5))
     
@@ -146,26 +146,26 @@ def getUrl(url):
     #data for last scraped car
     with open('lastCar.txt', 'w', encoding='utf8', newline='\n') as f:
         w = writer(f)
-        header = ['Make', 'Model', 'Year', 'Zip']
+        header = ['make', 'model', 'year', 'Zip']
         w.writerow(header)
         #no rip
-        row = [singleCar['Make'], singleCar['Model'], singleCar['Year'], '22201']
+        row = [singleCar['make'], singleCar['model'], singleCar['year'], '22201']
         w.writerow(row)
         
     with open('TempData.txt', 'w', encoding='utf8', newline='\n') as f:
         w = writer(f)
-        header = ['Make', 'Model', 'Year', 'Mileage', 'Price', 'VIN', 'url']
+        header = ['VIN', 'make', 'model', 'year', 'trim', 'mileage', 'price', 'suggested', 'url', 'imageurl']
         w.writerow(header)
         for i in range(len(topCars)):
-            row = [topCars[i]['make'], topCars[i]['model'], topCars[i]['year'], topCars[i]['mileage'], topCars[i]['price'], topCars[i]['VIN'], topCars[i]['url']]
+            row = [topCars[i]['VIN'], topCars[i]['make'], topCars[i]['model'], topCars[i]['year'], topCars[i]['trim'], topCars[i]['mileage'], topCars[i]['price'], topCars[i]['suggested'], topCars[i]['url'], topCars[i]['imageurl']]
             w.writerow(row)
     
     # topCars = [
-    # {'Make':'Ford', 'Model':'Mustang', 'Year':'2016', 'Mileage':'100,000', 'Price':'20,000', 'url':'https://www.cars.com/vehicledetail/92a80785-7bf4-42fc-b7dd-5365633f054e/'},
-    # {'Make':'Toyota', 'Model':'Supra', 'Year':'2017', 'Mileage':'101,000', 'Price':'30,000', 'url':'https://www.cars.com/vehicledetail/92a80785-7bf4-42fc-b7dd-5365633f054e/'},
-    # {'Make':'Dodge', 'Model':'Ram', 'Year':'2018', 'Mileage':'102,000', 'Price':'40,000', 'url':'https://www.cars.com/vehicledetail/92a80785-7bf4-42fc-b7dd-5365633f054e/'},
-    # {'Make':'BMW', 'Model':'I8', 'Year':'2019', 'Mileage':'103,000', 'Price':'50,000', 'url':'https://www.cars.com/vehicledetail/92a80785-7bf4-42fc-b7dd-5365633f054e/'},
-    # {'Make':'Ferrari', 'Model':'445', 'Year':'2020', 'Mileage':'104,000', 'Price':'60,000', 'url':'https://www.cars.com/vehicledetail/92a80785-7bf4-42fc-b7dd-5365633f054e/'}
+    # {'make':'Ford', 'model':'Mustang', 'year':'2016', 'mileage':'100,000', 'price':'20,000', 'url':'https://www.cars.com/vehicledetail/92a80785-7bf4-42fc-b7dd-5365633f054e/'},
+    # {'make':'Toyota', 'model':'Supra', 'year':'2017', 'mileage':'101,000', 'price':'30,000', 'url':'https://www.cars.com/vehicledetail/92a80785-7bf4-42fc-b7dd-5365633f054e/'},
+    # {'make':'Dodge', 'model':'Ram', 'year':'2018', 'mileage':'102,000', 'price':'40,000', 'url':'https://www.cars.com/vehicledetail/92a80785-7bf4-42fc-b7dd-5365633f054e/'},
+    # {'make':'BMW', 'model':'I8', 'year':'2019', 'mileage':'103,000', 'price':'50,000', 'url':'https://www.cars.com/vehicledetail/92a80785-7bf4-42fc-b7dd-5365633f054e/'},
+    # {'make':'Ferrari', 'model':'445', 'year':'2020', 'mileage':'104,000', 'price':'60,000', 'url':'https://www.cars.com/vehicledetail/92a80785-7bf4-42fc-b7dd-5365633f054e/'}
     # ]
     time8 = time.perf_counter()
     print("Timer7 tempDataWrite:" + str(time8-time7))
@@ -173,7 +173,7 @@ def getUrl(url):
     for i in range(len(topCars)):
         if "https:" not in topCars[i]['imageurl']:
             topCars[i]['imageurl'] = "https:" + topCars[i]['imageurl']
-
+    print(topCars)
     return topCars
 
 app.run(host='0.0.0.0', port=8080)
