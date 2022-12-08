@@ -119,7 +119,7 @@ def getUrl(url):
     year = float(singleCar['year'])
     yearUp = year + 2
     yearDown = year - 2
-    cursor.execute("SELECT * FROM scraped WHERE model = %s AND (year <= %s AND year >= %s) AND searchID IS NULL", (singleCar['model'], yearUp, yearDown,))
+    cursor.execute("SELECT * FROM scraped WHERE model = %s AND (year <= %s AND year >= %s) AND (searchID IS NULL OR searchID = %s)", (singleCar['model'], yearUp, yearDown, 'available'))
 
 
     list = cursor.fetchall()
