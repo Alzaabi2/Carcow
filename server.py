@@ -13,7 +13,6 @@ import os
 from dotenv import load_dotenv
 
 load_dotenv()
-
 AWSPASSWORD = os.getenv('AWSPASSWORD')
 
 app = Flask('app')

@@ -1,2 +1,2 @@
 Make,Model,Year,Zip
-Lincoln,Aviator,2023,22201
+Porsche,718,2021,22201

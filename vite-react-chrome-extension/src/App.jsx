@@ -2,13 +2,15 @@ import React, { useEffect, useState, useRef } from 'react';
 import './App.css';
 import $ from "jquery";
 import axios from 'axios';
+import ReactLoading from "react-loading";
 
 function App() {
     const [urlCall, setUrl] = useState('');
     const [isCars, setIsCars] = useState(false);
 
-    const [error, setError] = useState(null);
+    const [error, setError] = useState(undefined); //Changed from useState(null)
     const [carData, setCarData] = useState(null);
+    const [done, setDone] = useState(undefined);
     /*
      * Get current URL
      */
@@ -35,65 +37,108 @@ function App() {
             console.log(fetchURL)
             axios.get(fetchURL)
                 .then((response) => {
-                    // if(!car.imgurl.includes('https:')){car.imgurl = 'https:'+car.imgurl}
+                    console.log("Response: " + response)
                     setCarData(response.data);
+                    setDone (true);
                     setError(null);                
-                    console.log("json test")
-                    // console.warn(xhr.responseText)
-                    console.log(response)
-                    // console.log(response.data[0]['year'])
-                    console.log("json test end")      
                 })
-            
-
-            
-            
+                // .catch((error) => {
+                //     // Error
+                //     if (response.error) {
+                //         // The request was made and the server responded with a status code
+                //         // that falls out of the range of 2xx
+                //         console.log(error.response.data);
+                //         console.log(error.response.status);
+                //         console.log(error.response.headers);
+                //     } else if (error.request) {
+                //         // The request was made but no response was received
+                //         // `error.request` is an instance of XMLHttpRequest in the 
+                //         // browser and an instance of
+                //         // http.ClientRequest in node.js
+                //         console.log(error.request);
+                //     } else {
+                //         // Something happened in setting up the request that triggered an Error
+                //         console.log('Error', error.message);
+                //     }
+                //     console.log(error.config)
+                // });  
         });
-      
-      return () => setIsCars(false) //before next useEffect is created, set isCars to false
-    
+
+        return () => setIsCars(false) //before next useEffect is created, set isCars to false    
 
     }, [chrome.tabs]);
 
     if (error) {
         return alert(error)
     }
-
-    if (!carData) return null;
-
-    return (
-        <div className="App">
-            <header className="App-header">
-                <div class="banner">
-                    <h1><b>CARCOW</b></h1>
-                </div>
-                <h2>
-                    {isCars ? 
-                    'Valid Website'
-                    : 
-                    'Not Valid Website'}
-                </h2><br/>
-                    <table >
-                        {carData.map(car=>(
-                            <tr>
-                                <td>      
-                                    <img width="100%" height="100%" src={car.imageurl} alt="Image Not Found"/>
-                                </td>
-                                <div class="info-display">
+    // if (!carData) return null;
+    if (!done){
+        return(
+            <div className="App">
+                <ReactLoading
+                    type={"balls"}
+                    color={"#000000"}
+                    height={70}
+                    width={70}
+                />
+                <h2 color={"#000000"}>LOADING</h2>
+            </div>
+        );
+    }
+    else{
+        if(isCars){
+            return(    
+                <div className="App">
+                    <header className="App-header">
+                        <div class="banner">
+                            <h1><b>CARCOW</b></h1>
+                        </div>
+                        {/* <h2>Click on the Car Info to the Listing</h2><br/> */}
+                        <table>
+                            {carData.map(car=>(                   
+                                <tr>
                                     <td>
-                                    <a href = {car.url} target="_blank">
-                                            <div class="car-basics">{car.year} {car.make} {car.model}</div>{"\n"}
-                                            <div class="display-container">
-                                                <div class="car-price">${car.price} </div>&nbsp;<div class="car-mileage"> {car.mileage}mi</div>
-                                            </div>
-                                    </a></td>
-                                </div>
-                            </tr>
-                        ))}      
-                    </table>
-            </header>
-        </div>
-    );
+                                        <img src={car.imageurl} alt="Image Not Found"/>
+                                        <div class="info-display">
+                                            <a href = {car.url} target="_blank">
+                                                <div class="car-basics">&nbsp;&nbsp;{car.year} {car.make} {car.model} {car.trim}</div>
+                                                <div class="car-stats">
+                                                    &nbsp; <div class="car-price">&nbsp;${car.price} </div>&nbsp; &nbsp;<div class="car-mileage"> {car.mileage}mi</div>
+                                                </div>
+                                                <div class="car-stats">{Math.round(100*(1 - (car.price / car.suggested))) > 0 ? <div class="suggested-price-good">&nbsp;Below Market by {Math.round(100*(1 - (car.price / car.suggested)))}%</div> : <div class="suggested-price-bad"> &nbsp;Above Market by {Math.round(-100*(1 - (car.price / car.suggested)))}%</div>}</div>
+                                                
+                                            </a>
+                                        </div>
+                                    </td>
+                                </tr>
+                            ))}      
+                        </table>
+                    </header>
+                </div>
+            );
+        }
+        else{
+            return (
+                //Inside of whole return block must be enclosed in tags to compile, <div></div> or <></> work here
+                <>
+                    console.log('invalid site')
+                    <div className="App">
+                        <header className="App-header">
+                            <div class="banner">
+                                <h1><b>CARCOW</b></h1>
+                            </div>
+                            <h2>Oops! Please visit a valid site.</h2>
+                                <p><a href="https://cars.com" target="_blank">Cars.com</a></p>
+                                <p><a href="https://autotrader.com" target="_blank">Auto-Trader</a></p>
+                                <p><a href="https://cargurus.com" target="_blank"> Car Gurus</a></p>
+                                <p><a href="https://carsdirect.com" target="_blank"> Cars Direct</a></p>
+                                <p><a href="https://edmunds.com" target="_blank"> Edmunds</a></p>
+                        </header>
+                    </div> 
+                </>              
+            );
+        }  
+    }   
 };
 
 export default App

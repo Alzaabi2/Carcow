@@ -1,6 +1,9 @@
 import mysql.connector
 from rateV1 import *
+import os
+from dotenv import load_dotenv
 
+load_dotenv()
 
 
 mydb = mysql.connector.connect(
