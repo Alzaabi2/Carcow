@@ -53,10 +53,10 @@ def singleCarData1(url):
 
     #Create and Return a dictionary {make: ..., model: ..., trim: ..., year: ...} for single car
     carEntry = {}
-    carEntry['Make'] = make
-    carEntry['Model'] = model
-    carEntry['Trim'] = trim
-    carEntry['Year'] = year
+    carEntry['make'] = make
+    carEntry['model'] = model
+    carEntry['trim'] = trim
+    carEntry['year'] = year
     # print ('ex: ')
     # print(carEntry)
     ret = '' + make + ' ' + model + ' ' + year
@@ -76,7 +76,7 @@ def singleCarData2(url):
     makeCodeList = urlArr[0]
     url = url.replace(makeCodeList, makeCodeList.upper())
 
-    
+
     temp = urlArr[1]
     urlArr = temp.split('city=')
     modelCodeList = urlArr[0]
@@ -128,10 +128,10 @@ def singleCarData2(url):
 
     #Create and Return a dictionary {make: ..., model: ..., trim: ..., year: ...} for single car
     carEntry = {}
-    carEntry['Make'] = make
-    carEntry['Model'] = model
-    carEntry['Trim'] = trim[0]
-    carEntry['Year'] = year
+    carEntry['make'] = make
+    carEntry['model'] = model
+    carEntry['trim'] = trim[0]
+    carEntry['year'] = year
     # print ('ex: ')
     # print(carEntry)
     ret = '' + make + ' ' + model + ' ' + year + ' ' + trim[0]
@@ -175,10 +175,10 @@ def singleCarData3(url):
 
     #Create and Return a dictionary {make: ..., model: ..., trim: ..., year: ...} for single car
     carEntry = {}
-    carEntry['Make'] = make
-    carEntry['Model'] = model
-    carEntry['Trim'] = trim[0]
-    carEntry['Year'] = year
+    carEntry['make'] = make
+    carEntry['model'] = model
+    carEntry['trim'] = trim[0]
+    carEntry['year'] = year
     # print ('ex: ')
     # print(carEntry)
     # ret = '' + make + ' ' + model + ' ' + year + ' ' + trim[0]
@@ -216,10 +216,10 @@ def singleCarData4(url):
 
     #Create and Return a dictionary {make: ..., model: ..., trim: ..., year: ...} for single car
     carEntry = {}
-    carEntry['Make'] = make
-    carEntry['Model'] = model
-    carEntry['Trim'] = trim[0]
-    carEntry['Year'] = year
+    carEntry['make'] = make
+    carEntry['model'] = model
+    carEntry['trim'] = trim[0]
+    carEntry['year'] = year
     # print ('ex: ')
     # print(carEntry)
     ret = '' + make + ' ' + model + ' ' + year + ' ' + trim
@@ -260,10 +260,10 @@ def singleCarData5(url):
 
     #Create and Return a dictionary {make: ..., model: ..., trim: ..., year: ...} for single car
     carEntry = {}
-    carEntry['Make'] = make
-    carEntry['Model'] = model
-    # carEntry['Trim'] = trim[0]
-    carEntry['Year'] = year
+    carEntry['make'] = make
+    carEntry['model'] = model
+    # carEntry['trim'] = trim[0]
+    carEntry['year'] = year
     # print ('ex: ')
     # print(carEntry)
     ret = '' + make + ' ' + model + ' ' + year + ' ' + trim

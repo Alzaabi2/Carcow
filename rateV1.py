@@ -239,6 +239,88 @@ def rate3(list):
     topDeals = [deals[0], deals[1], deals[2], deals[3], deals[4]]
     return topDeals
 
+# This is a temporary function for avoiding unavailable cars
+def rate4(list):
+    # carlist = createList()
+    # print(list)
+    deals = []
+    if list is None:
+        return []
+    count = 1
+
+    for i in range(len(list)):
+        price = list[i]['price']
+        vin   = list[i]['VIN']
+        # print("Price: ", priceListed, "Vin: ", vin)
+
+        price = price.replace(',', '')
+        # suggested = suggested.replace('$', '')
+        price = price.replace('$', '')
+        price = price.replace(' ', '')
+
+        ### Need to not include cars with suggested price of $0. Change here! ###
+        suggested = list[i]['suggested']
+        if suggested == '0':
+            continue
+        # print("\nSuggested price is:\n", suggested, "and it's type is:", type(suggested))
+
+        try:
+            ratio = float(price)/float(suggested) #metric for rating deal
+        except: 
+            ratio == 'No Ratio'
+
+        url = list[i]['url']
+        
+        row = (str(count), vin,ratio,price,url)
+        count += 1
+        deals.append(row)
+    
+    # Sorted list of deals in descending order from best to worst deal
+    deals.sort(key=lambda y: y[2])
+
+    ret_list = []
+
+    for car in range(len(deals)):
+        if len(ret_list) >= 5:
+            break
+        url = deals[car][4]
+        available = True
+        headers = {'User-Agent': 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/56.0.2924.76 Safari/537.36', "Upgrade-Insecure-Requests": "1","DNT": "1","Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8","Accept-Language": "en-US,en;q=0.5","Accept-Encoding": "gzip, deflate"}
+        page = requests.get(url, headers=headers)
+        # print("Got here!")
+        soup = BeautifulSoup(page.content, 'html.parser')
+        # print("Got here 1")
+        if soup.find('p', class_='sds-notification__desc') is not None:
+            available = False
+            # print("Got here 2")
+        elif soup.find('div', class_='text-bold text-size-600 text-size-sm-700 margin-vertical-7 margin-horizontal-7 text-center') is not None:
+            # print("Got here 3")
+            if soup.find('div', class_='text-bold text-size-600 text-size-sm-700 margin-vertical-7 margin-horizontal-7 text-center').text == 'This car is no longer available. One moment while we take you to the search results page.':
+                available = False
+                # print("Got here 4")
+        elif soup.find('h2', class_='CVRsvD') is not None:
+            available = False
+            # print("Got here 5")
+        elif soup.find('h2', class_='pt-1 pt-md-3 px-1 px-md-3 pb-2 text-center display-1 m-0') is not None:
+            # print("Got here 6")
+            if soup.find('h2', class_='pt-1 pt-md-3 px-1 px-md-3 pb-2 text-center display-1 m-0').text == 'Vehicle no longer available':
+                available = False
+                # print("Got here 7")
+        elif soup.find('div', class_='CDCXWUsedCarBuyPathExpiredListingHeaderText widget') is not None:
+            available = False
+            # print("Got here 8")
+        print("\navailable = ", available,)
+        if available == True:
+            # deals.remove(deals[car])
+            ret_list.append(deals[car])
+        else: 
+            print('\nunavailable url: '+ url)
+
+            
+    # print("\ndeals: ", deals)
+    # topDeals = [deals[0], deals[1], deals[2], deals[3], deals[4]]
+    return ret_list
+
 # #temp
 # def rate(list):
 #     # carlist = createList()
