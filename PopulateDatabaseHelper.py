@@ -31,7 +31,6 @@ def getMakes():
     for i in makesPath2:
         makesList.append(i.text)
     makesList.remove('All makes')
-    # print(makesList)
     return makesList
 
 def getModels():
@@ -52,13 +51,10 @@ def getModels():
         if n == 'AC':
             counter = 1
             group = 2
-        print('group = '+str(group)+'counter = '+str(counter))
         try:
             makesSelect = browser.find_element(By.XPATH, '/html/body/section/div[2]/div[1]/section[2]/div[1]/div/div/form[1]/div/div/div[2]/div/select/optgroup['+str(group)+']/option['+str(counter)+']').click()
         except:
             print('Not Found: '+'group = '+str(group)+'counter = '+str(counter))
-        # makesInput = Select(makesSelect)
-        # makesInput.select_by_visible_text(n)
         time.sleep(4)
         counter+=1
         soup = BeautifulSoup(browser.page_source, 'html.parser')
@@ -69,10 +65,7 @@ def getModels():
         modelsPath2 = modelsPath.find_all('option')
         for i in modelsPath2:
             modelsList.append([n,i.text])
-        # except:
-        #     print(n+' not found')
-    
-    # print(modelsList) 
+            
     return modelsList
     
 def massScrape1():

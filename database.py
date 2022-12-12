@@ -44,20 +44,10 @@ def populateScraped(listOfScraped):
 
         suggested = dollarValueVin4(vin, int(miles[0]))
 
-        print("Model:", model)
-        print("Trim:", trim)
-
-
         cursor.execute("INSERT INTO scraped (VIN, make, model, year, trim, mileage, price, suggested, url, imageurl, date)VALUES (%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,NOW())", (vin, make, model, year2[0], trim, miles[0], price2[0], suggested, url, imageurl))
         mydb.commit()
 
 
-    # # get vin, make, model, and trim of cars stored within the last 30 days
-    # cursor.execute("SELECT VIN,make,model,trim FROM scraped WHERE DATE_SUB(CURDATE(),INTERVAL 30 DAY) <= DATE(date)")
-    # test = cursor.fetchall()
-    # print(test)
-
-     
 # populateScraped()
 
 

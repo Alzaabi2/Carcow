@@ -1,10 +1,10 @@
 import json
 import sys
 import shutil
-
 from flask import Flask, request, jsonify
-from scrapeV1_1 import *
+from csv import writer
 from rateV1 import *
+from scrapeV1_6 import *
 from flask import render_template
 from extension import *
 from scrapeV1_6 import ScrapeAlpha, cleanData
@@ -17,9 +17,6 @@ AWSPASSWORD = os.getenv('AWSPASSWORD')
 
 app = Flask('app')
 
-
-carbrands = ['bmw', 'audi']
-
 mydb = mysql.connector.connect(
     host="carcow.ce0uqlnzw4og.us-east-1.rds.amazonaws.com",
     user="admin",
@@ -31,20 +28,13 @@ mydb = mysql.connector.connect(
 def index():
     return render_template("home.html")
 
-@app.get('/cars')
-def cars():
-    print("called")
-    return {'car brands' : carbrands}
-
 @app.route('/year/<int:car_year>')
 def getyear(car_year):
-    print(car_year)
     return render_template("home.html")
     
 @app.route('/scrape/<string:make>/<string:model>/<string:car_year>/<string:zip>')
 def getScrape(make, model, car_year, zip):
-    Scrape(make, model, car_year, zip)
-    print('scraped', make, model, car_year, zip)
+    Scrape1(make, model, car_year, zip)
     return render_template("home.html")
 
 @app.route('/getUrl/<string:url>')
@@ -58,7 +48,6 @@ def getUrl(url):
     url = url.replace('questionmark', '?')
     url = url.replace('constautotraderurl', 'https://www.autotrader.com/cars-for-sale/vehicledetails.xhtml')
     
-    print(url)
     if 'cars.com' in url:
         singleCar = singleCarData1(url)
     elif 'autotrader' in url:
@@ -72,10 +61,11 @@ def getUrl(url):
     else:
         print('unregistered website')
         return 'unregistered website'
-    print('website found: ' + url)
+
+    print('\n1. URL from current window recieved and data of current car viewed retrieved \n')
 
     time2 = time.perf_counter()
-    print("Timer1 singleCar():" + str(time2-time1))
+    # print("Timer1 singleCar():" + str(time2-time1))
     
     tempData = []
     lastCar = {}
@@ -90,57 +80,38 @@ def getUrl(url):
         for row in reader:
             lastCar = row
 
-    
-    # print('temp:')
-    
-    # print(tempData[0]['make'] + ' =? ' + singleCar['make'])
-    # print(tempData[0]['model'] + ' =? ' + singleCar['model'])
-    # print(tempData[0]['year'] + ' =? ' + singleCar['year'])
-    
-   
-    # No Zip
-    print(lastCar)
-    print('tempdata ^ single car v')
-    print(singleCar)
     if lastCar != {}:  
         if lastCar['make'] == singleCar['make'] and lastCar['model'] == singleCar['model'] and lastCar['year'] == singleCar['year']:
-            print('temp')
-            print(tempData)
+            for i in range(len(tempData)):
+                if "https:" not in tempData[i]['imageurl']:
+                    tempData[i]['imageurl'] = "https:" + tempData[i]['imageurl']
+            print("\n2. Same car as last search, return previous output \n")
             return tempData
 
     time3 = time.perf_counter()
-    print("Timer2 tempData:" + str(time3-time2))
-
-
-    # list = ScrapeAlpha(singleCar['make'], singleCar['model'], singleCar['year'], '22201')
-    # cursor.execute("SELECT * FROM scraped WHERE model = %s", (singleCar['model'],))
+    # print("Timer2 tempData:" + str(time3-time2))
 
     year = float(singleCar['year'])
     yearUp = year + 2
     yearDown = year - 2
     cursor.execute("SELECT * FROM scraped WHERE model = %s AND (year <= %s AND year >= %s) AND (searchID IS NULL OR searchID = %s)", (singleCar['model'], yearUp, yearDown, 'available'))
 
-
     list = cursor.fetchall()
-    print(list)
+    print("\n2. Fetched data of similar cars from database \n")
     time4 = time.perf_counter()
-    print("Timer3 ScrapeAlpha():" + str(time4-time3))
+    # print("Timer3 ScrapeAlpha():" + str(time4-time3))
     
-    # list = cleanData(list)
     time5 = time.perf_counter()
-    print("Timer4 cleanData():" + str(time5-time4))
+    # print("Timer4 cleanData():" + str(time5-time4))
     
-    rating = rate4(list)
+    rating = rate2(list)
+    print("\n 3. Rating done.\n")
     time6 = time.perf_counter()
-    print("Timer5 rate:" + str(time6-time5))
+    # print("Timer5 rate:" + str(time6-time5))
     
     topCars = getTopCars(list, rating)
     time7 = time.perf_counter()
-    print("Timer6 topCars():" + str(time7-time6))
-    
-    print('------')
-    print('------')
-    print(topCars)
+    # print("Timer6 topCars():" + str(time7-time6))
     
     #data for last scraped car
     with open('lastCar.txt', 'w', encoding='utf8', newline='\n') as f:
@@ -159,20 +130,13 @@ def getUrl(url):
             row = [topCars[i]['VIN'], topCars[i]['make'], topCars[i]['model'], topCars[i]['year'], topCars[i]['trim'], topCars[i]['mileage'], topCars[i]['price'], topCars[i]['suggested'], topCars[i]['url'], topCars[i]['imageurl']]
             w.writerow(row)
     
-    # topCars = [
-    # {'make':'Ford', 'model':'Mustang', 'year':'2016', 'mileage':'100,000', 'price':'20,000', 'url':'https://www.cars.com/vehicledetail/92a80785-7bf4-42fc-b7dd-5365633f054e/'},
-    # {'make':'Toyota', 'model':'Supra', 'year':'2017', 'mileage':'101,000', 'price':'30,000', 'url':'https://www.cars.com/vehicledetail/92a80785-7bf4-42fc-b7dd-5365633f054e/'},
-    # {'make':'Dodge', 'model':'Ram', 'year':'2018', 'mileage':'102,000', 'price':'40,000', 'url':'https://www.cars.com/vehicledetail/92a80785-7bf4-42fc-b7dd-5365633f054e/'},
-    # {'make':'BMW', 'model':'I8', 'year':'2019', 'mileage':'103,000', 'price':'50,000', 'url':'https://www.cars.com/vehicledetail/92a80785-7bf4-42fc-b7dd-5365633f054e/'},
-    # {'make':'Ferrari', 'model':'445', 'year':'2020', 'mileage':'104,000', 'price':'60,000', 'url':'https://www.cars.com/vehicledetail/92a80785-7bf4-42fc-b7dd-5365633f054e/'}
-    # ]
     time8 = time.perf_counter()
-    print("Timer7 tempDataWrite:" + str(time8-time7))
+    # print("Timer7 tempDataWrite:" + str(time8-time7))
 
     for i in range(len(topCars)):
+        # print(topCars[i]['imageurl'])
         if "https:" not in topCars[i]['imageurl']:
             topCars[i]['imageurl'] = "https:" + topCars[i]['imageurl']
-    print(topCars)
     return topCars
 
 app.run(host='0.0.0.0', port=8080)

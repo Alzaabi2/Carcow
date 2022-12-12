@@ -11,22 +11,19 @@ def getMSRP(make, model, trim, year):
     model = model[0]
     url = 'https://www.cars.com/research/'+make.lower()+'-'+model.lower()+'-'+year
     page = requests.get(url)
-    print(url)
+
     soup = BeautifulSoup(page.content, 'html.parser')
     
     if not soup.find('ul', class_='trim-compare-list'):
-        print('no element')
         return 0
     
     trimList = soup.find('ul', class_='trim-compare-list').findAll('li')
     for t in trimList:
         if not t.find('a'): continue
         page_trim =  t.find('a').text.lower().replace(' ', '')
-        print(trim+' == '+page_trim)
         if page_trim == trim:
             price = t.find('p').text
             price = int(price.replace('$', '').replace(',', '').replace(' ', ''))
-            print('equal trim')
             return price
     
     #get first price if trim not found
@@ -35,15 +32,12 @@ def getMSRP(make, model, trim, year):
             if '$' in t.find('p').text:
                 price = t.find('p').text
                 price = int(price.replace('$', '').replace(',', '').replace(' ', ''))
-                print('MSRP'+str(price))
                 return price
     
 
 def finalValue(Make, Model, Trim, Year, noOwners, mileage, collisions):
-    print(Make, Model, Trim, Year, noOwners, mileage, collisions)
     initVal = getMSRP(Make, Model, Trim, Year)
     if initVal is None:
-        print('missing init val')
         return 0
     date = datetime.date.today()
     age = int(date.strftime("%Y")) - int(year)
@@ -71,7 +65,6 @@ def finalValue(Make, Model, Trim, Year, noOwners, mileage, collisions):
     return adjustedValue
 
 def calcDepreciation(value, step, causeValue, causeLimit, percentage):
-    print(value, step, causeValue, causeLimit, percentage)
     tempValue = value
     tempCauseValue = causeValue
     if causeValue == 0:
@@ -96,21 +89,4 @@ mileage = 32157
 
 vin = '2C3CDZBT5KH524440'
 
-# #FIAT 500 Abarth 2013 83,801 mi listed for $10,995
-# initVal = 22095
-# noOwners = 2
-# collisions = 0
-# year = 2013
-# age = 2022 - year
-# mileage = 83801
-
-# vin = '3C3CFFFH3DT608684'
-
-
-val = finalValue('Dodge', 'Challenger', 'R/T', '2021', noOwners, mileage, collisions)
-print(val)
-
-# apiVal = dollarValueVin3(vin)
-
-# a = getMSRP('dodge', 'challenger', 'r/t', '2021')
-# print(a)
+# val = finalValue('Dodge', 'Challenger', 'R/T', '2021', noOwners, mileage, collisions)
