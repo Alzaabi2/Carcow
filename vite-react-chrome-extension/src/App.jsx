@@ -14,7 +14,7 @@ function App() {
     /*
      * Get current URL
      */
-    //const conditions = ['cars.com/vehicledetail', 'cargurus.com/Cars/inventorylisting/', 'autotrader.com/cars-for-sale/vehicledetails', 'carsdirect.com/used_cars/vehicle-detail', 'edmunds.com']
+    const conditions = ['cars.com/vehicledetail', 'cargurus.com/Cars/inventorylisting/', 'autotrader.com/cars-for-sale/vehicledetails', 'carsdirect.com/used_cars/vehicle-detail', 'edmunds.com']
 
     useEffect(() => {
         const queryInfo = {active: true, lastFocusedWindow: true};
@@ -22,12 +22,14 @@ function App() {
         chrome.tabs && chrome.tabs.query(queryInfo, tabs => {
             const urlCall = tabs[0].url.toLowerCase() //convert to lowercase
             setUrl(urlCall); //set url and reset state
-            if (urlCall.includes('cars.com/vehicledetail')){
-                setIsCars(true) //set isCars to true
-            }
-            // if(conditions.some(element => urlCall.includes(element))){ //check if website is valid (potential edge case if website is something like cars.com.google.com)
+            // if (urlCall.includes('cars.com/vehicledetail')){
             //     setIsCars(true) //set isCars to true
             // }
+            for(let i=0; i<conditions.length; i++) {
+                if(urlCall.includes(conditions[i])) {
+                  setIsCars(true)
+                }
+            }
             
             console.log("new version");
             const parsedURL2 = urlCall.replace(/https:\/\/www\.autotrader\.com\/cars-for-sale\/vehicledetails.xhtml/g, 'constautotraderurl').replace(/\//g, 'slash').replace(/\./g, 'dot').replace(/:/g, 'colum').replace(/\?/g, 'questionmark')
@@ -42,35 +44,41 @@ function App() {
                     setDone (true);
                     setError(null);                
                 })
-                // .catch((error) => {
-                //     // Error
-                //     if (response.error) {
-                //         // The request was made and the server responded with a status code
-                //         // that falls out of the range of 2xx
-                //         console.log(error.response.data);
-                //         console.log(error.response.status);
-                //         console.log(error.response.headers);
-                //     } else if (error.request) {
-                //         // The request was made but no response was received
-                //         // `error.request` is an instance of XMLHttpRequest in the 
-                //         // browser and an instance of
-                //         // http.ClientRequest in node.js
-                //         console.log(error.request);
-                //     } else {
-                //         // Something happened in setting up the request that triggered an Error
-                //         console.log('Error', error.message);
-                //     }
-                //     console.log(error.config)
-                // });  
+                .catch((error) => {
+                    // Error
+                    if (response.error) {
+                        // The request was made and the server responded with a status code
+                        // that falls out of the range of 2xx
+                        console.log("Error out of 2xx Range Found:");
+                        console.log(error.toJSON());
+                        console.log(error.response.data);
+                        console.log(error.response.status);
+                        console.log(error.response.headers);
+                    } else if (error.request) {
+                        // The request was made but no response was received
+                        // `error.request` is an instance of XMLHttpRequest in the 
+                        // browser and an instance of
+                        // http.ClientRequest in node.js
+                        console.log("No Repsonse Received from Request");
+                        console.log(error.toJSON());
+                        console.log(error.request);
+                    } else {
+                        // Something happened in setting up the request that triggered an Error
+                        console.log("Request not sent");
+                        console.log('Error', error.message);
+                    }
+                    console.log(error.toJSON());
+                    console.log(error.config)
+                });  
         });
 
         return () => setIsCars(false) //before next useEffect is created, set isCars to false    
 
     }, [chrome.tabs]);
 
-    if (error) {
-        return alert(error)
-    }
+    // if (error) {
+    //     return alert(error)
+    // }
     // if (!carData) return null;
     if (!done){
         return(

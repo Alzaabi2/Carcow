@@ -102,10 +102,15 @@ def getUrl(url):
     print(lastCar)
     print('tempdata ^ single car v')
     print(singleCar)
+    # Check if last car is not empty
     if lastCar != {}:  
         if lastCar['make'] == singleCar['make'] and lastCar['model'] == singleCar['model'] and lastCar['year'] == singleCar['year']:
-            print('temp')
-            print(tempData)
+            for i in range(len(tempData)):
+                if "https:" not in tempData[i]['imageurl']:
+                    tempData[i]['imageurl'] = "https:" + tempData[i]['imageurl']
+                    # print(topCars)
+                    # print(tempData)
+            print('tempData found and collected')
             return tempData
 
     time3 = time.perf_counter()
@@ -172,7 +177,7 @@ def getUrl(url):
     for i in range(len(topCars)):
         if "https:" not in topCars[i]['imageurl']:
             topCars[i]['imageurl'] = "https:" + topCars[i]['imageurl']
-    print(topCars)
+    # print(topCars)
     return topCars
 
 app.run(host='0.0.0.0', port=8080)
