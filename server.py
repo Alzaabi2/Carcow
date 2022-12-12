@@ -3,11 +3,11 @@ import sys
 import shutil
 
 from flask import Flask, request, jsonify
-from scrapeV1_1 import *
+# from scrapeV1_1 import *
 from rateV1 import *
 from flask import render_template
 from extension import *
-from scrapeV1_7 import ScrapeAlpha, cleanData
+from scrapeV1_7 import *
 app = Flask('app')
 
 

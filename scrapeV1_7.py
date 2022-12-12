@@ -650,7 +650,7 @@ def cleanData(list):
     
 
 # time1 = time.perf_counter()
-ScrapeAlpha('Nissan', 'Altima', '2014', '10003')
+# ScrapeAlpha('Nissan', 'Altima', '2014', '10003')
 # Scrape1('Nissan', 'Altima', '2021', '22201')
 
 # time2 = time.perf_counter()

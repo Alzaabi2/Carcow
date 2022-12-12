@@ -1,8 +1,9 @@
 import mysql.connector 
-# from rateV1 import *
-# from scrapeV1_6_database_mass_search import *
+from rateV1 import *
+from scrapeV1_6_database_mass_search import *
 import os
 from dotenv import load_dotenv
+import re
 
 load_dotenv()
 
@@ -66,7 +67,7 @@ def populateScraped(list):
         if len(result) != 0:
             continue
         
-        # suggested = dollarValueVin4(vin, int(miles[0]))
+        suggested = dollarValueVin4(vin, int(miles[0]))
 
         # print("Model:", model)
         # print("Trim:", trim)
