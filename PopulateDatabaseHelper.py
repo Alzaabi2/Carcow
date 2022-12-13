@@ -52,7 +52,7 @@ def getModels():
         if n == 'AC':
             counter = 1
             group = 2
-        print('group = '+str(group)+'counter = '+str(counter))
+        # print('group = '+str(group)+'counter = '+str(counter))
         try:
             makesSelect = browser.find_element(By.XPATH, '/html/body/section/div[2]/div[1]/section[2]/div[1]/div/div/form[1]/div/div/div[2]/div/select/optgroup['+str(group)+']/option['+str(counter)+']').click()
         except:
