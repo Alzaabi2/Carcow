@@ -52,6 +52,7 @@ def getUrl(url):
     cursor = mydb.cursor(dictionary=True)
 
     time1 = time.perf_counter()
+    totalTime = time.perf_counter()
     url = url.replace('slash', '/')
     url = url.replace('colum', ':')
     url = url.replace('dot', '.')
@@ -178,6 +179,7 @@ def getUrl(url):
         if "https:" not in topCars[i]['imageurl']:
             topCars[i]['imageurl'] = "https:" + topCars[i]['imageurl']
     # print(topCars)
+    print("Total Time Taken: " + str(totalTime))
     return topCars
 
 app.run(host='0.0.0.0', port=8080)

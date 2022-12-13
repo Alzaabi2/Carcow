@@ -11,6 +11,7 @@ function App() {
     const [error, setError] = useState(undefined); //Changed from useState(null)
     const [carData, setCarData] = useState(null);
     const [done, setDone] = useState(undefined);
+    const [long, setLong] = useState(false);
     /*
      * Get current URL
      */
@@ -43,32 +44,38 @@ function App() {
                     setCarData(response.data);
                     setDone (true);
                     setError(null);                
-                })
+                }, {timeout: 3000})
                 .catch((error) => {
                     // Error
-                    if (response.error) {
+                    if (error.response) {
                         // The request was made and the server responded with a status code
                         // that falls out of the range of 2xx
                         console.log("Error out of 2xx Range Found:");
-                        console.log(error.toJSON());
                         console.log(error.response.data);
                         console.log(error.response.status);
                         console.log(error.response.headers);
+                        return (
+                            <div className="App">
+                                <div class="banner">
+                                    <h1><b>CARCOW</b></h1>
+                                </div>
+                                <h3>{error.response.status} Status Error Code</h3>
+                                <p>{error.response.data}</p>
+                            </div>              
+                        );
+
                     } else if (error.request) {
                         // The request was made but no response was received
                         // `error.request` is an instance of XMLHttpRequest in the 
-                        // browser and an instance of
-                        // http.ClientRequest in node.js
+                        // browser and an instance of http.ClientRequest in node.js
                         console.log("No Repsonse Received from Request");
-                        console.log(error.toJSON());
                         console.log(error.request);
                     } else {
                         // Something happened in setting up the request that triggered an Error
                         console.log("Request not sent");
                         console.log('Error', error.message);
                     }
-                    console.log(error.toJSON());
-                    console.log(error.config)
+                    console.log(error.config);
                 });  
         });
 
@@ -93,6 +100,9 @@ function App() {
             </div>
         );
     }
+    // else if (!done && ){
+
+    // }
     else{
         if(isCars){
             return(    
@@ -101,7 +111,7 @@ function App() {
                         <div class="banner">
                             <h1><b>CARCOW</b></h1>
                         </div>
-                        {/* <h2>Click on the Car Info to the Listing</h2><br/> */}
+                        {/* <h2>Click on the car info to go to the listing</h2><br/> */}
                         <table>
                             {carData.map(car=>(                   
                                 <tr>
