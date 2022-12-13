@@ -368,4 +368,8 @@ def getZipData(zipcode):
 
 
 # Scrape3('Jeep', 'Wrangler', '2020', '22043')
+<<<<<<< HEAD
 Scrape3('Nissan', 'Altima', '2014', '10003')
+=======
+# Scrape3('Nissan', 'Altima', '2014', '10003')
+>>>>>>> e2600f3e4d9c0d5b6985d1bcb4c740adba5b7e0e

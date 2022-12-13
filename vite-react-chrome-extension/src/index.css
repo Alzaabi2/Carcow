@@ -6,7 +6,7 @@
 
   color-scheme: light dark;
   color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
+  background-color: #322e2e;
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -15,56 +15,108 @@
   -webkit-text-size-adjust: 100%;
 }
 
-a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
-}
-a:hover {
-  color: #535bf2;
-}
-
 body {
-  margin: 0;
+  margin: 0px;
   display: flex;
   place-items: center;
   min-width: 320px;
-  min-height: 100vh;
+  min-height: 100vh; /*Set Height of Popup Window, Original Value was min-height: 100vh */
 }
 
 h1 {
   font-size: 3.2em;
   line-height: 1.1;
+  text-align: center;
+
 }
 
-button {
-  border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
-  background-color: #1a1a1a;
-  cursor: pointer;
-  transition: border-color 0.25s;
+h2{
+  color:rgb(0, 0, 0);
+  font-size: 1.2em;
+  text-align: center;
 }
-button:hover {
-  border-color: #646cff;
+
+.banner{
+  text-align: center;
+  background: #000000;
+  color: white;
+  font-size: 10px;
+  width: auto;
 }
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
+
+.car-basics{
+  font-size: 12px; 
+  text-align: left;
+  vertical-align: baseline;
 }
+
+.car-stats{
+  display: flex;
+  flex-direction: left;
+}
+.car-price{
+  font-size: 16px;
+}
+
+.car-mileage{
+  font-size: 10px;
+}
+
+.suggested-price{
+  font-size: 13px;
+  text-align: left;
+  white-space: normal;
+}
+
+.suggested-price-good{
+  color: green;
+  text-align: left;
+  font-size: 13px;
+}
+.suggested-price-bad{
+  color: red;
+  font-size: 13px;
+}
+
 
 @media (prefers-color-scheme: light) {
   :root {
-    color: #213547;
-    background-color: #ffffff;
+    background-color: white; 
+  }
+  a {
+    font-weight: 500;
+    color: #000000;
+    text-decoration: inherit;
+    display: block;
   }
   a:hover {
-    color: #747bff;
+    color: #000000;
+  } 
+  table{
+    width: 300px;
+    border-radius: 8px;
+    table-layout: auto;
   }
-  button {
-    background-color: #f9f9f9;
+  td{
+    display: flex;
+    background-color: #bdbdbd;
+    border-left: hidden;
+    border-right: hidden;
+    width: 300px;
+    height: 100px;
+  }
+  td:hover{
+    background-color: rgb(216, 215, 215);
+  }
+
+  .info-display{
+    border-radius: 8px;
+    float: right;
+  }
+  img{
+    float: left;
+    min-width: 40%;
+    max-width: 40%;
+    height: auto;
   }
 }

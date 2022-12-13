@@ -215,7 +215,7 @@ def scrapeTrimPrice(make, model, year, trim):
     url = 'https://www.cars.com/research/audi-a3-2018/specs/'
     
 
-Scrape2('Jeep', 'Wrangler', '2020', '22043')
+# Scrape2('Jeep', 'Wrangler', '2020', '22043')
 # ScrapeVin2('Toyota', 'Camry', '2014', '22043')
 
 
