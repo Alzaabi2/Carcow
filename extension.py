@@ -20,9 +20,7 @@ import http.client
 #cars.com
 #returns car data for car viewed in the browser
 def singleCarData1(url):
-    # print('got url')
     if(url == ''):
-        print('no url')
         return
     #get page html
     page = requests.get(url)
@@ -40,16 +38,16 @@ def singleCarData1(url):
     title = title.split(' ', 3)
     #find make
     make = title[1]
-    # print (make)
+
     #find model
     model = title[2]
-    # print (model)
+
     #find year
     year = title[0]
-    # print(year)
+
     #find trim(optional)
     trim = title[3]
-    # print(trim)
+
 
     #Create and Return a dictionary {make: ..., model: ..., trim: ..., year: ...} for single car
     carEntry = {}
@@ -57,8 +55,6 @@ def singleCarData1(url):
     carEntry['model'] = model
     carEntry['trim'] = trim
     carEntry['year'] = year
-    # print ('ex: ')
-    # print(carEntry)
     ret = '' + make + ' ' + model + ' ' + year
     return carEntry
 
@@ -66,11 +62,9 @@ def singleCarData1(url):
 #returns car data for car viewed in the browser
 def singleCarData2(url):
     if(url == ''):
-        print('no url')
         return
     url = url.replace('alllistingtype', 'allListingType').replace('listingid', 'listingId').replace('makecodelist', 'makeCodeList').replace('modelcodelist', 'modelCodeList').replace('requestid', 'requestId').replace('searchradius', 'searchRadius').replace('marketextension', 'marketExtension').replace('isnewsearch', 'isNewSearch').replace('showac', 'showAc').replace('used', 'USED')
     urlArr = url.split('makeCodeList=')
-    print(urlArr[0])
     temp = urlArr[1]
     urlArr = temp.split('modelCodeList=')
     makeCodeList = urlArr[0]
@@ -92,18 +86,9 @@ def singleCarData2(url):
     state = urlArr[0]
     url = url.replace(state, state.upper())
 
-    # print('\nmake list: '+ makeCodeList +'\n')
-    # print('\nmodel list: '+ modelCodeList +'\n')
-    # print('\ncity list: '+ city +'\n')
-    # print('\nstate list: '+ state +'\n')
-
-    # print('\nurl so far: ' + url + '\n')
-
     #get page html
     page = requests.get(url)
     soup = BeautifulSoup(page.content, 'html.parser')
-
-    print(url)
 
     with open('currentPage.html', 'w', encoding='utf8', newline='') as f:
         f.write(str(soup))
@@ -114,17 +99,17 @@ def singleCarData2(url):
     title = title.split(' ', 4)
     #find make
     make = title[2]
-    # print (make)
+
     #find model
     model = title[3]
-    # print (model)
+
     #find year
     year = title[1]
-    # print(year)
+
     #find trim(optional)
     rawTrim = title[4]
     trim = rawTrim.split('w/')
-    # print(trim)
+
 
     #Create and Return a dictionary {make: ..., model: ..., trim: ..., year: ...} for single car
     carEntry = {}
@@ -132,20 +117,16 @@ def singleCarData2(url):
     carEntry['model'] = model
     carEntry['trim'] = trim[0]
     carEntry['year'] = year
-    # print ('ex: ')
-    # print(carEntry)
     ret = '' + make + ' ' + model + ' ' + year + ' ' + trim[0]
-    # print (ret)
     return carEntry
 
 #cargurus.com
 #returns car data for car viewed in the browser
 def singleCarData3(url):
     if(url == ''):
-        print('no url')
         return
-    #get page html
 
+    #get page html
     chrome_options = Options()
     chrome_options.add_argument("--headless")
     browser = webdriver.Chrome(options=chrome_options, service=Service(ChromeDriverManager().install()))
@@ -154,24 +135,26 @@ def singleCarData3(url):
     
     time.sleep(5)
     soup = BeautifulSoup(browser.page_source, 'html.parser')
-    # print((browser.page_source).encode('utf-8'))
+
     #find title text from class
     title = soup.find('h1', class_='IpF2YF').text
+
     # title = 'h h h h h h '
     title = title.split(' ',4)
+
     #find make
     make = title[1]
-    # print (make)
+
     #find model
     model = title[2]
-    # print (model)
+
     #find year
     year = title[0]
-    # print(year)
+
     #find trim(optional)
     rawTrim = title[3]
     trim = rawTrim.split('-')
-    # print(trim)
+
 
     #Create and Return a dictionary {make: ..., model: ..., trim: ..., year: ...} for single car
     carEntry = {}
@@ -179,17 +162,12 @@ def singleCarData3(url):
     carEntry['model'] = model
     carEntry['trim'] = trim[0]
     carEntry['year'] = year
-    # print ('ex: ')
-    # print(carEntry)
-    # ret = '' + make + ' ' + model + ' ' + year + ' ' + trim[0]
-    # print (ret)
     return carEntry
 
 #edmunds.com
 #returns car data for car viewed in the browser
 def singleCarData4(url):
     if(url == ''):
-        print('no url')
         return
     #get page html
     headers = {'User-Agent': 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/56.0.2924.76 Safari/537.36', "Upgrade-Insecure-Requests": "1","DNT": "1","Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8","Accept-Language": "en-US,en;q=0.5","Accept-Encoding": "gzip, deflate"}
@@ -201,18 +179,19 @@ def singleCarData4(url):
         title = soup.find('h1', class_='not-opaque text-black d-inline-block mb-0 size-24').text
     
     title = title.split(' ', 3)
+
     #find make
     make = title[1]
-    # print (make)
+
     #find model
     model = title[2]
-    # print (model)
+
     #find year
     year = title[0]
-    # print(year)
+
     #find trim(optional)
     trim = soup.find('span', class_='not-opaque text-black').text
-    # print(trim)
+
 
     #Create and Return a dictionary {make: ..., model: ..., trim: ..., year: ...} for single car
     carEntry = {}
@@ -220,43 +199,41 @@ def singleCarData4(url):
     carEntry['model'] = model
     carEntry['trim'] = trim[0]
     carEntry['year'] = year
-    # print ('ex: ')
-    # print(carEntry)
     ret = '' + make + ' ' + model + ' ' + year + ' ' + trim
-    # print (ret)
     return carEntry
 
 #carsdirect.com
 #returns car data for car viewed in the browser
 def singleCarData5(url):
     if(url == ''):
-        print('no url')
         return
+
     #get page html
     headers = {'User-Agent': 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/56.0.2924.76 Safari/537.36', "Upgrade-Insecure-Requests": "1","DNT": "1","Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8","Accept-Language": "en-US,en;q=0.5","Accept-Encoding": "gzip, deflate"}
 
     page = requests.get(url, headers=headers)
     soup = BeautifulSoup(page.content, 'html.parser')
+
     #find title text from class
     title = soup.find('div', class_='top-bar-title-set').find('h1').text
     
     title = title.split(' ', 3)
+
     #find make
     make = title[1]
-    # print (make)
+
     #find model
     model = title[2]
-    # print (model)
+
     #find year
     year = title[0]
-    # print(year)
+
     #find trim(optional)
     t = '?'
     tag_list = soup.find_all('dd')
     for t in tag_list:
         if t.get('itemprop') == 'vehicleConfiguration':
             trim = t.text
-    # print(trim)
 
     #Create and Return a dictionary {make: ..., model: ..., trim: ..., year: ...} for single car
     carEntry = {}
@@ -264,10 +241,7 @@ def singleCarData5(url):
     carEntry['model'] = model
     # carEntry['trim'] = trim[0]
     carEntry['year'] = year
-    # print ('ex: ')
-    # print(carEntry)
     ret = '' + make + ' ' + model + ' ' + year + ' ' + trim
-    # print (ret)
     return carEntry
 
 # singleCarData1('https://www.cars.com/vehicledetail/328daed2-aa5f-4882-bddc-d0bde3601e15')
