@@ -14,7 +14,7 @@
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
     "build": "^0.1.4",
-    "cheerio": "npm:react-native-cheerio",
+    "cheerio": "npm:react-native-cheerio@^1.0.0-rc.4",
     "chrome": "^0.1.0",
     "dotenv-cli": "^6.0.0",
     "filesaver": "^0.0.13",

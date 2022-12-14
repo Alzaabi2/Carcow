@@ -172,12 +172,6 @@ function App() {
     useEffect(() => {
         const queryInfo = {active: true, lastFocusedWindow: true};
         chrome.tabs && chrome.tabs.query(queryInfo, tabs => {
-            if (tabs[0] == null)
-            {
-                console.log(tabs)
-                console.log('url error');
-                return;
-            }
             const urlCall = tabs[0].url.toLowerCase() //convert to lowercase
             setUrl(urlCall); //set url and reset state
             // if (urlCall.includes('cars.com/vehicledetail')){
