@@ -97,13 +97,10 @@ def getModels():
         if n == 'ac':
             counter = 1
             group = 2
-        print('group = '+str(group)+'counter = '+str(counter))
         try:
             makesSelect = browser.find_element(By.XPATH, '/html/body/section/div[2]/div[1]/section[2]/div[1]/div/div/form[1]/div/div/div[2]/div/select/optgroup['+str(group)+']/option['+str(counter)+']').click()
         except:
             print('Not Found: '+'group = '+str(group)+'counter = '+str(counter))
-        # makesInput = Select(makesSelect)
-        # makesInput.select_by_visible_text(n)
         time.sleep(4)
         counter+=1
         soup = BeautifulSoup(browser.page_source, 'html.parser')
