@@ -4,9 +4,51 @@ import $ from "jquery";
 import axios from 'axios';
 import ReactLoading from "react-loading";
 
+const cheerio = require('cheerio')
+const rp = require('request-promise')
+
+async function singleCarData1(url) {
+  try {
+    const html = await rp(url)
+    const $ = cheerio.load(html)
+
+    // find title text from class
+    const titleObj = $('h1.listing-title')
+    if (!titleObj) {
+      titleObj = $('h1.sticky-header-listing-title')
+    }
+    const title = titleObj.text()
+
+    const titleParts = title.split(' ', 3)
+
+    // find make
+    const make = titleParts[1]
+
+    // find model
+    const model = titleParts[2]
+
+    // find year
+    const year = titleParts[0]
+
+    // find trim(optional)
+    const trim = titleParts[3]
+
+    // Create and Return a dictionary {make: ..., model: ..., trim: ..., year: ...} for single car
+    return {
+      make,
+      model,
+      trim,
+      year
+    }
+  } catch (err) {
+    console.error(err)
+  }
+}
+
+
 function App() {
     const [urlCall, setUrl] = useState('');
-    const [isCars, setIsCars] = useState(false);
+    const [validWebsite, setValidWebsite] = useState('');
 
     const [error, setError] = useState(undefined); //Changed from useState(null)
     const [carData, setCarData] = useState(null);
@@ -14,7 +56,7 @@ function App() {
     /*
      * Get current URL
      */
-    const conditions = ['cars.com/vehicledetail', 'cargurus.com/Cars/inventorylisting/', 'autotrader.com/cars-for-sale/vehicledetails', 'carsdirect.com/used_cars/vehicle-detail', 'edmunds.com']
+    const conditions = ['cars.com/vehicledetail', 'autotrader.com/cars-for-sale/vehicledetails', 'cargurus.com/Cars/inventorylisting/', 'edmunds.com', 'carsdirect.com/used_cars/vehicle-detail']
 
     useEffect(() => {
         const queryInfo = {active: true, lastFocusedWindow: true};
@@ -23,15 +65,16 @@ function App() {
             const urlCall = tabs[0].url.toLowerCase() //convert to lowercase
             setUrl(urlCall); //set url and reset state
             // if (urlCall.includes('cars.com/vehicledetail')){
-            //     setIsCars(true) //set isCars to true
+            //     setValidWebsite(website)
             // }
             for(let i=0; i<conditions.length; i++) {
                 if(urlCall.includes(conditions[i])) {
-                  setIsCars(true)
+                  setValidWebsite(conditions[i])
                 }
             }
             
             console.log("new version");
+            
             const parsedURL2 = urlCall.replace(/https:\/\/www\.autotrader\.com\/cars-for-sale\/vehicledetails.xhtml/g, 'constautotraderurl').replace(/\//g, 'slash').replace(/\./g, 'dot').replace(/:/g, 'colum').replace(/\?/g, 'questionmark')
             const parsedURL3 = parsedURL2.split('&')
             console.log(urlCall)
@@ -73,7 +116,7 @@ function App() {
                 });  
         });
 
-        return () => setIsCars(false) //before next useEffect is created, set isCars to false    
+        return () => setValidWebsite('') //before next useEffect is created, set validWebsite to ''    
 
     }, [chrome.tabs]);
 
@@ -95,7 +138,7 @@ function App() {
         );
     }
     else{
-        if(isCars){
+        if(validWebsite != ''){
             return(    
                 <div className="App">
                     <header className="App-header">
