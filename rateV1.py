@@ -102,6 +102,7 @@ def rate2(list):
     ret_list = []
 
     # Ensure that all cars sent to Chrome extension are available
+    print("\nAvailability validation:\n")
     for car in range(len(deals)):
         if len(ret_list) >= 5:
             break
@@ -122,7 +123,7 @@ def rate2(list):
                 available = False
         elif soup.find('div', class_='CDCXWUsedCarBuyPathExpiredListingHeaderText widget') is not None:
             available = False
-        print("\navailable = ", available,)
+        print("available = ", available,)
         if available == True:
             ret_list.append(deals[car])
 

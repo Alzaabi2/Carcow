@@ -80,13 +80,13 @@ def calcDepreciation(value, step, causeValue, causeLimit, percentage):
     
 
 #Dodge Challenger Coupe R/T V8 2019 32,157 mi listed for $26,966
-initVal = 34545
-noOwners = 3
-collisions = 0
-year = 2019
-age = 2022 - year
-mileage = 32157
+# initVal = 34545
+# noOwners = 3
+# collisions = 0
+# year = 2019
+# age = 2022 - year
+# mileage = 32157
 
-vin = '2C3CDZBT5KH524440'
+# vin = '2C3CDZBT5KH524440'
 
 # val = finalValue('Dodge', 'Challenger', 'R/T', '2021', noOwners, mileage, collisions)

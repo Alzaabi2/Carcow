@@ -1,2 +1,2 @@
 make,model,year,Zip
-Kia,Sedona,2021,22201
+Hyundai,Palisade,2020,22201

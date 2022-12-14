@@ -85,7 +85,8 @@ def getUrl(url):
             for i in range(len(tempData)):
                 if "https:" not in tempData[i]['imageurl']:
                     tempData[i]['imageurl'] = "https:" + tempData[i]['imageurl']
-            print("\n2. Same car as last search, return previous output \n")
+            print("\n2. Same car as last search, return previous output.\n")
+            print("\nDone.\n")
             return tempData
 
     time3 = time.perf_counter()
@@ -105,11 +106,12 @@ def getUrl(url):
     # print("Timer4 cleanData():" + str(time5-time4))
     
     rating = rate2(list)
-    print("\n 3. Rating done.\n")
+    print("\n3. Rating of fetched data is done.\n")
     time6 = time.perf_counter()
     # print("Timer5 rate:" + str(time6-time5))
     
     topCars = getTopCars(list, rating)
+    print("\n4. From the list of the rated cars, the top 5 are retrieved, with all relevant data from the database \n")
     time7 = time.perf_counter()
     # print("Timer6 topCars():" + str(time7-time6))
     
@@ -137,6 +139,9 @@ def getUrl(url):
         # print(topCars[i]['imageurl'])
         if "https:" not in topCars[i]['imageurl']:
             topCars[i]['imageurl'] = "https:" + topCars[i]['imageurl']
+    print("\n5. The top 5 cars are returned to Chrome extension.\n")
+    print("\nDone.\n")
+
     return topCars
 
 app.run(host='0.0.0.0', port=8080)
