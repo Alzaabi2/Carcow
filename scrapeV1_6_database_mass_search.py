@@ -19,7 +19,7 @@ import re
 import random
 
 
-#This Version of Scrape will be used to scrape all models across the washington DC area
+#This Version of Scrape will be used to scrape all models across the Washington DC area
 
 
 #Cars.com
@@ -364,7 +364,6 @@ def Scrape2(make, model):
 #cargurus.com
 def Scrape3(make):
     scrapedList = []
-    # year = int(year)
     zipcode = '20001'
     makesRequest = requests.get('https://www.cargurus.com/Cars/api/1.0/carselector/listMakes.action')
     makesList = json.loads(makesRequest.content)['makes']
@@ -422,7 +421,7 @@ def Scrape3(make):
     print(numCars)
     numPages = round(int(numCars.replace(',',''))/15)
     print(numCars + ' - ' + str(numPages))
-    # numPages = 6
+
     with open('cardata3.csv', 'w', encoding='utf8', newline='') as f:
         w = writer(f)
         header = ['Make', 'Model', 'Trim', 'Year', 'Mileage', 'Price', 'VIN', 'url', 'img']
@@ -559,7 +558,7 @@ def Scrape4(make, model):
     # search first 10 pages
     with open('cardata4.csv', 'w', encoding='utf8', newline='') as f:
         w = writer(f)
-        # header = ['Make', 'Model', 'Trim', 'Year', 'Mileage', 'Price', 'VIN', 'url']
+
         header = ['Make', 'Model', 'Trim', 'Year', 'Mileage', 'Price', 'VIN', 'url', 'img']
         w.writerow(header)
         vincount = 0
@@ -569,13 +568,6 @@ def Scrape4(make, model):
             headers = {'User-Agent': 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/56.0.2924.76 Safari/537.36', "Upgrade-Insecure-Requests": "1","DNT": "1","Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8","Accept-Language": "en-US,en;q=0.5","Accept-Encoding": "gzip, deflate"}
 
             page = requests.get(url, headers=headers)
-            # soup = BeautifulSoup(page.content, 'html.parser')
-            # headers = {
-            #     'Accept': 'html',
-            #     'Authorization': 'Basic VTAwMDAwODk4NzQ6U2FpZjIwMDI=',
-            #     # Already added when you pass json= but not when you pass data=
-            #     # 'Content-Type': 'application/json',
-            # }
 
             # json_data = {
             #     'target': 'universal',
@@ -743,7 +735,6 @@ def Scrape5(make, model):
     with open('cardata5.csv', 'w', encoding='utf8', newline='') as f:
         w = writer(f)
         header = ['Make', 'Model', 'Trim', 'Year', 'Mileage', 'Price', 'VIN', 'url', 'img']
-        # header = ['Make', 'Model', 'Year', 'Mileage', 'Price', 'VIN', 'url']
         w.writerow(header)
         vincount = 0
         while url != None:
@@ -836,7 +827,6 @@ def getNextPage2(soup):
         next = page.find('a', id="next_paginate")
     url = 'http://autotrader.com' + str(next.get('href'))
     if url == 'http://autotrader.comNone':
-        # print('no next page')
         return None
 
     return url
@@ -1051,8 +1041,7 @@ def ScrapeAlpha(make, model, year, zipcode):
         l5 = []
 
     scrapedList = l1 + l2 + l3 + l4 + l5
-    # for c in scrapedList:
-    #     print(scrapedList)
+
     print('length = [' + str(len(l1)) + ' + ' + str(len(l2)) + ' + ' + str(len(l3)) + ' + '+ str(len(l4)) + ' + '+ str(len(l5)) + '] = ' + str(len(scrapedList)))
     return scrapedList
 
