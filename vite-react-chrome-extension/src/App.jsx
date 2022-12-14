@@ -11,7 +11,7 @@ function App() {
     const [error, setError] = useState(undefined); //Changed from useState(null)
     const [carData, setCarData] = useState(null);
     const [done, setDone] = useState(undefined);
-    const [long, setLong] = useState(false);
+    const [long, setLong] = useState(undefined);
     /*
      * Get current URL
      */
@@ -44,9 +44,10 @@ function App() {
                     setCarData(response.data);
                     setDone (true);
                     setError(null);                
-                }, {timeout: 3000})
+                }, {timeout: 15000})
                 .catch((error) => {
                     // Error
+                    setLong(true);
                     if (error.response) {
                         // The request was made and the server responded with a status code
                         // that falls out of the range of 2xx
@@ -54,15 +55,6 @@ function App() {
                         console.log(error.response.data);
                         console.log(error.response.status);
                         console.log(error.response.headers);
-                        return (
-                            <div className="App">
-                                <div class="banner">
-                                    <h1><b>CARCOW</b></h1>
-                                </div>
-                                <h3>{error.response.status} Status Error Code</h3>
-                                <p>{error.response.data}</p>
-                            </div>              
-                        );
 
                     } else if (error.request) {
                         // The request was made but no response was received
@@ -87,7 +79,7 @@ function App() {
     //     return alert(error)
     // }
     // if (!carData) return null;
-    if (!done){
+    if (!done && !long){
         return(
             <div className="App">
                 <ReactLoading
@@ -100,8 +92,16 @@ function App() {
             </div>
         );
     }
-    // else if (!done && ){
-
+    // else if (!done && long){
+    //     return (
+    //         <div className="App">
+    //             <div class="banner">
+    //                 <h1><b>CARCOW</b></h1>
+    //             </div>
+    //             <h3>{error.response.status} Status Error Code</h3>
+    //             <p>{error.response.data}</p>
+    //         </div>              
+    //     ); 
     // }
     else{
         if(isCars){
