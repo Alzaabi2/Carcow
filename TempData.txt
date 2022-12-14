@@ -1,6 +1,6 @@
-Make,Model,Year,Mileage,Price,VIN,url
-Dodge,Challenger,2014,"105,458 miles","$12,500",2C3CDYAG6EH262074,https://www.edmunds.com/dodge/challenger/2014/vin/2C3CDYAG6EH262074/?radius=50
-Dodge,Challenger SRT8,2009,"82,263 mi.","$21,500",2B3LJ74W19H524317,http://cars.com/vehicledetail/5681e9e6-433a-44bf-9919-8deaf98a1497/
-Dodge,Challenger SRT8,2013,"100,196 mi.","$23,988",2C3CDYCJ8DH596629,http://cars.com/vehicledetail/3d461520-f61f-433a-9dbe-0a795569db63/
-Dodge,Challenger R/T,2012,"116,537 mi.","$15,995",2C3CDYBT8CH158002,http://cars.com/vehicledetail/8a63a796-2300-41a8-bc34-082831c9a38e/
-Dodge,Challenger R/T,2013,"99,225 mi.","$16,990",2C3CDYBT4DH605037,http://cars.com/vehicledetail/889db00c-a54c-476e-b866-50b279342c30/
+VIN,make,model,year,trim,mileage,price,suggested,url,imageurl
+3MW5U9J01M8B62337,BMW,M340,2021,i xDrive,25001,51500,60119.12,http://cars.com/vehicledetail/a2fafaa4-49a1-47f0-8371-6640f683c91e/,https://platform.cstatic-images.com/xlarge/in/v2/2cf73737-95eb-56e0-806c-0171f757a784/42baa1f8-fd3d-402a-ada9-90404ef0902e/lrDPWEpDDvSEKsw0IN_4MKA5Rhg.jpg
+WBA5U9C07LA379195,BMW,M340,2020,i xDrive,47329,45500,53011.77,http://cars.com/vehicledetail/b1d9df8e-bc24-4ade-afed-08af97c8caae/,https://platform.cstatic-images.com/xlarge/in/v2/3d481e0a-4874-556e-99a2-306447122c0e/508ab041-74ac-4aee-83c6-fbf0a1b1a259/meVsC79K0AdJNsaT59zihaxcmgA.jpg
+WBA5U9C06LA380189,BMW,M340,2020, i xDrive ,50985,45500,52970.19,https://www.carsdirect.com/used_cars/vehicle-detail/ul2166515054/bmw/m340,//cdcssl.ibsrv.net/ibimg/www.carsdirect.com/216/651/505/4/5db28a2d.jpg?w=197&h=148&q=85&mode=1
+WBA5U9C09LA380266,BMW,M340,2020, i xDrive ,39673,46295,53862.37,https://www.carsdirect.com/used_cars/vehicle-detail/ul2165127403/bmw/m340,//cdcssl.ibsrv.net/ibimg/www.carsdirect.com/216/512/740/3/c785c12f.jpg?w=197&h=148&q=85&mode=1
+WBA5U9C08LA380159,BMW,M340,2020,i xDrive,42036,46495,53336.02,http://cars.com/vehicledetail/92548e8a-5d93-4884-bdc2-f27967efda5d/,https://platform.cstatic-images.com/xlarge/in/v2/fc1f6a51-fa30-53a9-ab10-58eec3dac0d9/4cc7ae1c-55d6-4553-8694-246aeab83a18/4P4OHZyikxTL2PGmlL2_7ZqOE24.jpg

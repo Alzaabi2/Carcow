@@ -74,9 +74,9 @@ def main():
     # vinOnly = dollarValueVin3("1GYS4TKJ7FR633162")
     # print("VIN ONLY suggested price: ", vinOnly)
 
-    # miles = 51000
-    # vinAndMiles = dollarValueVin4("W1KUG6EB3LA528856", miles)
-    # print("VIN AND MILEAGE suggested price: ", vinAndMiles)
+    miles = 51000
+    vinAndMiles = dollarValueVin4("W1KUG6EB3LA528856", miles)
+    print("VIN AND MILEAGE suggested price: ", vinAndMiles)
 
     # print("From finalValue:")
     # rating1 = rate(createList())

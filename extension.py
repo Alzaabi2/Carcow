@@ -68,29 +68,29 @@ def singleCarData2(url):
     if(url == ''):
         print('no url')
         return
-    url = url.replace('alllistingtype', 'allListingType').replace('listingid', 'listingId').replace('makecodelist', 'makeCodeList').replace('modelcodelist', 'modelCodeList').replace('requestid', 'requestId').replace('searchradius', 'searchRadius').replace('marketextension', 'marketExtension').replace('isnewsearch', 'isNewSearch').replace('showac', 'showAc').replace('used', 'USED')
-    urlArr = url.split('makeCodeList=')
-    print(urlArr[0])
-    temp = urlArr[1]
-    urlArr = temp.split('modelCodeList=')
-    makeCodeList = urlArr[0]
-    url = url.replace(makeCodeList, makeCodeList.upper())
+    # url = url.replace('alllistingtype', 'allListingType').replace('listingid', 'listingId').replace('makecodelist', 'makeCodeList').replace('modelcodelist', 'modelCodeList').replace('requestid', 'requestId').replace('searchradius', 'searchRadius').replace('marketextension', 'marketExtension').replace('isnewsearch', 'isNewSearch').replace('showac', 'showAc').replace('used', 'USED')
+    # urlArr = url.split('makeCodeList=')
+    # print(urlArr[0])
+    # temp = urlArr[1]
+    # urlArr = temp.split('modelCodeList=')
+    # makeCodeList = urlArr[0]
+    # url = url.replace(makeCodeList, makeCodeList.upper())
 
 
-    temp = urlArr[1]
-    urlArr = temp.split('city=')
-    modelCodeList = urlArr[0]
-    url = url.replace(modelCodeList, modelCodeList.upper())
+    # temp = urlArr[1]
+    # urlArr = temp.split('city=')
+    # modelCodeList = urlArr[0]
+    # url = url.replace(modelCodeList, modelCodeList.upper())
 
-    temp = urlArr[1]
-    urlArr = temp.split('state=')
-    city = urlArr[0]
-    url = url.replace(city, city.capitalize())
+    # temp = urlArr[1]
+    # urlArr = temp.split('state=')
+    # city = urlArr[0]
+    # url = url.replace(city, city.capitalize())
 
-    temp = urlArr[1]
-    urlArr = temp.split('zip=')
-    state = urlArr[0]
-    url = url.replace(state, state.upper())
+    # temp = urlArr[1]
+    # urlArr = temp.split('zip=')
+    # state = urlArr[0]
+    # url = url.replace(state, state.upper())
 
     # print('\nmake list: '+ makeCodeList +'\n')
     # print('\nmodel list: '+ modelCodeList +'\n')
