@@ -15,7 +15,7 @@ function App() {
     /*
      * Get current URL
      */
-    const conditions = ['cars.com/vehicledetail', 'cargurus.com/Cars/inventorylisting/', 'autotrader.com/cars-for-sale/vehicledetails', 'carsdirect.com/used_cars/vehicle-detail', 'edmunds.com']
+    const conditions = ['cars.com/vehicledetail', 'cargurus.com', 'autotrader.com/cars-for-sale/vehicledetails', 'carsdirect.com/used_cars/vehicle-detail', 'edmunds.com']
 
     useEffect(() => {
         const queryInfo = {active: true, lastFocusedWindow: true};
