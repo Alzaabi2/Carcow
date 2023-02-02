@@ -36,7 +36,7 @@ function App() {
             const parsedURL2 = urlCall.replace(/https:\/\/www\.autotrader\.com\/cars-for-sale\/vehicledetails.xhtml/g, 'constautotraderurl').replace(/\//g, 'slash').replace(/\./g, 'dot').replace(/:/g, 'colum').replace(/\?/g, 'questionmark')
             console.log(urlCall)
             console.log(parsedURL2)
-            const fetchURL =  'http://127.0.0.1:8080/getUrl/' + parsedURL2;
+            const fetchURL =  'http://18.207.236.241:8080/getUrl/' + parsedURL2;
             console.log(fetchURL)
             axios.get(fetchURL)
                 .then((response) => {
