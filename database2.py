@@ -1,6 +1,9 @@
 import mysql.connector
 from rateV1 import *
+import os
+from dotenv import load_dotenv
 
+load_dotenv()
 
 
 mydb = mysql.connector.connect(
@@ -31,23 +34,10 @@ def populateScraped():
         model = allWords[0]
         trim = allWords[1]
 
-        print("Model:", model)
-        print("Trim:", trim)
-
-
         cursor.execute("INSERT INTO scraped (VIN, make, model, year, trim, mileage, price, suggested, url, date)VALUES (%s,%s,%s,%s,%s,%s,%s,%s,%s,NOW())", (vin, make, model, year, trim, miles[0], price, suggested, url))
 
     # cursor.execute("INSERT INTO scraped (VIN, make, model, year, trim, mileage, price, suggested, url, date)VALUES (%s,%s,%s,%s,%s,%s,%s,%s,%s,NOW())", ('2C3CDZFJ6LH243418', 'Dodge','Challenger', '2020', 'R/T Scat Pack', '34,873 mi.',"$42,966", '43,000', 'http://cars.com/vehicledetail/fa69f331-94f7-409e-8e3d-660257f51bf9/'))
     mydb.commit()
-
-    # # get vin, make, model, and trim of cars stored within the last 30 days
-    # cursor.execute("SELECT VIN,make,model,trim FROM scraped WHERE DATE_SUB(CURDATE(),INTERVAL 30 DAY) <= DATE(date)")
-    # test = cursor.fetchone()
-    # print(test)
-
-
-
-populateScraped()
 
 
 

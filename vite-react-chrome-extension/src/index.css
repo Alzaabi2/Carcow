@@ -26,29 +26,31 @@ body {
 h1 {
   font-size: 3.2em;
   line-height: 1.1;
+  text-align: center;
 
 }
 
 h2{
   color:rgb(0, 0, 0);
   font-size: 1.2em;
+  text-align: center;
 }
 
 .banner{
-  margin: 0px;
-  padding: 0px;
   text-align: center;
   background: #000000;
   color: white;
   font-size: 10px;
-  width: 100%;
+  width: auto;
 }
 
 .car-basics{
   font-size: 12px; 
+  text-align: left;
+  vertical-align: baseline;
 }
 
-.display-container{
+.car-stats{
   display: flex;
   flex-direction: left;
 }
@@ -60,14 +62,26 @@ h2{
   font-size: 10px;
 }
 
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
+.suggested-price{
+  font-size: 13px;
+  text-align: left;
+  white-space: normal;
 }
+
+.suggested-price-good{
+  color: green;
+  text-align: left;
+  font-size: 13px;
+}
+.suggested-price-bad{
+  color: red;
+  font-size: 13px;
+}
+
 
 @media (prefers-color-scheme: light) {
   :root {
-    background-color: #ffffff;
+    background-color: white; 
   }
   a {
     font-weight: 500;
@@ -79,24 +93,30 @@ button:focus-visible {
     color: #000000;
   } 
   table{
-    width: 170px;
+    width: 300px;
     border-radius: 8px;
-    table-layout: fixed;
+    table-layout: auto;
   }
+  td{
+    display: flex;
+    background-color: #bdbdbd;
+    border-left: hidden;
+    border-right: hidden;
+    width: 300px;
+    height: 100px;
+  }
+  td:hover{
+    background-color: rgb(216, 215, 215);
+  }
+
   .info-display{
-    background-color: rgb(211, 200, 200);
     border-radius: 8px;
-    text-align: left;
-    border-left: none;
-    border-right: none;
-    width: 140px;
-    height: 110px;
-    overflow: hidden;
-  }
-  .info-display:hover{
-    background-color: #2d2d2d00;
+    float: right;
   }
   img{
-    border-radius: 8px;
+    float: left;
+    min-width: 40%;
+    max-width: 40%;
+    height: auto;
   }
 }
