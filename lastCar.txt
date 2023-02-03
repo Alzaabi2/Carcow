@@ -1,2 +1,2 @@
 make,model,year,Zip
-BMW,430,2021,22201
+Ford,F-250,2022,22201
