@@ -70,19 +70,29 @@ function App() {
     //Variable to determine if preferences form popup should be open or not
     const[preferences, setPreferences] = useState (false);
 
-    //Variables to manage each Slider Component
-    //const [node, setNode] = useState(0)
-    const [node2, setNode2] = useState(0)
-    const [node3, setNode3] = useState(0)
-    //const [node4, setNode4] = useState(0)
-    const [node5, setNode5] = useState(0)
-    const [node6, setNode6] = useState(0)
+    //Variables to manage each Slider Component and their values
+    const [pricePriority, setpricePriority] = useState(0)
+    const [mileagePriority, setmileagePriority] = useState(0)
+    const [yearPriority, setyearPriority] = useState(0)
+    const [trimPriority, settrimPriority] = useState(0)
 
-    const [prefPrice, setprefPrice] = useState(0)
-    const [prefMileage, setprefMileage] = useState(0)
-    const [prefYear, setprefYear] = useState(0)
-    const [prefTrim, setprefTrim] = useState(0)
 
+    const SliderChange = () => {
+        console.log("Old Price Priority: " + pricePriority);
+        console.log("Old Mileage Priority: " + mileagePriority);
+        console.log("Old Year Priority: " + yearPriority);
+        console.log("Old Trim Priority: " + trimPriority);
+        (event) => setpricePriority(event.target.value);
+        (event2) => setmileagePriority(event2.target.value);
+        (event3) => setyearPriority(event3.target.value);
+        (event4) => settrimPriority (event4.target.value);
+        console.log("New Price Priority: " + pricePriority);
+        console.log("New Mileage Priority: " + mileagePriority);
+        console.log("New Year Priority: " + yearPriority);
+        console.log("New Trim Priority: " + trimPriority);
+    };
+
+        // + '/preferences/' + pricePriority + '/' + mileagePriority + '/' + yearPriority + '/' + trimPriority + '/'
 
     /*
      * Get current URL
@@ -116,7 +126,7 @@ function App() {
             //Previous server IP: 18.207.236.241:8080
             //Changed server IP to: 172.26.142.227:8080
             //Now changed to: localhost:8080
-            const fetchURL =  'http://localhost:8080/getUrl/' + parsedURL2 + '/preferences/' + prefPrice + '/' + prefMileage + '/' + prefYear + '/' + prefTrim + '/';
+            const fetchURL =  'http://localhost:8080/getUrl/' + parsedURL2;
             console.log(fetchURL)
             axios.get(fetchURL)
                 .then((response) => {
@@ -155,6 +165,42 @@ function App() {
 
     }, [chrome.tabs]);
 
+    useEffect(() => {
+        const fetchPreferences =  'http://localhost:8080/getPreferences/' + pricePriority + '/' + mileagePriority + '/' + yearPriority + '/' + trimPriority + '/';
+            console.log(fetchPreferences)
+            axios.get(fetchPreferences)
+                .then((response) => {
+                    console.log("Response: " + response)
+                    setCarData(response.data);
+                    setDone (true);         
+                }, {timeout: 15000})
+                .catch((error) => {
+                    // Error
+                    setTime(true);
+                    if (error.response) {
+                        // The request was made and the server responded with a status code
+                        // that falls out of the range of 2xx
+                        console.log("Error out of 2xx Range Found:");
+                        console.log(error.response.data);
+                        console.log(error.response.status);
+                        console.log(error.response.headers);
+
+                    } else if (error.request) {
+                        // The request was made but no response was received
+                        // `error.request` is an instance of XMLHttpRequest in the 
+                        // browser and an instance of http.ClientRequest in node.js
+                        console.log("No Repsonse Received from Request");
+                        console.log(error.request);
+                    } else {
+                        // Something happened in setting up the request that triggered an Error
+                        console.log("Request not sent");
+                        console.log('Error', error.message);
+                    }
+                    console.log(error.config);
+                });  
+    }, []);
+
+    //pricePriority, mileagePriority, yearPriority, trimPriority
     // if (error) {
     //     return alert(error)
     // }
@@ -168,24 +214,6 @@ function App() {
     //Close Preferences Form
     const preferenceFormClose = () => {
         setPreferences(!preferences);
-    };
-
-    const SliderChange = () => {
-        const handlePriceSliderChange = (event) => {
-          setprefPrice(event.target.value);
-        };
-      
-        const handleMileageSliderChange = (event) => {
-          setprefMileage(event.target.value);
-        };
-      
-        const handleYearSliderChange = (event) => {
-          setprefYear(event.target.value);
-        };
-
-        const handleTrimSliderChange = (event) => {
-            setprefTrim (event.target.value);
-        }
     };
 
     if (!done && !time){
@@ -213,21 +241,6 @@ function App() {
     //     ); 
     // }
     else{
-        if (isCars === 'null'){
-            return (
-                <>
-                    console.log('No Car Data Found')
-                    <div className="App">
-                        <header className="App-header">
-                            <div class="banner">
-                                <h1><b>WHEEL DEAL</b></h1>
-                            </div>
-                            <h2>Oops! No Car Data Found, Please Try Again.</h2>
-                        </header>
-                    </div> 
-                </>           
-            );
-        }
         if(isCars){
             return(  
                 <div className="App">
@@ -255,8 +268,7 @@ function App() {
                                                 <div class="car-stats">
                                                     &nbsp; <div class="car-price">&nbsp;${car.price} </div>&nbsp; &nbsp;<div class="car-mileage"> {car.mileage}mi</div>
                                                 </div>
-                                                <div class="car-stats">{Math.round(100*(1 - (car.price / car.suggested))) > 0 ? <div class="suggested-price-good">&nbsp;Below Market by {Math.round(100*(1 - (car.price / car.suggested)))}%</div> : <div class="suggested-price-bad"> &nbsp;Above Market by {Math.round(-100*(1 - (car.price / car.suggested)))}%</div>}</div>
-                                                
+                                                <div class="car-stats">{Math.round(100*(1 - (car.price / car.suggested))) > 0 ? <div class="suggested-price-good">&nbsp;Below Market by {Math.round(100*(1 - (car.price / car.suggested)))}%</div> : <div class="suggested-price-bad"> &nbsp;Above Market by {Math.round(-100*(1 - (car.price / car.suggested)))}%</div>}</div>                                              
                                             </a>
                                         </div>
                                     </td>
@@ -269,20 +281,20 @@ function App() {
                         {preferences?
                         <div className="popup">
                             <div>
-                                <h3>Price </h3><input type='range' className={node2<5 ? 'low': 'high'} min='0' max='10' step='1' value={node2} onChange={(e)=>setNode2(e.target.value)}/>
-                                <h1>{node2}</h1>
+                                <h3>Price </h3><input type='range' className={pricePriority<5 ? 'low': 'high'} min='0' max='10' step='1' value={pricePriority} onChange={(e) => setpricePriority(e.target.value)}/>
+                                <h1>{pricePriority}</h1>
                             </div>
                             <div>
-                                <h3>Mileage </h3><input type='range' className={node3<5 ? 'low': 'high'} min='0' max='10' step='1' value={node3} onChange={(e)=>setNode3(e.target.value)}/>
-                                <h1>{node3}</h1>
+                                <h3>Mileage </h3><input type='range' className={mileagePriority<5 ? 'low': 'high'} min='0' max='10' step='1' value={mileagePriority} onChange={(e) => setmileagePriority(e.target.value)}/>
+                                <h1>{mileagePriority}</h1>
                             </div>
                             <div>
-                                <h3>Year </h3><input type='range' className={node5<5 ? 'low': 'high'} min='0' max='10' step='1' value={node5} onChange={(e)=>setNode5(e.target.value)}/>
-                                <h1>{node5}</h1>
+                                <h3>Year </h3><input type='range' className={yearPriority<5 ? 'low': 'high'} min='0' max='10' step='1' value={yearPriority} onChange={(e) => setyearPriority(e.target.value)}/>
+                                <h1>{yearPriority}</h1>
                             </div>
                             <div>
-                                <h3>Trim </h3><input type='range' className={node6<5 ? 'low': 'high'} min='0' max='10' step='1' value={node6} onChange={(e)=>setNode6(e.target.value)}/>
-                                <h1>{node6}</h1>
+                                <h3>Trim </h3><input type='range' className={trimPriority<5 ? 'low': 'high'} min='0' max='10' step='1' value={trimPriority} onChange={(e) => settrimPriority(e.target.value)}/>
+                                <h1>{trimPriority}</h1>
                             </div>
                             <div className="submit">
                                 <button onClick={SliderChange}>Apply Preferences</button>
