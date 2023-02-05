@@ -195,19 +195,19 @@ function App() {
                 const parsedURL2 = urlCall.replace(/\//g, 'slash').replace(/\./g, 'dot').replace(/:/g, 'colum').replace(/\?/g, 'questionmark')
                 console.log(urlCall)
                 console.log(parsedURL2)
-                const fetchURL =  'http://127.0.0.1:8080/getUrl/' + parsedURL2;
+                const fetchURL =  'http://18.207.236.241:8080/getUrl/' + parsedURL2;
                 console.log(fetchURL)
             }
             else if(siteID == 1){
                 const data = singleCarData1(url)
-                const fetchURL =  'http://127.0.0.1:8080/getCarData/' + data.make + '/' + data.model + '/' + data.year + '/' + data.zip;
+                const fetchURL =  'http://18.207.236.241:8080/getCarData/' + data.make + '/' + data.model + '/' + data.year + '/' + data.zip;
             }else if(siteID == 2){
                 const data = singleCarData2(url)
-                const fetchURL =  'http://127.0.0.1:8080/getCarData/' + data.make + '/' + data.model + '/' + data.year + '/' + data.zip;
+                const fetchURL =  'http://18.207.236.241:8080/getCarData/' + data.make + '/' + data.model + '/' + data.year + '/' + data.zip;
 
             }else if(siteID == 4){
                 const data = singleCarData4(url)
-                const fetchURL =  'http://127.0.0.1:8080/getCarData/' + data.make + '/' + data.model + '/' + data.year + '/' + data.zip;
+                const fetchURL =  'http://18.207.236.241:8080/getCarData/' + data.make + '/' + data.model + '/' + data.year + '/' + data.zip;
             }else{
                 return;
             }
@@ -218,9 +218,9 @@ function App() {
             // const parsedURL3 = parsedURL2.split('&')
             // console.log(urlCall)
             // console.log(parsedURL2)
-            // const fetchURL =  'http://127.0.0.1:8080/getUrl/' + parsedURL3[0];
+            // const fetchURL =  'http://18.207.236.241:8080/getUrl/' + parsedURL3[0];
             // console.log(fetchURL)
-            // const fetchURL =  'http://127.0.0.1:8080/scrape/' + response.make + '/' + response.model + '/' + response.year + '/20001'
+            // const fetchURL =  'http://18.207.236.241:8080/scrape/' + response.make + '/' + response.model + '/' + response.year + '/20001'
 
             axios.get(fetchURL)
                 .then((response) => {
