@@ -144,4 +144,54 @@ def getUrl(url):
 
     return topCars
 
+@app.route('/getPreferences/<string:pricePriority>/<string:mileagePriority>/<string:yearPriority>/<string:trimPriority>')
+def getPreferences(pricePriority, mileagePriority, yearPriority, trimPriority):
+    cursor = mydb.cursor(dictionary=True)
+
+    with open('lastCar.txt', 'r') as f:
+        reader = csv.DictReader(f)
+        for row in reader:
+            lastCar = row
+    
+    cursor.execute("SELECT * FROM scraped WHERE model = %s AND (searchID IS NULL OR searchID = %s) LIMIT 10", (lastCar['model'], 'available'))
+    
+    list = cursor.fetchall()
+    
+
+    #TO-DO
+    #color = colorRating(list, color, colorRate)
+    #distance = distanceRating(list, distanceRate)
+
+
+    price = priceRating(list)
+    mileage = mileageRating(list)
+    year = yearRating(list, lastCar['year'])
+    trim = trimRating(list, trim)
+
+    vin_dict = {}
+    
+    for vin, price_rating in price:
+        vin_dict[vin] = {"price": price_rating}
+    
+    for vin, mile_rating in mileage:
+        if vin in vin_dict:
+            vin_dict[vin]["mileage"] = mile_rating
+    
+    for vin, year_rating in year:
+        if vin in vin_dict:
+            vin_dict[vin]["year"] = year_rating
+    
+    for vin, trim_rating in trim:
+        if vin in vin_dict:
+            vin_dict[vin]["trim"] = trim_rating
+    
+    combined_list = [(vin, vin_dict[vin]["price"], vin_dict[vin]["mileage"], vin_dict[vin]["year"], vin_dict[vin]["trim"]) for vin in vin_dict]
+
+    
+    rating = preferenceRate(combined_list, pricePriority, mileagePriority, yearPriority, trimPriority)
+
+    
+
+getPreferences(8,5,6,"SEL")
+
 app.run(host='0.0.0.0', port=8080)

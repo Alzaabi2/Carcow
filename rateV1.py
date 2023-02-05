@@ -141,6 +141,7 @@ def getTopCars(car_list, deals):
             if(c['VIN'] == deals[n][1] and c['price'] == deals[n][3]):
                 topCars.append(c)
                 found = True
+                
     return topCars
 
 ### Call Car Utils API with both VIN and mileage,
@@ -216,3 +217,158 @@ def dollarValueVin4(vin, mileage):
     print("ABOVE:", above, "\n\n")
     time.sleep(1)
     return below
+
+
+def preferenceRate(combined_list, pricePriority, mileagePriority, yearPriority, trimPriority):
+    deals = []
+    for n in range(len(combined_list)):
+        found = False
+        for c in car_list:
+            if found == True:
+                continue
+            if(c['VIN'] == deals[n][1] and c['price'] == deals[n][3]):
+                topCars.append(c)
+                found = True
+    return topCars
+
+
+
+#def colorRating(list, color, colorRate):
+#def distanceRating(list, distanceRate):
+
+def priceRating(list):
+    initScore = []
+    deals = []
+
+    if list is None:
+        return []
+    count = 1
+
+    for i in range(len(list)):
+        price = list[i]['price']
+        vin   = list[i]['VIN']
+
+        price = price.replace(',', '')
+        price = price.replace('$', '')
+        price = price.replace(' ', '')
+
+        suggested = list[i]['suggested']
+        if suggested == '0':
+            continue
+
+        try:
+            l = float(price)/float(suggested) #metric for rating deal
+        except: 
+            l == 'No Ratio'
+
+        url = list[i]['url']
+        
+        if i == 0:
+            minScore = l
+        else:
+            if l < minScore:
+                minScore = l
+        
+
+        row = (str(count), vin,l,price,url)
+        count += 1
+        initScore.append(row)
+    
+    for i in range(len(initScore)):
+        priceRating = minScore / initScore[i][2]
+
+        row = (initScore[i][1], priceRating)
+        deals.append(row)
+
+    return deals
+
+
+def mileageRating(list):
+    initScore = []
+    deals = []
+
+    if list is None:
+        return []
+    count = 1
+
+    for i in range(len(list)):
+        miles = list[i]['mileage']
+        vin   = list[i]['VIN']
+
+        
+
+        url = list[i]['url']
+        
+        if i == 0:
+            maxMiles = int(miles)
+        else:
+            if int(miles) > maxMiles:
+                maxMiles = int(miles)
+                
+        
+
+        row = (str(count), vin, miles, url)
+        count += 1
+        initScore.append(row)
+    
+    for i in range(len(initScore)):
+        mileRating = 1 - (int(initScore[i][2]) / int(maxMiles))
+
+        row = (initScore[i][1], mileRating)
+        deals.append(row)
+
+    return deals
+
+def yearRating(list, year):
+    initScore = []
+    deals = []
+    year = int(year)
+
+    if list is None:
+        return []
+
+    for i in range(len(list)):
+        curyear = list[i]['year']
+        vin   = list[i]['VIN']
+
+        url = list[i]['url']
+        
+        curyear = int(curyear)
+
+        if curyear == year:
+            yearRate = 1
+        elif curyear - 1 == year or curyear + 1 == year:
+            yearRate = 0.75
+        else:
+            yearRate = 1 / abs(int(curyear) - int(year))
+
+        row = (vin, yearRate)
+
+        deals.append(row)
+
+    return deals
+
+def trimRating(list, trim):
+    initScore = []
+    deals = []
+
+    if list is None:
+        return []
+
+    for i in range(len(list)):
+        currtrim = list[i]['trim']
+        vin   = list[i]['VIN']
+
+        url = list[i]['url']
+        
+        if currtrim.upper() == trim.upper():
+            trimRate = 1
+        else:
+            trimRate = 0
+
+        row = (vin, trimRate)
+
+        deals.append(row)
+
+    return deals    
+    
