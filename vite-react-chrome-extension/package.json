@@ -14,18 +14,27 @@
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
     "build": "^0.1.4",
+    "cheerio": "npm:react-native-cheerio",
     "chrome": "^0.1.0",
     "dotenv-cli": "^6.0.0",
+    "filesaver": "^0.0.13",
+    "FileSaver": "^0.10.0",
     "jquery": "^3.6.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "request": "^2.88.2",
+    "request-promise": "^4.2.6",
+    "selenium-manager": "^0.4.3",
+    "selenium-webdriver": "^4.7.1",
     "web-vitals": "^2.1.4",
     "yarn": "^1.22.19"
   },
   "devDependencies": {
+    "@types/cheerio": "^0.22.31",
     "@types/react": "^18.0.22",
     "@types/react-dom": "^18.0.7",
     "@vitejs/plugin-react": "^2.2.0",
+    "chromedriver": "^108.0.0",
     "vite": "^3.2.4"
   }
 }
