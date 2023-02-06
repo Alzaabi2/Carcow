@@ -7,7 +7,7 @@ import cheerio from 'cheerio';
 
 //cars.com
 async function singleCarData1(url) {
-    axios.get(url)
+    const carData = await axios.get(url)
     .then((response) => {
         // Load the HTML into cheerio
         var $ = cheerio.load(response.data);
@@ -42,21 +42,24 @@ async function singleCarData1(url) {
         
         var model = titleParts[2];
         var trim = titleParts[3];
-
+        // console.log(`Year: ${year}`);
+        // console.log(`Make: ${make}`);
+        // console.log(`Model: ${model}`);
+        // console.log(`Trim: ${trim}`);
+        return {year, make, model, trim}
         // Print the scraped data
-        console.log(`Year: ${year}`);
-        console.log(`Make: ${make}`);
-        console.log(`Model: ${model}`);
-        console.log(`Trim: ${trim}`);
+        
     })
     .catch((error) => {
         console.error(error);
     });
+
+    return carData
 }
 
 //autotrader
 async function singleCarData2(url) {
-    axios.get(url)
+    const carData = await axios.get(url)
     .then((response) => {
         // Load the HTML into cheerio
         var $ = cheerio.load(response.data);
@@ -98,6 +101,7 @@ async function singleCarData2(url) {
         console.log(`Year: ${year}`);
         console.log(`Make: ${make}`);
         console.log(`Model: ${model}`);
+        return {year, make, model, trim}
     })
     .catch((error) => {
         console.error(error);
@@ -106,7 +110,7 @@ async function singleCarData2(url) {
 
 //edmunds
 async function singleCarData4(url) {
-    axios.get(url)
+    const carData = await axios.get(url)
     .then((response) => {
         // Load the HTML into cheerio
         var $ = cheerio.load(response.data);
@@ -117,11 +121,12 @@ async function singleCarData4(url) {
 
         // Split the title into its parts (year, make, model, trim)
         var titleParts = title.split(' ');
+        console.log(titleParts)
         var zip = 20001
         // Extract the year, make, model, and trim from the title
         var year = titleParts[0];
         var make = titleParts[1];
-        
+        if(titleParts[1])
         //special case for tesla:
         if (make.toLowerCase() == 'tesla'){
             if (model.toLowerCase().replace(' ', '') == 'model'){
@@ -151,6 +156,8 @@ async function singleCarData4(url) {
         console.log(`Make: ${make}`);
         console.log(`Model: ${model}`);
         console.log(`Trim: ${trim}`);
+        return {year, make, model, trim}
+
     })
     .catch((error) => {
         console.error(error);
@@ -159,19 +166,22 @@ async function singleCarData4(url) {
 
 function App() {
     const [urlCall, setUrl] = useState('');
-    const [validWebsite, setValidWebsite] = useState('');
+    const [isCars, setIsCars] = useState(false);
 
     const [error, setError] = useState(undefined); //Changed from useState(null)
     const [carData, setCarData] = useState(null);
     const [done, setDone] = useState(undefined);
+    const [long, setLong] = useState(undefined);
     /*
      * Get current URL
      */
-    const conditions = ['cars.com/vehicledetail', 'autotrader.com/cars-for-sale/vehicledetails', 'cargurus.com/Cars/inventorylisting/', 'edmunds.com', 'carsdirect.com/used_cars/vehicle-detail']
+    const conditions = ['cars.com/vehicledetail', 'autotrader.com/cars-for-sale/vehicledetails', 'cargurus.com/cars', 'edmunds.com', 'carsdirect.com/used_cars/vehicle-detail']
 
-    useEffect(() => {
+
+    useEffect(async () => {
         const queryInfo = {active: true, lastFocusedWindow: true};
-        chrome.tabs && chrome.tabs.query(queryInfo, tabs => {
+
+        chrome.tabs && chrome.tabs.query(queryInfo, async tabs => {
             if (tabs[0] == null)
             {
                 console.log(tabs)
@@ -181,83 +191,77 @@ function App() {
             const urlCall = tabs[0].url.toLowerCase() //convert to lowercase
             setUrl(urlCall); //set url and reset state
             // if (urlCall.includes('cars.com/vehicledetail')){
-            //     setValidWebsite(website)
+            //     setIsCars(true) //set isCars to true
             // }
             var siteID = -1
             for(let i=0; i<conditions.length; i++) {
                 if(urlCall.includes(conditions[i])) {
-                  setValidWebsite(conditions[i])
+                  setIsCars(true)
                   siteID = i + 1
                 }
             }
-            
+
+
             if(siteID == 3 || siteID == 5){
-                const parsedURL2 = urlCall.replace(/\//g, 'slash').replace(/\./g, 'dot').replace(/:/g, 'colum').replace(/\?/g, 'questionmark')
+                const parsedURL2 = urlCall.replace(/https:\/\/www\.autotrader\.com\/cars-for-sale\/vehicledetails.xhtml/g, 'constautotraderurl').replace(/\//g, 'slash').replace(/\./g, 'dot').replace(/:/g, 'colum').replace(/\?/g, 'questionmark')
                 console.log(urlCall)
                 console.log(parsedURL2)
-                const fetchURL =  'http://18.207.236.241:8080/getUrl/' + parsedURL2;
-                console.log(fetchURL)
+                var fetchURL =  'http://18.207.236.241:8080/getUrl/' + parsedURL2;
+                // console.log(fetchURL)
             }
             else if(siteID == 1){
-                const data = singleCarData1(url)
-                const fetchURL =  'http://18.207.236.241:8080/getCarData/' + data.make + '/' + data.model + '/' + data.year + '/' + data.zip;
+                const data =  await singleCarData1(urlCall)
+                console.log("returning: "+data.make)
+                console.log(data.model)
+                console.log(data.year)
+                console.log(data.trim)
+                var fetchURL =  'http://18.207.236.241:8080/getCarData/' + data.make + '/' + data.model + '/' + data.year + '/22201';
             }else if(siteID == 2){
-                const data = singleCarData2(url)
-                const fetchURL =  'http://18.207.236.241:8080/getCarData/' + data.make + '/' + data.model + '/' + data.year + '/' + data.zip;
+                const data = await singleCarData2(urlCall)
+                var fetchURL =  'http://18.207.236.241:8080/getCarData/' + data.make + '/' + data.model + '/' + data.year + '/22201';
 
             }else if(siteID == 4){
-                const data = singleCarData4(url)
-                const fetchURL =  'http://18.207.236.241:8080/getCarData/' + data.make + '/' + data.model + '/' + data.year + '/' + data.zip;
-            }else{
-                return;
+                const data = await singleCarData4(urlCall)
+                var fetchURL =  'http://18.207.236.241:8080/getCarData/' + data.make + '/' + data.model + '/' + data.year + '/22201';
             }
-
-            // console.log("new version");
             
-            // const parsedURL2 = urlCall.replace(/https:\/\/www\.autotrader\.com\/cars-for-sale\/vehicledetails.xhtml/g, 'constautotraderurl').replace(/\//g, 'slash').replace(/\./g, 'dot').replace(/:/g, 'colum').replace(/\?/g, 'questionmark')
-            // const parsedURL3 = parsedURL2.split('&')
-            // console.log(urlCall)
-            // console.log(parsedURL2)
-            // const fetchURL =  'http://18.207.236.241:8080/getUrl/' + parsedURL3[0];
-            // console.log(fetchURL)
-            // const fetchURL =  'http://18.207.236.241:8080/scrape/' + response.make + '/' + response.model + '/' + response.year + '/20001'
 
+
+            console.log(fetchURL)
             axios.get(fetchURL)
                 .then((response) => {
-                    console.log("Response: " + response)
+                    console.log("Response: ",response)
                     setCarData(response.data);
                     setDone (true);
                     setError(null);                
-                })
+                }, {timeout: 15000})
                 .catch((error) => {
                     // Error
-                    if (response.error) {
+                    setLong(true);
+                    if (error.response) {
                         // The request was made and the server responded with a status code
                         // that falls out of the range of 2xx
                         console.log("Error out of 2xx Range Found:");
-                        console.log(error.toJSON());
                         console.log(error.response.data);
                         console.log(error.response.status);
                         console.log(error.response.headers);
+
                     } else if (error.request) {
                         // The request was made but no response was received
                         // `error.request` is an instance of XMLHttpRequest in the 
-                        // browser and an instance of
-                        // http.ClientRequest in node.js
+                        // browser and an instance of http.ClientRequest in node.js
                         console.log("No Repsonse Received from Request");
-                        console.log(error.toJSON());
                         console.log(error.request);
                     } else {
                         // Something happened in setting up the request that triggered an Error
                         console.log("Request not sent");
                         console.log('Error', error.message);
                     }
-                    console.log(error.toJSON());
-                    console.log(error.config)
+                    console.log(error.config);
                 });  
         });
 
-        return () => setValidWebsite('') //before next useEffect is created, set validWebsite to ''    
+        return () => setIsCars(false) //before next useEffect is created, set isCars to false    
 
     }, [chrome.tabs]);
 
@@ -265,7 +269,7 @@ function App() {
     //     return alert(error)
     // }
     // if (!carData) return null;
-    if (!done){
+    if (!done && !long){
         return(
             <div className="App">
                 <ReactLoading
@@ -278,20 +282,31 @@ function App() {
             </div>
         );
     }
+    // else if (!done && long){
+    //     return (
+    //         <div className="App">
+    //             <div class="banner">
+    //                 <h1><b>CARCOW</b></h1>
+    //             </div>
+    //             <h3>{error.response.status} Status Error Code</h3>
+    //             <p>{error.response.data}</p>
+    //         </div>              
+    //     ); 
+    // }
     else{
-        if(validWebsite != ''){
+        if(isCars){
             return(    
                 <div className="App">
                     <header className="App-header">
                         <div class="banner">
                             <h1><b>CARCOW</b></h1>
                         </div>
-                        {/* <h2>Click on the Car Info to the Listing</h2><br/> */}
+                        {/* <h2>Click on the car info to go to the listing</h2><br/> */}
                         <table>
                             {carData.map(car=>(                   
                                 <tr>
                                     <td>
-                                        <img src={car.imageurl} alt="Image Not Found"/>
+                                        {/* <img src={car.imageurl} alt="Image Not Found"/> */}
                                         <div class="info-display">
                                             <a href = {car.url} target="_blank">
                                                 <div class="car-basics">&nbsp;&nbsp;{car.year} {car.make} {car.model} {car.trim}</div>
