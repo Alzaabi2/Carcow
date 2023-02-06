@@ -144,9 +144,11 @@ def getUrl(url):
 
     return topCars
 
-@app.route('/getPreferences/<string:pricePriority>/<string:mileagePriority>/<string:yearPriority>/<string:trimPriority>')
-def getPreferences(pricePriority, mileagePriority, yearPriority, trimPriority):
+@app.route('/getPreferences/<int:pricePriority>/<int:mileagePriority>/<int:yearPriority>/<string:trim>/<int:trimPriority>')
+def getPreferences(pricePriority, mileagePriority, yearPriority, trim, trimPriority):
     cursor = mydb.cursor(dictionary=True)
+
+    print(pricePriority, mileagePriority, yearPriority, trim, trimPriority)
 
     with open('lastCar.txt', 'r') as f:
         reader = csv.DictReader(f)
@@ -157,6 +159,7 @@ def getPreferences(pricePriority, mileagePriority, yearPriority, trimPriority):
     
     list = cursor.fetchall()
     
+    # print(list, "\n")
 
     #TO-DO
     #color = colorRating(list, color, colorRate)
@@ -166,17 +169,17 @@ def getPreferences(pricePriority, mileagePriority, yearPriority, trimPriority):
     price = priceRating(list)
     mileage = mileageRating(list)
     year = yearRating(list, lastCar['year'])
-    trim = trimRating(list, trim)
+    trim = trimRating(list, trim.replace('_', ' '))
 
     vin_dict = {}
     
-    for vin, price_rating in price:
-        vin_dict[vin] = {"price": price_rating}
+    for vin, price_rating, url in price:
+        vin_dict[vin] = {"price": price_rating, "url": url}
     
     for vin, mile_rating in mileage:
         if vin in vin_dict:
             vin_dict[vin]["mileage"] = mile_rating
-    
+
     for vin, year_rating in year:
         if vin in vin_dict:
             vin_dict[vin]["year"] = year_rating
@@ -185,13 +188,20 @@ def getPreferences(pricePriority, mileagePriority, yearPriority, trimPriority):
         if vin in vin_dict:
             vin_dict[vin]["trim"] = trim_rating
     
-    combined_list = [(vin, vin_dict[vin]["price"], vin_dict[vin]["mileage"], vin_dict[vin]["year"], vin_dict[vin]["trim"]) for vin in vin_dict]
-
+    combined_list = [(vin, vin_dict[vin]["price"], vin_dict[vin]["url"], vin_dict[vin]["mileage"], vin_dict[vin]["year"], vin_dict[vin]["trim"]) for vin in vin_dict]
+    print(combined_list, "\n")
     
     rating = preferenceRate(combined_list, pricePriority, mileagePriority, yearPriority, trimPriority)
-
     
+    topCars = getTopCars(list, rating)
 
-getPreferences(8,5,6,"SEL")
+    for i in range(len(topCars)):
+        # print(topCars[i]['imageurl'])
+        if "https:" not in topCars[i]['imageurl']:
+            topCars[i]['imageurl'] = "https:" + topCars[i]['imageurl']
+    
+    return topCars
+
+getPreferences(8,5,6,"SEL",0)
 
 app.run(host='0.0.0.0', port=8080)

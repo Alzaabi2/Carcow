@@ -92,12 +92,12 @@ def rate2(list):
 
         url = list[i]['url']
         
-        row = (str(count), vin,ratio,price,url)
+        row = (vin,ratio,price,url)
         count += 1
         deals.append(row)
     
     # Sorted list of deals in descending order from best to worst deal
-    deals.sort(key=lambda y: y[2])
+    deals.sort(key=lambda y: -y[1])
 
     ret_list = []
 
@@ -106,7 +106,7 @@ def rate2(list):
     for car in range(len(deals)):
         if len(ret_list) >= 5:
             break
-        url = deals[car][4]
+        url = deals[car][3]
         available = True
         headers = {'User-Agent': 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/56.0.2924.76 Safari/537.36', "Upgrade-Insecure-Requests": "1","DNT": "1","Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8","Accept-Language": "en-US,en;q=0.5","Accept-Encoding": "gzip, deflate"}
         page = requests.get(url, headers=headers)
@@ -138,10 +138,10 @@ def getTopCars(car_list, deals):
         for c in car_list:
             if found == True:
                 continue
-            if(c['VIN'] == deals[n][1] and c['price'] == deals[n][3]):
+            if(c['VIN'] == deals[n][0]):
                 topCars.append(c)
                 found = True
-                
+
     return topCars
 
 ### Call Car Utils API with both VIN and mileage,
@@ -221,16 +221,50 @@ def dollarValueVin4(vin, mileage):
 
 def preferenceRate(combined_list, pricePriority, mileagePriority, yearPriority, trimPriority):
     deals = []
+    ret_list = []
     for n in range(len(combined_list)):
-        found = False
-        for c in car_list:
-            if found == True:
-                continue
-            if(c['VIN'] == deals[n][1] and c['price'] == deals[n][3]):
-                topCars.append(c)
-                found = True
-    return topCars
+        vin = combined_list[n][0]
+        priceRate = float(combined_list[n][1])
+        url = combined_list[n][2]
+        mileageRate = float(combined_list[n][3])
+        yearRate = float(combined_list[n][4])
+        trimRate = float(combined_list[n][5])
 
+        finalRate = ((pricePriority * priceRate) + (mileagePriority * mileageRate) + (yearPriority * yearRate) + (trimPriority * trimRate)) / (pricePriority + mileagePriority + yearPriority + trimPriority)
+        
+        row = (vin, finalRate, url)
+        deals.append(row)
+
+    deals.sort(key=lambda y: -y[1])
+    # print("\n", deals)
+
+    # Ensure that all cars sent to Chrome extension are available
+    print("\nAvailability validation:\n")
+    for car in range(len(deals)):
+        if len(ret_list) >= 5:
+            break
+        url = deals[car][2]
+        available = True
+        headers = {'User-Agent': 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/56.0.2924.76 Safari/537.36', "Upgrade-Insecure-Requests": "1","DNT": "1","Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8","Accept-Language": "en-US,en;q=0.5","Accept-Encoding": "gzip, deflate"}
+        page = requests.get(url, headers=headers)
+        soup = BeautifulSoup(page.content, 'html.parser')
+        if soup.find('p', class_='sds-notification__desc') is not None:
+            available = False
+        elif soup.find('div', class_='text-bold text-size-600 text-size-sm-700 margin-vertical-7 margin-horizontal-7 text-center') is not None:
+            if soup.find('div', class_='text-bold text-size-600 text-size-sm-700 margin-vertical-7 margin-horizontal-7 text-center').text == 'This car is no longer available. One moment while we take you to the search results page.':
+                available = False
+        elif soup.find('h2', class_='CVRsvD') is not None:
+            available = False
+        elif soup.find('h2', class_='pt-1 pt-md-3 px-1 px-md-3 pb-2 text-center display-1 m-0') is not None:
+            if soup.find('h2', class_='pt-1 pt-md-3 px-1 px-md-3 pb-2 text-center display-1 m-0').text == 'Vehicle no longer available':
+                available = False
+        elif soup.find('div', class_='CDCXWUsedCarBuyPathExpiredListingHeaderText widget') is not None:
+            available = False
+        print("available = ", available,)
+        if available == True:
+            ret_list.append(deals[car])
+
+    return ret_list
 
 
 #def colorRating(list, color, colorRate):
@@ -277,7 +311,7 @@ def priceRating(list):
     for i in range(len(initScore)):
         priceRating = minScore / initScore[i][2]
 
-        row = (initScore[i][1], priceRating)
+        row = (initScore[i][1], priceRating, initScore[i][4])
         deals.append(row)
 
     return deals
@@ -295,7 +329,6 @@ def mileageRating(list):
         miles = list[i]['mileage']
         vin   = list[i]['VIN']
 
-        
 
         url = list[i]['url']
         
