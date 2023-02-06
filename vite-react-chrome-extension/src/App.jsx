@@ -130,7 +130,7 @@ function App() {
             console.log(fetchURL)
             axios.get(fetchURL)
                 .then((response) => {
-                    console.log("Response: " + response)
+                    console.log("Response: ", response)
                     setCarData(response.data);
                     setDone (true);
                     setError(null);                
@@ -165,40 +165,40 @@ function App() {
 
     }, [chrome.tabs]);
 
-    useEffect(() => {
-        const fetchPreferences =  'http://localhost:8080/getPreferences/' + pricePriority + '/' + mileagePriority + '/' + yearPriority + '/' + trimPriority + '/';
-            console.log(fetchPreferences)
-            axios.get(fetchPreferences)
-                .then((response) => {
-                    console.log("Response: " + response)
-                    setCarData(response.data);
-                    setDone (true);         
-                }, {timeout: 15000})
-                .catch((error) => {
-                    // Error
-                    setTime(true);
-                    if (error.response) {
-                        // The request was made and the server responded with a status code
-                        // that falls out of the range of 2xx
-                        console.log("Error out of 2xx Range Found:");
-                        console.log(error.response.data);
-                        console.log(error.response.status);
-                        console.log(error.response.headers);
+    // useEffect(() => {
+    //     const fetchPreferences =  'http://localhost:8080/getPreferences/' + 'Ford/Mustang/2000/20001/' + pricePriority + '/' + mileagePriority + '/' + yearPriority + '/' + trimPriority;
+    //         console.log(fetchPreferences)
+    //         axios.get(fetchPreferences)
+    //             .then((response) => {
+    //                 console.log("Response: ", response)
+    //                 //setCarData(response.data);
+    //                 setDone (true);         
+    //             }, {timeout: 15000})
+    //             .catch((error) => {
+    //                 // Error
+    //                 setTime(true);
+    //                 if (error.response) {
+    //                     // The request was made and the server responded with a status code
+    //                     // that falls out of the range of 2xx
+    //                     console.log("Error out of 2xx Range Found:");
+    //                     console.log(error.response.data);
+    //                     console.log(error.response.status);
+    //                     console.log(error.response.headers);
 
-                    } else if (error.request) {
-                        // The request was made but no response was received
-                        // `error.request` is an instance of XMLHttpRequest in the 
-                        // browser and an instance of http.ClientRequest in node.js
-                        console.log("No Repsonse Received from Request");
-                        console.log(error.request);
-                    } else {
-                        // Something happened in setting up the request that triggered an Error
-                        console.log("Request not sent");
-                        console.log('Error', error.message);
-                    }
-                    console.log(error.config);
-                });  
-    }, []);
+    //                 } else if (error.request) {
+    //                     // The request was made but no response was received
+    //                     // `error.request` is an instance of XMLHttpRequest in the 
+    //                     // browser and an instance of http.ClientRequest in node.js
+    //                     console.log("No Repsonse Received from Request");
+    //                     console.log(error.request);
+    //                 } else {
+    //                     // Something happened in setting up the request that triggered an Error
+    //                     console.log("Request not sent");
+    //                     console.log('Error', error.message);
+    //                 }
+    //                 console.log(error.config);
+    //             });  
+    // }, [preferences]);
 
     //pricePriority, mileagePriority, yearPriority, trimPriority
     // if (error) {
@@ -245,7 +245,7 @@ function App() {
             return(  
                 <div className="App">
                     <header className="App-header">
-                        <view>{console.log(carData)}</view>
+                        <view>{console.log("carData1 ",carData)}</view>
                         <div class="banner">
                             <h1><b>WHEEL DEAL</b></h1>
                         </div>
