@@ -1,91 +1,43 @@
-Make,Model,Year,Mileage,Price,VIN,url
-Dodge,Challenger,2021," 18,764 miles ","$29,500 ",2C3CDZJG8MH517733,/used_cars/vehicle-detail/ul2167342080/dodge/challenger
-Dodge,Challenger,2019," 20,266 miles ","$42,000 ",2C3CDZFJ1KH619909,/used_cars/vehicle-detail/ul2167374536/dodge/challenger
-Dodge,Challenger,2016," 129,679 miles ","$22,991 ",2C3CDZBT2GH306902,/used_cars/vehicle-detail/ul2167473445/dodge/challenger
-Dodge,Challenger,2022," 1,501 miles ","$50,990 ",2C3CDZFJ8NH175108,/used_cars/vehicle-detail/ul2166548133/dodge/challenger
-Dodge,Challenger,2021," 19,486 miles ","$35,990 ",2C3CDZBT8MH546631,/used_cars/vehicle-detail/ul2167654170/dodge/challenger
-Dodge,Challenger,2021," 5,980 miles ","$39,990 ",2C3CDZBT0MH637375,/used_cars/vehicle-detail/ul2166717923/dodge/challenger
-Dodge,Challenger,2019," 23,425 miles ","$31,590 ",2C3CDZJG6KH504282,/used_cars/vehicle-detail/ul2167078067/dodge/challenger
-Dodge,Challenger,2018," 41,155 miles ","$31,590 ",2C3CDZBT8JH288106,/used_cars/vehicle-detail/ul2166717966/dodge/challenger
-Dodge,Challenger,2017," 15,275 miles ","$34,990 ",2C3CDZBTXHH666355,/used_cars/vehicle-detail/ul2163725009/dodge/challenger
-Dodge,Challenger,2016," 60,296 miles ","$37,990 ",2C3CDZDJ5GH213612,/used_cars/vehicle-detail/ul2160371688/dodge/challenger
-Dodge,Challenger,2015," 83,596 miles ","$22,990 ",2C3CDZBG6FH906243,/used_cars/vehicle-detail/ul2167332737/dodge/challenger
-Dodge,Challenger,2015," 50,791 miles ","$28,990 ",2C3CDZAT5FH708932,/used_cars/vehicle-detail/ul2161642032/dodge/challenger
-Dodge,Challenger,2022," 1,786 miles ","$57,990 ",2C3CDZFJ3NH159172,/used_cars/vehicle-detail/ul2164652897/dodge/challenger
-Dodge,Challenger,2020, 961 miles ,"$31,590 ",2C3CDZAG6LH191770,/used_cars/vehicle-detail/ul2163583466/dodge/challenger
-Dodge,Challenger,2020," 9,949 miles ","$34,590 ",2C3CDZJG9LH223384,/used_cars/vehicle-detail/ul2165574146/dodge/challenger
-Dodge,Challenger,2018," 74,527 miles ","$23,990 ",2C3CDZAG6JH270367,/used_cars/vehicle-detail/ul2166556997/dodge/challenger
-Dodge,Challenger,2018," 46,978 miles ","$25,990 ",2C3CDZAG5JH215229,/used_cars/vehicle-detail/ul2166541981/dodge/challenger
-Dodge,Challenger,2018," 35,564 miles ","$30,590 ",2C3CDZGG2JH205443,/used_cars/vehicle-detail/ul2164062561/dodge/challenger
-Dodge,Challenger,2018," 20,619 miles ","$32,590 ",2C3CDZGG0JH184513,/used_cars/vehicle-detail/ul2165464110/dodge/challenger
-Dodge,Challenger,2018," 4,843 miles ","$38,590 ",2C3CDZBT0JH305593,/used_cars/vehicle-detail/ul2168233687/dodge/challenger
-Dodge,Challenger,2017," 73,181 miles ","$27,590 ",2C3CDZBT1HH665269,/used_cars/vehicle-detail/ul2167943743/dodge/challenger
-Dodge,Challenger,2015," 35,083 miles ","$36,590 ",2C3CDZFJ3FH909168,/used_cars/vehicle-detail/ul2167333002/dodge/challenger
-Dodge,Challenger,2015," 12,442 miles ","$39,590 ",2C3CDZFJ3FH702022,/used_cars/vehicle-detail/ul2164379813/dodge/challenger
-Dodge,Challenger,2019," 49,814 miles ","$25,990 ",2C3CDZAGXKH712648,/used_cars/vehicle-detail/ul2166879560/dodge/challenger
-Dodge,Challenger,2022," 2,512 miles ","$32,590 ",2C3CDZAG2NH140284,/used_cars/vehicle-detail/ul2167943714/dodge/challenger
-Dodge,Challenger,2022," 1,769 miles ","$32,990 ",2C3CDZAG3NH215431,/used_cars/vehicle-detail/ul2168233640/dodge/challenger
-Dodge,Challenger,2022," 3,352 miles ","$40,990 ",2C3CDZBT6NH155589,/used_cars/vehicle-detail/ul2165463815/dodge/challenger
-Dodge,Challenger,2021," 6,688 miles ","$34,590 ",2C3CDZJG7MH674265,/used_cars/vehicle-detail/ul2167332082/dodge/challenger
-Dodge,Challenger,2021," 2,271 miles ","$35,590 ",2C3CDZKGXMH605293,/used_cars/vehicle-detail/ul2158493438/dodge/challenger
-Dodge,Challenger,2020," 45,223 miles ","$32,990 ",2C3CDZBT7LH125157,/used_cars/vehicle-detail/ul2162482212/dodge/challenger
-Dodge,Challenger,2019," 6,935 miles ","$31,990 ",2C3CDZKG6KH504684,/used_cars/vehicle-detail/ul2154499203/dodge/challenger
-Dodge,Challenger,2019," 33,905 miles ","$31,990 ",2C3CDZBT8KH641865,/used_cars/vehicle-detail/ul2156513218/dodge/challenger
-Dodge,Challenger,2019," 11,993 miles ","$43,590 ",2C3CDZFJ7KH741156,/used_cars/vehicle-detail/ul2167190669/dodge/challenger
-Dodge,Challenger,2018," 34,766 miles ","$27,990 ",2C3CDZAG1JH131621,/used_cars/vehicle-detail/ul2162174763/dodge/challenger
-Dodge,Challenger,2018," 35,190 miles ","$57,990 ",2C3CDZC98JH110585,/used_cars/vehicle-detail/ul2160507679/dodge/challenger
-Dodge,Challenger,2017," 41,496 miles ","$31,990 ",2C3CDZBT0HH651458,/used_cars/vehicle-detail/ul2166879137/dodge/challenger
-Dodge,Challenger,2016," 27,595 miles ","$27,990 ",2C3CDZAG9GH316458,/used_cars/vehicle-detail/ul2167943618/dodge/challenger
-Dodge,Challenger,2016," 7,918 miles ","$33,990 ",2C3CDZBTXGH284289,/used_cars/vehicle-detail/ul2167331587/dodge/challenger
-Dodge,Challenger,2015," 72,392 miles ","$26,990 ",2C3CDZAT7FH761678,/used_cars/vehicle-detail/ul2167332979/dodge/challenger
-Dodge,Challenger,2015," 27,511 miles ","$31,590 ",2C3CDZAT0FH712628,/used_cars/vehicle-detail/ul2168233773/dodge/challenger
-Dodge,Challenger,2015," 10,866 miles ","$33,590 ",2C3CDZBT7FH708848,/used_cars/vehicle-detail/ul2164784994/dodge/challenger
-Dodge,Challenger,2015," 12,597 miles ","$33,990 ",2C3CDZBT6FH703544,/used_cars/vehicle-detail/ul2164379765/dodge/challenger
-Dodge,Challenger,2015," 7,915 miles ","$33,990 ",2C3CDZBTXFH788890,/used_cars/vehicle-detail/ul2168284556/dodge/challenger
-Dodge,Challenger,2022," 1,424 miles ","$33,990 ",2C3CDZAG9NH132117,/used_cars/vehicle-detail/ul2166163505/dodge/challenger
-Dodge,Challenger,2022," 5,044 miles ","$38,990 ",2C3CDZJG6NH113380,/used_cars/vehicle-detail/ul2165335918/dodge/challenger
-Dodge,Challenger,2022," 1,748 miles ","$49,990 ",2C3CDZFJ0NH112889,/used_cars/vehicle-detail/ul2165190731/dodge/challenger
-Dodge,Challenger,2021," 11,270 miles ","$46,590 ",2C3CDZFJ4MH521637,/used_cars/vehicle-detail/ul2159510910/dodge/challenger
-Dodge,Challenger,2020," 19,491 miles ","$30,990 ",2C3CDZAG5LH196832,/used_cars/vehicle-detail/ul2167464166/dodge/challenger
-Dodge,Challenger,2019," 31,829 miles ","$26,990 ",2C3CDZAG0KH672547,/used_cars/vehicle-detail/ul2161191983/dodge/challenger
-Dodge,Challenger,2019," 23,908 miles ","$28,590 ",2C3CDZAG1KH751726,/used_cars/vehicle-detail/ul2165465459/dodge/challenger
-Dodge,Challenger,2018," 34,717 miles ","$26,990 ",2C3CDZAG8JH251982,/used_cars/vehicle-detail/ul2156634508/dodge/challenger
-Dodge,Challenger,2018," 60,984 miles ","$27,590 ",2C3CDZAGXJH334555,/used_cars/vehicle-detail/ul2161643220/dodge/challenger
-Dodge,Challenger,2018," 33,820 miles ","$27,990 ",2C3CDZAG6JH333712,/used_cars/vehicle-detail/ul2167151174/dodge/challenger
-Dodge,Challenger,2018," 82,942 miles ","$28,590 ",2C3CDZBT3JH212972,/used_cars/vehicle-detail/ul2158339174/dodge/challenger
-Dodge,Challenger,2018," 24,646 miles ","$28,990 ",2C3CDZAG6JH334262,/used_cars/vehicle-detail/ul2167150797/dodge/challenger
-Dodge,Challenger,2018," 42,813 miles ","$32,990 ",2C3CDZBT1JH132201,/used_cars/vehicle-detail/ul2167944227/dodge/challenger
-Dodge,Challenger,2018," 17,318 miles ","$41,990 ",2C3CDZFJ8JH252165,/used_cars/vehicle-detail/ul2162174908/dodge/challenger
-Dodge,Challenger,2017," 53,590 miles ","$38,590 ",2C3CDZFJ8HH502210,/used_cars/vehicle-detail/ul2167190523/dodge/challenger
-Dodge,Challenger,2015," 23,034 miles ","$25,590 ",2C3CDZAG3FH885241,/used_cars/vehicle-detail/ul2164527761/dodge/challenger
-Dodge,Challenger,2015," 46,393 miles ","$29,990 ",2C3CDZBT5FH910099,/used_cars/vehicle-detail/ul2167943208/dodge/challenger
-Dodge,Challenger,2015," 18,555 miles ","$38,590 ",2C3CDZFJ2FH744066,/used_cars/vehicle-detail/ul2159841857/dodge/challenger
-Dodge,Challenger,2022," 2,199 miles ","$40,590 ",2C3CDZKG8NH192534,/used_cars/vehicle-detail/ul2168284130/dodge/challenger
-Dodge,Challenger,2021," 16,165 miles ","$36,590 ",2C3CDZJG3MH517459,/used_cars/vehicle-detail/ul2166879646/dodge/challenger
-Dodge,Challenger,2020," 14,429 miles ","$39,990 ",2C3CDZBT8LH133977,/used_cars/vehicle-detail/ul2167133709/dodge/challenger
-Dodge,Challenger,2020," 21,418 miles ","$44,990 ",2C3CDZFJ7LH242598,/used_cars/vehicle-detail/ul2163724341/dodge/challenger
-Dodge,Challenger,2019," 13,931 miles ","$33,590 ",2C3CDZKG3KH558167,/used_cars/vehicle-detail/ul2166556911/dodge/challenger
-Dodge,Challenger,2018," 36,476 miles ","$30,590 ",2C3CDZGG3JH182352,/used_cars/vehicle-detail/ul2160372816/dodge/challenger
-Dodge,Challenger,2018," 20,946 miles ","$34,990 ",2C3CDZBT2JH259975,/used_cars/vehicle-detail/ul2168233309/dodge/challenger
-Dodge,Challenger,2018," 17,333 miles ","$35,590 ",2C3CDZBT1JH251396,/used_cars/vehicle-detail/ul2162482120/dodge/challenger
-Dodge,Challenger,2016," 67,283 miles ","$23,990 ",2C3CDZAG7GH276123,/used_cars/vehicle-detail/ul2167464149/dodge/challenger
-Dodge,Challenger,2016," 26,434 miles ","$25,590 ",2C3CDZAG2GH279561,/used_cars/vehicle-detail/ul2164784743/dodge/challenger
-Dodge,Challenger,2016," 5,208 miles ","$29,990 ",2C3CDZAG3GH289886,/used_cars/vehicle-detail/ul2166541800/dodge/challenger
-Dodge,Challenger,2022, 742 miles ,"$35,590 ",2C3CDZJG3NH113143,/used_cars/vehicle-detail/ul2149231383/dodge/challenger
-Dodge,Challenger,2022," 3,453 miles ","$48,990 ",2C3CDZFJ0NH118272,/used_cars/vehicle-detail/ul2160506290/dodge/challenger
-Dodge,Challenger,2021," 8,886 miles ","$50,590 ",2C3CDZFJ5MH631502,/used_cars/vehicle-detail/ul2165335863/dodge/challenger
-Dodge,Challenger,2019," 56,026 miles ","$24,990 ",2C3CDZAG7KH727446,/used_cars/vehicle-detail/ul2157459275/dodge/challenger
-Dodge,Challenger,2019," 57,251 miles ","$25,990 ",2C3CDZAG7KH627766,/used_cars/vehicle-detail/ul2163724695/dodge/challenger
-Dodge,Challenger,2019," 35,945 miles ","$32,990 ",2C3CDZBT5KH620925,/used_cars/vehicle-detail/ul2165463485/dodge/challenger
-Dodge,Challenger,2019," 34,704 miles ","$33,590 ",2C3CDZBTXKH627689,/used_cars/vehicle-detail/ul2163308328/dodge/challenger
-Dodge,Challenger,2019," 3,094 miles ","$44,990 ",2C3CDZFJ1KH741508,/used_cars/vehicle-detail/ul2165908836/dodge/challenger
-Dodge,Challenger,2019," 10,580 miles ","$48,990 ",2C3CDZFJ1KH642431,/used_cars/vehicle-detail/ul2167945044/dodge/challenger
-Dodge,Challenger,2018," 52,635 miles ","$25,990 ",2C3CDZAGXJH236352,/used_cars/vehicle-detail/ul2165464272/dodge/challenger
-Dodge,Challenger,2018," 43,382 miles ","$26,990 ",2C3CDZAG5JH287158,/used_cars/vehicle-detail/ul2163583399/dodge/challenger
-Dodge,Challenger,2018," 41,021 miles ","$27,990 ",2C3CDZAG0JH132100,/used_cars/vehicle-detail/ul2166163884/dodge/challenger
-Dodge,Challenger,2018," 41,654 miles ","$27,990 ",2C3CDZAG7JH334688,/used_cars/vehicle-detail/ul2167193078/dodge/challenger
-Dodge,Challenger,2018," 29,410 miles ","$32,590 ",2C3CDZBT4JH178749,/used_cars/vehicle-detail/ul2148949431/dodge/challenger
-Dodge,Challenger,2018," 31,448 miles ","$33,990 ",2C3CDZBT4JH306035,/used_cars/vehicle-detail/ul2167463896/dodge/challenger
-Dodge,Challenger,2018," 24,634 miles ","$34,990 ",2C3CDZBT0JH310535,/used_cars/vehicle-detail/ul2165465185/dodge/challenger
-Dodge,Challenger,2018," 21,168 miles ","$41,590 ",2C3CDZFJ5JH199182,/used_cars/vehicle-detail/ul2160116464/dodge/challenger
-Dodge,Challenger,2017," 29,339 miles ","$30,990 ",2C3CDZGG4HH652172,/used_cars/vehicle-detail/ul2166443189/dodge/challenger
+Make,Model,Trim,Year,Mileage,Price,VIN,url,img
+Land Rover,Range Rover, HSE ,2018," 24,653 miles ","$61,000 ",SALGS2SV3JA500817,https://www.carsdirect.com/used_cars/vehicle-detail/ul2169727836/land-rover/range-rover,//cdcssl.ibsrv.net/ibimg/www.carsdirect.com/216/972/783/6/20c6525a.jpg?w=197&h=148&q=85&mode=1
+Land Rover,Range Rover, 5.0 Supercharged ,2018," 56,471 miles ","$64,000 ",SALGS5RE3JA501361,https://www.carsdirect.com/used_cars/vehicle-detail/ul2169969712/land-rover/range-rover,//cdcssl.ibsrv.net/ibimg/www.carsdirect.com/216/996/971/2/6d3bcc05.jpg?w=197&h=148&q=85&mode=1
+Land Rover,Range Rover, HSE TD6 ,2016," 51,346 miles ","$45,000 ",SALGS2KF9GA261260,https://www.carsdirect.com/used_cars/vehicle-detail/ul2169727887/land-rover/range-rover,//cdcssl.ibsrv.net/ibimg/www.carsdirect.com/216/972/788/7/d59cb296.jpg?w=197&h=148&q=85&mode=1
+Land Rover,Range Rover, 5.0 Supercharged Autobiography ,2015," 93,569 miles ","$43,500 ",SALGV2TF1FA235627,https://www.carsdirect.com/used_cars/vehicle-detail/ul2165226960/land-rover/range-rover,//cdcssl.ibsrv.net/ibimg/www.carsdirect.com/216/522/696/0/e8fd62bb.jpg?w=197&h=148&q=85&mode=1
+Land Rover,Range Rover, P525 HSE ,2020," 24,551 miles ","$90,990 ",SALGS2SE4LA586903,https://www.carsdirect.com/used_cars/vehicle-detail/ul2125767199/land-rover/range-rover,//cdcssl.ibsrv.net/ibimg/www.carsdirect.com/212/576/719/9/78b4a862.jpg?w=197&h=148&q=85&mode=1
+Land Rover,Range Rover,,2016," 58,864 miles ","$44,000 ",SALGS2EF9GA304555,https://www.carsdirect.com/used_cars/vehicle-detail/ul2169643113/land-rover/range-rover,//cdcssl.ibsrv.net/ibimg/www.carsdirect.com/216/964/311/3/d95ec696.jpg?w=197&h=148&q=85&mode=1
+Land Rover,Range Rover, HSE ,2020," 66,733 miles ","$63,495 ",SALGS2RK5LA582659,https://www.carsdirect.com/used_cars/vehicle-detail/ul2169193722/land-rover/range-rover,//cdcssl.ibsrv.net/ibimg/www.carsdirect.com/216/919/372/2/84f582f2.jpg?w=197&h=148&q=85&mode=1
+Land Rover,Range Rover, 3.0L V6 Supercharged HSE ,2019," 45,619 miles ","$64,995 ",SALGS2SV6KA532713,https://www.carsdirect.com/used_cars/vehicle-detail/ul2170352299/land-rover/range-rover,//cdcssl.ibsrv.net/ibimg/www.carsdirect.com/217/035/229/9/876d5137.jpg?w=197&h=148&q=85&mode=1
+Land Rover,Range Rover, 5.0L V8 Supercharged ,2019," 43,366 miles ","$78,495 ",SALGS5RE7KA550886,https://www.carsdirect.com/used_cars/vehicle-detail/ul2168724564/land-rover/range-rover,//cdcssl.ibsrv.net/ibimg/www.carsdirect.com/216/872/456/4/f0f7b51d.jpg?w=197&h=148&q=85&mode=1
+Land Rover,Range Rover, 3.0L V6 Supercharged HSE ,2019," 47,972 miles ","$71,490 ",SALGS2SV6KA557062,https://www.carsdirect.com/used_cars/vehicle-detail/ul2135216588/land-rover/range-rover,//cdcssl.ibsrv.net/ibimg/www.carsdirect.com/213/521/658/8/48d9b5e5.jpg?w=197&h=148&q=85&mode=1
+Land Rover,Range Rover, 3.0L Supercharged HSE ,2014," 78,117 miles ","$35,426 ",SALGS2WF9EA154443,https://www.carsdirect.com/used_cars/vehicle-detail/ul2169053732/land-rover/range-rover,//cdcssl.ibsrv.net/ibimg/www.carsdirect.com/216/905/373/2/4bafde41.jpg?w=197&h=148&q=85&mode=1
+Land Rover,Range Rover, 3.0L V6 Supercharged ,2019," 22,103 miles ","$68,999 ",SALGR2RV5KA553375,https://www.carsdirect.com/used_cars/vehicle-detail/ul2168826037/land-rover/range-rover,//cdcssl.ibsrv.net/ibimg/www.carsdirect.com/216/882/603/7/55833436.jpg?w=197&h=148&q=85&mode=1
+Land Rover,Range Rover, 5.0L Supercharged ,2017," 47,842 miles ","$49,000 ",SALGS2FE4HA346476,https://www.carsdirect.com/used_cars/vehicle-detail/ul2168903917/land-rover/range-rover,//cdcssl.ibsrv.net/ibimg/www.carsdirect.com/216/890/391/7/689f78ea.jpg?w=197&h=148&q=85&mode=1
+Land Rover,Range Rover, 3.0L V6 Supercharged HSE ,2019," 21,963 miles ","$64,478 ",SALGS2SV1KA547054,https://www.carsdirect.com/used_cars/vehicle-detail/ul2158239370/land-rover/range-rover,//cdcssl.ibsrv.net/ibimg/www.carsdirect.com/215/823/937/0/8f1ee795.jpg?w=197&h=148&q=85&mode=1
+Land Rover,Range Rover, 3.0L V6 Supercharged HSE ,2019," 33,205 miles ","$73,500 ",SALGS2SV4KA556380,https://www.carsdirect.com/used_cars/vehicle-detail/ul2159669472/land-rover/range-rover,//cdcssl.ibsrv.net/ibimg/www.carsdirect.com/215/966/947/2/7bb76e70.jpg?w=197&h=148&q=85&mode=1
+Land Rover,Range Rover, 3.0L V6 Supercharged HSE 4dr 4x4 ,2019," 19,524 miles ","$74,981 ",SALGS2SV8KA529232,https://www.carsdirect.com/used_cars/vehicle-detail/ul2170240919/land-rover/range-rover,//cdcssl.ibsrv.net/ibimg/www.carsdirect.com/217/024/091/9/739f6caa.jpg?w=197&h=148&q=85&mode=1
+Land Rover,Range Rover, 5.0L V8 Supercharged ,2019," 22,497 miles ","$85,000 ",SALGS2RE5KA558208,https://www.carsdirect.com/used_cars/vehicle-detail/ul2166208060/land-rover/range-rover,//cdcssl.ibsrv.net/ibimg/www.carsdirect.com/216/620/806/0/509e5120.jpg?w=197&h=148&q=85&mode=1
+Land Rover,Range Rover, 3.0L V6 Turbocharged Diesel Td6 4dr 4x4 ,2017," 71,436 miles ","$39,500 ",SALGR2FK9HA364425,https://www.carsdirect.com/used_cars/vehicle-detail/ul2170239979/land-rover/range-rover,//cdcssl.ibsrv.net/ibimg/www.carsdirect.com/217/023/997/9/caa00e0c.jpg?w=197&h=148&q=85&mode=1
+Land Rover,Range Rover, 4DR SUV V8 SC SWB ,2017," 55,313 miles ","$51,500 ",SALGS2FE6HA359861,https://www.carsdirect.com/used_cars/vehicle-detail/ul2168721257/land-rover/range-rover,//cdcssl.ibsrv.net/ibimg/www.carsdirect.com/216/872/125/7/f31c51eb.jpg?w=197&h=148&q=85&mode=1
+Land Rover,Range Rover, HSE ,2018," 76,155 miles ","$48,800 ",SALGS2SVXJA384645,https://www.carsdirect.com/used_cars/vehicle-detail/ul2157644803/land-rover/range-rover,//cdcssl.ibsrv.net/ibimg/www.carsdirect.com/215/764/480/3/025373a3.jpg?w=197&h=148&q=85&mode=1
+Land Rover,Range Rover, 5.0L V8 Supercharged ,2019," 40,716 miles ","$72,995 ",SALGS5RE3KA554384,https://www.carsdirect.com/used_cars/vehicle-detail/ul2167712702/land-rover/range-rover,//cdcssl.ibsrv.net/ibimg/www.carsdirect.com/216/771/270/2/5f75645a.jpg?w=197&h=148&q=85&mode=1
+Land Rover,Range Rover, P525 Westminster ,2021," 40,175 miles ","$89,999 ",SALGS2SEXMA425120,https://www.carsdirect.com/used_cars/vehicle-detail/ul2167998462/land-rover/range-rover,//cdcssl.ibsrv.net/ibimg/www.carsdirect.com/216/799/846/2/eb094301.jpg?w=197&h=148&q=85&mode=1
+Land Rover,Range Rover, Westminster ,2021," 31,824 miles ","$91,999 ",SALGS2RU5MA430142,https://www.carsdirect.com/used_cars/vehicle-detail/ul2164971999/land-rover/range-rover,//cdcssl.ibsrv.net/ibimg/www.carsdirect.com/216/497/199/9/5d217f75.jpg?w=197&h=148&q=85&mode=1
+Land Rover,Range Rover, 5.0L V8 Supercharged ,2019," 85,608 miles ","$64,999 ",SALGS5RE7KA562374,https://www.carsdirect.com/used_cars/vehicle-detail/ul2162169602/land-rover/range-rover,//cdcssl.ibsrv.net/ibimg/www.carsdirect.com/216/216/960/2/f9aa4e82.jpg?w=197&h=148&q=85&mode=1
+Land Rover,Range Rover, 3.0L V6 Supercharged HSE ,2019," 49,761 miles ","$64,999 ",SALGS2SVXKA541897,https://www.carsdirect.com/used_cars/vehicle-detail/ul2166874574/land-rover/range-rover,//cdcssl.ibsrv.net/ibimg/www.carsdirect.com/216/687/457/4/8b34ba1b.jpg?w=197&h=148&q=85&mode=1
+Land Rover,Range Rover, 3.0L V6 Supercharged HSE ,2019," 39,783 miles ","$67,999 ",SALGS2SVXKA556352,https://www.carsdirect.com/used_cars/vehicle-detail/ul2163575579/land-rover/range-rover,//cdcssl.ibsrv.net/ibimg/www.carsdirect.com/216/357/557/9/40dc3315.jpg?w=197&h=148&q=85&mode=1
+Land Rover,Range Rover, 5.0L V8 Supercharged ,2019," 60,762 miles ","$69,999 ",SALGS2RE1KA532592,https://www.carsdirect.com/used_cars/vehicle-detail/ul2163302879/land-rover/range-rover,//cdcssl.ibsrv.net/ibimg/www.carsdirect.com/216/330/287/9/a92fad74.jpg?w=197&h=148&q=85&mode=1
+Land Rover,Range Rover, 5.0L V8 Supercharged ,2019," 49,633 miles ","$75,999 ",SALGS2REXKA549570,https://www.carsdirect.com/used_cars/vehicle-detail/ul2166203815/land-rover/range-rover,//cdcssl.ibsrv.net/ibimg/www.carsdirect.com/216/620/381/5/89ba5caf.jpg?w=197&h=148&q=85&mode=1
+Land Rover,Range Rover, 5.0L V8 Supercharged ,2019," 28,996 miles ","$89,999 ",SALGS5RE3KA552540,https://www.carsdirect.com/used_cars/vehicle-detail/ul2164187646/land-rover/range-rover,//cdcssl.ibsrv.net/ibimg/www.carsdirect.com/216/418/764/6/04d3ab92.jpg?w=197&h=148&q=85&mode=1
+Land Rover,Range Rover, 4DR SUV TD6 DSL S ,2017," 67,176 miles ","$42,499 ",SALGR2FK5HA364485,https://www.carsdirect.com/used_cars/vehicle-detail/ul2166210443/land-rover/range-rover,//cdcssl.ibsrv.net/ibimg/www.carsdirect.com/216/621/044/3/82c786d5.jpg?w=197&h=148&q=85&mode=1
+Land Rover,Range Rover, Autobiography ,2017," 64,246 miles ","$61,999 ",SALGV2FE9HA326862,https://www.carsdirect.com/used_cars/vehicle-detail/ul2166876813/land-rover/range-rover,//cdcssl.ibsrv.net/ibimg/www.carsdirect.com/216/687/681/3/d21035b2.jpg?w=197&h=148&q=85&mode=1
+Land Rover,Range Rover, 3.0L Turbocharged Diesel HSE Td6 ,2016," 62,451 miles ","$42,999 ",SALGS2KFXGA308327,https://www.carsdirect.com/used_cars/vehicle-detail/ul2169332511/land-rover/range-rover,//cdcssl.ibsrv.net/ibimg/www.carsdirect.com/216/933/251/1/a4744738.jpg?w=197&h=148&q=85&mode=1
+Land Rover,Range Rover, 3.0L Supercharged HSE ,2015," 92,357 miles ","$33,999 ",SALGS2VF1FA225802,https://www.carsdirect.com/used_cars/vehicle-detail/ul2167626281/land-rover/range-rover,//cdcssl.ibsrv.net/ibimg/www.carsdirect.com/216/762/628/1/ea729b6e.jpg?w=197&h=148&q=85&mode=1
+Land Rover,Range Rover, 5.0L Supercharged Autobiography ,2014," 99,139 miles ","$36,000 ",SALGV2EF8EA130546,https://www.carsdirect.com/used_cars/vehicle-detail/ul2153334483/land-rover/range-rover,//cdcssl.ibsrv.net/ibimg/www.carsdirect.com/215/333/448/3/25072e82.jpg?w=197&h=148&q=85&mode=1
+Land Rover,Range Rover, 3.0L V6 Supercharged HSE ,2019," 29,417 miles ","$76,275 ",SALGS2SVXKA567531,https://www.carsdirect.com/used_cars/vehicle-detail/ul2125768539/land-rover/range-rover,//cdcssl.ibsrv.net/ibimg/www.carsdirect.com/212/576/853/9/4de67b9c.jpg?w=197&h=148&q=85&mode=1
+Land Rover,Range Rover, 5.0L V8 Supercharged ,2019," 26,587 miles ","$86,750 ",SALGS2RE5KA555907,https://www.carsdirect.com/used_cars/vehicle-detail/ul2129595012/land-rover/range-rover,//cdcssl.ibsrv.net/ibimg/www.carsdirect.com/212/959/501/2/177bc47b.jpg?w=197&h=148&q=85&mode=1
+Land Rover,Range Rover, 3.0L Turbocharged Diesel HSE Td6 ,2016," 60,411 miles ","$39,468 ",SALGS2KF8GA258673,https://www.carsdirect.com/used_cars/vehicle-detail/ul2162617667/land-rover/range-rover,//cdcssl.ibsrv.net/ibimg/www.carsdirect.com/216/261/766/7/516eff44.jpg?w=197&h=148&q=85&mode=1
+Land Rover,Range Rover, 5.0L Supercharged ,2015," 65,080 miles ","$44,988 ",SALGS2TF2FA221616,https://www.carsdirect.com/used_cars/vehicle-detail/ul2108813025/land-rover/range-rover,//cdcssl.ibsrv.net/ibimg/www.carsdirect.com/210/881/302/5/913646a5.jpg?w=197&h=148&q=85&mode=1
+Land Rover,Range Rover, HSE ,2020," 27,153 miles ","$76,199 ",SALGS2RU8LA597559,https://www.carsdirect.com/used_cars/vehicle-detail/ul2112442912/land-rover/range-rover,//cdcssl.ibsrv.net/ibimg/www.carsdirect.com/211/244/291/2/56b9a41c.jpg?w=197&h=148&q=85&mode=1
+Land Rover,Range Rover, 3.0L V6 Supercharged HSE ,2019," 47,236 miles ","$63,300 ",SALGS2SVXKA530348,https://www.carsdirect.com/used_cars/vehicle-detail/ul2164244810/land-rover/range-rover,//cdcssl.ibsrv.net/ibimg/www.carsdirect.com/216/424/481/0/2375bf16.jpg?w=197&h=148&q=85&mode=1
+Land Rover,Range Rover, HSE ,2019," 79,992 miles ","$55,990 ",SALGS2SV6KA549088,https://www.carsdirect.com/used_cars/vehicle-detail/ul2166139547/land-rover/range-rover,//cdcssl.ibsrv.net/ibimg/www.carsdirect.com/216/613/954/7/eb2ff06e.jpg?w=197&h=148&q=85&mode=1
+Land Rover,Range Rover, Westminster ,2021," 1,902 miles ","$99,000 ",SALGS2RU4MA452648,https://www.carsdirect.com/used_cars/vehicle-detail/ul2163438935/land-rover/range-rover,//cdcssl.ibsrv.net/ibimg/www.carsdirect.com/216/343/893/5/fcf45951.jpg?w=197&h=148&q=85&mode=1

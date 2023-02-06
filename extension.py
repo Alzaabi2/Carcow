@@ -71,20 +71,20 @@ def singleCarData2(url):
     url = url.replace(makeCodeList, makeCodeList.upper())
 
 
-    temp = urlArr[1]
-    urlArr = temp.split('city=')
-    modelCodeList = urlArr[0]
-    url = url.replace(modelCodeList, modelCodeList.upper())
+    # temp = urlArr[1]
+    # urlArr = temp.split('city=')
+    # modelCodeList = urlArr[0]
+    # url = url.replace(modelCodeList, modelCodeList.upper())
 
-    temp = urlArr[1]
-    urlArr = temp.split('state=')
-    city = urlArr[0]
-    url = url.replace(city, city.capitalize())
+    # temp = urlArr[1]
+    # urlArr = temp.split('state=')
+    # city = urlArr[0]
+    # url = url.replace(city, city.capitalize())
 
-    temp = urlArr[1]
-    urlArr = temp.split('zip=')
-    state = urlArr[0]
-    url = url.replace(state, state.upper())
+    # temp = urlArr[1]
+    # urlArr = temp.split('zip=')
+    # state = urlArr[0]
+    # url = url.replace(state, state.upper())
 
     #get page html
     page = requests.get(url)
