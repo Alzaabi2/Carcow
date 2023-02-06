@@ -27,7 +27,7 @@ h1 {
   font-size: 3.2em;
   line-height: 1.1;
   text-align: center;
-
+  color: white;
 }
 
 h2{
@@ -78,6 +78,15 @@ h2{
   font-size: 13px;
 }
 
+.popup{
+  height: 650px;
+  width: 80%;
+  background-color: rgb(153, 153, 153);
+  position: center;
+  top: 25%;
+  right: 25%;
+  transform: translate (-25%, -25%);
+}
 
 @media (prefers-color-scheme: light) {
   :root {

@@ -39,9 +39,11 @@ def getScrape(make, model, car_year, zip):
 
 @app.route('/getUrl/<string:url>')
 def getUrl(url):
+    print(url)
     cursor = mydb.cursor(dictionary=True)
 
     time1 = time.perf_counter()
+    totalTime = time.perf_counter()
     url = url.replace('slash', '/')
     url = url.replace('colum', ':')
     url = url.replace('dot', '.')

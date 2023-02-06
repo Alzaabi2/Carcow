@@ -144,9 +144,11 @@ def singleCarData3(url):
 
     #find make
     make = title[1]
-
-    #find model
-    model = title[2]
+    if make.lower == 'tesla':
+        model == 'Model' + title[3]
+    else:
+        #find model
+        model = title[2]
 
     #find year
     year = title[0]
@@ -182,9 +184,11 @@ def singleCarData4(url):
 
     #find make
     make = title[1]
-
-    #find model
-    model = title[2]
+    if make.lower == 'tesla':
+        model == 'Model' + title[3]
+    else:
+        #find model
+        model = title[2]
 
     #find year
     year = title[0]
