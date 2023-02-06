@@ -24,21 +24,21 @@ def populateScraped(list):
         print("List is empty")
         return
 
-    for i in list:
-        if i['VIN'] is None:
+    for i in range(len(list)):
+        if list[i]['VIN'] is None:
             continue
         else:
-            vin   = i['VIN']
-        make  = i['Make']
-        model = i['Model']
-        trim  = i['Trim']
+            vin   = list[i]['VIN']
+        make  = list[i]['Make']
+        model = list[i]['Model']
+        trim  = list[i]['Trim']
         # trim = ''
-        year  = i['Year'].replace(' ', '')
+        year  = list[i]['Year'].replace(' ', '')
         year2 = re.findall(r'\d+\d+', year)
         if len(year2) == 0:
             year2.append('-1')
 
-        mileage = i['Mileage']
+        mileage = list[i]['Mileage']
         mileage2 = mileage.replace(',','')
         miles = re.findall(r'\d+\d+', mileage2)
 
@@ -49,8 +49,14 @@ def populateScraped(list):
 
         imageurl = list[i]['img']
 
+        if(len(miles) == 0):
+            continue
         suggested = dollarValueVin4(vin, int(miles[0]))
-
+        if suggested == 'duplicate':
+            print('duplicate')
+            continue
+        if len(year2)==0 or len(miles)==0 or len(price2)==0:
+            continue
         cursor.execute("INSERT INTO scraped (VIN, make, model, year, trim, mileage, price, suggested, url, imageurl, date)VALUES (%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,NOW())", (vin, make, model, year2[0], trim, miles[0], price2[0], suggested, url, imageurl))
         mydb.commit()
 

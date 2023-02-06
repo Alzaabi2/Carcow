@@ -5,11 +5,12 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
+AWSPASSWORD = os.getenv('AWSPASSWORD')
 
 mydb = mysql.connector.connect(
     host="carcow.ce0uqlnzw4og.us-east-1.rds.amazonaws.com",
     user="admin",
-    password="Hevcy4-gumden-wypjav",
+    password= AWSPASSWORD,
     database="CarCowDB"
 )
 

@@ -15,6 +15,20 @@ import concurrent.futures
 import itertools 
 import json
 from CarDepreciationValue import *
+from dotenv import load_dotenv
+import os
+import mysql.connector
+
+load_dotenv()
+
+AWSPASSWORD = os.getenv('AWSPASSWORD')
+
+mydb = mysql.connector.connect(
+    host="carcow.ce0uqlnzw4og.us-east-1.rds.amazonaws.com",
+    user="admin",
+    password= AWSPASSWORD,
+    database="CarCowDB"
+)
 
 carlist = []
 
@@ -146,6 +160,16 @@ def getTopCars(car_list, deals):
 ### Call Car Utils API with both VIN and mileage,
 # and return the suggested value ###
 def dollarValueVin4(vin, mileage):
+    
+    #duplicate check
+    cursor = mydb.cursor(buffered=True,dictionary=True)
+    cursor.execute("SELECT * FROM scraped WHERE VIN = %s;", (vin,))
+    mydb.commit()
+    
+    list = cursor.fetchall()
+    if len(list) != 0:
+        return 'duplicate'
+    
     url = "https://car-utils.p.rapidapi.com/marketvalue"
 
     querystring = {"vin": vin, "mileage": mileage}
