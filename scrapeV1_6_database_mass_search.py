@@ -115,47 +115,10 @@ def Scrape1(make):
                     # print('vin error')
                     continue
 
-                #special case for teslas
-                if make.lower() == 'tesla':
-                    if model.lower().replace(' ', '') == 'model':
-                        trimSplit = trim.split(' ', 1)
-                        model = model + ' ' + trimSplit[0]
-                        if len(trimSplit) > 1:
-                            trim = trimSplit[1]
-                        else:
-                            trim = ''
-
-                #special case for land rover
-                if make.lower() == 'land':
-                    make = 'Land Rover'
-                    if model.lower().replace(' ', '') == 'rover' and 'range rover' in trim.lower():
-                        trimSplit = trim.split(' ', 2)
-                        model = 'Range Rover'
-                        if len(trimSplit) > 2:
-                            trim = trimSplit[2]
-                        else:
-                            trim = ''
-                    elif model.lower().replace(' ', '') == 'rover':
-                        trimSplit = trim.split(' ', 1)
-                        model = trimSplit[0]
-                        if len(trimSplit) > 1:
-                            trim = trimSplit[1]
-                        else:
-                            trim = ''
-
-                # print(vin)
-                # if len(vinPath) == 0:
-                #     vin = ''
-                #     print('Path: ' + vinPath)
-                # else:
-                #     vin = vinPath[0].text
-                #     if vin
-                # print(vin)
-                if len(vin) == 0:
-                    continue
-                vin2 = vin[0]
-                row = [make, model, trim, year, mileage, price, vin2, carpage, img]
-                rowlist = {'Make': make, 'Model':model, 'Trim':trim, 'Year':year, 'Mileage':mileage, 'Price':price, 'VIN':vin2, 'url':carpage, 'img':img}
+                print(vin)
+                
+                row = [make, model, trim, year, mileage, price, vin, carpage, img]
+                rowlist = {'Make': make, 'Model':model, 'Trim':trim, 'Year':year, 'Mileage':mileage, 'Price':price, 'VIN':vin, 'url':carpage, 'img':img}
                 w.writerow(row)
                 scrapedList.append(rowlist)
             url = getNextPage(soup)
@@ -230,45 +193,9 @@ def Scrape2(make, model):
                         mileage = c.find('div', class_="item-card-specifications col-xs-9 margin-top-4 text-subdued-lighter").find('span', class_='text-bold').text
                 else:
                     mileage = ' '
-
-                # if c.find('img', class_='image-vertically-aligned') is None:
-                #     img = ''
-                #     print('no pic')
-                # else:
-                #     img = c.find('img', class_='image-vertically-aligned').get('src')
-
-                # print(img)
-                vin = vins[vincount]
-                #special case for teslas
-                if make.lower() == 'tesla':
-                    if model.lower().replace(' ', '') == 'model':
-                        trimSplit = trim.split(' ', 1)
-                        model = model + ' ' + trimSplit[0]
-                        if len(trimSplit) > 1:
-                            trim = trimSplit[1]
-                        else:
-                            trim = ''
-                #special case for land rover
-                if make.lower() == 'land':
-                    print(make)
-                    print(model)
-                    print(trim)
-                    make = 'Land Rover'
-                    if model.lower().replace(' ', '') == 'rover' and 'range rover' in trim.lower():
-                        trimSplit = trim.split(' ', 2)
-                        model = 'Range Rover'
-                        if len(trimSplit) > 2:
-                            trim = trimSplit[2]
-                        else:
-                            trim = ''
-                    elif model.lower().replace(' ', '') == 'rover':
-                        trimSplit = trim.split(' ', 1)
-                        model = trimSplit[0]
-                        if len(trimSplit) > 1:
-                            trim = trimSplit[1]
-                        else:
-                            trim = ''
-
+                
+                print(img)
+                vin = vins[vincount]    
                 row = [make, model, trim, year, mileage, price, vin, carpage, img]
                 rowlist = {'Make': make, 'Model':model, 'Trim':trim, 'Year':year, 'Mileage':mileage, 'Price':price, 'VIN':vin, 'url':carpage, 'img':img}
                 w.writerow(row)
@@ -496,36 +423,7 @@ def Scrape3(make):
                         img = c.find('img', class_='C6f2e2 bmTmAy').get('src')
                         if '.svg' in img:
                             img = ''
-                    #special case for teslas
-                    if make.lower() == 'tesla':
-                        if model.lower().replace(' ', '') == 'model':
-                            trimSplit = trim.split(' ', 1)
-                            model = model + ' ' + trimSplit[0]
-                            if len(trimSplit) > 1:
-                                trim = trimSplit[1]
-                            else:
-                                trim = ''
-                    #special case for land rover
-                    if make.lower() == 'land':
-                        print(make)
-                        print(model)
-                        print(trim)
-                        make = 'Land Rover'
-                        if model.lower().replace(' ', '') == 'rover' and 'range rover' in trim.lower():
-                            trimSplit = trim.split(' ', 2)
-                            model = 'Range Rover'
-                            if len(trimSplit) > 2:
-                                trim = trimSplit[2]
-                            else:
-                                trim = ''
-                        elif model.lower().replace(' ', '') == 'rover':
-                            trimSplit = trim.split(' ', 1)
-                            model = trimSplit[0]
-                            if len(trimSplit) > 1:
-                                trim = trimSplit[1]
-                            else:
-                                trim = ''
-
+                    
                     row = [make, model, trim, year, mileage, price, vin, carpage, img]
                     rowlist = {'Make': make, 'Model':model, 'Trim':trim, 'Year':year, 'Mileage':mileage, 'Price':price, 'VIN':vin, 'url':carpage, 'img':img}
                     w.writerow(row)
@@ -613,22 +511,14 @@ def Scrape4(make, model):
                 year = title[0]
                 make = title[1]
                 model = title[2]
-                if make.lower() == 'tesla' and len(title) >= 4:
-                    model = model + ' ' + title[3]
-                if make.lower() == 'land' and len(title) >= 4:
-                    make = 'Land Rover'
-                    model = title[3]
-                    if model.lower() == 'range':
-                        model = 'Range Rover'
-
+                
                 link = c.find('a', class_='usurp-inventory-card-vdp-link').get('href')
                 carpage = 'https://www.edmunds.com'+link
                 parseLink = link.split('/')
                 vin = parseLink[5]
 
-                row = [make, model, trim, year, mileage, price, vin, carpage, img_link]
-                # row = [make, model, year, mileage, price, vin, carpage, img]
-                rowlist = {'Make': make, 'Model':model, 'Trim':trim, 'Year':year, 'Mileage':mileage, 'Price':price, 'VIN':vin, 'url':carpage, 'img':img_link}
+                row = [make, model, trim, year, mileage, price, vin, carpage]
+                rowlist = {'Make': make, 'Model':model, 'Trim':trim, 'Year':year, 'Mileage':mileage, 'Price':price, 'VIN':vin, 'url':carpage, 'img':img}
                 w.writerow(row)
                 scrapedList.append(rowlist)
                 modelurl = model.replace(' ', '-')
@@ -750,14 +640,7 @@ def Scrape5(make, model):
                 year = title[0]
                 make = title[1]
                 model = title[2]
-                if make.lower() == 'tesla' and len(title) >= 4:
-                    model = model + ' ' + title[3]
-                if make.lower() == 'land' and len(title) >= 4:
-                    make = 'Land Rover'
-                    model = title[3]
-                    if model.lower() == 'range':
-                        model = 'Range Rover'
-
+                
                 if c.find('a', class_='detail-price').find('span') is None:
                     continue
                 price = c.find('a', class_='detail-price').find('span').text
@@ -784,9 +667,8 @@ def Scrape5(make, model):
 
 
                 carpage = c.find('meta').get('content')
-                carpage = 'https://www.carsdirect.com' + carpage
-
-                # row = [make, model, trim, year, mileage, price, vin, url]
+                url = 'https://www.carsdirect.com' + carpage
+                
                 row = [make, model,trim, year, mileage, price, vin, carpage, img]
                 rowlist = {'Make': make, 'Model':model, 'Trim':trim, 'Year':year, 'Mileage':mileage, 'Price':price, 'VIN':vin, 'url':carpage, 'img':img}
                 w.writerow(row)
@@ -1053,8 +935,8 @@ def cleanData(list):
     for i in range(len(list)):
         if list[i] not in list[i + 1:]:
             res_list.append(list[i])
-
-    return res_list
+            
+    return res_list      
 
 
 l = Scrape5('land rover', 'range rover')

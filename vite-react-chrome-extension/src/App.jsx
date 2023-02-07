@@ -54,7 +54,6 @@ async function singleCarData1(url) {
         // console.log(`Trim: ${trim}`);
         return {year, make, model, trim}
         // Print the scraped data
-        
     })
     .catch((error) => {
         console.error(error);
@@ -324,6 +323,42 @@ function App() {
 
     }, [chrome.tabs]);
 
+    useEffect(() => {
+        const fetchPreferences =  'http://localhost:8080/getPreferences/' + pricePriority + '/' + mileagePriority + '/' + yearPriority + '/' + trimPriority + '/';
+            console.log(fetchPreferences)
+            axios.get(fetchPreferences)
+                .then((response) => {
+                    console.log("Response: " + response)
+                    setCarData(response.data);
+                    setDone (true);         
+                }, {timeout: 15000})
+                .catch((error) => {
+                    // Error
+                    setTime(true);
+                    if (error.response) {
+                        // The request was made and the server responded with a status code
+                        // that falls out of the range of 2xx
+                        console.log("Error out of 2xx Range Found:");
+                        console.log(error.response.data);
+                        console.log(error.response.status);
+                        console.log(error.response.headers);
+
+                    } else if (error.request) {
+                        // The request was made but no response was received
+                        // `error.request` is an instance of XMLHttpRequest in the 
+                        // browser and an instance of http.ClientRequest in node.js
+                        console.log("No Repsonse Received from Request");
+                        console.log(error.request);
+                    } else {
+                        // Something happened in setting up the request that triggered an Error
+                        console.log("Request not sent");
+                        console.log('Error', error.message);
+                    }
+                    console.log(error.config);
+                });  
+    }, []);
+
+    //pricePriority, mileagePriority, yearPriority, trimPriority
     // if (error) {
     //     return alert(error)
     // }
@@ -353,11 +388,23 @@ function App() {
             </div>
         );
     }
+    // else if (!done && time){
+    //     return (
+    //         <div className="App">
+    //             <div class="banner">
+    //                 <h1><b>CARCOW</b></h1>
+    //             </div>
+    //             <h3>{error.response.status} Status Error Code</h3>
+    //             <p>{error.response.data}</p>
+    //         </div>              
+    //     ); 
+    // }
     else{
         if(isCars){
             return(  
                 <div className="App">
                     <header className="App-header">
+                        <view>{console.log(carData)}</view>
                         <div class="banner">
                             <h1><b>WHEEL DEAL</b></h1>
                         </div>
@@ -441,3 +488,4 @@ function App() {
 };
 
 export default App
+
