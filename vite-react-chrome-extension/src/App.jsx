@@ -281,9 +281,6 @@ function App() {
     /*
      * Get current URL
      */
-<<<<<<< HEAD
-    const conditions = ['cars.com/vehicledetail', 'cargurus.com', 'autotrader.com/cars-for-sale/vehicledetails', 'carsdirect.com/used_cars/vehicle-detail', 'edmunds.com']
-=======
     const conditions = ['cars.com/vehicledetail', 'autotrader.com/cars-for-sale/vehicledetails', 'cargurus.com/cars', 'edmunds.com', 'carsdirect.com/used_cars/vehicle-detail']
 
     const SliderChange = async() => {
@@ -323,7 +320,6 @@ function App() {
         console.log("End of SliderChange Function results");
         preferenceFormClose();
     };
->>>>>>> 5481746cbcf2f4c34b4f59088a32aac93febfe13
 
     // useEffect(() => {
     //     console.log("The SliderChange() useEffect was utilized");
@@ -415,8 +411,7 @@ function App() {
 
     }, [chrome.tabs]);
 
-<<<<<<< HEAD
-=======
+
     // useEffect(() => {
     //     const fetchPreferences = 'http://localhost:8080/getCarData/' + data.make + '/' + data.model + '/' + data.year + '/22201/' + pricePriority + '/' + mileagePriority + '/NA/' + trimPriority;
     //     console.log(fetchPreferences)
@@ -451,8 +446,6 @@ function App() {
     //                 console.log(error.config);
     //             });  
     // }, []);
-
->>>>>>> 5481746cbcf2f4c34b4f59088a32aac93febfe13
     //pricePriority, mileagePriority, yearPriority, trimPriority
     // if (error) {
     //     return alert(error)
