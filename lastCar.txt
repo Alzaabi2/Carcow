@@ -1,2 +1,2 @@
 make,model,year,Zip
-Ford,F-250,2022,22201
+Ford,Mustang,2022,22201

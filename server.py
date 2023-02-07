@@ -157,7 +157,7 @@ def getPreferences(pricePriority, mileagePriority, yearPriority, trim, trimPrior
         for row in reader:
             lastCar = row
     
-    cursor.execute("SELECT * FROM scraped WHERE model = %s AND (searchID IS NULL OR searchID = %s) LIMIT 10", (lastCar['model'], 'available'))
+    cursor.execute("SELECT * FROM scraped WHERE model = %s AND (searchID IS NULL OR searchID = %s)", (lastCar['model'], 'available'))
     
     list = cursor.fetchall()
     
@@ -204,10 +204,17 @@ def getPreferences(pricePriority, mileagePriority, yearPriority, trim, trimPrior
     
     return topCars
 
-@app.route('/getPreferences/<string:make>/<string:model>/<string:year>/<string:zip>/<string:pricePr>/<string:mileagePr>/<string:yearPr>/<string:trimPr>')
-def getPreferences(make,model,year,zip,pricePr,mileagePr,yearPr,trimPr):
+@app.route('/getPreferences2/<string:make>/<string:model>/<string:year>/<string:zip>/<string:pricePr>/<string:mileagePr>/<string:yearPr>/<string:trimPr>')
+def getPreferences2(make,model,year,zip,pricePr,mileagePr,yearPr,trimPr):
     print('Priority: '+pricePr+" "+mileagePr+" "+yearPr+" "+trimPr+" ")
     # return getCarData(make,model,year,zip)
     list = [{"VIN": "1FT7W2B61MED03114", "imageurl": "https://platform.cstatic-images.com/xlarge/in/v2/315e30cb-bf08-5cf2-87c6-faeae5044211/71799140-e583-4cb9-96ff-14fd5bf36231/rmGP7VQbaVLKCcoVgy0HET0AuH4.jpg", 'make':"Ford", 'mileage':"50315", 'model':"F-250", 'price':"48214", 'suggested':"68849.38", 'trim': "XLT", 'url':"http://cars.com/vehicledetail/67a1fa2e-ed06-43a9-8cbe-5a65e2ce0d0e/", 'year': "2021"}]
     return list
+
+
+
+#getUrl('httpscolumslashslashwwwdotcarsdotcomslashvehicledetailslashf5d252ee-47ab-44d1-9717-8d655eb26b5cslash')
+
+# getPreferences(1,2,3, 'GT', 7)
+
 app.run(host='0.0.0.0', port=8080)

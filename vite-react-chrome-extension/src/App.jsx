@@ -4,58 +4,13 @@ import './slider.css';
 import $ from "jquery";
 import axios from 'axios';
 import ReactLoading from "react-loading";
-import ReactSlider from "react-slider";
-import SlidingPane from "react-sliding-pane";
-import "react-sliding-pane/dist/react-sliding-pane.css";
-import { findAllByTestId } from '@testing-library/react';
+// import ReactSlider from "react-slider";
+// import SlidingPane from "react-sliding-pane";
+// import "react-sliding-pane/dist/react-sliding-pane.css";
+// import { findAllByTestId } from '@testing-library/react';
 // import Skeleton, { SkeletonTheme } from "react-loading-skeleton";
 //import 'react-loading-skeleton/dist/skeleton.css';
 
-// function UserPreferencesSlider() {
-
-//     const [node, setNode] = useState(0)
-//     const [node2, setNode2] = useState(0)
-//     const [node3, setNode3] = useState(0)
-//     const [node4, setNode4] = useState(0)
-//     const [node5, setNode5] = useState(0)
-//     const [node6, setNode6] = useState(0)
-   
-//     return(
-//         <>
-//             <div>
-//                 <h3>Color </h3><input type='range' className={node<5 ? 'low': 'high'} min='0' max='10' step='1' value={node} onChange={(e)=>setNode(e.target.value)}/>
-//                 <h1>{node}</h1>
-//             </div>
-//             <div>
-//                 <h3>Price </h3><input type='range' className={node2<5 ? 'low': 'high'} min='0' max='10' step='1' value={node2} onChange={(e)=>setNode2(e.target.value)}/>
-//                 <h1>{node2}</h1>
-//             </div>
-//             <div>
-//                 <h3>Mileage </h3><input type='range' className={node3<5 ? 'low': 'high'} min='0' max='10' step='1' value={node3} onChange={(e)=>setNode3(e.target.value)}/>
-//                 <h1>{node3}</h1>
-//             </div>
-//             <div>
-//                 <h3>Distance </h3><input type='range' className={node4<5 ? 'low': 'high'} min='0' max='10' step='1' value={node4} onChange={(e)=>setNode4(e.target.value)}/>
-//                 <h1>{node}</h1>
-//             </div>
-//             <div>
-//                 <h3>Year </h3><input type='range' className={node5<5 ? 'low': 'high'} min='0' max='10' step='1' value={node5} onChange={(e)=>setNode5(e.target.value)}/>
-//                 <h1>{node5}</h1>
-//             </div>
-//             <div>
-//                 <h3>Trim </h3><input type='range' className={node6<5 ? 'low': 'high'} min='0' max='10' step='1' value={node6} onChange={(e)=>setNode6(e.target.value)}/>
-//                 <h1>{node6}</h1>
-//             </div>
-//         </>
-//     );
-// };
-
-{/* <SlidingPane
-                        isOpen={pane.isPaneOpen}
-                        title="Preferences Panel"
-                        from="right"
-                        width="200px"
-                    ></SlidingPane> */}
 
 function App() {
     const [urlCall, setUrl] = useState('');
@@ -76,23 +31,93 @@ function App() {
     const [yearPriority, setyearPriority] = useState(0)
     const [trimPriority, settrimPriority] = useState(0)
 
+        // + '/preferences/' + pricePriority + '/' + mileagePriority + '/' + yearPriority + '/' + trimPriority + '/'
+    
+    // const SliderChange = () => {
+    //     console.log("From the SliderChange function:")
+    //     const fetchPreferences = 'http://localhost:8080/getPreferences/' + pricePriority + '/' + mileagePriority + '/' + yearPriority + '/SL/'+ trimPriority;
+    //     axios.get(fetchPreferences)
+    //     .then((response) => {
+    //         console.log("Response: ", response)
+    //     })
+    //     .catch((error) => {
+    //         // Error
+    //         setTime(true);
+    //         if (error.response) {
+    //             // The request was made and the server responded with a status code
+    //             // that falls out of the range of 2xx
+    //             console.log("Error out of 2xx Range Found:");
+    //             console.log(error.response.data);
+    //             console.log(error.response.status);
+    //             console.log(error.response.headers);
 
-    const SliderChange = () => {
-        console.log("Old Price Priority: " + pricePriority);
-        console.log("Old Mileage Priority: " + mileagePriority);
-        console.log("Old Year Priority: " + yearPriority);
-        console.log("Old Trim Priority: " + trimPriority);
-        (event) => setpricePriority(event.target.value);
-        (event2) => setmileagePriority(event2.target.value);
-        (event3) => setyearPriority(event3.target.value);
-        (event4) => settrimPriority (event4.target.value);
+    //         } else if (error.request) {
+    //             // The request was made but no response was received
+    //             // `error.request` is an instance of XMLHttpRequest in the 
+    //             // browser and an instance of http.ClientRequest in node.js
+    //             console.log("No Repsonse Received from Request");
+    //             console.log(error.request);
+    //         } else {
+    //             // Something happened in setting up the request that triggered an Error
+    //             console.log("Request not sent");
+    //             console.log('Error', error.message);
+    //         }
+    //         console.log(error.config);
+    //     });  
+    //     console.log("End of SliderChange Function results")  
+    // };
+
+    // useEffect(() => {
+    //     console.log("The SliderChange() useEffect was utilized");
+    //     SliderChange();
+    // }, [pricePriority, mileagePriority, yearPriority, trimPriority]);
+    
+    const SliderChange = async() => {
+        console.log("Starting SliderChange function:")
+        // console.log("Old Price Priority: " + pricePriority);
+        // console.log("Old Mileage Priority: " + mileagePriority);
+        // console.log("Old Year Priority: " + yearPriority);
+        // console.log("Old Trim Priority: " + trimPriority);
         console.log("New Price Priority: " + pricePriority);
         console.log("New Mileage Priority: " + mileagePriority);
         console.log("New Year Priority: " + yearPriority);
         console.log("New Trim Priority: " + trimPriority);
+    
+        useEffect(() => {
+            const fetchPreferences = 'http://localhost:8080/getPreferences/' + pricePriority + '/' + mileagePriority + '/' + yearPriority + '/SL/'+ trimPriority;
+            axios.get(fetchPreferences)
+                .then((response) => {
+                    console.log("Response: ", response)
+                    setCarData(response.data);
+                    setDone (true);         
+                }, {timeout: 15000})
+                .catch((error) => {
+                    // Error
+                    setTime(true);
+                    if (error.response) {
+                        // The request was made and the server responded with a status code
+                        // that falls out of the range of 2xx
+                        console.log("Error out of 2xx Range Found:");
+                        console.log(error.response.data);
+                        console.log(error.response.status);
+                        console.log(error.response.headers);
+    
+                    } else if (error.request) {
+                        // The request was made but no response was received
+                        // `error.request` is an instance of XMLHttpRequest in the 
+                        // browser and an instance of http.ClientRequest in node.js
+                        console.log("No Repsonse Received from Request");
+                        console.log(error.request);
+                    } else {
+                        // Something happened in setting up the request that triggered an Error
+                        console.log("Request not sent");
+                        console.log('Error', error.message);
+                    }
+                    console.log(error.config);
+                });  
+        }, [pricePriority, mileagePriority, yearPriority, trimPriority]);
+        console.log("Ending SliderChange results")
     };
-
-        // + '/preferences/' + pricePriority + '/' + mileagePriority + '/' + yearPriority + '/' + trimPriority + '/'
 
     /*
      * Get current URL
@@ -165,41 +190,6 @@ function App() {
 
     }, [chrome.tabs]);
 
-    // useEffect(() => {
-    //     const fetchPreferences =  'http://localhost:8080/getPreferences/' + 'Ford/Mustang/2000/20001/' + pricePriority + '/' + mileagePriority + '/' + yearPriority + '/' + trimPriority;
-    //         console.log(fetchPreferences)
-    //         axios.get(fetchPreferences)
-    //             .then((response) => {
-    //                 console.log("Response: ", response)
-    //                 //setCarData(response.data);
-    //                 setDone (true);         
-    //             }, {timeout: 15000})
-    //             .catch((error) => {
-    //                 // Error
-    //                 setTime(true);
-    //                 if (error.response) {
-    //                     // The request was made and the server responded with a status code
-    //                     // that falls out of the range of 2xx
-    //                     console.log("Error out of 2xx Range Found:");
-    //                     console.log(error.response.data);
-    //                     console.log(error.response.status);
-    //                     console.log(error.response.headers);
-
-    //                 } else if (error.request) {
-    //                     // The request was made but no response was received
-    //                     // `error.request` is an instance of XMLHttpRequest in the 
-    //                     // browser and an instance of http.ClientRequest in node.js
-    //                     console.log("No Repsonse Received from Request");
-    //                     console.log(error.request);
-    //                 } else {
-    //                     // Something happened in setting up the request that triggered an Error
-    //                     console.log("Request not sent");
-    //                     console.log('Error', error.message);
-    //                 }
-    //                 console.log(error.config);
-    //             });  
-    // }, [preferences]);
-
     //pricePriority, mileagePriority, yearPriority, trimPriority
     // if (error) {
     //     return alert(error)
@@ -241,11 +231,10 @@ function App() {
     //     ); 
     // }
     else{
-        if(isCars){
+        if(isCars && carData){
             return(  
                 <div className="App">
                     <header className="App-header">
-                        <view>{console.log("carData1 ",carData)}</view>
                         <div class="banner">
                             <h1><b>WHEEL DEAL</b></h1>
                         </div>
@@ -302,6 +291,22 @@ function App() {
                         </div>: ""}
                     </div>
                 </div>
+            );
+        }
+        else if (isCars && !carData){
+            return (
+                //Inside of whole return block must be enclosed in tags to compile, <div></div> or <></> work here
+                <>
+                    console.log('invalid site')
+                    <div className="App">
+                        <header className="App-header">
+                            <div class="banner">
+                                <h1><b>WHEEL DEAL</b></h1>
+                            </div>
+                            <h2>Oops! No cars found.</h2>
+                        </header>
+                    </div> 
+                </>              
             );
         }
         else{

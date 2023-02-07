@@ -273,6 +273,7 @@ def preferenceRate(combined_list, pricePriority, mileagePriority, yearPriority, 
 def priceRating(list):
     initScore = []
     deals = []
+    minScore = 10000000000
 
     if list is None:
         return []
@@ -297,11 +298,9 @@ def priceRating(list):
 
         url = list[i]['url']
         
-        if i == 0:
+        
+        if l < minScore:
             minScore = l
-        else:
-            if l < minScore:
-                minScore = l
         
 
         row = (str(count), vin,l,price,url)
