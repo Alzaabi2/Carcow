@@ -1,9 +1,15 @@
-import React, { useEffect, useState, useRef } from 'react';
+import React, { Component, useEffect, useState, useRef } from 'react';
 import './App.css';
+import './slider.css';
 import $, { data } from "jquery";
 import axios from 'axios';
 import ReactLoading from "react-loading";
 import cheerio from 'cheerio';
+// import ReactSlider from "react-slider";
+// import SlidingPane from "react-sliding-pane";
+// import "react-sliding-pane/dist/react-sliding-pane.css";
+// import { findAllByTestId } from '@testing-library/react';
+
 
 //cars.com
 async function singleCarData1(url) {
@@ -172,11 +178,63 @@ function App() {
     const [carData, setCarData] = useState(null);
     const [done, setDone] = useState(undefined);
     const [long, setLong] = useState(undefined);
+    //Determine time to wait for server response before sending error message
+    const [time, setTime] = useState(undefined);
+
+    //Variable to determine if preferences form popup should be open or not
+    const[preferences, setPreferences] = useState (false);
+
+    //Variables to manage each Slider Component and their values
+    const [pricePriority, setpricePriority] = useState(0)
+    const [mileagePriority, setmileagePriority] = useState(0)
+    const [yearPriority, setyearPriority] = useState(0)
+    const [trimPriority, settrimPriority] = useState(0)
+
+
     /*
      * Get current URL
      */
     const conditions = ['cars.com/vehicledetail', 'autotrader.com/cars-for-sale/vehicledetails', 'cargurus.com/cars', 'edmunds.com', 'carsdirect.com/used_cars/vehicle-detail']
 
+    const SliderChange = () => {
+        console.log("From the SliderChange function:")
+        const fetchPreferences = 'http://localhost:8080/getPreferences/' + pricePriority + '/' + mileagePriority + '/' + yearPriority + '/SL/'+ trimPriority;
+        axios.get(fetchPreferences)
+        .then((response) => {
+            console.log("Response: ", response)
+        })
+        .catch((error) => {
+            // Error
+            setTime(true);
+            if (error.response) {
+                // The request was made and the server responded with a status code
+                // that falls out of the range of 2xx
+                console.log("Error out of 2xx Range Found:");
+                console.log(error.response.data);
+                console.log(error.response.status);
+                console.log(error.response.headers);
+
+            } else if (error.request) {
+                // The request was made but no response was received
+                // `error.request` is an instance of XMLHttpRequest in the 
+                // browser and an instance of http.ClientRequest in node.js
+                console.log("No Repsonse Received from Request");
+                console.log(error.request);
+            } else {
+                // Something happened in setting up the request that triggered an Error
+                console.log("Request not sent");
+                console.log('Error', error.message);
+            }
+            console.log(error.config);
+        });  
+        console.log("End of SliderChange Function results")  
+    };
+
+    useEffect(() => {
+        console.log("The SliderChange() useEffect was utilized");
+        SliderChange();
+    }, [pricePriority, mileagePriority, yearPriority, trimPriority]);
+    
 
     useEffect(async () => {
         const queryInfo = {active: true, lastFocusedWindow: true};
@@ -206,7 +264,7 @@ function App() {
                 const parsedURL2 = urlCall.replace(/https:\/\/www\.autotrader\.com\/cars-for-sale\/vehicledetails.xhtml/g, 'constautotraderurl').replace(/\//g, 'slash').replace(/\./g, 'dot').replace(/:/g, 'colum').replace(/\?/g, 'questionmark')
                 console.log(urlCall)
                 console.log(parsedURL2)
-                var fetchURL =  'http://18.207.236.241:8080/getUrl/' + parsedURL2;
+                var fetchURL =  'http://localhost:8080/getUrl/' + parsedURL2;
                 // console.log(fetchURL)
             }
             else if(siteID == 1){
@@ -215,14 +273,14 @@ function App() {
                 console.log(data.model)
                 console.log(data.year)
                 console.log(data.trim)
-                var fetchURL =  'http://18.207.236.241:8080/getCarData/' + data.make + '/' + data.model + '/' + data.year + '/22201';
+                var fetchURL =  'http://localhost:8080/getCarData/' + data.make + '/' + data.model + '/' + data.year + '/22201';
             }else if(siteID == 2){
                 const data = await singleCarData2(urlCall)
-                var fetchURL =  'http://18.207.236.241:8080/getCarData/' + data.make + '/' + data.model + '/' + data.year + '/22201';
+                var fetchURL =  'http://localhost:8080/getCarData/' + data.make + '/' + data.model + '/' + data.year + '/22201';
 
             }else if(siteID == 4){
                 const data = await singleCarData4(urlCall)
-                var fetchURL =  'http://18.207.236.241:8080/getCarData/' + data.make + '/' + data.model + '/' + data.year + '/22201';
+                var fetchURL =  'http://localhost:8080/getCarData/' + data.make + '/' + data.model + '/' + data.year + '/22201';
             }
             
 
@@ -238,6 +296,7 @@ function App() {
                 .catch((error) => {
                     // Error
                     setLong(true);
+                    setTime(true);
                     if (error.response) {
                         // The request was made and the server responded with a status code
                         // that falls out of the range of 2xx
@@ -269,6 +328,18 @@ function App() {
     //     return alert(error)
     // }
     // if (!carData) return null;
+
+    //Open Preferences Form
+    const preferenceFormOpen = () => {
+        setPreferences(!preferences);
+    };
+
+    //Close Preferences Form
+    const preferenceFormClose = () => {
+        setPreferences(!preferences);
+    };
+
+
     if (!done && !long){
         return(
             <div className="App">
@@ -282,39 +353,34 @@ function App() {
             </div>
         );
     }
-    // else if (!done && long){
-    //     return (
-    //         <div className="App">
-    //             <div class="banner">
-    //                 <h1><b>CARCOW</b></h1>
-    //             </div>
-    //             <h3>{error.response.status} Status Error Code</h3>
-    //             <p>{error.response.data}</p>
-    //         </div>              
-    //     ); 
-    // }
     else{
         if(isCars){
-            return(    
+            return(  
                 <div className="App">
                     <header className="App-header">
                         <div class="banner">
-                            <h1><b>CARCOW</b></h1>
+                            <h1><b>WHEEL DEAL</b></h1>
                         </div>
-                        {/* <h2>Click on the car info to go to the listing</h2><br/> */}
+                        <div className="preferences-form">
+                            {!preferences?
+                            <button onClick={preferenceFormOpen}>
+                               Open Preferences
+                            </button>: <button onClick={preferenceFormClose}>
+                               Close Preferences
+                            </button>}
+                        </div>
                         <table>
                             {carData.map(car=>(                   
                                 <tr>
                                     <td>
-                                        {/* <img src={car.imageurl} alt="Image Not Found"/> */}
+                                        <img src={car.imageurl} alt="Image Not Found"/>
                                         <div class="info-display">
                                             <a href = {car.url} target="_blank">
                                                 <div class="car-basics">&nbsp;&nbsp;{car.year} {car.make} {car.model} {car.trim}</div>
                                                 <div class="car-stats">
                                                     &nbsp; <div class="car-price">&nbsp;${car.price} </div>&nbsp; &nbsp;<div class="car-mileage"> {car.mileage}mi</div>
                                                 </div>
-                                                <div class="car-stats">{Math.round(100*(1 - (car.price / car.suggested))) > 0 ? <div class="suggested-price-good">&nbsp;Below Market by {Math.round(100*(1 - (car.price / car.suggested)))}%</div> : <div class="suggested-price-bad"> &nbsp;Above Market by {Math.round(-100*(1 - (car.price / car.suggested)))}%</div>}</div>
-                                                
+                                                <div class="car-stats">{Math.round(100*(1 - (car.price / car.suggested))) > 0 ? <div class="suggested-price-good">&nbsp;Below Market by {Math.round(100*(1 - (car.price / car.suggested)))}%</div> : <div class="suggested-price-bad"> &nbsp;Above Market by {Math.round(-100*(1 - (car.price / car.suggested)))}%</div>}</div>                                              
                                             </a>
                                         </div>
                                     </td>
@@ -322,6 +388,31 @@ function App() {
                             ))}      
                         </table>
                     </header>
+                    <div> 
+                        {/*If preferences = true, open popup, otherwise it is false and should be closed */}
+                        {preferences?
+                        <div className="popup">
+                            <div>
+                                <h3>Price </h3><input type='range' className={pricePriority<5 ? 'low': 'high'} min='0' max='10' step='1' value={pricePriority} onChange={(e) => setpricePriority(e.target.value)}/>
+                                <h1>{pricePriority}</h1>
+                            </div>
+                            <div>
+                                <h3>Mileage </h3><input type='range' className={mileagePriority<5 ? 'low': 'high'} min='0' max='10' step='1' value={mileagePriority} onChange={(e) => setmileagePriority(e.target.value)}/>
+                                <h1>{mileagePriority}</h1>
+                            </div>
+                            <div>
+                                <h3>Year </h3><input type='range' className={yearPriority<5 ? 'low': 'high'} min='0' max='10' step='1' value={yearPriority} onChange={(e) => setyearPriority(e.target.value)}/>
+                                <h1>{yearPriority}</h1>
+                            </div>
+                            <div>
+                                <h3>Trim </h3><input type='range' className={trimPriority<5 ? 'low': 'high'} min='0' max='10' step='1' value={trimPriority} onChange={(e) => settrimPriority(e.target.value)}/>
+                                <h1>{trimPriority}</h1>
+                            </div>
+                            <div className="submit">
+                                <button onClick={SliderChange}>Apply Preferences</button>
+                            </div>
+                        </div>: ""}
+                    </div>
                 </div>
             );
         }
@@ -333,7 +424,7 @@ function App() {
                     <div className="App">
                         <header className="App-header">
                             <div class="banner">
-                                <h1><b>CARCOW</b></h1>
+                                <h1><b>WHEEL DEAL</b></h1>
                             </div>
                             <h2>Oops! Please visit a valid site.</h2>
                                 <p><a href="https://cars.com" target="_blank">Cars.com</a></p>

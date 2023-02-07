@@ -69,16 +69,32 @@ def getUrl(url):
     
     tempData = []
     lastCar = {}
+    try:
+        with open('TempData.txt', 'r') as f:
+            reader = csv.DictReader(f)
+            for row in reader:
+                tempData.append(row)
 
-    with open('TempData.txt', 'r') as f:
-        reader = csv.DictReader(f)
-        for row in reader:
-            tempData.append(row)
-
-    with open('lastCar.txt', 'r') as f:
-        reader = csv.DictReader(f)
-        for row in reader:
-            lastCar = row
+        with open('lastCar.txt', 'r') as f:
+            reader = csv.DictReader(f)
+            for row in reader:
+                lastCar = row
+    except:
+        with open('lastCar.txt', 'w', encoding='utf8', newline='\n') as f:
+            w = writer(f)
+            header = ['make', 'model', 'year', 'Zip']
+            w.writerow(header)
+            #no rip
+            row = ['sample', 'sample', '2023', '22201']
+            w.writerow(row)
+            
+        with open('TempData.txt', 'w', encoding='utf8', newline='\n') as f:
+            w = writer(f)
+            header = ['VIN', 'make', 'model', 'year', 'trim', 'mileage', 'price', 'suggested', 'url', 'imageurl']
+            w.writerow(header)
+            for i in range(len(topCars)):
+                row = ['sample', 'sample', 'sample', 'sample', 'sample', 'sample', 'sample', 'sample', 'sample', 'sample']
+                w.writerow(row)
 
     if lastCar != {}:  
         if lastCar['make'] == singleCar['make'] and lastCar['model'] == singleCar['model'] and lastCar['year'] == singleCar['year']:
@@ -151,16 +167,32 @@ def getCarData(make,model,year,zip):
 
     tempData = []
     lastCar = {}
+    try:
+        with open('TempData.txt', 'r') as f:
+            reader = csv.DictReader(f)
+            for row in reader:
+                tempData.append(row)
 
-    with open('TempData.txt', 'r') as f:
-        reader = csv.DictReader(f)
-        for row in reader:
-            tempData.append(row)
-
-    with open('lastCar.txt', 'r') as f:
-        reader = csv.DictReader(f)
-        for row in reader:
-            lastCar = row
+        with open('lastCar.txt', 'r') as f:
+            reader = csv.DictReader(f)
+            for row in reader:
+                lastCar = row
+    except:
+        with open('lastCar.txt', 'w', encoding='utf8', newline='\n') as f:
+            w = writer(f)
+            header = ['make', 'model', 'year', 'Zip']
+            w.writerow(header)
+            #no rip
+            row = ['sample', 'sample', '2023', '22201']
+            w.writerow(row)
+            
+        with open('TempData.txt', 'w', encoding='utf8', newline='\n') as f:
+            w = writer(f)
+            header = ['VIN', 'make', 'model', 'year', 'trim', 'mileage', 'price', 'suggested', 'url', 'imageurl']
+            w.writerow(header)
+            for i in range(len(topCars)):
+                row = ['sample', 'sample', 'sample', 'sample', 'sample', 'sample', 'sample', 'sample', 'sample', 'sample']
+                w.writerow(row)
 
     if lastCar != {}:  
         if lastCar['make'] == make and lastCar['model'] == model and lastCar['year'] == year:
