@@ -151,7 +151,7 @@ function App() {
             //Previous server IP: 18.207.236.241:8080
             //Changed server IP to: 172.26.142.227:8080
             //Now changed to: localhost:8080
-            const fetchURL =  'http://localhost:8080/getUrl/' + parsedURL2;
+            const fetchURL =  'http://localhost:8080/getUrl/' + parsedURL2 + '/' + pricePriority + '/' + mileagePriority + '/' + yearPriority  + '/' + trimPriority;
             console.log(fetchURL)
             axios.get(fetchURL)
                 .then((response) => {
