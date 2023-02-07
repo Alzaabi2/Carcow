@@ -190,93 +190,6 @@ function App() {
     const [yearPriority, setyearPriority] = useState(0)
     const [trimPriority, settrimPriority] = useState(0)
 
-        // + '/preferences/' + pricePriority + '/' + mileagePriority + '/' + yearPriority + '/' + trimPriority + '/'
-    
-    // const SliderChange = () => {
-    //     console.log("From the SliderChange function:")
-    //     const fetchPreferences = 'http://localhost:8080/getPreferences/' + pricePriority + '/' + mileagePriority + '/' + yearPriority + '/SL/'+ trimPriority;
-    //     axios.get(fetchPreferences)
-    //     .then((response) => {
-    //         console.log("Response: ", response)
-    //     })
-    //     .catch((error) => {
-    //         // Error
-    //         setTime(true);
-    //         if (error.response) {
-    //             // The request was made and the server responded with a status code
-    //             // that falls out of the range of 2xx
-    //             console.log("Error out of 2xx Range Found:");
-    //             console.log(error.response.data);
-    //             console.log(error.response.status);
-    //             console.log(error.response.headers);
-
-    //         } else if (error.request) {
-    //             // The request was made but no response was received
-    //             // `error.request` is an instance of XMLHttpRequest in the 
-    //             // browser and an instance of http.ClientRequest in node.js
-    //             console.log("No Repsonse Received from Request");
-    //             console.log(error.request);
-    //         } else {
-    //             // Something happened in setting up the request that triggered an Error
-    //             console.log("Request not sent");
-    //             console.log('Error', error.message);
-    //         }
-    //         console.log(error.config);
-    //     });  
-    //     console.log("End of SliderChange Function results")  
-    // };
-
-    // useEffect(() => {
-    //     console.log("The SliderChange() useEffect was utilized");
-    //     SliderChange();
-    // }, [pricePriority, mileagePriority, yearPriority, trimPriority]);
-    
-    const SliderChange = async() => {
-        console.log("Starting SliderChange function:")
-        // console.log("Old Price Priority: " + pricePriority);
-        // console.log("Old Mileage Priority: " + mileagePriority);
-        // console.log("Old Year Priority: " + yearPriority);
-        // console.log("Old Trim Priority: " + trimPriority);
-        console.log("New Price Priority: " + pricePriority);
-        console.log("New Mileage Priority: " + mileagePriority);
-        console.log("New Year Priority: " + yearPriority);
-        console.log("New Trim Priority: " + trimPriority);
-    
-        useEffect(() => {
-            const fetchPreferences = 'http://localhost:8080/getPreferences/' + pricePriority + '/' + mileagePriority + '/' + yearPriority + '/SL/'+ trimPriority;
-            axios.get(fetchPreferences)
-                .then((response) => {
-                    console.log("Response: ", response)
-                    setCarData(response.data);
-                    setDone (true);         
-                }, {timeout: 15000})
-                .catch((error) => {
-                    // Error
-                    setTime(true);
-                    if (error.response) {
-                        // The request was made and the server responded with a status code
-                        // that falls out of the range of 2xx
-                        console.log("Error out of 2xx Range Found:");
-                        console.log(error.response.data);
-                        console.log(error.response.status);
-                        console.log(error.response.headers);
-    
-                    } else if (error.request) {
-                        // The request was made but no response was received
-                        // `error.request` is an instance of XMLHttpRequest in the 
-                        // browser and an instance of http.ClientRequest in node.js
-                        console.log("No Repsonse Received from Request");
-                        console.log(error.request);
-                    } else {
-                        // Something happened in setting up the request that triggered an Error
-                        console.log("Request not sent");
-                        console.log('Error', error.message);
-                    }
-                    console.log(error.config);
-                });  
-        }, [pricePriority, mileagePriority, yearPriority, trimPriority]);
-        console.log("Ending SliderChange results")
-    };
 
     /*
      * Get current URL
@@ -342,6 +255,7 @@ function App() {
             // if (urlCall.includes('cars.com/vehicledetail')){
             //     setIsCars(true) //set isCars to true
             // }
+            var siteID = -1
             for(let i=0; i<conditions.length; i++) {
                 if(urlCall.includes(conditions[i])) {
                   setIsCars(true)
@@ -411,7 +325,6 @@ function App() {
 
     }, [chrome.tabs]);
 
-
     // useEffect(() => {
     //     const fetchPreferences = 'http://localhost:8080/getCarData/' + data.make + '/' + data.model + '/' + data.year + '/22201/' + pricePriority + '/' + mileagePriority + '/NA/' + trimPriority;
     //     console.log(fetchPreferences)
@@ -446,6 +359,7 @@ function App() {
     //                 console.log(error.config);
     //             });  
     // }, []);
+
     //pricePriority, mileagePriority, yearPriority, trimPriority
     // if (error) {
     //     return alert(error)
@@ -488,10 +402,11 @@ function App() {
     //     ); 
     // }
     else{
-        if(isCars && carData){
+        if(isCars){
             return(  
                 <div className="App">
                     <header className="App-header">
+                        <view>{console.log(carData)}</view>
                         <div class="banner">
                             <h1><b>WHEEL DEAL</b></h1>
                         </div>
@@ -550,22 +465,6 @@ function App() {
                 </div>
             );
         }
-        else if (isCars && !carData){
-            return (
-                //Inside of whole return block must be enclosed in tags to compile, <div></div> or <></> work here
-                <>
-                    console.log('invalid site')
-                    <div className="App">
-                        <header className="App-header">
-                            <div class="banner">
-                                <h1><b>WHEEL DEAL</b></h1>
-                            </div>
-                            <h2>Oops! No cars found.</h2>
-                        </header>
-                    </div> 
-                </>              
-            );
-        }
         else{
             return (
                 //Inside of whole return block must be enclosed in tags to compile, <div></div> or <></> work here
@@ -591,4 +490,3 @@ function App() {
 };
 
 export default App
-
