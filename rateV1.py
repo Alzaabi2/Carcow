@@ -60,7 +60,7 @@ def rate(list):
         deals.append(row)
     
     # Sorted list of deals in descending order from best to worst deal
-    deals.sort(key=lambda y: -y[2])
+    deals.sort(key=lambda y: y[2])
 
     topDeals = [deals[0], deals[1], deals[2], deals[3], deals[4]]
     return topDeals
@@ -97,7 +97,7 @@ def rate2(list):
         deals.append(row)
     
     # Sorted list of deals in descending order from best to worst deal
-    deals.sort(key=lambda y: -y[1])
+    deals.sort(key=lambda y: y[1])
 
     ret_list = []
 
@@ -235,7 +235,7 @@ def preferenceRate(combined_list, pricePriority, mileagePriority, yearPriority, 
         row = (vin, finalRate, url)
         deals.append(row)
 
-    deals.sort(key=lambda y: -y[1])
+    deals.sort(key=lambda y: y[1])
     # print("\n", deals)
 
     # Ensure that all cars sent to Chrome extension are available

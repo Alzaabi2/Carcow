@@ -39,11 +39,9 @@ def getScrape(make, model, car_year, zip):
 
 @app.route('/getUrl/<string:url>')
 def getUrl(url):
-    print(url)
     cursor = mydb.cursor(dictionary=True)
 
     time1 = time.perf_counter()
-    totalTime = time.perf_counter()
     url = url.replace('slash', '/')
     url = url.replace('colum', ':')
     url = url.replace('dot', '.')
@@ -71,16 +69,32 @@ def getUrl(url):
     
     tempData = []
     lastCar = {}
+    try:
+        with open('TempData.txt', 'r') as f:
+            reader = csv.DictReader(f)
+            for row in reader:
+                tempData.append(row)
 
-    with open('TempData.txt', 'r') as f:
-        reader = csv.DictReader(f)
-        for row in reader:
-            tempData.append(row)
-
-    with open('lastCar.txt', 'r') as f:
-        reader = csv.DictReader(f)
-        for row in reader:
-            lastCar = row
+        with open('lastCar.txt', 'r') as f:
+            reader = csv.DictReader(f)
+            for row in reader:
+                lastCar = row
+    except:
+        with open('lastCar.txt', 'w', encoding='utf8', newline='\n') as f:
+            w = writer(f)
+            header = ['make', 'model', 'year', 'Zip']
+            w.writerow(header)
+            #no rip
+            row = ['sample', 'sample', '2023', '22201']
+            w.writerow(row)
+            
+        with open('TempData.txt', 'w', encoding='utf8', newline='\n') as f:
+            w = writer(f)
+            header = ['VIN', 'make', 'model', 'year', 'trim', 'mileage', 'price', 'suggested', 'url', 'imageurl']
+            w.writerow(header)
+            for i in range(len(topCars)):
+                row = ['sample', 'sample', 'sample', 'sample', 'sample', 'sample', 'sample', 'sample', 'sample', 'sample']
+                w.writerow(row)
 
     if lastCar != {}:  
         if lastCar['make'] == singleCar['make'] and lastCar['model'] == singleCar['model'] and lastCar['year'] == singleCar['year']:
@@ -146,75 +160,102 @@ def getUrl(url):
 
     return topCars
 
-@app.route('/getPreferences/<int:pricePriority>/<int:mileagePriority>/<int:yearPriority>/<string:trim>/<int:trimPriority>')
-def getPreferences(pricePriority, mileagePriority, yearPriority, trim, trimPriority):
+
+@app.route('/getCarData/<string:make>/<string:model>/<string:year>/<string:zip>')
+def getCarData(make,model,year,zip):
     cursor = mydb.cursor(dictionary=True)
 
-    print(pricePriority, mileagePriority, yearPriority, trim, trimPriority)
+    tempData = []
+    lastCar = {}
+    try:
+        with open('TempData.txt', 'r') as f:
+            reader = csv.DictReader(f)
+            for row in reader:
+                tempData.append(row)
 
-    with open('lastCar.txt', 'r') as f:
-        reader = csv.DictReader(f)
-        for row in reader:
-            lastCar = row
-    
-    cursor.execute("SELECT * FROM scraped WHERE model = %s AND (searchID IS NULL OR searchID = %s)", (lastCar['model'], 'available'))
-    
+        with open('lastCar.txt', 'r') as f:
+            reader = csv.DictReader(f)
+            for row in reader:
+                lastCar = row
+    except:
+        with open('lastCar.txt', 'w', encoding='utf8', newline='\n') as f:
+            w = writer(f)
+            header = ['make', 'model', 'year', 'Zip']
+            w.writerow(header)
+            #no rip
+            row = ['sample', 'sample', '2023', '22201']
+            w.writerow(row)
+            
+        with open('TempData.txt', 'w', encoding='utf8', newline='\n') as f:
+            w = writer(f)
+            header = ['VIN', 'make', 'model', 'year', 'trim', 'mileage', 'price', 'suggested', 'url', 'imageurl']
+            w.writerow(header)
+            for i in range(len(topCars)):
+                row = ['sample', 'sample', 'sample', 'sample', 'sample', 'sample', 'sample', 'sample', 'sample', 'sample']
+                w.writerow(row)
+
+    if lastCar != {}:  
+        if lastCar['make'] == make and lastCar['model'] == model and lastCar['year'] == year:
+            for i in range(len(tempData)):
+                if "https:" not in tempData[i]['imageurl']:
+                    tempData[i]['imageurl'] = "https:" + tempData[i]['imageurl']
+            print("\n2. Same car as last search, return previous output.\n")
+            print("\nDone.\n")
+            return tempData
+
+    time3 = time.perf_counter()
+    # print("Timer2 tempData:" + str(time3-time2))
+
+    year = float(year)
+    yearUp = year + 2
+    yearDown = year - 2
+    cursor.execute("SELECT * FROM scraped WHERE model = %s AND (year <= %s AND year >= %s) AND (searchID IS NULL OR searchID = %s)", (model, yearUp, yearDown, 'available'))
+
     list = cursor.fetchall()
+    print("\n2. Fetched data of similar cars from database \n")
+    time4 = time.perf_counter()
+    # print("Timer3 ScrapeAlpha():" + str(time4-time3))
     
-    # print(list, "\n")
-
-    #TO-DO
-    #color = colorRating(list, color, colorRate)
-    #distance = distanceRating(list, distanceRate)
-
-
-    price = priceRating(list)
-    mileage = mileageRating(list)
-    year = yearRating(list, lastCar['year'])
-    trim = trimRating(list, trim.replace('_', ' '))
-
-    vin_dict = {}
+    time5 = time.perf_counter()
+    # print("Timer4 cleanData():" + str(time5-time4))
     
-    for vin, price_rating, url in price:
-        vin_dict[vin] = {"price": price_rating, "url": url}
-    
-    for vin, mile_rating in mileage:
-        if vin in vin_dict:
-            vin_dict[vin]["mileage"] = mile_rating
-
-    for vin, year_rating in year:
-        if vin in vin_dict:
-            vin_dict[vin]["year"] = year_rating
-    
-    for vin, trim_rating in trim:
-        if vin in vin_dict:
-            vin_dict[vin]["trim"] = trim_rating
-    
-    combined_list = [(vin, vin_dict[vin]["price"], vin_dict[vin]["url"], vin_dict[vin]["mileage"], vin_dict[vin]["year"], vin_dict[vin]["trim"]) for vin in vin_dict]
-    print(combined_list, "\n")
-    
-    rating = preferenceRate(combined_list, pricePriority, mileagePriority, yearPriority, trimPriority)
+    rating = rate2(list)
+    print("\n3. Rating of fetched data is done.\n")
+    time6 = time.perf_counter()
+    # print("Timer5 rate:" + str(time6-time5))
     
     topCars = getTopCars(list, rating)
+    print("\n4. From the list of the rated cars, the top 5 are retrieved, with all relevant data from the database \n")
+    time7 = time.perf_counter()
+    # print("Timer6 topCars():" + str(time7-time6))
+    
+    #data for last scraped car
+    with open('lastCar.txt', 'w', encoding='utf8', newline='\n') as f:
+        w = writer(f)
+        header = ['make', 'model', 'year', 'Zip']
+        w.writerow(header)
+        #no rip
+        row = [make, model, year, '22201']
+        w.writerow(row)
+        
+    with open('TempData.txt', 'w', encoding='utf8', newline='\n') as f:
+        w = writer(f)
+        header = ['VIN', 'make', 'model', 'year', 'trim', 'mileage', 'price', 'suggested', 'url', 'imageurl']
+        w.writerow(header)
+        for i in range(len(topCars)):
+            row = [topCars[i]['VIN'], topCars[i]['make'], topCars[i]['model'], topCars[i]['year'], topCars[i]['trim'], topCars[i]['mileage'], topCars[i]['price'], topCars[i]['suggested'], topCars[i]['url'], topCars[i]['imageurl']]
+            w.writerow(row)
+    
+    time8 = time.perf_counter()
+    # print("Timer7 tempDataWrite:" + str(time8-time7))
 
     for i in range(len(topCars)):
         # print(topCars[i]['imageurl'])
         if "https:" not in topCars[i]['imageurl']:
             topCars[i]['imageurl'] = "https:" + topCars[i]['imageurl']
-    
+    print("\n5. The top 5 cars are returned to Chrome extension.\n")
+    print("\nDone.\n")
+
     return topCars
-
-@app.route('/getPreferences2/<string:make>/<string:model>/<string:year>/<string:zip>/<string:pricePr>/<string:mileagePr>/<string:yearPr>/<string:trimPr>')
-def getPreferences2(make,model,year,zip,pricePr,mileagePr,yearPr,trimPr):
-    print('Priority: '+pricePr+" "+mileagePr+" "+yearPr+" "+trimPr+" ")
-    # return getCarData(make,model,year,zip)
-    list = [{"VIN": "1FT7W2B61MED03114", "imageurl": "https://platform.cstatic-images.com/xlarge/in/v2/315e30cb-bf08-5cf2-87c6-faeae5044211/71799140-e583-4cb9-96ff-14fd5bf36231/rmGP7VQbaVLKCcoVgy0HET0AuH4.jpg", 'make':"Ford", 'mileage':"50315", 'model':"F-250", 'price':"48214", 'suggested':"68849.38", 'trim': "XLT", 'url':"http://cars.com/vehicledetail/67a1fa2e-ed06-43a9-8cbe-5a65e2ce0d0e/", 'year': "2021"}]
-    return list
-
-
-
-#getUrl('httpscolumslashslashwwwdotcarsdotcomslashvehicledetailslashf5d252ee-47ab-44d1-9717-8d655eb26b5cslash')
-
-# getPreferences(1,2,3, 'GT', 7)
 
 app.run(host='0.0.0.0', port=8080)

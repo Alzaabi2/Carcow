@@ -1,16 +1,173 @@
-import React, { Component, useEffect, useState } from 'react';
+import React, { Component, useEffect, useState, useRef } from 'react';
 import './App.css';
 import './slider.css';
-import $ from "jquery";
+import $, { data } from "jquery";
 import axios from 'axios';
 import ReactLoading from "react-loading";
+import cheerio from 'cheerio';
 // import ReactSlider from "react-slider";
 // import SlidingPane from "react-sliding-pane";
 // import "react-sliding-pane/dist/react-sliding-pane.css";
 // import { findAllByTestId } from '@testing-library/react';
-// import Skeleton, { SkeletonTheme } from "react-loading-skeleton";
-//import 'react-loading-skeleton/dist/skeleton.css';
 
+
+//cars.com
+async function singleCarData1(url) {
+    const carData = await axios.get(url)
+    .then((response) => {
+        // Load the HTML into cheerio
+        var $ = cheerio.load(response.data);
+
+        // Select the element that contains the data we want to scrape
+        // In this example, we want to scrape the title of the car
+        var title = $('h1.listing-title').text();
+
+        // Split the title into its parts (year, make, model, trim)
+        var titleParts = title.split(' ');
+
+        // Extract the year, make, model, and trim from the title
+        var zip = 20001
+        var year = titleParts[0];
+        var make = titleParts[1];
+
+        //special case for tesla:
+        if (make.toLowerCase() == 'tesla'){
+            if (model.toLowerCase().replace(' ', '') == 'model'){
+                model = titleParts[2] + ' ' + titleParts[3]
+            }
+            return
+        } //special case for land rover:
+        else if (make.toLowerCase() == 'land'){
+            make = 'Land Rover'
+            model = titleParts[3]
+            if (model.toLowerCase() == 'range'){
+                model = 'Range Rover'
+            }
+            return
+        }
+        
+        var model = titleParts[2];
+        var trim = titleParts[3];
+        // console.log(`Year: ${year}`);
+        // console.log(`Make: ${make}`);
+        // console.log(`Model: ${model}`);
+        // console.log(`Trim: ${trim}`);
+        return {year, make, model, trim}
+        // Print the scraped data
+    })
+    .catch((error) => {
+        console.error(error);
+    });
+
+    return carData
+}
+
+//autotrader
+async function singleCarData2(url) {
+    const carData = await axios.get(url)
+    .then((response) => {
+        // Load the HTML into cheerio
+        var $ = cheerio.load(response.data);
+        // Select the element that contains the data we want to scrape
+        // In this example, we want to scrape the title of the car
+        var title = $('h1[class="text-bold text-size-400 text-size-sm-700 col-xs-12 col-sm-7 col-md-8"]').text();
+
+        // Split the title into its parts (year, make, model, trim)
+        var titleParts = title.split(' ');
+        var zip = 20001
+        // Extract the year, make, model, and trim from the title
+        var year = titleParts[1];
+        var make = titleParts[2];
+        
+        //special case for tesla:
+        if (make.toLowerCase() == 'tesla'){
+            if (model.toLowerCase().replace(' ', '') == 'model'){
+                model = titleParts[3] + ' ' + titleParts[4]
+            }
+            return
+        } //special case for land rover:
+        else if (make.toLowerCase() == 'land'){
+            make = 'Land Rover'
+            model = titleParts[4]
+            if (model.toLowerCase() == 'range'){
+                model = 'Range Rover'
+            }
+            console.log(`Year: ${year}`);
+            console.log(`Make: ${make}`);
+            console.log(`Model: ${model}`);
+            return
+        }
+
+        var model = titleParts[3];
+        var trim = titleParts[4]
+        // var trim = (rawTrim.split('w/'))[0];
+
+        // Print the scraped data
+        console.log(`Year: ${year}`);
+        console.log(`Make: ${make}`);
+        console.log(`Model: ${model}`);
+        return {year, make, model, trim}
+    })
+    .catch((error) => {
+        console.error(error);
+    });
+}
+
+//edmunds
+async function singleCarData4(url) {
+    const carData = await axios.get(url)
+    .then((response) => {
+        // Load the HTML into cheerio
+        var $ = cheerio.load(response.data);
+
+        // Select the element that contains the data we want to scrape
+        // In this example, we want to scrape the title of the car
+        var title = $('h1[class="not-opaque text-black d-inline-block mb-0 size-24"]').text();
+
+        // Split the title into its parts (year, make, model, trim)
+        var titleParts = title.split(' ');
+        console.log(titleParts)
+        var zip = 20001
+        // Extract the year, make, model, and trim from the title
+        var year = titleParts[0];
+        var make = titleParts[1];
+        if(titleParts[1])
+        //special case for tesla:
+        if (make.toLowerCase() == 'tesla'){
+            if (model.toLowerCase().replace(' ', '') == 'model'){
+                model = titleParts[2] + ' ' + titleParts[3]
+            }
+            console.log(`Year: ${year}`);
+            console.log(`Make: ${make}`);
+            console.log(`Model: ${model}`);
+            return
+        } //special case for land rover:
+        else if (make.toLowerCase() == 'land'){
+            make = 'Land Rover'
+            model = titleParts[3]
+            if (model.toLowerCase() == 'range'){
+                model = 'Range Rover'
+            }
+            console.log(`Year: ${year}`);
+            console.log(`Make: ${make}`);
+            console.log(`Model: ${model}`);
+            return
+        }
+        var model = titleParts[2];
+        
+
+        // Print the scraped data
+        console.log(`Year: ${year}`);
+        console.log(`Make: ${make}`);
+        console.log(`Model: ${model}`);
+        console.log(`Trim: ${trim}`);
+        return {year, make, model, trim}
+
+    })
+    .catch((error) => {
+        console.error(error);
+    });
+}
 
 function App() {
     const [urlCall, setUrl] = useState('');
@@ -19,6 +176,7 @@ function App() {
     const [error, setError] = useState(undefined); //Changed from useState(null)
     const [carData, setCarData] = useState(null);
     const [done, setDone] = useState(undefined);
+    const [long, setLong] = useState(undefined);
     //Determine time to wait for server response before sending error message
     const [time, setTime] = useState(undefined);
 
@@ -125,9 +283,21 @@ function App() {
     const conditions = ['cars.com/vehicledetail', 'cargurus.com', 'autotrader.com/cars-for-sale/vehicledetails', 'carsdirect.com/used_cars/vehicle-detail', 'edmunds.com']
 
     useEffect(() => {
+        console.log("The SliderChange() useEffect was utilized");
+        SliderChange();
+    }, [pricePriority, mileagePriority, yearPriority, trimPriority]);
+    
+
+    useEffect(async () => {
         const queryInfo = {active: true, lastFocusedWindow: true};
 
-        chrome.tabs && chrome.tabs.query(queryInfo, tabs => {
+        chrome.tabs && chrome.tabs.query(queryInfo, async tabs => {
+            if (tabs[0] == null)
+            {
+                console.log(tabs)
+                console.log('url error');
+                return;
+            }
             const urlCall = tabs[0].url.toLowerCase() //convert to lowercase
             setUrl(urlCall); //set url and reset state
             // if (urlCall.includes('cars.com/vehicledetail')){
@@ -135,33 +305,48 @@ function App() {
             // }
             for(let i=0; i<conditions.length; i++) {
                 if(urlCall.includes(conditions[i])) {
-                    //If the URL contains any string in the conditions array, setIsCars to true
-                    setIsCars(true)
+                  setIsCars(true)
+                  siteID = i + 1
                 }
             }
+
+
+            if(siteID == 3 || siteID == 5){
+                const parsedURL2 = urlCall.replace(/https:\/\/www\.autotrader\.com\/cars-for-sale\/vehicledetails.xhtml/g, 'constautotraderurl').replace(/\//g, 'slash').replace(/\./g, 'dot').replace(/:/g, 'colum').replace(/\?/g, 'questionmark')
+                console.log(urlCall)
+                console.log(parsedURL2)
+                var fetchURL =  'http://localhost:8080/getUrl/' + parsedURL2;
+                // console.log(fetchURL)
+            }
+            else if(siteID == 1){
+                const data =  await singleCarData1(urlCall)
+                console.log("returning: "+data.make)
+                console.log(data.model)
+                console.log(data.year)
+                console.log(data.trim)
+                var fetchURL =  'http://localhost:8080/getCarData/' + data.make + '/' + data.model + '/' + data.year + '/22201';
+            }else if(siteID == 2){
+                const data = await singleCarData2(urlCall)
+                var fetchURL =  'http://localhost:8080/getCarData/' + data.make + '/' + data.model + '/' + data.year + '/22201';
+
+            }else if(siteID == 4){
+                const data = await singleCarData4(urlCall)
+                var fetchURL =  'http://localhost:8080/getCarData/' + data.make + '/' + data.model + '/' + data.year + '/22201';
+            }
             
-            console.log("new version");
-            const parsedURL2 = urlCall.replace(/https:\/\/www\.autotrader\.com\/cars-for-sale\/vehicledetails.xhtml/g, 'constautotraderurl').replace(/\//g, 'slash').replace(/\./g, 'dot').replace(/:/g, 'colum').replace(/\?/g, 'questionmark')
-            console.log(urlCall)
-            console.log(parsedURL2)
-            //According to Stack Overflow, API URL shouldn't be hardcoded
-            //Have to use the URL depending on teh environment the code is being run on
-            // localhost on development and the production API URL on production)
-            //**Curent issue: Not connecting to the server properly with this hardcoded URL */
-            //Previous server IP: 18.207.236.241:8080
-            //Changed server IP to: 172.26.142.227:8080
-            //Now changed to: localhost:8080
-            const fetchURL =  'http://localhost:8080/getUrl/' + parsedURL2 + '/' + pricePriority + '/' + mileagePriority + '/' + yearPriority  + '/' + trimPriority;
+
+
             console.log(fetchURL)
             axios.get(fetchURL)
                 .then((response) => {
-                    console.log("Response: ", response)
+                    console.log("Response: ",response)
                     setCarData(response.data);
                     setDone (true);
                     setError(null);                
                 }, {timeout: 15000})
                 .catch((error) => {
                     // Error
+                    setLong(true);
                     setTime(true);
                     if (error.response) {
                         // The request was made and the server responded with a status code
@@ -206,7 +391,8 @@ function App() {
         setPreferences(!preferences);
     };
 
-    if (!done && !time){
+
+    if (!done && !long){
         return(
             <div className="App">
                 <ReactLoading
