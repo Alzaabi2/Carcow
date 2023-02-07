@@ -179,12 +179,13 @@ function App() {
     const [long, setLong] = useState(undefined);
     //Determine time to wait for server response before sending error message
     const [time, setTime] = useState(undefined);
+    const [resetUseEffects, setResetUseEffects] = useState(false);
 
     //Variable to determine if preferences form popup should be open or not
     const[preferences, setPreferences] = useState (false);
 
     //Variables to manage each Slider Component and their values
-    const [pricePriority, setpricePriority] = useState(0)
+    const [pricePriority, setpricePriority] = useState(10)
     const [mileagePriority, setmileagePriority] = useState(0)
     const [yearPriority, setyearPriority] = useState(0)
     const [trimPriority, settrimPriority] = useState(0)
@@ -280,12 +281,54 @@ function App() {
     /*
      * Get current URL
      */
+<<<<<<< HEAD
     const conditions = ['cars.com/vehicledetail', 'cargurus.com', 'autotrader.com/cars-for-sale/vehicledetails', 'carsdirect.com/used_cars/vehicle-detail', 'edmunds.com']
+=======
+    const conditions = ['cars.com/vehicledetail', 'autotrader.com/cars-for-sale/vehicledetails', 'cargurus.com/cars', 'edmunds.com', 'carsdirect.com/used_cars/vehicle-detail']
 
-    useEffect(() => {
-        console.log("The SliderChange() useEffect was utilized");
-        SliderChange();
-    }, [pricePriority, mileagePriority, yearPriority, trimPriority]);
+    const SliderChange = async() => {
+        console.log("From the SliderChange function:")
+        const fetchPreferences = 'http://localhost:8080/getCarData/' + data.make + '/' + data.model + '/' + data.year + '/22201/' + pricePriority + '/' + mileagePriority + '/' + yearPriority + '/NA/' + trimPriority;
+        axios.get(fetchPreferences)
+        .then((response) => {
+            console.log("slider change: ",response)
+            setCarData(response.data);
+            setDone (true);
+            setError(null); 
+        })
+        .catch((error) => {
+            // Error
+            setTime(true);
+            if (error.response) {
+                // The request was made and the server responded with a status code
+                // that falls out of the range of 2xx
+                console.log("Error out of 2xx Range Found:");
+                console.log(error.response.data);
+                console.log(error.response.status);
+                console.log(error.response.headers);
+
+            } else if (error.request) {
+                // The request was made but no response was received
+                // `error.request` is an instance of XMLHttpRequest in the 
+                // browser and an instance of http.ClientRequest in node.js
+                console.log("No Repsonse Received from Request");
+                console.log(error.request);
+            } else {
+                // Something happened in setting up the request that triggered an Error
+                console.log("Request not sent");
+                console.log('Error', error.message);
+            }
+            console.log(error.config);
+        });  
+        console.log("End of SliderChange Function results");
+        preferenceFormClose();
+    };
+>>>>>>> 5481746cbcf2f4c34b4f59088a32aac93febfe13
+
+    // useEffect(() => {
+    //     console.log("The SliderChange() useEffect was utilized");
+    //     SliderChange();
+    // }, [pricePriority, mileagePriority, yearPriority, trimPriority]);
     
 
     useEffect(async () => {
@@ -315,7 +358,7 @@ function App() {
                 const parsedURL2 = urlCall.replace(/https:\/\/www\.autotrader\.com\/cars-for-sale\/vehicledetails.xhtml/g, 'constautotraderurl').replace(/\//g, 'slash').replace(/\./g, 'dot').replace(/:/g, 'colum').replace(/\?/g, 'questionmark')
                 console.log(urlCall)
                 console.log(parsedURL2)
-                var fetchURL =  'http://localhost:8080/getUrl/' + parsedURL2;
+                var fetchURL =  'http://localhost:8080/getUrl/' + parsedURL2 + '/' +data.make + '/' + data.model + '/' + data.year + '/22201/' + pricePriority + '/' + mileagePriority + '/' + yearPriority +'/NA/' + trimPriority;
                 // console.log(fetchURL)
             }
             else if(siteID == 1){
@@ -324,18 +367,15 @@ function App() {
                 console.log(data.model)
                 console.log(data.year)
                 console.log(data.trim)
-                var fetchURL =  'http://localhost:8080/getCarData/' + data.make + '/' + data.model + '/' + data.year + '/22201';
+                var fetchURL =  'http://localhost:8080/getCarData/' + data.make + '/' + data.model + '/' + data.year + '/22201/' + pricePriority + '/' + mileagePriority + '/' + yearPriority +'/NA/' + trimPriority;
             }else if(siteID == 2){
                 const data = await singleCarData2(urlCall)
-                var fetchURL =  'http://localhost:8080/getCarData/' + data.make + '/' + data.model + '/' + data.year + '/22201';
-
+                var fetchURL =  'http://localhost:8080/getCarData/' + data.make + '/' + data.model + '/' + data.year + '/22201/' + pricePriority + '/' + mileagePriority + '/' + yearPriority +'/NA/' + trimPriority;
             }else if(siteID == 4){
                 const data = await singleCarData4(urlCall)
-                var fetchURL =  'http://localhost:8080/getCarData/' + data.make + '/' + data.model + '/' + data.year + '/22201';
+                var fetchURL =  'http://localhost:8080/getCarData/' + data.make + '/' + data.model + '/' + data.year + '/22201/' + pricePriority + '/' + mileagePriority + '/' + yearPriority +'/NA/' + trimPriority;
             }
             
-
-
             console.log(fetchURL)
             axios.get(fetchURL)
                 .then((response) => {
@@ -371,10 +411,48 @@ function App() {
                 });  
         });
 
-        return () => setIsCars(false) //before next useEffect is created, set isCars to false    
+        return () => {setIsCars(false)} //before next useEffect is created, set isCars to false    
 
     }, [chrome.tabs]);
 
+<<<<<<< HEAD
+=======
+    // useEffect(() => {
+    //     const fetchPreferences = 'http://localhost:8080/getCarData/' + data.make + '/' + data.model + '/' + data.year + '/22201/' + pricePriority + '/' + mileagePriority + '/NA/' + trimPriority;
+    //     console.log(fetchPreferences)
+    //         axios.get(fetchPreferences)
+    //             .then((response) => {
+    //                 console.log("Response: " + response)
+    //                 setCarData(response.data);
+    //                 setDone (true);         
+    //             }, {timeout: 15000})
+    //             .catch((error) => {
+    //                 // Error
+    //                 setTime(true);
+    //                 if (error.response) {
+    //                     // The request was made and the server responded with a status code
+    //                     // that falls out of the range of 2xx
+    //                     console.log("Error out of 2xx Range Found:");
+    //                     console.log(error.response.data);
+    //                     console.log(error.response.status);
+    //                     console.log(error.response.headers);
+
+    //                 } else if (error.request) {
+    //                     // The request was made but no response was received
+    //                     // `error.request` is an instance of XMLHttpRequest in the 
+    //                     // browser and an instance of http.ClientRequest in node.js
+    //                     console.log("No Repsonse Received from Request");
+    //                     console.log(error.request);
+    //                 } else {
+    //                     // Something happened in setting up the request that triggered an Error
+    //                     console.log("Request not sent");
+    //                     console.log('Error', error.message);
+    //                 }
+    //                 console.log(error.config);
+    //             });  
+    // }, []);
+
+>>>>>>> 5481746cbcf2f4c34b4f59088a32aac93febfe13
     //pricePriority, mileagePriority, yearPriority, trimPriority
     // if (error) {
     //     return alert(error)

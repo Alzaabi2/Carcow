@@ -250,6 +250,6 @@ def singleCarData5(url):
 
 # singleCarData1('https://www.cars.com/vehicledetail/328daed2-aa5f-4882-bddc-d0bde3601e15')
 # singleCarData2('https://www.autotrader.com/cars-for-sale/vehicledetails.xhtml?listingId=659992633&allListingType=all-cars&startYear=2014&endYear=2014&year=&makeCodeList=NISSAN&modelCodeList=ALTIMA&city=New%20York&state=NY&zip=10003&location=&requestId=2281868035&searchRadius=100&marketExtension=include&isNewSearch=false&showAccelerateBanner=false&sortBy=relevance&numRecords=100&dma=&referrer=%2Fcars-for-sale%2Fall-cars%2F2014%2Fnissan%2Faltima%2Fnew-york-ny-10003%3FrequestId%3D2281868035%26dma%3D%26searchRadius%3D100%26location%3D%26marketExtension%3Dinclude%26isNewSearch%3Dfalse%26showAccelerateBanner%3Dfalse%26sortBy%3Drelevance%26numRecords%3D100&clickType=spotlight')
-print(singleCarData3('https://www.cargurus.com/Cars/inventorylisting/viewDetailsFilterViewInventoryListing.action?sourceContext=carGurusHomePageModel&entitySelectingHelper.selectedEntity=d116&zip=20001#listing=311628708/FEATURED'))
+#print(singleCarData3('https://www.cargurus.com/Cars/inventorylisting/viewDetailsFilterViewInventoryListing.action?sourceContext=carGurusHomePageModel&entitySelectingHelper.selectedEntity=d116&zip=20001#listing=311628708/FEATURED'))
 # singleCarData4('https://www.edmunds.com/jeep/wrangler/2004/vin/1J4FA49S94P761541/')
 # singleCarData5('https://www.carsdirect.com/used_cars/vehicle-detail/ul2154804725/ford/f-150?source=UsedCarListings&savedVehicleId=&recentSearchId=13132844')
