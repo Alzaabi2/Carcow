@@ -97,7 +97,7 @@ def getUrl(url):
                 w.writerow(row)
 
     if lastCar != {}:  
-        if lastCar['make'] == singleCar['make'] and lastCar['model'] == singleCar['model'] and lastCar['year'] == singleCar['year']:
+        if lastCar['make'] == singleCar['make'] and lastCar['model'] == singleCar['model'] and float(lastCar['year']) == float(singleCar['year']):
             for i in range(len(tempData)):
                 if "https:" not in tempData[i]['imageurl']:
                     tempData[i]['imageurl'] = "https:" + tempData[i]['imageurl']
@@ -194,8 +194,11 @@ def getCarData(make,model,year,zip):
                 row = ['sample', 'sample', 'sample', 'sample', 'sample', 'sample', 'sample', 'sample', 'sample', 'sample']
                 w.writerow(row)
 
-    if lastCar != {}:  
-        if lastCar['make'] == make and lastCar['model'] == model and lastCar['year'] == year:
+    if lastCar != {}:
+        print(lastCar['make'], '!=?', make)
+        print(lastCar['model'], '!=?', model)
+        print(lastCar['year'], '!=?', year)
+        if lastCar['make'] == make and lastCar['model'] == model and float(lastCar['year']) == float(year):
             for i in range(len(tempData)):
                 if "https:" not in tempData[i]['imageurl']:
                     tempData[i]['imageurl'] = "https:" + tempData[i]['imageurl']
@@ -235,7 +238,7 @@ def getCarData(make,model,year,zip):
         header = ['make', 'model', 'year', 'Zip']
         w.writerow(header)
         #no rip
-        row = [make, model, year, '22201']
+        row = [make, model, str(year), '22201']
         w.writerow(row)
         
     with open('TempData.txt', 'w', encoding='utf8', newline='\n') as f:
@@ -243,7 +246,7 @@ def getCarData(make,model,year,zip):
         header = ['VIN', 'make', 'model', 'year', 'trim', 'mileage', 'price', 'suggested', 'url', 'imageurl']
         w.writerow(header)
         for i in range(len(topCars)):
-            row = [topCars[i]['VIN'], topCars[i]['make'], topCars[i]['model'], topCars[i]['year'], topCars[i]['trim'], topCars[i]['mileage'], topCars[i]['price'], topCars[i]['suggested'], topCars[i]['url'], topCars[i]['imageurl']]
+            row = [topCars[i]['VIN'], topCars[i]['make'], topCars[i]['model'], str(topCars[i]['year']), topCars[i]['trim'], str(topCars[i]['mileage']), str(topCars[i]['price']), str(topCars[i]['suggested']), topCars[i]['url'], topCars[i]['imageurl']]
             w.writerow(row)
     
     time8 = time.perf_counter()
