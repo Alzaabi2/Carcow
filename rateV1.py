@@ -236,7 +236,7 @@ def preferenceRate(combined_list, pricePriority, mileagePriority, yearPriority, 
         deals.append(row)
 
     deals.sort(key=lambda y: y[1])
-    # print("\n", deals)
+    print("\n", deals)
 
     # Ensure that all cars sent to Chrome extension are available
     print("\nAvailability validation:\n")
@@ -273,10 +273,11 @@ def preferenceRate(combined_list, pricePriority, mileagePriority, yearPriority, 
 def priceRating(list):
     initScore = []
     deals = []
+    count = 0
 
     if list is None:
         return []
-    count = 1
+    
 
     for i in range(len(list)):
         price = list[i]['price']
@@ -288,6 +289,7 @@ def priceRating(list):
 
         suggested = list[i]['suggested']
         if suggested == '0':
+            count += 1
             continue
 
         try:
@@ -297,21 +299,20 @@ def priceRating(list):
 
         url = list[i]['url']
         
-        if i == 0:
-            minScore = l
-        else:
-            if l < minScore:
+        if l != 'No Ratio':
+            if i == count:
                 minScore = l
+            else:
+                if l < minScore:
+                    minScore = l
         
-
-        row = (str(count), vin,l,price,url)
-        count += 1
+        row = (vin,l,price,url)
         initScore.append(row)
     
     for i in range(len(initScore)):
-        priceRating = minScore / initScore[i][2]
+        priceRating = minScore / initScore[i][1]
 
-        row = (initScore[i][1], priceRating, initScore[i][4])
+        row = (initScore[i][0], priceRating, initScore[i][3])
         deals.append(row)
 
     return deals
@@ -355,7 +356,8 @@ def mileageRating(list):
 def yearRating(list, year):
     initScore = []
     deals = []
-    year = int(year)
+    year = float(year)
+    print("\n", year, "\n")
 
     if list is None:
         return []
