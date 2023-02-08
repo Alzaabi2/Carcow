@@ -223,7 +223,13 @@ def getPreferences(pricePriority, mileagePriority, yearPriority, trim, trimPrior
 def getCarData(make,model,year,zip, pricePriority, mileagePriority, yearPriority, trim, trimPriority):
     cursor = mydb.cursor(dictionary=True)
 
-    if pricePriority + mileagePriority + yearPriority + trimPriority == 0:
+    if pricePriority == mileagePriority == yearPriority == trimPriority:
+        if(pricePriority == 0):
+            pricePriority = 1
+            mileagePriority = 1
+            yearPriority = 1
+            trimPriority = 1
+
         tempData = []
         lastCar = {}
         try:
@@ -267,7 +273,9 @@ def getCarData(make,model,year,zip, pricePriority, mileagePriority, yearPriority
 
         #error check for undefined data
         if(year == 'undefined'):
-            return tempData
+            make = lastCar['make']
+            model = lastCar['model']
+            year = lastCar['year']
         
         year = float(year)
         yearUp = year + 2

@@ -185,7 +185,7 @@ function App() {
     const[preferences, setPreferences] = useState (false);
 
     //Variables to manage each Slider Component and their values
-    const [pricePriority, setpricePriority] = useState(10)
+    const [pricePriority, setpricePriority] = useState(0)
     const [mileagePriority, setmileagePriority] = useState(0)
     const [yearPriority, setyearPriority] = useState(0)
     const [trimPriority, settrimPriority] = useState(0)
