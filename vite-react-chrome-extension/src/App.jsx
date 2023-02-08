@@ -35,7 +35,7 @@ async function singleCarData1(url) {
             if (model.toLowerCase().replace(' ', '') == 'model'){
                 model = titleParts[2] + ' ' + titleParts[3]
             }
-            return
+            return {year, make, model, trim}
         } //special case for land rover:
         else if (make.toLowerCase() == 'land'){
             make = 'Land Rover'
@@ -43,7 +43,7 @@ async function singleCarData1(url) {
             if (model.toLowerCase() == 'range'){
                 model = 'Range Rover'
             }
-            return
+            return {year, make, model, trim}
         }
         
         var model = titleParts[2];
@@ -84,7 +84,7 @@ async function singleCarData2(url) {
             if (model.toLowerCase().replace(' ', '') == 'model'){
                 model = titleParts[3] + ' ' + titleParts[4]
             }
-            return
+            return {year, make, model, trim}
         } //special case for land rover:
         else if (make.toLowerCase() == 'land'){
             make = 'Land Rover'
@@ -95,7 +95,7 @@ async function singleCarData2(url) {
             console.log(`Year: ${year}`);
             console.log(`Make: ${make}`);
             console.log(`Model: ${model}`);
-            return
+            return {year, make, model, trim}
         }
 
         var model = titleParts[3];
@@ -140,7 +140,7 @@ async function singleCarData4(url) {
             console.log(`Year: ${year}`);
             console.log(`Make: ${make}`);
             console.log(`Model: ${model}`);
-            return
+            return {year, make, model, trim}
         } //special case for land rover:
         else if (make.toLowerCase() == 'land'){
             make = 'Land Rover'
@@ -151,7 +151,7 @@ async function singleCarData4(url) {
             console.log(`Year: ${year}`);
             console.log(`Make: ${make}`);
             console.log(`Model: ${model}`);
-            return
+            return {year, make, model, trim}
         }
         var model = titleParts[2];
         
@@ -268,7 +268,7 @@ function App() {
                 const parsedURL2 = urlCall.replace(/https:\/\/www\.autotrader\.com\/cars-for-sale\/vehicledetails.xhtml/g, 'constautotraderurl').replace(/\//g, 'slash').replace(/\./g, 'dot').replace(/:/g, 'colum').replace(/\?/g, 'questionmark')
                 console.log(urlCall)
                 console.log(parsedURL2)
-                var fetchURL =  'http://localhost:8080/getUrl/' + parsedURL2 + '/' +data.make + '/' + data.model + '/' + data.year + '/22201/' + pricePriority + '/' + mileagePriority + '/' + yearPriority +'/NA/' + trimPriority;
+                var fetchURL =  'http://localhost:8080/getUrl/' + parsedURL2 + '/' + pricePriority + '/' + mileagePriority + '/' + yearPriority +'/NA/' + trimPriority;
                 // console.log(fetchURL)
             }
             else if(siteID == 1){
@@ -453,10 +453,10 @@ function App() {
                                 <h3>Year </h3><input type='range' className={yearPriority<5 ? 'low': 'high'} min='0' max='10' step='1' value={yearPriority} onChange={(e) => setyearPriority(e.target.value)}/>
                                 <h1>{yearPriority}</h1>
                             </div>
-                            <div>
+                            {/* <div>
                                 <h3>Trim </h3><input type='range' className={trimPriority<5 ? 'low': 'high'} min='0' max='10' step='1' value={trimPriority} onChange={(e) => settrimPriority(e.target.value)}/>
                                 <h1>{trimPriority}</h1>
-                            </div>
+                            </div> */}
                             <div className="submit">
                                 <button onClick={SliderChange}>Apply Preferences</button>
                             </div>
