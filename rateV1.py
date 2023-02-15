@@ -113,9 +113,9 @@ def rate2(list):
         soup = BeautifulSoup(page.content, 'html.parser')
         if soup.find('p', class_='sds-notification__desc') is not None:
             available = False
-        elif soup.find('div', class_='text-bold text-size-600 text-size-sm-700 margin-vertical-7 margin-horizontal-7 text-center') is not None:
-            if soup.find('div', class_='text-bold text-size-600 text-size-sm-700 margin-vertical-7 margin-horizontal-7 text-center').text == 'This car is no longer available. One moment while we take you to the search results page.':
-                available = False
+        elif soup.find('div', class_='alert alert-warning') is not None:
+            # if soup.find('div', class_='text-bold text-size-600 text-size-sm-700 margin-vertical-7 margin-horizontal-7 text-center').text == 'This car is no longer available. One moment while we take you to the search results page.':
+            available = False
         elif soup.find('h2', class_='CVRsvD') is not None:
             available = False
         elif soup.find('h2', class_='pt-1 pt-md-3 px-1 px-md-3 pb-2 text-center display-1 m-0') is not None:
@@ -250,9 +250,9 @@ def preferenceRate(combined_list, pricePriority, mileagePriority, yearPriority, 
         soup = BeautifulSoup(page.content, 'html.parser')
         if soup.find('p', class_='sds-notification__desc') is not None:
             available = False
-        elif soup.find('div', class_='text-bold text-size-600 text-size-sm-700 margin-vertical-7 margin-horizontal-7 text-center') is not None:
-            if soup.find('div', class_='text-bold text-size-600 text-size-sm-700 margin-vertical-7 margin-horizontal-7 text-center').text == 'This car is no longer available. One moment while we take you to the search results page.':
-                available = False
+        elif soup.find('div', class_='alert alert-warning') is not None:
+            # if soup.find('div', class_='text-bold text-size-600 text-size-sm-700 margin-vertical-7 margin-horizontal-7 text-center').text == 'This car is no longer available. One moment while we take you to the search results page.':
+            available = False
         elif soup.find('h2', class_='CVRsvD') is not None:
             available = False
         elif soup.find('h2', class_='pt-1 pt-md-3 px-1 px-md-3 pb-2 text-center display-1 m-0') is not None:
