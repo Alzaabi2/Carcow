@@ -14,7 +14,11 @@
   "background_color": "#ffffff",
   "permissions": [
     "activeTab",
-    "tabs"
+    "tabs",
+    "storage"
+  ],
+  "optional_permissions":[
+    "unlimitedStorage"
   ],
   "host_permissions": [
     "http://*/*",

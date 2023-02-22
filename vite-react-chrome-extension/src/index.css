@@ -79,11 +79,11 @@ h2{
 }
 
 .popup{
-  height: 710px;
+  height: 600px;
   width: 305px;
   background-color: rgb(153, 153, 153);
   position: absolute;
-  top: 17.5%;
+  top: 55%;
   left: 50%;
   transform: translate(-50%, -50%); 
 }

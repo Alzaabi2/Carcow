@@ -5,11 +5,21 @@ import $, { data } from "jquery";
 import axios from 'axios';
 import ReactLoading from "react-loading";
 import cheerio from 'cheerio';
-// import ReactSlider from "react-slider";
-// import SlidingPane from "react-sliding-pane";
-// import "react-sliding-pane/dist/react-sliding-pane.css";
-// import { findAllByTestId } from '@testing-library/react';
+import Box from '@mui/material/Box';
+import Stack from '@mui/material/Stack';
+import Slider from '@mui/material/Slider';
 
+//Labels for the ends of the sliders
+const labels = [
+    {
+        value: 0,
+        label: '0',
+    },
+    {
+        value: 10,
+        label: '10',
+    },
+];
 
 //cars.com
 async function singleCarData1(url) {
@@ -190,6 +200,8 @@ function App() {
     const [yearPriority, setyearPriority] = useState(0)
     const [trimPriority, settrimPriority] = useState(0)
 
+    const [testValue, settestValue] = useState (0)
+
 
     /*
      * Get current URL
@@ -263,7 +275,6 @@ function App() {
                 }
             }
 
-
             if(siteID == 3 || siteID == 5){
                 const parsedURL2 = urlCall.replace(/https:\/\/www\.autotrader\.com\/cars-for-sale\/vehicledetails.xhtml/g, 'constautotraderurl').replace(/\//g, 'slash').replace(/\./g, 'dot').replace(/:/g, 'colum').replace(/\?/g, 'questionmark')
                 console.log(urlCall)
@@ -285,88 +296,75 @@ function App() {
                 const data = await singleCarData4(urlCall)
                 var fetchURL =  'http://localhost:8080/getCarData/' + data.make + '/' + data.model + '/' + data.year + '/22201/' + pricePriority + '/' + mileagePriority + '/' + yearPriority +'/NA/' + trimPriority;
             }
-            
-            console.log(fetchURL)
-            axios.get(fetchURL)
-                .then((response) => {
-                    console.log("Response: ",response)
-                    setCarData(response.data);
-                    setDone (true);
-                    setError(null);                
-                }, {timeout: 15000})
-                .catch((error) => {
-                    // Error
-                    setLong(true);
-                    setTime(true);
-                    if (error.response) {
-                        // The request was made and the server responded with a status code
-                        // that falls out of the range of 2xx
-                        console.log("Error out of 2xx Range Found:");
-                        console.log(error.response.data);
-                        console.log(error.response.status);
-                        console.log(error.response.headers);
+            //Set the cache key that we will search for
+            var cacheKey = urlCall;
 
-                    } else if (error.request) {
-                        // The request was made but no response was received
-                        // `error.request` is an instance of XMLHttpRequest in the 
-                        // browser and an instance of http.ClientRequest in node.js
-                        console.log("No Repsonse Received from Request");
-                        console.log(error.request);
-                    } else {
-                        // Something happened in setting up the request that triggered an Error
-                        console.log("Request not sent");
-                        console.log('Error', error.message);
+            //getBackgroundPage line is necessary when trying to access the chrome.storage API from a content script or popup window
+            chrome.runtime.getBackgroundPage((backgroundPage) => {
+            backgroundPage.chrome.storage.local.get([cacheKey], function(result){
+                    //If the cache key is found in the cache, use its data to set carData
+                    if (result.hasOwnProperty(cacheKey)) {
+                    console.log(`Found "${cacheKey}" in cache:`, result[cacheKey]);
+                    setCarData(result[cacheKey]);
+                    } 
+                    //Otherwise, key was not found in cache so make Axios call to server for response, 
+                    //then create new cache entry using the key not found in the cache
+                    else {         
+                        // console.log(fetchURL)
+                        console.log(`"${cacheKey}" not found in cache, fetching from server...`);
+                        axios.get(fetchURL)
+                            .then((response) => {
+                                console.log("Response: ",response)
+                                setCarData(response.data);
+
+                                //Create the variable information that will serve as a new entry into the cache
+                                const cacheEntry = {};
+                                cacheEntry[cacheKey] = response.data;
+                                //onIstalled.addListener line initializes the chrome.storage API on extension installation or update (necessary to do this)
+                                chrome.runtime.onInstalled.addListener ( () => {
+                                    chrome.storage.local.set(cacheEntry, function() {
+                                        console.log(response.data);
+                                        console.log(`Successfully stored cache key: "${cacheKey}" and its data:`, result[cacheKey]);
+                                    });
+                                });
+                                //End of Cache Entry Creation
+                                setDone (true);
+                                setError(null);                
+                            }, {timeout: 15000})
+                            .catch((error) => {
+                                // Error
+                                setLong(true);
+                                setTime(true);
+                                if (error.response) {
+                                    // The request was made and the server responded with a status code
+                                    // that falls out of the range of 2xx
+                                    console.log("Error out of 2xx Range Found:");
+                                    console.log(error.response.data);
+                                    console.log(error.response.status);
+                                    console.log(error.response.headers);
+
+                                } else if (error.request) {
+                                    // The request was made but no response was received
+                                    // `error.request` is an instance of XMLHttpRequest in the 
+                                    // browser and an instance of http.ClientRequest in node.js
+                                    console.log("No Repsonse Received from Request");
+                                    console.log(error.request);
+                                } else {
+                                    // Something happened in setting up the request that triggered an Error
+                                    console.log("Request not sent");
+                                    console.log('Error', error.message);
+                                }
+                                console.log(error.config);
+                            });  
                     }
-                    console.log(error.config);
-                });  
+                });
+            });
         });
 
         return () => {setIsCars(false)} //before next useEffect is created, set isCars to false    
 
     }, [chrome.tabs]);
 
-    // useEffect(() => {
-    //     const fetchPreferences = 'http://localhost:8080/getCarData/' + data.make + '/' + data.model + '/' + data.year + '/22201/' + pricePriority + '/' + mileagePriority + '/NA/' + trimPriority;
-    //     console.log(fetchPreferences)
-    //         axios.get(fetchPreferences)
-    //             .then((response) => {
-    //                 console.log("Response: " + response)
-    //                 setCarData(response.data);
-    //                 setDone (true);         
-    //             }, {timeout: 15000})
-    //             .catch((error) => {
-    //                 // Error
-    //                 setTime(true);
-    //                 if (error.response) {
-    //                     // The request was made and the server responded with a status code
-    //                     // that falls out of the range of 2xx
-    //                     console.log("Error out of 2xx Range Found:");
-    //                     console.log(error.response.data);
-    //                     console.log(error.response.status);
-    //                     console.log(error.response.headers);
-
-    //                 } else if (error.request) {
-    //                     // The request was made but no response was received
-    //                     // `error.request` is an instance of XMLHttpRequest in the 
-    //                     // browser and an instance of http.ClientRequest in node.js
-    //                     console.log("No Repsonse Received from Request");
-    //                     console.log(error.request);
-    //                 } else {
-    //                     // Something happened in setting up the request that triggered an Error
-    //                     console.log("Request not sent");
-    //                     console.log('Error', error.message);
-    //                 }
-    //                 console.log(error.config);
-    //             });  
-    // }, []);
-
-    //pricePriority, mileagePriority, yearPriority, trimPriority
-    // if (error) {
-    //     return alert(error)
-    // }
-    // if (!carData) return null;
-
-    //Open Preferences Form
     const preferenceFormOpen = () => {
         setPreferences(!preferences);
     };
@@ -376,6 +374,9 @@ function App() {
         setPreferences(!preferences);
     };
 
+    const handleChange = () => {
+        console.log("New Test Value: "+ testValue);
+    };
 
     if (!done && !long){
         return(
@@ -441,25 +442,67 @@ function App() {
                         {/*If preferences = true, open popup, otherwise it is false and should be closed */}
                         {preferences?
                         <div className="popup">
-                            <div>
+                            <div className="preferences-form-header"><h2>Preferences Form</h2></div>
+                            {/* <div className="price-slider-display">
                                 <h3>Price </h3><input type='range' className={pricePriority<5 ? 'low': 'high'} min='0' max='10' step='1' value={pricePriority} onChange={(e) => setpricePriority(e.target.value)}/>
                                 <h1>{pricePriority}</h1>
-                            </div>
-                            <div>
-                                <h3>Mileage </h3><input type='range' className={mileagePriority<5 ? 'low': 'high'} min='0' max='10' step='1' value={mileagePriority} onChange={(e) => setmileagePriority(e.target.value)}/>
-                                <h1>{mileagePriority}</h1>
-                            </div>
-                            <div>
-                                <h3>Year </h3><input type='range' className={yearPriority<5 ? 'low': 'high'} min='0' max='10' step='1' value={yearPriority} onChange={(e) => setyearPriority(e.target.value)}/>
-                                <h1>{yearPriority}</h1>
-                            </div>
+                            </div> */}
+                            <Box sx={{width:250}}>
+                                <Stack spacing={4} direction="row" sx={{mb: 1}} justifyContent="center" alignItems="center">
+                                    <p class="slider-name">Price</p>
+                                    <Slider 
+                                        aria-label="priceSlider" 
+                                        value={pricePriority} 
+                                        min={0}
+                                        max={10}
+                                        step={1}
+                                        marks={labels}
+                                        valueLabelDisplay="auto"
+                                        onChange={(e) => setpricePriority(e.target.value)}
+                                    />
+                                </Stack>
+                                {/* <div className="mileage-slider-display">
+                                    <h3>Mileage </h3><input type='range' className={mileagePriority<5 ? 'low': 'high'} min='0' max='10' step='1' value={mileagePriority} onChange={(e) => setmileagePriority(e.target.value)}/>
+                                    <h1>{mileagePriority}</h1>
+                                </div> */}
+                                <Stack spacing={3} direction="row" sx={{mb: 1}} justifyContent="center" alignItems="center">
+                                    <p class="slider-name">Mileage</p>
+                                    <Slider 
+                                        aria-label="mileageSlider" 
+                                        value={mileagePriority} 
+                                        min={0}
+                                        max={10}
+                                        step={1}
+                                        marks={labels}
+                                        valueLabelDisplay="auto"
+                                        onChange={(e) => setmileagePriority(e.target.value)}
+                                    />
+                                </Stack>
+                                {/* <div className="year-slider-display">
+                                    <h3>Year </h3><input type='range' className={yearPriority<5 ? 'low': 'high'} min='0' max='10' step='1' value={yearPriority} onChange={(e) => setyearPriority(e.target.value)}/>
+                                    <h1>{yearPriority}</h1>
+                                </div> */}
+                                <Stack spacing={4} direction="row" sx={{mb: 1}} justifyContent="center" alignItems="center">
+                                    <p class="slider-name">Year</p>
+                                    <Slider 
+                                        aria-label="yearSlider" 
+                                        value={yearPriority} 
+                                        min={0}
+                                        max={10}
+                                        step={1}
+                                        marks={labels}
+                                        valueLabelDisplay="auto"
+                                        onChange={(e) => setyearPriority(e.target.value)}
+                                    />
+                                </Stack>
+                            </Box>
                             {/* <div>
                                 <h3>Trim </h3><input type='range' className={trimPriority<5 ? 'low': 'high'} min='0' max='10' step='1' value={trimPriority} onChange={(e) => settrimPriority(e.target.value)}/>
-                                <h1>{trimPriority}</h1>
+                                <div className="priority-value">
+                                    <p1>{trimPriority}</p1>
+                                </div>
                             </div> */}
-                            <div className="submit">
-                                <button onClick={SliderChange}>Apply Preferences</button>
-                            </div>
+                            <button class="submit" onClick={SliderChange}>Apply Preferences</button>
                         </div>: ""}
                     </div>
                 </div>
