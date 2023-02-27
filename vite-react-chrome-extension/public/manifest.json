@@ -13,8 +13,9 @@
   "theme_color": "#000000",
   "background_color": "#ffffff",
   "permissions": [
-    "activeTab",
-    "tabs"
+    "tabs",
+    "identity",
+    "identity.email"
   ],
   "host_permissions": [
     "http://*/*",

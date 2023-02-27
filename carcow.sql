@@ -31,3 +31,5 @@ CREATE TABLE models_ids (
     model           varchar(255) not null,
     model_id        DECIMAL not null
 );
+
+

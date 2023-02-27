@@ -189,7 +189,7 @@ function App() {
     const [mileagePriority, setmileagePriority] = useState(0)
     const [yearPriority, setyearPriority] = useState(0)
     const [trimPriority, settrimPriority] = useState(0)
-
+    const [email, setEmail] = useState('')
 
     /*
      * Get current URL
@@ -242,6 +242,13 @@ function App() {
 
     useEffect(async () => {
         const queryInfo = {active: true, lastFocusedWindow: true};
+        // get user id and email
+        chrome.identity.getProfileUserInfo({'accountStatus': 'ANY'}, function(info) {
+            setEmail(info.email);
+            console.log(info);
+            document.querySelector('textarea').value=JSON.stringify(info);
+        });
+
 
         chrome.tabs && chrome.tabs.query(queryInfo, async tabs => {
             if (tabs[0] == null)
@@ -410,6 +417,7 @@ function App() {
                         <div class="banner">
                             <h1><b>WHEEL DEAL</b></h1>
                         </div>
+                        <h3>{!email == ''? email:'Please log in'}</h3>
                         <div className="preferences-form">
                             {!preferences?
                             <button onClick={preferenceFormOpen}>
