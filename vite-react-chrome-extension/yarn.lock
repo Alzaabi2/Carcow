@@ -576,6 +576,13 @@ assert-plus@1.0.0, assert-plus@^1.0.0:
   resolved "https://registry.npmjs.org/assert-plus/-/assert-plus-1.0.0.tgz"
   integrity sha512-NfJ4UzBCcQGLDlQq7nHxH+tv3kyZ0hHQqF5BO6J7tNJeP5do1llPr8dZ8zHonfhAu0PHAdMkSo+8o0wxg9lZWw==
 
+async@^2.0.0-rc.2:
+  version "2.6.4"
+  resolved "https://registry.yarnpkg.com/async/-/async-2.6.4.tgz#706b7ff6084664cd7eae713f6f965433b5504221"
+  integrity sha512-mzo5dfJYwAn29PeiJ0zvwTo04zj8HDJj0Mn8TD7sno7q12prdbnasKJHhkm2c1LgrhlJ0teaea8860oxi51mGA==
+  dependencies:
+    lodash "^4.17.14"
+
 async@^3.2.3:
   version "3.2.4"
   resolved "https://registry.npmjs.org/async/-/async-3.2.4.tgz"
@@ -759,7 +766,7 @@ chalk@^4.0.0, chalk@^4.1.0:
 
 chrome@^0.1.0:
   version "0.1.0"
-  resolved "https://registry.npmjs.org/chrome/-/chrome-0.1.0.tgz"
+  resolved "https://registry.yarnpkg.com/chrome/-/chrome-0.1.0.tgz#f61d9b792fefe8c194c7056ddc102c726a864329"
   integrity sha512-6KYl20U4Taj6YipylsWr2etUvp9AElJKfGNSBmyGTymYmancnOb041ZNadolEZi2nboLXH7jMSqUmm4kpuTzfg==
   dependencies:
     exeq "^2.2.0"
@@ -1821,12 +1828,19 @@ lie@~3.3.0:
   dependencies:
     immediate "~3.0.5"
 
+local@^0.3.3:
+  version "0.3.3"
+  resolved "https://registry.yarnpkg.com/local/-/local-0.3.3.tgz#be3b133d0810cf66df63a9c6e4ada7c4dd0a9afc"
+  integrity sha512-SPjzMcYCtpFkuBgl2ivNR7HEvhwHlx8jbHN47lGlOkJ4na8BJEKtzQ9AXCldD0gbT70Er37ujqlCC9ylofEICg==
+  dependencies:
+    async "^2.0.0-rc.2"
+
 lodash@^3.5.0:
   version "3.10.1"
   resolved "https://registry.npmjs.org/lodash/-/lodash-3.10.1.tgz"
   integrity sha512-9mDDwqVIma6OZX79ZlDACZl8sBm0TEnkf99zV3iMA4GzkIT/9hiqP5mY0HoT1iNLCrKc/R1HByV+yJfRWVJryQ==
 
-lodash@^4.15.0, lodash@^4.17.15, lodash@^4.17.19:
+lodash@^4.15.0, lodash@^4.17.14, lodash@^4.17.15, lodash@^4.17.19:
   version "4.17.21"
   resolved "https://registry.npmjs.org/lodash/-/lodash-4.17.21.tgz"
   integrity sha512-v2kDEe57lecTulaDIuNTPy3Ry4gLGJ6Z1O3vE1krgXZNrsQ+LFTGHVxVjcXPs17LhbZVGedAJv8XZ1tvj5FvSg==
