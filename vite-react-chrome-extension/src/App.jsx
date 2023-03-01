@@ -409,6 +409,19 @@ function App() {
     //     ); 
     // }
     else{
+        if(carData == null){
+            return(
+                <div className="App">
+                    <header className="App-header">
+                        <div class="banner">
+                            <h1><b>WHEEL DEAL</b></h1>
+                        </div>
+                        <h3>{!email == ''? email:'Please log in'}</h3>
+                        <h3>No Response from server</h3>
+                    </header>
+                </div>
+            )
+        }
         if(isCars){
             return(  
                 <div className="App">
