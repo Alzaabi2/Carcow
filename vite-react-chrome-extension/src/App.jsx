@@ -296,70 +296,83 @@ function App() {
                 const data = await singleCarData4(urlCall)
                 var fetchURL =  'http://localhost:8080/getCarData/' + data.make + '/' + data.model + '/' + data.year + '/22201/' + pricePriority + '/' + mileagePriority + '/' + yearPriority +'/NA/' + trimPriority;
             }
-            //Set the cache key that we will search for
-            var cacheKey = urlCall;
+            axios.get(fetchURL)
+            .then((response) => {
+                console.log("Response: ",response)
+                setCarData(response.data);
 
-            //getBackgroundPage line is necessary when trying to access the chrome.storage API from a content script or popup window
-            chrome.runtime.getBackgroundPage((backgroundPage) => {
-            backgroundPage.chrome.storage.local.get([cacheKey], function(result){
-                    //If the cache key is found in the cache, use its data to set carData
-                    if (result.hasOwnProperty(cacheKey)) {
-                    console.log(`Found "${cacheKey}" in cache:`, result[cacheKey]);
-                    setCarData(result[cacheKey]);
-                    } 
-                    //Otherwise, key was not found in cache so make Axios call to server for response, 
-                    //then create new cache entry using the key not found in the cache
-                    else {         
-                        // console.log(fetchURL)
-                        console.log(`"${cacheKey}" not found in cache, fetching from server...`);
-                        axios.get(fetchURL)
-                            .then((response) => {
-                                console.log("Response: ",response)
-                                setCarData(response.data);
-
-                                //Create the variable information that will serve as a new entry into the cache
-                                const cacheEntry = {};
-                                cacheEntry[cacheKey] = response.data;
-                                //onIstalled.addListener line initializes the chrome.storage API on extension installation or update (necessary to do this)
-                                chrome.runtime.onInstalled.addListener ( () => {
-                                    chrome.storage.local.set(cacheEntry, function() {
-                                        console.log(response.data);
-                                        console.log(`Successfully stored cache key: "${cacheKey}" and its data:`, result[cacheKey]);
-                                    });
-                                });
-                                //End of Cache Entry Creation
-                                setDone (true);
-                                setError(null);                
-                            }, {timeout: 15000})
-                            .catch((error) => {
-                                // Error
-                                setLong(true);
-                                setTime(true);
-                                if (error.response) {
-                                    // The request was made and the server responded with a status code
-                                    // that falls out of the range of 2xx
-                                    console.log("Error out of 2xx Range Found:");
-                                    console.log(error.response.data);
-                                    console.log(error.response.status);
-                                    console.log(error.response.headers);
-
-                                } else if (error.request) {
-                                    // The request was made but no response was received
-                                    // `error.request` is an instance of XMLHttpRequest in the 
-                                    // browser and an instance of http.ClientRequest in node.js
-                                    console.log("No Repsonse Received from Request");
-                                    console.log(error.request);
-                                } else {
-                                    // Something happened in setting up the request that triggered an Error
-                                    console.log("Request not sent");
-                                    console.log('Error', error.message);
-                                }
-                                console.log(error.config);
-                            });  
-                    }
+                //Create the variable information that will serve as a new entry into the cache
+                chrome.storage.local.set({urlCall: response.data}).then(() => {
+                    console.log("New key is set to: ", urlCall);
+                    console.log("Value is set to: ", response.data);
                 });
+
+                chrome.storage.local.get({"urlCall": null}).then((result) => {
+                    console.log("Key we are using is: ", urlCall);
+                    console.log("Value we are getting is: ", result.urlCall);
+                });
+
+                // const cacheEntry = {};
+                // cacheEntry[cacheKey] = response.data;
+                // //onIstalled.addListener line initializes the chrome.storage API on extension installation or update (necessary to do this)
+                // chrome.runtime.onInstalled.addListener ( () => {
+                //     chrome.storage.local.set(cacheEntry, function() {
+                //         console.log(response.data);
+                //         console.log(`Successfully stored cache key: "${cacheKey}" and its data:`, result[cacheKey]);
+                //     });
+                // });
+                //End of Cache Entry Creation
+                setDone (true);
+                setError(null);                
+            }, {timeout: 15000})
+            .catch((error) => {
+                // Error
+                setLong(true);
+                setTime(true);
+                if (error.response) {
+                    // The request was made and the server responded with a status code
+                    // that falls out of the range of 2xx
+                    console.log("Error out of 2xx Range Found:");
+                    console.log(error.response.data);
+                    console.log(error.response.status);
+                    console.log(error.response.headers);
+
+                } else if (error.request) {
+                    // The request was made but no response was received
+                    // `error.request` is an instance of XMLHttpRequest in the 
+                    // browser and an instance of http.ClientRequest in node.js
+                    console.log("No Repsonse Received from Request");
+                    console.log(error.request);
+                } else {
+                    // Something happened in setting up the request that triggered an Error
+                    console.log("Request not sent");
+                    console.log('Error', error.message);
+                }
+                console.log(error.config);
             });
         });
+
+        // //Set the cache key that we will search for
+        // var cacheKey = urlCall;
+        // //getBackgroundPage line is necessary when trying to access the chrome.storage API from a content script or popup window
+        // chrome.runtime.getBackgroundPage((backgroundPage) => {
+        //     backgroundPage.chrome.storage.local.get([cacheKey], function(result){
+        //         //If the cache key is found in the cache, use its data to set carData
+        //         if (result.hasOwnProperty(cacheKey)) {
+        //             console.log(`Found "${cacheKey}" in cache:`, result[cacheKey]);
+        //             setCarData(result[cacheKey]);
+        //             } 
+        //         //Otherwise, key was not found in cache so make Axios call to server for response, 
+        //         //then create new cache entry using the key not found in the cache
+        //         else {         
+        //             // console.log(fetchURL)
+        //             console.log(`"${cacheKey}" not found in cache, fetching from server...`);
+                     
+                // }
+        //     });
+        // });
+
+       
 
         return () => {setIsCars(false)} //before next useEffect is created, set isCars to false    
 

@@ -554,4 +554,4 @@ def cleanData(list):
         if list[i] not in list[i + 1:]:
             res_list.append(list[i])
             
-    return res_list      
+    return res_list

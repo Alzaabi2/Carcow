@@ -20,7 +20,7 @@
     "dotenv-cli": "^6.0.0",
     "filesaver": "^0.0.13",
     "jquery": "^3.6.1",
-    "mui": "^0.0.1",
+    "local": "^0.3.3",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-loading": "^2.0.3",
