@@ -202,7 +202,6 @@ function App() {
 
     const [testValue, settestValue] = useState (0)
 
-<<<<<<< HEAD
         // console.log('running chrome local')
         // const value = '2'
         // console.log("chrome storage "+ chrome.storage)
@@ -213,12 +212,6 @@ function App() {
         //     chrome.storage.sync.get(["key"]).then((result) => {
         //         console.log("Value currently is " + result.key);
         //     });
-=======
-    var testKey = "TestKey";
-    var tempData = "This is test info";
-
-
->>>>>>> 24c9d41726c7b4e894fae68389ca91f82e5fe504
     /*
      * Get current URL
      */
@@ -314,7 +307,6 @@ function App() {
                 const data = await singleCarData4(urlCall)
                 var fetchURL =  'http://localhost:8080/getCarData/' + data.make + '/' + data.model + '/' + data.year + '/22201/' + pricePriority + '/' + mileagePriority + '/' + yearPriority +'/NA/' + trimPriority;
             }
-<<<<<<< HEAD
 
             //check if url matches last call
             chrome.storage.sync.get(["urlCall"]).then((result) => {
@@ -427,59 +419,6 @@ function App() {
                         }
                         console.log(error.config);
                     });
-=======
-            axios.get(fetchURL)
-            .then((response) => {
-                console.log("Response: ", response)
-                setCarData(response.data);
-
-                //Create the variable information that will serve as a new entry into the cache
-                chrome.storage.local.set({testKey: tempData}).then(() => {
-                    console.log("New key is set to: ", testKey);
-                    console.log("Value is set to: ", tempData);
-                });
-
-                chrome.storage.local.get(["testKey"]).then((result) => {
-                    console.log("Key we are using is: ", testKey);
-                    console.log("Value we are getting is: ", result.testKey);
-                });
-
-                // const cacheEntry = {};
-                // cacheEntry[cacheKey] = response.data;
-                // //onIstalled.addListener line initializes the chrome.storage API on extension installation or update (necessary to do this)
-                // chrome.runtime.onInstalled.addListener ( () => {
-                //     chrome.storage.local.set(cacheEntry, function() {
-                //         console.log(response.data);
-                //         console.log(`Successfully stored cache key: "${cacheKey}" and its data:`, result[cacheKey]);
-                //     });
-                // });
-                //End of Cache Entry Creation
-                setDone (true);
-                setError(null);                
-            }, {timeout: 15000})
-            .catch((error) => {
-                // Error
-                setLong(true);
-                setTime(true);
-                if (error.response) {
-                    // The request was made and the server responded with a status code
-                    // that falls out of the range of 2xx
-                    console.log("Error out of 2xx Range Found:");
-                    console.log(error.response.data);
-                    console.log(error.response.status);
-                    console.log(error.response.headers);
-
-                } else if (error.request) {
-                    // The request was made but no response was received
-                    // `error.request` is an instance of XMLHttpRequest in the 
-                    // browser and an instance of http.ClientRequest in node.js
-                    console.log("No Repsonse Received from Request");
-                    console.log(error.request);
-                } else {
-                    // Something happened in setting up the request that triggered an Error
-                    console.log("Request not sent");
-                    console.log('Error', error.message);
->>>>>>> 24c9d41726c7b4e894fae68389ca91f82e5fe504
                 }
             });
 
