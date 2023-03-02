@@ -202,6 +202,9 @@ function App() {
 
     const [testValue, settestValue] = useState (0)
 
+    var testKey = "TestKey";
+    var tempData = "This is test info";
+
 
     /*
      * Get current URL
@@ -298,18 +301,18 @@ function App() {
             }
             axios.get(fetchURL)
             .then((response) => {
-                console.log("Response: ",response)
+                console.log("Response: ", response)
                 setCarData(response.data);
 
                 //Create the variable information that will serve as a new entry into the cache
-                chrome.storage.local.set({urlCall: response.data}).then(() => {
-                    console.log("New key is set to: ", urlCall);
-                    console.log("Value is set to: ", response.data);
+                chrome.storage.local.set({testKey: tempData}).then(() => {
+                    console.log("New key is set to: ", testKey);
+                    console.log("Value is set to: ", tempData);
                 });
 
-                chrome.storage.local.get({"urlCall": null}).then((result) => {
-                    console.log("Key we are using is: ", urlCall);
-                    console.log("Value we are getting is: ", result.urlCall);
+                chrome.storage.local.get(["testKey"]).then((result) => {
+                    console.log("Key we are using is: ", testKey);
+                    console.log("Value we are getting is: ", result.testKey);
                 });
 
                 // const cacheEntry = {};
