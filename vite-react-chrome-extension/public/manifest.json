@@ -17,9 +17,6 @@
     "tabs",
     "storage"
   ],
-  "optional_permissions":[
-    "unlimitedStorage"
-  ],
   "host_permissions": [
     "http://*/*",
     "https://*/*"

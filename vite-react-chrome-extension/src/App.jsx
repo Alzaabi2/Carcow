@@ -202,7 +202,16 @@ function App() {
 
     const [testValue, settestValue] = useState (0)
 
-
+        // console.log('running chrome local')
+        // const value = '2'
+        // console.log("chrome storage "+ chrome.storage)
+        //     chrome.storage.sync.set({ key: value }).then(() => {
+        //         console.log("Value is set to " + value);
+        //     });
+            
+        //     chrome.storage.sync.get(["key"]).then((result) => {
+        //         console.log("Value currently is " + result.key);
+        //     });
     /*
      * Get current URL
      */
@@ -254,6 +263,7 @@ function App() {
 
     useEffect(async () => {
         const queryInfo = {active: true, lastFocusedWindow: true};
+        
 
         chrome.tabs && chrome.tabs.query(queryInfo, async tabs => {
             if (tabs[0] == null)
@@ -267,6 +277,7 @@ function App() {
             // if (urlCall.includes('cars.com/vehicledetail')){
             //     setIsCars(true) //set isCars to true
             // }
+
             var siteID = -1
             for(let i=0; i<conditions.length; i++) {
                 if(urlCall.includes(conditions[i])) {
@@ -296,60 +307,127 @@ function App() {
                 const data = await singleCarData4(urlCall)
                 var fetchURL =  'http://localhost:8080/getCarData/' + data.make + '/' + data.model + '/' + data.year + '/22201/' + pricePriority + '/' + mileagePriority + '/' + yearPriority +'/NA/' + trimPriority;
             }
-            axios.get(fetchURL)
-            .then((response) => {
-                console.log("Response: ",response)
-                setCarData(response.data);
 
-                //Create the variable information that will serve as a new entry into the cache
-                chrome.storage.local.set({urlCall: response.data}).then(() => {
-                    console.log("New key is set to: ", urlCall);
-                    console.log("Value is set to: ", response.data);
-                });
-
-                chrome.storage.local.get({"urlCall": null}).then((result) => {
-                    console.log("Key we are using is: ", urlCall);
-                    console.log("Value we are getting is: ", result.urlCall);
-                });
-
-                // const cacheEntry = {};
-                // cacheEntry[cacheKey] = response.data;
-                // //onIstalled.addListener line initializes the chrome.storage API on extension installation or update (necessary to do this)
-                // chrome.runtime.onInstalled.addListener ( () => {
-                //     chrome.storage.local.set(cacheEntry, function() {
-                //         console.log(response.data);
-                //         console.log(`Successfully stored cache key: "${cacheKey}" and its data:`, result[cacheKey]);
-                //     });
-                // });
-                //End of Cache Entry Creation
-                setDone (true);
-                setError(null);                
-            }, {timeout: 15000})
-            .catch((error) => {
-                // Error
-                setLong(true);
-                setTime(true);
-                if (error.response) {
-                    // The request was made and the server responded with a status code
-                    // that falls out of the range of 2xx
-                    console.log("Error out of 2xx Range Found:");
-                    console.log(error.response.data);
-                    console.log(error.response.status);
-                    console.log(error.response.headers);
-
-                } else if (error.request) {
-                    // The request was made but no response was received
-                    // `error.request` is an instance of XMLHttpRequest in the 
-                    // browser and an instance of http.ClientRequest in node.js
-                    console.log("No Repsonse Received from Request");
-                    console.log(error.request);
-                } else {
-                    // Something happened in setting up the request that triggered an Error
-                    console.log("Request not sent");
-                    console.log('Error', error.message);
+            //check if url matches last call
+            chrome.storage.sync.get(["urlCall"]).then((result) => {
+                console.log("Last call: " + result.urlCall);
+                if(urlCall == result.urlCall){
+                    console.log('Url matches same page')
+                    chrome.storage.sync.get(["carData"]).then((result2) => {
+                        console.log("Last carData" + result2.carData);
+                        setCarData(result2.carData)
+                        //edge case: url exists but carData undefined
+                        if(result2.carData == undefined){
+                            axios.get(fetchURL)
+                            .then((response) => {
+                                console.log("Response: ",response)
+                                setCarData(response.data);
+        
+                                //store response in chrome storage
+                                chrome.storage.sync.set({ ['carData'] : response.data }).then(() => {
+                                    console.log("carData set from undefined: ", response.data);
+                                });
+                                // const cacheEntry = {};
+                                // cacheEntry[cacheKey] = response.data;
+                                // //onIstalled.addListener line initializes the chrome.storage API on extension installation or update (necessary to do this)
+                                // chrome.runtime.onInstalled.addListener ( () => {
+                                //     chrome.storage.local.set(cacheEntry, function() {
+                                //         console.log(response.data);
+                                //         console.log(`Successfully stored cache key: "${cacheKey}" and its data:`, result[cacheKey]);
+                                //     });
+                                // });
+                                //End of Cache Entry Creation
+                                setDone (true);
+                                setError(null);                
+                            }, {timeout: 15000})
+                            .catch((error) => {
+                                // Error
+                                setLong(true);
+                                setTime(true);
+                                if (error.response) {
+                                    // The request was made and the server responded with a status code
+                                    // that falls out of the range of 2xx
+                                    console.log("Error out of 2xx Range Found:");
+                                    console.log(error.response.data);
+                                    console.log(error.response.status);
+                                    console.log(error.response.headers);
+        
+                                } else if (error.request) {
+                                    // The request was made but no response was received
+                                    // `error.request` is an instance of XMLHttpRequest in the 
+                                    // browser and an instance of http.ClientRequest in node.js
+                                    console.log("No Repsonse Received from Request");
+                                    console.log(error.request);
+                                } else {
+                                    // Something happened in setting up the request that triggered an Error
+                                    console.log("Request not sent");
+                                    console.log('Error', error.message);
+                                }
+                                console.log(error.config);
+                            });   
+                        }
+                    });
+                    
                 }
-                console.log(error.config);
+                else{
+                    console.log('Url does not match')
+                    axios.get(fetchURL)
+                    .then((response) => {
+                        console.log("Response: ",response)
+                        setCarData(response.data);
+                        console.log("cardata show on console",response.data)
+                         //store response in chrome storage
+                        chrome.storage.sync.set({ ['carData'] : [response.data] }).then(() => {
+                            console.log("carData set second: ", response.data);
+                        });
+
+                        // const cacheEntry = {};
+                        // cacheEntry[cacheKey] = response.data;
+                        // //onIstalled.addListener line initializes the chrome.storage API on extension installation or update (necessary to do this)
+                        // chrome.runtime.onInstalled.addListener ( () => {
+                        //     chrome.storage.local.set(cacheEntry, function() {
+                        //         console.log(response.data);
+                        //         console.log(`Successfully stored cache key: "${cacheKey}" and its data:`, result[cacheKey]);
+                        //     });
+                        // });
+                        //End of Cache Entry Creation
+                        setDone (true);
+                        setError(null);                
+                    }, {timeout: 15000})
+                    .catch((error) => {
+                        // Error
+                        setLong(true);
+                        setTime(true);
+                        if (error.response) {
+                            // The request was made and the server responded with a status code
+                            // that falls out of the range of 2xx
+                            console.log("Error out of 2xx Range Found:");
+                            console.log(error.response.data);
+                            console.log(error.response.status);
+                            console.log(error.response.headers);
+
+                        } else if (error.request) {
+                            // The request was made but no response was received
+                            // `error.request` is an instance of XMLHttpRequest in the 
+                            // browser and an instance of http.ClientRequest in node.js
+                            console.log("No Repsonse Received from Request");
+                            console.log(error.request);
+                        } else {
+                            // Something happened in setting up the request that triggered an Error
+                            console.log("Request not sent");
+                            console.log('Error', error.message);
+                        }
+                        console.log(error.config);
+                    });
+                }
             });
+
+            //store url in chrome storage
+            chrome.storage.sync.set({ urlCall : urlCall }).then(() => {
+                console.log("url set to " + urlCall);
+            });
+
+            
         });
 
         // //Set the cache key that we will search for
