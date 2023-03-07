@@ -1,4 +1,4 @@
-import React, { Component, useEffect, useState, useRef } from 'react';
+import React, { Component, useEffect, useState, useRef, useLayoutEffect } from 'react';
 import './App.css';
 import './slider.css';
 import $, { data } from "jquery";
@@ -207,6 +207,7 @@ function App() {
     const [itemsToShow, setItemsToShow] = useState(5)
 
     let tempCarData = undefined
+    const [email, setEmail] = useState('')
 
         // console.log('running chrome local')
         // const value = '2'
@@ -265,11 +266,19 @@ function App() {
     //     console.log("The SliderChange() useEffect was utilized");
     //     SliderChange();
     // }, [pricePriority, mileagePriority, yearPriority, trimPriority]);
+
+    useEffect(()=>console.log("change in :",carData), [carData])
     
 
     useEffect(async () => {
         const queryInfo = {active: true, lastFocusedWindow: true};
-        
+        // get user id and email
+        // chrome.identity.getProfileUserInfo({'accountStatus': 'ANY'}, function(info) {
+        //     setEmail(info.email);
+        //     console.log(info);
+        //     document.querySelector('textarea').value=JSON.stringify(info);
+        // });
+
 
         chrome.tabs && chrome.tabs.query(queryInfo, async tabs => {
             if (tabs[0] == null)
@@ -301,10 +310,10 @@ function App() {
             }
             else if(siteID == 1){
                 const data =  await singleCarData1(urlCall)
-                console.log("returning: "+data.make)
-                console.log(data.model)
-                console.log(data.year)
-                console.log(data.trim)
+                // console.log("returning: "+data.make)
+                // console.log(data.model)
+                // console.log(data.year)
+                // console.log(data.trim)
                 var fetchURL =  'http://localhost:8080/getCarData/' + data.make + '/' + data.model + '/' + data.year + '/22201/' + pricePriority + '/' + mileagePriority + '/' + yearPriority +'/NA/' + trimPriority;
             }else if(siteID == 2){
                 const data = await singleCarData2(urlCall)
@@ -314,29 +323,29 @@ function App() {
                 var fetchURL =  'http://localhost:8080/getCarData/' + data.make + '/' + data.model + '/' + data.year + '/22201/' + pricePriority + '/' + mileagePriority + '/' + yearPriority +'/NA/' + trimPriority;
             }
             //check if url matches last call
-            await chrome.storage.sync.get([urlCall]).then((result) => {
-                console.log("Get1: Previous key is: ", result.urlCall);
-                
+            await chrome.storage.sync.get(["urlCall"]).then(async (result) => {
+                console.log("Last call: " + result.urlCall);
                 if(urlCall == result.urlCall){
                     console.log('Url matches same page')
-                    chrome.storage.sync.get(["carData"]).then(async (result2) => {
-                        console.log("Last carData", JSON.parse(result2.carData));
-                        tempCarData = await JSON.parse(result2.carData)
-                        setCarData(JSON.parse(await result2.carData))
-                        console.log("awaiting: ", await tempCarData)
+                    await chrome.storage.sync.get(["carData"]).then(async (result2) => {
+                        // console.log("Last carData", JSON.parse(result2.carData));
+                        // tempCarData = await JSON.parse(result2.carData)
+                        setCarData(await result2.carData)
+                        // console.log("awaiting: ", await carData)
                         //edge case: url exists but carData undefined
-
+                        
                         if(result2.carData == undefined){
                             console.log("Our URL Key exists, but value is undefined")
                             axios.get(fetchURL)
                             .then((response) => {
-                                console.log("Response: ",response)
+                                // console.log("Response: ",response)
                                 setCarData(response.data);
-        
+                                // console.log("cardata show on console",response.data)
                                 //store response in chrome storage
-                                chrome.storage.sync.set({ carData : JSON.stringify(response.data) }).then(() => {
-                                    console.log("carData set from undefined: ", JSON.stringify(response.data));
+                                chrome.storage.sync.set({ carData : response.data }).then(() => {
+                                    console.log("carData set second: ", response.data);
                                 });
+
                                 // const cacheEntry = {};
                                 // cacheEntry[cacheKey] = response.data;
                                 // //onIstalled.addListener line initializes the chrome.storage API on extension installation or update (necessary to do this)
@@ -376,19 +385,25 @@ function App() {
                                 console.log(error.config);
                             });   
                         }
-                    });                   
+                        setDone (true);
+                        setError(null); 
+                    });
+
+                    
+                    
                 }
                 else{
                     console.log('Url does not match')
                     axios.get(fetchURL)
                     .then((response) => {
-                        console.log("Response: ",response)
+                        // console.log("Response: ",response)
                         setCarData(response.data);
-                        console.log("cardata show on console",response.data)
+                        // console.log("cardata show on console",response.data)
                          //store response in chrome storage
-                        chrome.storage.sync.set({ carData : JSON.stringify(response.data) }).then(() => {
-                            console.log("carData set second: ", JSON.stringify(response.data));
+                        chrome.storage.sync.set({ carData : response.data }).then(() => {
+                            console.log("carData set second: ", response.data);
                         });
+
 
                         // const cacheEntry = {};
                         // cacheEntry[cacheKey] = response.data;
@@ -458,7 +473,7 @@ function App() {
         // });
 
         setCarData(await tempCarData)
-        console.log(await carData)
+        // console.log(await carData)
 
         return () => {setIsCars(false)} //before next useEffect is created, set isCars to false    
 
@@ -503,6 +518,19 @@ function App() {
     //     ); 
     // }
     else{
+        if(carData == null){
+            return(
+                <div className="App">
+                    <header className="App-header">
+                        <div class="banner">
+                            <h1><b>WHEEL DEAL</b></h1>
+                        </div>
+                        {/* <h3>{!email == ''? email:'Please log in'}</h3> */}
+                        <h3>No Response from server</h3>
+                    </header>
+                </div>
+            )
+        }
         if(isCars){
             return(  
                 <div className="App">
@@ -510,6 +538,9 @@ function App() {
                         <view>{console.log(carData)}</view>
                         <div class="banner">
                             <h1><b>WHEEL DEAL</b></h1>
+                        {/* </div>
+                        <h3>{!email == ''? email:'Please log in'}</h3>
+                        <div className="preferences-form"> */}
                             {!preferences?
                                 <Tooltip title="Open Preferences Menu">
                                     <IconButton 
