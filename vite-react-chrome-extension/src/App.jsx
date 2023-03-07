@@ -8,6 +8,10 @@ import cheerio from 'cheerio';
 import Box from '@mui/material/Box';
 import Stack from '@mui/material/Stack';
 import Slider from '@mui/material/Slider';
+import BuildIcon from '@mui/icons-material/Build';
+import CloseOutlinedIcon from '@mui/icons-material/CloseOutlined';
+import IconButton from '@mui/material/IconButton';
+import Tooltip from '@mui/material/Tooltip';
 
 //Labels for the ends of the sliders
 const labels = [
@@ -319,11 +323,12 @@ function App() {
                     await chrome.storage.sync.get(["carData"]).then(async (result2) => {
                         // console.log("Last carData", JSON.parse(result2.carData));
                         // tempCarData = await JSON.parse(result2.carData)
-                        setCarData(JSON.parse(await result2.carData))
+                        setCarData(await result2.carData)
                         // console.log("awaiting: ", await carData)
                         //edge case: url exists but carData undefined
                         
                         if(result2.carData == undefined){
+                            console.log("Our URL Key exists, but value is undefined")
                             axios.get(fetchURL)
                             .then((response) => {
                                 // console.log("Response: ",response)
@@ -433,14 +438,11 @@ function App() {
                     });
                 }
             });
-            
-
+            console.log("We've exited the main chrome.storage.sync.get function");
             //store url in chrome storage
             chrome.storage.sync.set({ urlCall : urlCall }).then(() => {
-                console.log("url set to " + urlCall);
-            });
-
-            
+                console.log("Url set to " + urlCall);
+            });         
         });
 
         // //Set the cache key that we will search for
@@ -471,12 +473,12 @@ function App() {
     }, [chrome.tabs]);
 
     const preferenceFormOpen = () => {
-        setPreferences(!preferences);
+        setPreferences(true);
     };
 
     //Close Preferences Form
     const preferenceFormClose = () => {
-        setPreferences(!preferences);
+        setPreferences(false);
     };
 
     const handleChange = () => {
@@ -515,14 +517,28 @@ function App() {
                         <view>{console.log(carData)}</view>
                         <div class="banner">
                             <h1><b>WHEEL DEAL</b></h1>
-                        </div>
-                        <div className="preferences-form">
                             {!preferences?
-                            <button onClick={preferenceFormOpen}>
-                               Open Preferences
-                            </button>: <button onClick={preferenceFormClose}>
-                               Close Preferences
-                            </button>}
+                                <Tooltip title="Open Preferences Menu">
+                                    <IconButton 
+                                        className="preference-toggle" 
+                                        variant='contained'
+                                        sx={{color:"white", position:"fixed", top: 20, right: 0}} 
+                                        onClick={preferenceFormOpen}
+                                    >
+                                        <BuildIcon/>
+                                    </IconButton>
+                                </Tooltip>:
+                                <Tooltip title="Close Preferences Menu">
+                                    <IconButton 
+                                        className="preference-toggle" 
+                                        variant='contained'
+                                        sx={{color:"white", position:"fixed", top: 20, right: 0}} 
+                                        onClick={preferenceFormClose}
+                                    >
+                                        <CloseOutlinedIcon/>
+                                    </IconButton>
+                                </Tooltip> 
+                            }                     
                         </div>
                         <table>
                             {carData.map(car=>(                   
@@ -552,7 +568,10 @@ function App() {
                                 <h3>Price </h3><input type='range' className={pricePriority<5 ? 'low': 'high'} min='0' max='10' step='1' value={pricePriority} onChange={(e) => setpricePriority(e.target.value)}/>
                                 <h1>{pricePriority}</h1>
                             </div> */}
-                            <Box sx={{width:250}}>
+                            <Box 
+                                sx={{width:250}}
+                                alignItems = "center"
+                            >
                                 <Stack spacing={4} direction="row" sx={{mb: 1}} justifyContent="center" alignItems="center">
                                     <p class="slider-name">Price</p>
                                     <Slider 
@@ -607,7 +626,7 @@ function App() {
                                     <p1>{trimPriority}</p1>
                                 </div>
                             </div> */}
-                            <button class="submit" onClick={SliderChange}>Apply Preferences</button>
+                            <button class="submit" onClick={SliderChange}>Apply Preferences</button>&nbsp;
                         </div>: ""}
                     </div>
                 </div>
