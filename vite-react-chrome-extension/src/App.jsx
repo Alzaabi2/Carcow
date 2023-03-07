@@ -8,6 +8,10 @@ import cheerio from 'cheerio';
 import Box from '@mui/material/Box';
 import Stack from '@mui/material/Stack';
 import Slider from '@mui/material/Slider';
+import BuildIcon from '@mui/icons-material/Build';
+import CloseOutlinedIcon from '@mui/icons-material/CloseOutlined';
+import IconButton from '@mui/material/IconButton';
+import Tooltip from '@mui/material/Tooltip';
 
 //Labels for the ends of the sliders
 const labels = [
@@ -309,23 +313,30 @@ function App() {
             }
 
             //check if url matches last call
-            chrome.storage.sync.get(["urlCall"]).then((result) => {
-                console.log("Last call: " + result.urlCall);
+            await chrome.storage.sync.get([urlCall]).then((result) => {
+                console.log("Get1: Previous key is: ", result.urlCall);
+                
                 if(urlCall == result.urlCall){
-                    console.log('Url matches same page')
-                    chrome.storage.sync.get(["carData"]).then((result2) => {
-                        console.log("Last carData" + result2.carData);
-                        setCarData(result2.carData)
-                        //edge case: url exists but carData undefined
+                    console.log('Url matches existing URL in storage')
+                    chrome.storage.sync.get(["carData"]).then(async (result2) => {
+                        console.log("Get2: Previous carData is: ", result2.data)
+                        const tempCarData = JSON.stringify(result2.carData)
+                        setCarData (result2.carData, () => {
+                            console.log("carData now set to: ", carData)
+                        })
+                        // console.log("Waiting: ", tempCarData)
+                        // console.log("Awaiting Car Data: ", carData)
+                        //edge case: url key exists but its value, carData, is undefined
                         if(result2.carData == undefined){
+                            console.log("Our URL Key exists, but value is undefined")
                             axios.get(fetchURL)
                             .then((response) => {
                                 console.log("Response: ",response)
                                 setCarData(response.data);
         
                                 //store response in chrome storage
-                                chrome.storage.sync.set({ ['carData'] : response.data }).then(() => {
-                                    console.log("carData set from undefined: ", response.data);
+                                chrome.storage.sync.set({ carData : response.data }).then(() => {
+                                    console.log("Set1: carData set from undefined to: ", response.data);
                                 });
                                 // const cacheEntry = {};
                                 // cacheEntry[cacheKey] = response.data;
@@ -366,8 +377,7 @@ function App() {
                                 console.log(error.config);
                             });   
                         }
-                    });
-                    
+                    }, {timeout: 5000});                   
                 }
                 else{
                     console.log('Url does not match')
@@ -377,8 +387,8 @@ function App() {
                         setCarData(response.data);
                         console.log("cardata show on console",response.data)
                          //store response in chrome storage
-                        chrome.storage.sync.set({ ['carData'] : [response.data] }).then(() => {
-                            console.log("carData set second: ", response.data);
+                        chrome.storage.sync.set({ carData : response.data }).then(() => {
+                            console.log("Set2: carData set as: ", response.data);
                         });
 
                         // const cacheEntry = {};
@@ -421,48 +431,23 @@ function App() {
                     });
                 }
             });
-
+            console.log("We've exited the main chrome.storage.sync.get function");
             //store url in chrome storage
             chrome.storage.sync.set({ urlCall : urlCall }).then(() => {
-                console.log("url set to " + urlCall);
-            });
-
-            
+                console.log("Url set to " + urlCall);
+            });         
         });
-
-        // //Set the cache key that we will search for
-        // var cacheKey = urlCall;
-        // //getBackgroundPage line is necessary when trying to access the chrome.storage API from a content script or popup window
-        // chrome.runtime.getBackgroundPage((backgroundPage) => {
-        //     backgroundPage.chrome.storage.local.get([cacheKey], function(result){
-        //         //If the cache key is found in the cache, use its data to set carData
-        //         if (result.hasOwnProperty(cacheKey)) {
-        //             console.log(`Found "${cacheKey}" in cache:`, result[cacheKey]);
-        //             setCarData(result[cacheKey]);
-        //             } 
-        //         //Otherwise, key was not found in cache so make Axios call to server for response, 
-        //         //then create new cache entry using the key not found in the cache
-        //         else {         
-        //             // console.log(fetchURL)
-        //             console.log(`"${cacheKey}" not found in cache, fetching from server...`);
-                     
-                // }
-        //     });
-        // });
-
-       
-
         return () => {setIsCars(false)} //before next useEffect is created, set isCars to false    
 
     }, [chrome.tabs]);
 
     const preferenceFormOpen = () => {
-        setPreferences(!preferences);
+        setPreferences(true);
     };
 
     //Close Preferences Form
     const preferenceFormClose = () => {
-        setPreferences(!preferences);
+        setPreferences(false);
     };
 
     const handleChange = () => {
@@ -501,14 +486,28 @@ function App() {
                         <view>{console.log(carData)}</view>
                         <div class="banner">
                             <h1><b>WHEEL DEAL</b></h1>
-                        </div>
-                        <div className="preferences-form">
                             {!preferences?
-                            <button onClick={preferenceFormOpen}>
-                               Open Preferences
-                            </button>: <button onClick={preferenceFormClose}>
-                               Close Preferences
-                            </button>}
+                                <Tooltip title="Open Preferences Menu">
+                                    <IconButton 
+                                        className="preference-toggle" 
+                                        variant='contained'
+                                        sx={{color:"white", position:"fixed", top: 20, right: 0}} 
+                                        onClick={preferenceFormOpen}
+                                    >
+                                        <BuildIcon/>
+                                    </IconButton>
+                                </Tooltip>:
+                                <Tooltip title="Close Preferences Menu">
+                                    <IconButton 
+                                        className="preference-toggle" 
+                                        variant='contained'
+                                        sx={{color:"white", position:"fixed", top: 20, right: 0}} 
+                                        onClick={preferenceFormClose}
+                                    >
+                                        <CloseOutlinedIcon/>
+                                    </IconButton>
+                                </Tooltip> 
+                            }                     
                         </div>
                         <table>
                             {carData.map(car=>(                   
@@ -538,7 +537,10 @@ function App() {
                                 <h3>Price </h3><input type='range' className={pricePriority<5 ? 'low': 'high'} min='0' max='10' step='1' value={pricePriority} onChange={(e) => setpricePriority(e.target.value)}/>
                                 <h1>{pricePriority}</h1>
                             </div> */}
-                            <Box sx={{width:250}}>
+                            <Box 
+                                sx={{width:250}}
+                                alignItems = "center"
+                            >
                                 <Stack spacing={4} direction="row" sx={{mb: 1}} justifyContent="center" alignItems="center">
                                     <p class="slider-name">Price</p>
                                     <Slider 
@@ -593,7 +595,7 @@ function App() {
                                     <p1>{trimPriority}</p1>
                                 </div>
                             </div> */}
-                            <button class="submit" onClick={SliderChange}>Apply Preferences</button>
+                            <button class="submit" onClick={SliderChange}>Apply Preferences</button>&nbsp;
                         </div>: ""}
                     </div>
                 </div>
