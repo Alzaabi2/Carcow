@@ -99,35 +99,31 @@ def rate2(list):
     # Sorted list of deals in descending order from best to worst deal
     deals.sort(key=lambda y: y[1])
 
-    ret_list = []
+    return deals
 
-    # Ensure that all cars sent to Chrome extension are available
+def checkAvailability(url):
+     # Ensure that all cars sent to Chrome extension are available
     print("\nAvailability validation:\n")
-    for car in range(len(deals)):
-        if len(ret_list) >= 5:
-            break
-        url = deals[car][3]
-        available = True
-        headers = {'User-Agent': 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/56.0.2924.76 Safari/537.36', "Upgrade-Insecure-Requests": "1","DNT": "1","Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8","Accept-Language": "en-US,en;q=0.5","Accept-Encoding": "gzip, deflate"}
-        page = requests.get(url, headers=headers)
-        soup = BeautifulSoup(page.content, 'html.parser')
-        if soup.find('p', class_='sds-notification__desc') is not None:
-            available = False
-        elif soup.find('div', class_='text-bold text-size-600 text-size-sm-700 margin-vertical-7 margin-horizontal-7 text-center') is not None:
-            if soup.find('div', class_='text-bold text-size-600 text-size-sm-700 margin-vertical-7 margin-horizontal-7 text-center').text == 'This car is no longer available. One moment while we take you to the search results page.':
-                available = False
-        elif soup.find('h2', class_='CVRsvD') is not None:
-            available = False
-        elif soup.find('h2', class_='pt-1 pt-md-3 px-1 px-md-3 pb-2 text-center display-1 m-0') is not None:
-            if soup.find('h2', class_='pt-1 pt-md-3 px-1 px-md-3 pb-2 text-center display-1 m-0').text == 'Vehicle no longer available':
-                available = False
-        elif soup.find('div', class_='CDCXWUsedCarBuyPathExpiredListingHeaderText widget') is not None:
-            available = False
-        print("available = ", available,)
-        if available == True:
-            ret_list.append(deals[car])
 
-    return ret_list
+    available = True
+    headers = {'User-Agent': 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/56.0.2924.76 Safari/537.36', "Upgrade-Insecure-Requests": "1","DNT": "1","Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8","Accept-Language": "en-US,en;q=0.5","Accept-Encoding": "gzip, deflate"}
+    page = requests.get(url, headers=headers)
+    soup = BeautifulSoup(page.content, 'html.parser')
+    if soup.find('p', class_='sds-notification__desc') is not None:
+        available = False
+    elif soup.find('div', class_='text-bold text-size-600 text-size-sm-700 margin-vertical-7 margin-horizontal-7 text-center') is not None:
+        if soup.find('div', class_='text-bold text-size-600 text-size-sm-700 margin-vertical-7 margin-horizontal-7 text-center').text == 'This car is no longer available. One moment while we take you to the search results page.':
+            available = False
+    elif soup.find('h2', class_='CVRsvD') is not None:
+        available = False
+    elif soup.find('h2', class_='pt-1 pt-md-3 px-1 px-md-3 pb-2 text-center display-1 m-0') is not None:
+        if soup.find('h2', class_='pt-1 pt-md-3 px-1 px-md-3 pb-2 text-center display-1 m-0').text == 'Vehicle no longer available':
+            available = False
+    elif soup.find('div', class_='CDCXWUsedCarBuyPathExpiredListingHeaderText widget') is not None:
+        available = False
+    print("available = ", available,)
+        
+    return available
 
 
 ### Return top 5 cars with all the info from the database ###
@@ -238,34 +234,7 @@ def preferenceRate(combined_list, pricePriority, mileagePriority, yearPriority, 
     deals.sort(key=lambda y: -y[1])
     # print("\n", deals)
 
-    # Ensure that all cars sent to Chrome extension are available
-    print("\nAvailability validation:\n")
-    for car in range(len(deals)):
-        if len(ret_list) >= 5:
-            break
-        url = deals[car][2]
-        available = True
-        headers = {'User-Agent': 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/56.0.2924.76 Safari/537.36', "Upgrade-Insecure-Requests": "1","DNT": "1","Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8","Accept-Language": "en-US,en;q=0.5","Accept-Encoding": "gzip, deflate"}
-        page = requests.get(url, headers=headers)
-        soup = BeautifulSoup(page.content, 'html.parser')
-        if soup.find('p', class_='sds-notification__desc') is not None:
-            available = False
-        elif soup.find('div', class_='text-bold text-size-600 text-size-sm-700 margin-vertical-7 margin-horizontal-7 text-center') is not None:
-            if soup.find('div', class_='text-bold text-size-600 text-size-sm-700 margin-vertical-7 margin-horizontal-7 text-center').text == 'This car is no longer available. One moment while we take you to the search results page.':
-                available = False
-        elif soup.find('h2', class_='CVRsvD') is not None:
-            available = False
-        elif soup.find('h2', class_='pt-1 pt-md-3 px-1 px-md-3 pb-2 text-center display-1 m-0') is not None:
-            if soup.find('h2', class_='pt-1 pt-md-3 px-1 px-md-3 pb-2 text-center display-1 m-0').text == 'Vehicle no longer available':
-                available = False
-        elif soup.find('div', class_='CDCXWUsedCarBuyPathExpiredListingHeaderText widget') is not None:
-            available = False
-        print("available = ", available,)
-        if available == True:
-            ret_list.append(deals[car])
-
-    return ret_list
-
+    return deals
 
 #def colorRating(list, color, colorRate):
 #def distanceRating(list, distanceRate):
