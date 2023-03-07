@@ -25,6 +25,7 @@ const labels = [
     },
 ];
 
+
 //cars.com
 async function singleCarData1(url) {
     const carData = await axios.get(url)
