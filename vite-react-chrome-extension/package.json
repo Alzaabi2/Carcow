@@ -32,6 +32,7 @@
     "request-promise": "^4.2.6",
     "selenium-manager": "^0.4.3",
     "selenium-webdriver": "^4.7.1",
+    "util": "^0.12.5",
     "web-vitals": "^2.1.4",
     "yarn": "^1.22.19"
   },

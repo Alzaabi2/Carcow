@@ -79,6 +79,7 @@ async function singleCarData1(url) {
 
 //autotrader
 async function singleCarData2(url) {
+    console.log('AA', url)
     const carData = await axios.get(url)
     .then((response) => {
         // Load the HTML into cheerio
@@ -205,7 +206,7 @@ function App() {
     const [yearPriority, setyearPriority] = useState(0)
     const [trimPriority, settrimPriority] = useState(0)
 
-    const [itemsToShow, setItemsToShow] = useState(5)
+    //Variable to help manage loading more car listings for display
     const [moreCarsLoading, setmoreCarsLoading] = useState(false)
 
     let tempCarData = undefined
