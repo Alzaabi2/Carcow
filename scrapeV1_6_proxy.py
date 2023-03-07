@@ -556,9 +556,6 @@ def cleanData(list):
         if list[i] not in list[i + 1:]:
             res_list.append(list[i])
             
-<<<<<<< HEAD
-    return res_list
-=======
     return res_list      
 
 def get_proxies():
@@ -597,7 +594,7 @@ class TimeoutError (RuntimeError):
 def handler (signum, frame):
     raise TimeoutError()
 
-signal.signal (signal.SIGALRM, handler)
+# signal.signal (signal.SIGALRM, handler)
     
 def singleProxyLoop(proxy):
     #Get a proxy from the pool
@@ -619,4 +616,3 @@ def singleProxyLoop(proxy):
         return False
 
 # print(singleProxy())
->>>>>>> main
