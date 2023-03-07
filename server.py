@@ -11,6 +11,9 @@ from scrapeV1_6 import ScrapeAlpha, cleanData
 import mysql.connector
 import os
 from dotenv import load_dotenv
+from pymemcache.client import base
+from contextlib import contextmanager
+import threading
 
 load_dotenv()
 AWSPASSWORD = os.getenv('AWSPASSWORD')
@@ -69,19 +72,35 @@ def getUrl(url):
     
     tempData = []
     lastCar = {}
+    try:
+        with open('TempData.txt', 'r') as f:
+            reader = csv.DictReader(f)
+            for row in reader:
+                tempData.append(row)
 
-    with open('TempData.txt', 'r') as f:
-        reader = csv.DictReader(f)
-        for row in reader:
-            tempData.append(row)
-
-    with open('lastCar.txt', 'r') as f:
-        reader = csv.DictReader(f)
-        for row in reader:
-            lastCar = row
+        with open('lastCar.txt', 'r') as f:
+            reader = csv.DictReader(f)
+            for row in reader:
+                lastCar = row
+    except:
+        with open('lastCar.txt', 'w', encoding='utf8', newline='\n') as f:
+            w = writer(f)
+            header = ['make', 'model', 'year', 'Zip']
+            w.writerow(header)
+            #no rip
+            row = ['sample', 'sample', '2023', '22201']
+            w.writerow(row)
+            
+        with open('TempData.txt', 'w', encoding='utf8', newline='\n') as f:
+            w = writer(f)
+            header = ['VIN', 'make', 'model', 'year', 'trim', 'mileage', 'price', 'suggested', 'url', 'imageurl']
+            w.writerow(header)
+            for i in range(len(topCars)):
+                row = ['sample', 'sample', 'sample', 'sample', 'sample', 'sample', 'sample', 'sample', 'sample', 'sample']
+                w.writerow(row)
 
     if lastCar != {}:  
-        if lastCar['make'] == singleCar['make'] and lastCar['model'] == singleCar['model'] and lastCar['year'] == singleCar['year']:
+        if lastCar['make'] == singleCar['make'] and lastCar['model'] == singleCar['model'] and float(lastCar['year']) == float(singleCar['year']):
             for i in range(len(tempData)):
                 if "https:" not in tempData[i]['imageurl']:
                     tempData[i]['imageurl'] = "https:" + tempData[i]['imageurl']
@@ -143,5 +162,116 @@ def getUrl(url):
     print("\nDone.\n")
 
     return topCars
+
+@app.route('/getCarData/<string:make>/<string:model>/<string:year>/<string:zip>/<int:pricePriority>/<int:mileagePriority>/<int:yearPriority>/<string:trim>/<int:trimPriority>')
+def getCarData(make, model, year, zip, pricePriority, mileagePriority, yearPriority, trim, trimPriority):
+    cursor = mydb.cursor(dictionary=True)
+
+    if pricePriority == mileagePriority == yearPriority == trimPriority:
+        pricePriority = 1
+        mileagePriority = 1
+        yearPriority = 1
+        trimPriority = 1
+    
+    #Check if the user searched for the same car, by checking memcached
+    # Don't forget to run `memcached' before running this next line:
+    client = base.Client(('localhost', 11211))
+    searchID = model+year+str(pricePriority)+str(mileagePriority)+str(yearPriority)+trim+str(trimPriority)
+    print("Search ID: ", searchID, " Type of searchID: ", type(searchID))
+
+    cars = client.get(searchID)
+        
+    if cars is not None:
+        cars = cars.decode('utf-8').replace(" '", " \"").replace("':", "\":").replace("{'", "{\"").replace("',", "\",").replace("None", "\"\"").replace('datetime.datetime', '"datetime.datetime').replace(")", ")\"")
+        print(cars)
+        topCars = json.loads(cars)
+
+        print("\nFound list of cars in memcache")
+        return topCars
+    
+    #Searched car is not in memcached, pull from database, rate, and send first 5 checked, then continue checking
+
+    year = float(year)
+    yearUp = year + 2
+    yearDown = year - 2
+    cursor.execute("SELECT * FROM scraped WHERE model = %s AND (year <= %s AND year >= %s) AND (searchID IS NULL OR searchID = %s) AND date >= '2023-02-00'", (model, yearUp, yearDown, 'available'))
+
+    list = cursor.fetchall()
+    print("\nThe length of the original list of cars: ", len(list))
+
+    #TO-DO
+    #color = colorRating(list, color, colorRate)
+    #distance = distanceRating(list, distanceRate)
+
+    price = priceRating(list)
+    mileage = mileageRating(list)
+    year = yearRating(list, year)
+    trim = trimRating(list, trim.replace('_', ' '))
+
+    vin_dict = {}
+    
+    for vin, price_rating, url in price:
+        vin_dict[vin] = {"price": price_rating, "url": url}
+    
+    for vin, mile_rating in mileage:
+        if vin in vin_dict:
+            vin_dict[vin]["mileage"] = mile_rating
+
+    for vin, year_rating in year:
+        if vin in vin_dict:
+            vin_dict[vin]["year"] = year_rating
+    
+    for vin, trim_rating in trim:
+        if vin in vin_dict:
+            vin_dict[vin]["trim"] = trim_rating
+    
+    combined_list = [(vin, vin_dict[vin]["price"], vin_dict[vin]["url"], vin_dict[vin]["mileage"], vin_dict[vin]["year"], vin_dict[vin]["trim"]) for vin in vin_dict]
+    
+    rating = preferenceRate(combined_list, pricePriority, mileagePriority, yearPriority, trimPriority)
+
+    sortedList = getTopCars(list, rating)
+
+    topCars = []
+    availableCounter = 0
+    t = threading.Thread(target = maintainence, args = (searchID, sortedList))
+    t.setDaemon(False)
+    t.start()
+    ("Thread Started")
+
+    for i in range(len(sortedList)):
+        if availableCounter == 5:
+            availableCounter += 1
+            print("\nThe 5 top cars returned to chrome extension: ", topCars)
+            return topCars
+        if checkAvailability(sortedList[i]['url']):
+            if "https:" not in sortedList[i]['imageurl']:
+                sortedList[i]['imageurl'] = "https:" + sortedList[i]['imageurl']
+            topCars.append(sortedList[i])
+            availableCounter += 1
+            #Set the memcache for the list of cars
+            client.set(searchID, topCars, 60*60*6)
+
+    print("\n The length of the final list of available cars: ", len(topCars))
+    return topCars
+
+def maintainence(searchID, sortedList):
+    topCars = []
+    client = base.Client(('localhost', 11211))
+    print("Inside thread function")
+    for i in range(len(sortedList)):
+        if checkAvailability(sortedList[i]['url']):
+            if "https:" not in sortedList[i]['imageurl']:
+                sortedList[i]['imageurl'] = "https:" + sortedList[i]['imageurl']
+            topCars.append(sortedList[i])
+            #Set the memcache for the list of cars
+            client.set(searchID, topCars, 60*60*6)
+
+    print("Final list of checked cars", topCars)
+
+    return topCars
+
+
+#getPreferences(0,2,3,'NA',0)
+# getCarData('hyundai', 'palisade','2020','22182',10,0,0,'NA',0)
 
 app.run(host='0.0.0.0', port=8080)

@@ -1,6 +1,1 @@
 VIN,make,model,year,trim,mileage,price,suggested,url,imageurl
-KM8R1DHE5NU460357,Hyundai,Palisade,2022,SE 4dr SUV,4489,40990,58872.7,https://www.edmunds.com/hyundai/palisade/2022/vin/KM8R1DHE5NU460357/?radius=50,https://www.edmunds.com/assets/m/for-sale/aa-km8r1dhe5nu460357/img-1-600x400.jpg
-KM8R1DHE2NU375928,Hyundai,Palisade,2022,SE 4dr SUV,12175,40998,58104.1,https://www.edmunds.com/hyundai/palisade/2022/vin/KM8R1DHE2NU375928/?radius=50,https://www.edmunds.com/assets/m/for-sale/6b-km8r1dhe2nu375928/img-1-600x400.jpg
-KM8R34HE5NU373956,Hyundai,Palisade,2022,SEL 4dr SUV,15282,41990,57793.4,https://www.edmunds.com/hyundai/palisade/2022/vin/KM8R34HE5NU373956/?radius=50,https://www.edmunds.com/assets/m/for-sale/26-km8r34he5nu373956/img-1-600x400.jpg
-KM8R34HEXNU384967,Hyundai,Palisade,2022,SEL 4dr SUV,9835,42590,58338.1,https://www.edmunds.com/hyundai/palisade/2022/vin/KM8R34HEXNU384967/?radius=50,https://www.edmunds.com/assets/m/for-sale/70-km8r34hexnu384967/img-1-600x400.jpg
-KM8R44HE2NU352060,Hyundai,Palisade,2022,SEL 4dr SUV,26498,41590,56671.8,https://www.edmunds.com/hyundai/palisade/2022/vin/KM8R44HE2NU352060/?radius=50,https://www.edmunds.com/assets/m/for-sale/d4-km8r44he2nu352060/img-1-600x400.jpg

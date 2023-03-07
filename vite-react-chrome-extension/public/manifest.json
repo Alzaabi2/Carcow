@@ -1,29 +1,28 @@
 {
-    "description": "Carcow",
-    "version": "1.0",
-    "manifest_version": 3,
-    "action": {
-      "default_popup": "index.html",
-      "default_title": "Carcow - Title"
-    },
-    "short_name": "Carcow",
-    "name": "VITE - Carcow - Car Rating Extension",
-    "start_url": ".",
-    "display": "standalone",
-    "theme_color": "#000000",
-    "background_color": "#ffffff",
-    "permissions": [
-      "activeTab",
-      "tabs"
-    ],
-    "host_permissions": [
-      "http://*/*",
-      "https://*/*"
-    ],
-    "icons": {
-      "16": "icon16.png",
-      "48": "icon48.png",
-      "128": "icon128.png" 
-    } 
-  }
-  
+  "description": "Find the alternatives to the car deal you're looking at.",
+  "version": "1.0",
+  "manifest_version": 3,
+  "action": {
+    "default_popup": "index.html",
+    "default_title": "WheelDeal"
+  },
+  "short_name": "WheelDeal",
+  "name": "WheelDeal - Deals on Wheels",
+  "start_url": ".",
+  "display": "standalone",
+  "theme_color": "#000000",
+  "background_color": "#ffffff",
+  "permissions": [
+    "tabs",
+    "storage"
+  ],
+  "host_permissions": [
+    "http://*/*",
+    "https://*/*"
+  ],
+  "icons": {
+    "16": "icon16.png",
+    "48": "icon48.png",
+    "128": "icon128.png" 
+  } 
+}
