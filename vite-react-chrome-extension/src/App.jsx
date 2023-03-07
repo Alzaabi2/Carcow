@@ -184,11 +184,11 @@ async function singleCarData4(url) {
 }
 
 function App() {
-    const [urlCall, setUrl] = useState('');
+    let [urlCall, setUrl] = useState('');
     const [isCars, setIsCars] = useState(false);
 
     const [error, setError] = useState(undefined); //Changed from useState(null)
-    const [carData, setCarData] = useState(null);
+    let [carData, setCarData] = useState(null);
     const [done, setDone] = useState(undefined);
     const [long, setLong] = useState(undefined);
     //Determine time to wait for server response before sending error message
@@ -205,6 +205,8 @@ function App() {
     const [trimPriority, settrimPriority] = useState(0)
 
     const [testValue, settestValue] = useState (0)
+
+    let tempCarData = undefined
 
         // console.log('running chrome local')
         // const value = '2'
@@ -311,22 +313,19 @@ function App() {
                 const data = await singleCarData4(urlCall)
                 var fetchURL =  'http://localhost:8080/getCarData/' + data.make + '/' + data.model + '/' + data.year + '/22201/' + pricePriority + '/' + mileagePriority + '/' + yearPriority +'/NA/' + trimPriority;
             }
-
             //check if url matches last call
             await chrome.storage.sync.get([urlCall]).then((result) => {
                 console.log("Get1: Previous key is: ", result.urlCall);
                 
                 if(urlCall == result.urlCall){
-                    console.log('Url matches existing URL in storage')
+                    console.log('Url matches same page')
                     chrome.storage.sync.get(["carData"]).then(async (result2) => {
-                        console.log("Get2: Previous carData is: ", result2.data)
-                        const tempCarData = JSON.stringify(result2.carData)
-                        setCarData (result2.carData, () => {
-                            console.log("carData now set to: ", carData)
-                        })
-                        // console.log("Waiting: ", tempCarData)
-                        // console.log("Awaiting Car Data: ", carData)
-                        //edge case: url key exists but its value, carData, is undefined
+                        console.log("Last carData", JSON.parse(result2.carData));
+                        tempCarData = await JSON.parse(result2.carData)
+                        setCarData(JSON.parse(await result2.carData))
+                        console.log("awaiting: ", await tempCarData)
+                        //edge case: url exists but carData undefined
+
                         if(result2.carData == undefined){
                             console.log("Our URL Key exists, but value is undefined")
                             axios.get(fetchURL)
@@ -335,8 +334,8 @@ function App() {
                                 setCarData(response.data);
         
                                 //store response in chrome storage
-                                chrome.storage.sync.set({ carData : response.data }).then(() => {
-                                    console.log("Set1: carData set from undefined to: ", response.data);
+                                chrome.storage.sync.set({ carData : JSON.stringify(response.data) }).then(() => {
+                                    console.log("carData set from undefined: ", JSON.stringify(response.data));
                                 });
                                 // const cacheEntry = {};
                                 // cacheEntry[cacheKey] = response.data;
@@ -377,7 +376,10 @@ function App() {
                                 console.log(error.config);
                             });   
                         }
-                    }, {timeout: 5000});                   
+                    });
+
+                    
+                    
                 }
                 else{
                     console.log('Url does not match')
@@ -387,8 +389,8 @@ function App() {
                         setCarData(response.data);
                         console.log("cardata show on console",response.data)
                          //store response in chrome storage
-                        chrome.storage.sync.set({ carData : response.data }).then(() => {
-                            console.log("Set2: carData set as: ", response.data);
+                        chrome.storage.sync.set({ carData : JSON.stringify(response.data) }).then(() => {
+                            console.log("carData set second: ", JSON.stringify(response.data));
                         });
 
                         // const cacheEntry = {};
@@ -437,6 +439,30 @@ function App() {
                 console.log("Url set to " + urlCall);
             });         
         });
+
+        // //Set the cache key that we will search for
+        // var cacheKey = urlCall;
+        // //getBackgroundPage line is necessary when trying to access the chrome.storage API from a content script or popup window
+        // chrome.runtime.getBackgroundPage((backgroundPage) => {
+        //     backgroundPage.chrome.storage.local.get([cacheKey], function(result){
+        //         //If the cache key is found in the cache, use its data to set carData
+        //         if (result.hasOwnProperty(cacheKey)) {
+        //             console.log(`Found "${cacheKey}" in cache:`, result[cacheKey]);
+        //             setCarData(result[cacheKey]);
+        //             } 
+        //         //Otherwise, key was not found in cache so make Axios call to server for response, 
+        //         //then create new cache entry using the key not found in the cache
+        //         else {         
+        //             // console.log(fetchURL)
+        //             console.log(`"${cacheKey}" not found in cache, fetching from server...`);
+                     
+                // }
+        //     });
+        // });
+
+        setCarData(await tempCarData)
+        console.log(await carData)
+
         return () => {setIsCars(false)} //before next useEffect is created, set isCars to false    
 
     }, [chrome.tabs]);
@@ -454,7 +480,7 @@ function App() {
         console.log("New Test Value: "+ testValue);
     };
 
-    if (!done && !long){
+    if (!done && !long && !carData){
         return(
             <div className="App">
                 <ReactLoading
