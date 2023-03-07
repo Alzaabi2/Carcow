@@ -594,7 +594,7 @@ class TimeoutError (RuntimeError):
 def handler (signum, frame):
     raise TimeoutError()
 
-signal.signal (signal.SIGALRM, handler)
+# signal.signal (signal.SIGALRM, handler)
     
 def singleProxyLoop(proxy):
     #Get a proxy from the pool

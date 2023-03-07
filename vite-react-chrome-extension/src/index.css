@@ -42,6 +42,14 @@ h2{
   color: white;
   font-size: 10px;
   width: auto;
+  position:sticky;
+}
+
+.preference-toggle{
+  display:flex;
+  justify-content: space-between;
+  align-items: center;
+  color:white;
 }
 
 .car-basics{
@@ -79,13 +87,13 @@ h2{
 }
 
 .popup{
-  height: 710px;
-  width: 305px;
-  background-color: rgb(153, 153, 153);
+  height: 500px;
+  width: 310px;
+  background-color: rgb(255, 255, 255);
   position: absolute;
-  top: 17.5%;
+  top: 57%;
   left: 50%;
-  transform: translate(-50%, -50%); 
+  transform: translate(-50%, -50%);
 }
 
 @media (prefers-color-scheme: light) {
@@ -112,7 +120,7 @@ h2{
     border-left: hidden;
     border-right: hidden;
     width: 300px;
-    height: 100px;
+    height: 90px;
   }
   td:hover{
     background-color: rgb(216, 215, 215);
