@@ -204,7 +204,7 @@ function App() {
     const [yearPriority, setyearPriority] = useState(0)
     const [trimPriority, settrimPriority] = useState(0)
 
-    const [testValue, settestValue] = useState (0)
+    const [itemsToShow, setItemsToShow] = useState(5)
 
     let tempCarData = undefined
 
@@ -240,20 +240,20 @@ function App() {
                 // The request was made and the server responded with a status code
                 // that falls out of the range of 2xx
                 console.log("Error out of 2xx Range Found:");
-                console.log(error.response.data);
-                console.log(error.response.status);
-                console.log(error.response.headers);
+                // console.log(error.response.data);
+                // console.log(error.response.status);
+                // console.log(error.response.headers);
 
             } else if (error.request) {
                 // The request was made but no response was received
                 // `error.request` is an instance of XMLHttpRequest in the 
                 // browser and an instance of http.ClientRequest in node.js
                 console.log("No Repsonse Received from Request");
-                console.log(error.request);
+                // console.log(error.request);
             } else {
                 // Something happened in setting up the request that triggered an Error
                 console.log("Request not sent");
-                console.log('Error', error.message);
+                // console.log('Error', error.message);
             }
             console.log(error.config);
         });  
@@ -358,28 +358,25 @@ function App() {
                                     // The request was made and the server responded with a status code
                                     // that falls out of the range of 2xx
                                     console.log("Error out of 2xx Range Found:");
-                                    console.log(error.response.data);
-                                    console.log(error.response.status);
-                                    console.log(error.response.headers);
+                                    // console.log(error.response.data);
+                                    // console.log(error.response.status);
+                                    // console.log(error.response.headers);
         
                                 } else if (error.request) {
                                     // The request was made but no response was received
                                     // `error.request` is an instance of XMLHttpRequest in the 
                                     // browser and an instance of http.ClientRequest in node.js
                                     console.log("No Repsonse Received from Request");
-                                    console.log(error.request);
+                                    // console.log(error.request);
                                 } else {
                                     // Something happened in setting up the request that triggered an Error
                                     console.log("Request not sent");
-                                    console.log('Error', error.message);
+                                    // console.log('Error', error.message);
                                 }
                                 console.log(error.config);
                             });   
                         }
-                    });
-
-                    
-                    
+                    });                   
                 }
                 else{
                     console.log('Url does not match')
@@ -414,20 +411,20 @@ function App() {
                             // The request was made and the server responded with a status code
                             // that falls out of the range of 2xx
                             console.log("Error out of 2xx Range Found:");
-                            console.log(error.response.data);
-                            console.log(error.response.status);
-                            console.log(error.response.headers);
+                            // console.log(error.response.data);
+                            // console.log(error.response.status);
+                            // console.log(error.response.headers);
 
                         } else if (error.request) {
                             // The request was made but no response was received
                             // `error.request` is an instance of XMLHttpRequest in the 
                             // browser and an instance of http.ClientRequest in node.js
                             console.log("No Repsonse Received from Request");
-                            console.log(error.request);
+                            // console.log(error.request);
                         } else {
                             // Something happened in setting up the request that triggered an Error
                             console.log("Request not sent");
-                            console.log('Error', error.message);
+                            // console.log('Error', error.message);
                         }
                         console.log(error.config);
                     });
@@ -476,8 +473,9 @@ function App() {
         setPreferences(false);
     };
 
-    const handleChange = () => {
-        console.log("New Test Value: "+ testValue);
+    //Append 5 more car entries to the list displayed in the extension
+    const handleLoadMore = () => {
+        setItemsToShow(itemsToShow + 5);
     };
 
     if (!done && !long && !carData){
@@ -551,7 +549,10 @@ function App() {
                                         </div>
                                     </td>
                                 </tr>
-                            ))}      
+                            ))} 
+                            {itemsToShow < carData.length && (
+                                <button className="load-more" onClick={handleLoadMore}>Load More Cars</button>
+                            )}     
                         </table>
                     </header>
                     <div> 
@@ -568,7 +569,7 @@ function App() {
                                 alignItems = "center"
                             >
                                 <Stack spacing={4} direction="row" sx={{mb: 1}} justifyContent="center" alignItems="center">
-                                    <p class="slider-name">Price</p>
+                                    <p class="slider-name">Price&nbsp;</p>
                                     <Slider 
                                         aria-label="priceSlider" 
                                         value={pricePriority} 
@@ -602,7 +603,7 @@ function App() {
                                     <h1>{yearPriority}</h1>
                                 </div> */}
                                 <Stack spacing={4} direction="row" sx={{mb: 1}} justifyContent="center" alignItems="center">
-                                    <p class="slider-name">Year</p>
+                                    <p class="slider-name">Year&nbsp;&nbsp;</p>
                                     <Slider 
                                         aria-label="yearSlider" 
                                         value={yearPriority} 
