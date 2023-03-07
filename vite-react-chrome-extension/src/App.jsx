@@ -203,14 +203,11 @@ function App() {
     const [mileagePriority, setmileagePriority] = useState(0)
     const [yearPriority, setyearPriority] = useState(0)
     const [trimPriority, settrimPriority] = useState(0)
-<<<<<<< HEAD
 
     const [testValue, settestValue] = useState (0)
 
     let tempCarData = undefined
-=======
     const [email, setEmail] = useState('')
->>>>>>> main
 
         // console.log('running chrome local')
         // const value = '2'
@@ -275,19 +272,14 @@ function App() {
 
     useEffect(async () => {
         const queryInfo = {active: true, lastFocusedWindow: true};
-<<<<<<< HEAD
-        
-        console.log('dev build')
-=======
         // get user id and email
-        chrome.identity.getProfileUserInfo({'accountStatus': 'ANY'}, function(info) {
-            setEmail(info.email);
-            console.log(info);
-            document.querySelector('textarea').value=JSON.stringify(info);
-        });
+        // chrome.identity.getProfileUserInfo({'accountStatus': 'ANY'}, function(info) {
+        //     setEmail(info.email);
+        //     console.log(info);
+        //     document.querySelector('textarea').value=JSON.stringify(info);
+        // });
 
 
->>>>>>> main
         chrome.tabs && chrome.tabs.query(queryInfo, async tabs => {
             if (tabs[0] == null)
             {
@@ -532,7 +524,7 @@ function App() {
                         <div class="banner">
                             <h1><b>WHEEL DEAL</b></h1>
                         </div>
-                        <h3>{!email == ''? email:'Please log in'}</h3>
+                        {/* <h3>{!email == ''? email:'Please log in'}</h3> */}
                         <h3>No Response from server</h3>
                     </header>
                 </div>
@@ -545,12 +537,9 @@ function App() {
                         <view>{console.log(carData)}</view>
                         <div class="banner">
                             <h1><b>WHEEL DEAL</b></h1>
-<<<<<<< HEAD
-=======
-                        </div>
+                        {/* </div>
                         <h3>{!email == ''? email:'Please log in'}</h3>
-                        <div className="preferences-form">
->>>>>>> main
+                        <div className="preferences-form"> */}
                             {!preferences?
                                 <Tooltip title="Open Preferences Menu">
                                     <IconButton 
