@@ -9,4 +9,4 @@ cardata5.csv
 carvins.csv
 carvins2.csv
 .env
-node_modules/
+node_modules

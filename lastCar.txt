@@ -1,2 +1,2 @@
 make,model,year,Zip
-Toyota,Tacoma,2006.0,22201
+Toyota,Camry,2022.0,22201
