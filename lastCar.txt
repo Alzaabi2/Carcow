@@ -1,2 +1,2 @@
 make,model,year,Zip
-Toyota,Tacoma,2006.0,22201
+Hyundai,Palisade,2017.0,22201

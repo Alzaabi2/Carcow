@@ -78,6 +78,7 @@ async function singleCarData1(url) {
 
 //autotrader
 async function singleCarData2(url) {
+    console.log('AA', url)
     const carData = await axios.get(url)
     .then((response) => {
         // Load the HTML into cheerio
