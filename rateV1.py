@@ -15,6 +15,11 @@ import concurrent.futures
 import itertools 
 import json
 from CarDepreciationValue import *
+from scrapeV1_6_proxy import singleProxy
+from concurrent.futures import ThreadPoolExecutor
+
+proxy = ''
+ret_list = []
 
 carlist = []
 
@@ -68,6 +73,9 @@ def rate(list):
 ### rate function that supports the implementation of the database
 # i.e. we do not need this function for a LIVE scrape ###
 def rate2(list):
+    global proxy
+    proxy = singleProxy()    
+    
     deals = []
     if list is None:
         return []
@@ -99,34 +107,13 @@ def rate2(list):
     # Sorted list of deals in descending order from best to worst deal
     deals.sort(key=lambda y: y[1])
 
-    ret_list = []
+    global ret_list
 
     # Ensure that all cars sent to Chrome extension are available
     print("\nAvailability validation:\n")
-    for car in range(len(deals)):
-        if len(ret_list) >= 5:
-            break
-        url = deals[car][3]
-        available = True
-        headers = {'User-Agent': 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/56.0.2924.76 Safari/537.36', "Upgrade-Insecure-Requests": "1","DNT": "1","Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8","Accept-Language": "en-US,en;q=0.5","Accept-Encoding": "gzip, deflate"}
-        page = requests.get(url, headers=headers)
-        soup = BeautifulSoup(page.content, 'html.parser')
-        if soup.find('p', class_='sds-notification__desc') is not None:
-            available = False
-        elif soup.find('div', class_='alert alert-warning') is not None:
-            # if soup.find('div', class_='text-bold text-size-600 text-size-sm-700 margin-vertical-7 margin-horizontal-7 text-center').text == 'This car is no longer available. One moment while we take you to the search results page.':
-            available = False
-        elif soup.find('h2', class_='CVRsvD') is not None:
-            available = False
-        elif soup.find('h2', class_='pt-1 pt-md-3 px-1 px-md-3 pb-2 text-center display-1 m-0') is not None:
-            if soup.find('h2', class_='pt-1 pt-md-3 px-1 px-md-3 pb-2 text-center display-1 m-0').text == 'Vehicle no longer available':
-                available = False
-        elif soup.find('div', class_='CDCXWUsedCarBuyPathExpiredListingHeaderText widget') is not None:
-            available = False
-        print("available = ", available,)
-        if available == True:
-            ret_list.append(deals[car])
-
+    with ThreadPoolExecutor() as executor:
+        executor.map(availability_check,deals)
+        
     return ret_list
 
 
@@ -220,8 +207,10 @@ def dollarValueVin4(vin, mileage):
 
 
 def preferenceRate(combined_list, pricePriority, mileagePriority, yearPriority, trimPriority):
+    global proxy
+    global ret_list
+    proxy = singleProxy()
     deals = []
-    ret_list = []
     for n in range(len(combined_list)):
         vin = combined_list[n][0]
         priceRate = float(combined_list[n][1])
@@ -240,32 +229,10 @@ def preferenceRate(combined_list, pricePriority, mileagePriority, yearPriority, 
 
     # Ensure that all cars sent to Chrome extension are available
     print("\nAvailability validation:\n")
-    for car in range(len(deals)):
-        if len(ret_list) >= 5:
-            break
-        url = deals[car][2]
-        available = True
-        headers = {'User-Agent': 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/56.0.2924.76 Safari/537.36', "Upgrade-Insecure-Requests": "1","DNT": "1","Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8","Accept-Language": "en-US,en;q=0.5","Accept-Encoding": "gzip, deflate"}
-        page = requests.get(url, headers=headers)
-        soup = BeautifulSoup(page.content, 'html.parser')
-        if soup.find('p', class_='sds-notification__desc') is not None:
-            available = False
-        elif soup.find('div', class_='alert alert-warning') is not None:
-            # if soup.find('div', class_='text-bold text-size-600 text-size-sm-700 margin-vertical-7 margin-horizontal-7 text-center').text == 'This car is no longer available. One moment while we take you to the search results page.':
-            available = False
-        elif soup.find('h2', class_='CVRsvD') is not None:
-            available = False
-        elif soup.find('h2', class_='pt-1 pt-md-3 px-1 px-md-3 pb-2 text-center display-1 m-0') is not None:
-            if soup.find('h2', class_='pt-1 pt-md-3 px-1 px-md-3 pb-2 text-center display-1 m-0').text == 'Vehicle no longer available':
-                available = False
-        elif soup.find('div', class_='CDCXWUsedCarBuyPathExpiredListingHeaderText widget') is not None:
-            available = False
-        print("available = ", available,)
-        if available == True:
-            ret_list.append(deals[car])
+    with ThreadPoolExecutor() as executor:
+        executor.map(availability_check,deals)
 
     return ret_list
-
 
 #def colorRating(list, color, colorRate):
 #def distanceRating(list, distanceRate):
@@ -407,3 +374,33 @@ def trimRating(list, trim):
 
     return deals    
     
+    
+def availability_check(car):
+    global ret_list
+    global proxy 
+    
+    try:
+        if len(ret_list) >= 5:
+            return
+        url = car[2]
+        available = True
+        headers = {'User-Agent': 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/56.0.2924.76 Safari/537.36', "Upgrade-Insecure-Requests": "1","DNT": "1","Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8","Accept-Language": "en-US,en;q=0.5","Accept-Encoding": "gzip, deflate"}
+        page = requests.get(url, proxies={"http": proxy, "https": proxy}, headers=headers)
+        soup = BeautifulSoup(page.content, 'html.parser')
+        if soup.find('p', class_='sds-notification__desc') is not None:
+            available = False
+        elif soup.find('div', class_='alert alert-warning') is not None:
+            # if soup.find('div', class_='text-bold text-size-600 text-size-sm-700 margin-vertical-7 margin-horizontal-7 text-center').text == 'This car is no longer available. One moment while we take you to the search results page.':
+            available = False
+        elif soup.find('h2', class_='CVRsvD') is not None:
+            available = False
+        elif soup.find('h2', class_='pt-1 pt-md-3 px-1 px-md-3 pb-2 text-center display-1 m-0') is not None:
+            if soup.find('h2', class_='pt-1 pt-md-3 px-1 px-md-3 pb-2 text-center display-1 m-0').text == 'Vehicle no longer available':
+                available = False
+        elif soup.find('div', class_='CDCXWUsedCarBuyPathExpiredListingHeaderText widget') is not None:
+            available = False
+        print("available = ", available,)
+        if available == True:
+            ret_list.append(car)
+    except:
+        print('connection error: '+url)

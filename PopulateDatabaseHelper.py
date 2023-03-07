@@ -72,7 +72,7 @@ models = [['acura', 'cl'], ['acura', 'ilx'], ['acura', 'ilx_hybrid'], ['acura', 
 ['pontiac', 'super_deluxe'], ['pontiac', 'tempest'], ['pontiac', 'torrent'], ['pontiac', 'vibe'], ['qvale', 'mangusta'], ['rivian', 'r1s'], ['rivian', 'r1t'], ['rolls_royce', 'corniche'], ['rolls_royce', 'cullinan'], ['rolls_royce', 'dawn'], ['rolls_royce', 'ghost'], ['rolls_royce', 'phantom'], ['rolls_royce',
 'phantom_coupe'], ['rolls_royce', 'phantom_drophead_coupe'], ['rolls_royce', 'phantom_v'], ['rolls_royce', 'phantom_vi'], ['rolls_royce', 'silver_cloud_i'], ['rolls_royce', 'silver_cloud_ii'], ['rolls_royce', 'silver_cloud_iii'], ['rolls_royce', 'silver_dawn'], ['rolls_royce', 'silver_seraph'], ['rolls_royce',
 'silver_shadow'], ['rolls_royce', 'silver_shadow_ii'], ['rolls_royce', 'silver_spirit'], ['rolls_royce', 'silver_spur'], ['rolls_royce', 'silver_spur_ii'], ['rolls_royce', 'silver_wraith'], ['rolls_royce', 'silver_wraith_ii'], ['rolls_royce', 'wraith'], ['saab', '9_3'], ['saab', '9_3x'], ['saab', '9_4x'], ['saab', '9_5'], ['saab', '9_7x'], ['saab', '900'], ['saab', '9000'], ['saab', '96'], ['saab', 'gt'], ['saab', 'monte_carlo'], ['saab', 'sonett'], ['saleen', 's7'], ['saturn', 'astra'], ['saturn', 'aura'], ['saturn', 'aura_hybrid_all'], ['saturn', 'aura_green_line'], ['saturn', 'ion'], ['saturn', 'l'], ['saturn', 'ls'], ['saturn', 'lw'], ['saturn', 'outlook'], ['saturn', 'sc'], ['saturn', 'sl'], ['saturn', 'sw'], ['saturn', 'sky'], ['saturn', 'vue'], ['saturn', 'vue_hybrid_all'], ['saturn', 'vue_green_line'], ['saturn', 'vue_hybrid'], ['scion', 'fr_s'], ['scion', 'ia'], ['scion', 'im'], ['scion', 'iq'], ['scion', 'tc'], ['scion', 'xa'], ['scion', 'xb'], ['scion', 'xd'], ['smart', 'eq_fortwo'], ['smart', 'fortwo'], ['smart', 'fortwo_electric_drive'], ['studebaker', '440'], ['studebaker', 'avanti'], ['studebaker', 'challenger'], ['studebaker', 'champion'], ['studebaker', 'commander'], ['studebaker', 'daytona'], ['studebaker', 'dictator'], ['studebaker', 'golden_hawk'], ['studebaker', 'gran_turismo_hawk'], ['studebaker', 'land_cruiser'], ['studebaker', 'lark'], ['studebaker', 'model_a'], ['studebaker', 'model_b'], ['studebaker', 'model_h'], ['studebaker', 'pickup_truck'], ['studebaker', 'president'], ['studebaker', 'regal'], ['sunbeam', 'alpine'], ['sunbeam', 'tiger'], ['suzuki', 'aerio'], ['suzuki', 'equator'], ['suzuki', 'forenza'], ['suzuki', 'grand_vitara'], ['suzuki', 'kizashi'], ['suzuki', 'reno'], ['suzuki', 'sx4'], ['suzuki', 'samurai'], ['suzuki', 'sidekick'], ['suzuki', 'vitara'], ['suzuki', 'xl7'], ['triumph', '1200'], ['triumph', '2000'], ['triumph', 'gt6'], ['triumph', 'spitfire'], ['triumph', 'tr250'], ['triumph', 'tr3'], ['triumph', 'tr4'], ['triumph', 'tr6'], ['triumph', 'tr7'], ['triumph', 'tr8'], ['willys', 'cj_5'], ['willys', 'jeepster'], ['willys', 'maverick'], ['willys', 'pickup_truck']]
-trims = []
+
 
 def getMakes():
     page = requests.get('https://www.cars.com/')
@@ -128,24 +128,6 @@ def getModels():
 
     print(modelsList)
     return modelsList
-
-def getTrim():
-    chrome_options = Options()
-    chrome_options.add_argument("--headless")
-    browser = webdriver.Chrome("./home/saif/.wdm/drivers/chromedriver/linux64/110.0.5481/chromedriver")
-    # browser = webdriver.Chrome(options=chrome_options, service=Service(ChromeDriverManager().install()))
-
-    url = 'https://carmakemodeldb.com/'
-    browser.get(url)
-    for i in range(2015,2022):
-        browser.find_element(By.XPATH, '/html/body/div[2]/section[3]/div/div/div[1]/div/div/form/div/div/div[1]/select/option['+i+']').click()
-
-        # browser.find_element(By.ID, 'make')
-        soup = BeautifulSoup(browser.page_source, 'html.parser')
-        lists = soup.findAll('select', class_='form-control')
-        for n in lists[2]:
-            print(n)
-
 
 def massScrape1():
     modelsList = models
@@ -239,7 +221,6 @@ def createModelIds():
     mydb.commit()
 
 
-# massScrape1()
+massScrape2()
 # createMakeIds()
 # createModelIds()
-getTrim()
