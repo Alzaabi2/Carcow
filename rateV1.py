@@ -374,5 +374,4 @@ def trimRating(list, trim):
 
         deals.append(row)
 
-    return deals    
-    
+    return deals  

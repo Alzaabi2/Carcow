@@ -221,6 +221,6 @@ def createModelIds():
     mydb.commit()
 
 
-massScrape1()
+massScrape2()
 # createMakeIds()
 # createModelIds()
