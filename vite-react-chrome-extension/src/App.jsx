@@ -1,4 +1,4 @@
-import React, { Component, useEffect, useState, useRef } from 'react';
+import React, { Component, useEffect, useState, useRef, useLayoutEffect } from 'react';
 import './App.css';
 import './slider.css';
 import $, { data } from "jquery";
@@ -261,6 +261,8 @@ function App() {
     //     console.log("The SliderChange() useEffect was utilized");
     //     SliderChange();
     // }, [pricePriority, mileagePriority, yearPriority, trimPriority]);
+
+    useEffect(()=>console.log("change in :",carData), [carData])
     
 
     useEffect(async () => {
@@ -310,15 +312,15 @@ function App() {
                 var fetchURL =  'http://localhost:8080/getCarData/' + data.make + '/' + data.model + '/' + data.year + '/22201/' + pricePriority + '/' + mileagePriority + '/' + yearPriority +'/NA/' + trimPriority;
             }
             //check if url matches last call
-            chrome.storage.sync.get(["urlCall"]).then((result) => {
+            await chrome.storage.sync.get(["urlCall"]).then(async (result) => {
                 console.log("Last call: " + result.urlCall);
                 if(urlCall == result.urlCall){
                     console.log('Url matches same page')
-                    chrome.storage.sync.get(["carData"]).then(async (result2) => {
+                    await chrome.storage.sync.get(["carData"]).then(async (result2) => {
                         console.log("Last carData", JSON.parse(result2.carData));
                         tempCarData = await JSON.parse(result2.carData)
                         setCarData(JSON.parse(await result2.carData))
-                        console.log("awaiting: ", await tempCarData)
+                        console.log("awaiting: ", await carData)
                         //edge case: url exists but carData undefined
 
                         if(result2.carData == undefined){
@@ -477,7 +479,7 @@ function App() {
         console.log("New Test Value: "+ testValue);
     };
 
-    if (!done && !long){
+    if (!done && !long && !carData){
         return(
             <div className="App">
                 <ReactLoading
