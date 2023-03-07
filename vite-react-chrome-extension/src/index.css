@@ -96,6 +96,10 @@ h2{
   transform: translate(-50%, -50%);
 }
 
+.loading-more{
+  color: black;
+}
+
 @media (prefers-color-scheme: light) {
   :root {
     background-color: white; 

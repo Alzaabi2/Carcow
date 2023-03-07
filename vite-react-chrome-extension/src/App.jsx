@@ -206,6 +206,7 @@ function App() {
     const [trimPriority, settrimPriority] = useState(0)
 
     const [itemsToShow, setItemsToShow] = useState(5)
+    const [moreCarsLoading, setmoreCarsLoading] = useState(false)
 
     let tempCarData = undefined
     const [email, setEmail] = useState('')
@@ -491,7 +492,21 @@ function App() {
 
     //Append 5 more car entries to the list displayed in the extension
     const handleLoadMore = () => {
-        setItemsToShow(itemsToShow + 5);
+        setmoreCarsLoading(true);
+        console.log("Loading more cars momentarily...BE PATIENT >:(")
+        const fetchMoreCars = 'http://localhost:8080/getCarData/' + data.make + '/' + data.model + '/' + data.year + '/22201/' + pricePriority + '/' + mileagePriority + '/' + yearPriority + '/NA/' + trimPriority;
+        axios.get(fetchMoreCars)
+        .then((response) => {
+            console.log("We got more cars DI MOLTO!!!! ", response)
+            setCarData(response.data);
+            setDone (true);
+            setError(null); 
+            setmoreCarsLoading(false);
+        })
+        .catch((error) => {
+            console.error(error);
+            setmoreCarsLoading(false);
+        });
     };
 
     if (!done && !long && !carData){
@@ -582,9 +597,10 @@ function App() {
                                     </td>
                                 </tr>
                             ))} 
-                            {itemsToShow < carData.length && (
-                                <button className="load-more" onClick={handleLoadMore}>Load More Cars</button>
-                            )}     
+                            {moreCarsLoading && <div className="loading-more">Loading...</div>}
+                            {!moreCarsLoading && (
+                                <button onClick={handleLoadMore}>Load More Cars</button>
+                            )} 
                         </table>
                     </header>
                     <div> 
