@@ -15,6 +15,8 @@ from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
+from lxml.html import fromstring
+import random
 
 #This version of Scrape rotates through proxies using smartproxies API
 
@@ -554,4 +556,67 @@ def cleanData(list):
         if list[i] not in list[i + 1:]:
             res_list.append(list[i])
             
+<<<<<<< HEAD
     return res_list
+=======
+    return res_list      
+
+def get_proxies():
+    url = 'https://free-proxy-list.net/'
+    response = requests.get(url)
+    parser = fromstring(response.text)
+    proxies = []
+    for i in parser.xpath('//tbody/tr'):
+        if i.xpath('.//td[7][contains(text(),"yes")]'):
+            proxy = ":".join([i.xpath('.//td[1]/text()')[0], i.xpath('.//td[2]/text()')[0]])
+            proxies.append(proxy)
+    return proxies
+
+import signal
+def singleProxy():
+    #If you are copy pasting proxy ips, put in the list below
+    #proxies = ['121.129.127.209:80', '124.41.215.238:45169', '185.93.3.123:8080', '194.182.64.67:3128', '106.0.38.174:8080', '163.172.175.210:3128', '13.92.196.150:8080']
+    proxies = get_proxies()
+    # proxy_pool = cycle(proxies)
+    print(proxies)
+    # print(proxy_pool)
+    
+    found = False
+    count = 0
+    while(found == False):
+        proxy = proxies[random.randint(0,len(proxies))]
+        print("Request #%d"%count)
+        if singleProxyLoop(proxy) == True:
+            found = True
+        count+=1
+    return proxy
+
+class TimeoutError (RuntimeError):
+    pass
+
+def handler (signum, frame):
+    raise TimeoutError()
+
+signal.signal (signal.SIGALRM, handler)
+    
+def singleProxyLoop(proxy):
+    #Get a proxy from the pool
+    # proxy = proxies[i]
+    url = 'https://cars.com'
+    try:
+        signal.alarm(10)
+        response = requests.get(url,proxies={"http": proxy, "https": proxy})
+        print(response)
+        signal.alarm(0)
+        return True
+    except TimeoutError as ex:
+        print('Timeout Error')
+        return False
+    except:
+        #Most free proxies will often get connection errors. You will have retry the entire request using another proxy to work. 
+        #We will just skip retries as its beyond the scope of this tutorial and we are only downloading a single url 
+        print("Skipping. Connnection error")
+        return False
+
+# print(singleProxy())
+>>>>>>> main

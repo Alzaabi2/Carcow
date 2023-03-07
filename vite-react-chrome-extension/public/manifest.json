@@ -13,9 +13,15 @@
   "theme_color": "#000000",
   "background_color": "#ffffff",
   "permissions": [
+<<<<<<< HEAD
     "activeTab",
     "tabs",
     "storage"
+=======
+    "tabs",
+    "identity",
+    "identity.email"
+>>>>>>> main
   ],
   "host_permissions": [
     "http://*/*",
