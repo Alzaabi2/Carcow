@@ -207,6 +207,9 @@ function App() {
 
     const [testValue, settestValue] = useState (0)
 
+    //Variable to help manage loading more car listings for display
+    const [moreCarsLoading, setmoreCarsLoading] = useState(false)
+
     let tempCarData = undefined
     const [email, setEmail] = useState('')
 
@@ -489,8 +492,23 @@ function App() {
         setPreferences(false);
     };
 
-    const handleChange = () => {
-        console.log("New Test Value: "+ testValue);
+    //Append 5 more car entries to the list displayed in the extension
+    const handleLoadMore = () => {
+        setmoreCarsLoading(true);
+        console.log("Loading more cars momentarily...BE PATIENT >:(")
+        const fetchMoreCars = 'http://localhost:8080/getCarData/' + data.make + '/' + data.model + '/' + data.year + '/22201/' + pricePriority + '/' + mileagePriority + '/' + yearPriority + '/NA/' + trimPriority;
+        axios.get(fetchMoreCars)
+        .then((response) => {
+            console.log("We got more cars DI MOLTO!!!! ", response)
+            setCarData(response.data);
+            setDone (true);
+            setError(null); 
+            setmoreCarsLoading(false);
+        })
+        .catch((error) => {
+            console.error(error);
+            setmoreCarsLoading(false);
+        });
     };
 
     if (!done && !long && !carData){
@@ -582,6 +600,10 @@ function App() {
                                 </tr>
                             ))}      
                         </table>
+                        {moreCarsLoading && <div className="loading-more">Loading...</div>}
+                        {!moreCarsLoading && (
+                            <button onClick={handleLoadMore}>Load More Cars</button>
+                        )} 
                     </header>
                     <div> 
                         {/*If preferences = true, open popup, otherwise it is false and should be closed */}

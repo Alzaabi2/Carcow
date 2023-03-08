@@ -167,6 +167,12 @@ def getUrl(url):
 def getCarData(make, model, year, zip, pricePriority, mileagePriority, yearPriority, trim, trimPriority):
     cursor = mydb.cursor(dictionary=True)
 
+    if pricePriority == mileagePriority == yearPriority == trimPriority:
+        pricePriority = 1
+        mileagePriority = 1
+        yearPriority = 1
+        trimPriority = 1
+    
     #Check if the user searched for the same car, by checking memcached
     # Don't forget to run `memcached' before running this next line:
     client = base.Client(('localhost', 11211))
