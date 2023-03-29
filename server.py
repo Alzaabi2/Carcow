@@ -258,13 +258,17 @@ def maintainence(searchID, sortedList):
     topCars = []
     client = base.Client(('localhost', 11211))
     print("Inside thread function")
+    counter = 0
     for i in range(len(sortedList)):
         if checkAvailability(sortedList[i]['url']):
+            counter += 1
             if "https:" not in sortedList[i]['imageurl']:
                 sortedList[i]['imageurl'] = "https:" + sortedList[i]['imageurl']
             topCars.append(sortedList[i])
             #Set the memcache for the list of cars
             client.set(searchID, topCars, 60*60*6)
+            if counter == 50:
+                break
 
     print("Final list of checked cars", topCars)
 
