@@ -191,6 +191,7 @@ function App() {
 
     const [error, setError] = useState(undefined); //Changed from useState(null)
     let [carData, setCarData] = useState(null);
+    let [currentCar, setCurrent] = useState(null)
     const [done, setDone] = useState(undefined);
     const [long, setLong] = useState(undefined);
     //Determine time to wait for server response before sending error message
@@ -201,7 +202,7 @@ function App() {
     const[preferences, setPreferences] = useState (false);
 
     //Variables to manage each Slider Component and their values
-    const [pricePriority, setpricePriority] = useState(0)
+    const [pricePriority, setpricePriority] = useState(10)
     const [mileagePriority, setmileagePriority] = useState(0)
     const [yearPriority, setyearPriority] = useState(0)
     const [trimPriority, settrimPriority] = useState(0)
@@ -229,7 +230,7 @@ function App() {
 
     const SliderChange = async() => {
         console.log("From the SliderChange function:")
-        const fetchPreferences = 'http://localhost:8080/getCarData/' + data.make + '/' + data.model + '/' + data.year + '/22201/' + pricePriority + '/' + mileagePriority + '/' + yearPriority + '/NA/' + trimPriority;
+        const fetchPreferences = 'http://localhost:8080/getCarData/' + await currentCar.make + '/' + await currentCar.model + '/' + await currentCar.year + '/22201/' + pricePriority + '/' + mileagePriority + '/' + yearPriority + '/NA/' + trimPriority;
         axios.get(fetchPreferences)
         .then((response) => {
             console.log("slider change: ",response)
@@ -313,6 +314,7 @@ function App() {
             }
             else if(siteID == 1){
                 const data =  await singleCarData1(urlCall)
+                setCurrent(await data)
                 // console.log("returning: "+data.make)
                 // console.log(data.model)
                 // console.log(data.year)
@@ -492,10 +494,11 @@ function App() {
     };
 
     //Append 5 more car entries to the list displayed in the extension
-    const handleLoadMore = () => {
+    const handleLoadMore = async() => {
         setmoreCarsLoading(true);
         console.log("Loading more cars momentarily...BE PATIENT >:(")
-        const fetchMoreCars = 'http://localhost:8080/getCarData/' + data.make + '/' + data.model + '/' + data.year + '/22201/' + pricePriority + '/' + mileagePriority + '/' + yearPriority + '/NA/' + trimPriority;
+        console.log("current car is ",currentCar)
+        const fetchMoreCars = 'http://localhost:8080/getCarData/' + await currentCar.make + '/' + await currentCar.model + '/' + await currentCar.year + '/22201/' + pricePriority + '/' + mileagePriority + '/' + yearPriority + '/NA/' + trimPriority;
         axios.get(fetchMoreCars)
         .then((response) => {
             console.log("We got more cars DI MOLTO!!!! ", response)
@@ -563,7 +566,7 @@ function App() {
                                     <IconButton 
                                         className="preference-toggle" 
                                         variant='contained'
-                                        sx={{color:"white", position:"fixed", top: 20, right: 0}} 
+                                        sx={{color:"white", position:"absolute", top: -2, right: 0}} 
                                         onClick={preferenceFormOpen}
                                     >
                                         <BuildIcon/>
@@ -573,7 +576,7 @@ function App() {
                                     <IconButton 
                                         className="preference-toggle" 
                                         variant='contained'
-                                        sx={{color:"white", position:"fixed", top: 20, right: 0}} 
+                                        sx={{color:"white", position:"absolute", top: -2, right: 0}} 
                                         onClick={preferenceFormClose}
                                     >
                                         <CloseOutlinedIcon/>
@@ -603,12 +606,16 @@ function App() {
                                 <button onClick={handleLoadMore}>Load More Cars</button>
                             )} 
                         </table>
+                        {moreCarsLoading && <div className="loading-more">Loading...</div>}
+                        {!moreCarsLoading && (
+                            <button class="load-more-button" onClick={handleLoadMore}>Load More Cars</button>
+                        )} 
                     </header>
                     <div> 
                         {/*If preferences = true, open popup, otherwise it is false and should be closed */}
                         {preferences?
                         <div className="popup">
-                            <div className="preferences-form-header"><h2>Preferences Form</h2></div>
+                            <div className="preferences-form-header"><h2>Preferences</h2></div>
                             {/* <div className="price-slider-display">
                                 <h3>Price </h3><input type='range' className={pricePriority<5 ? 'low': 'high'} min='0' max='10' step='1' value={pricePriority} onChange={(e) => setpricePriority(e.target.value)}/>
                                 <h1>{pricePriority}</h1>
@@ -618,7 +625,7 @@ function App() {
                                 alignItems = "center"
                             >
                                 <Stack spacing={4} direction="row" sx={{mb: 1}} justifyContent="center" alignItems="center">
-                                    <p class="slider-name">Price&nbsp;</p>
+                                    <p class="slider-name">&nbsp;Price&nbsp;&nbsp;&nbsp;</p>
                                     <Slider 
                                         aria-label="priceSlider" 
                                         value={pricePriority} 
@@ -635,7 +642,7 @@ function App() {
                                     <h1>{mileagePriority}</h1>
                                 </div> */}
                                 <Stack spacing={3} direction="row" sx={{mb: 1}} justifyContent="center" alignItems="center">
-                                    <p class="slider-name">Mileage</p>
+                                    <p class="slider-name">&nbsp;Mileage</p>
                                     <Slider 
                                         aria-label="mileageSlider" 
                                         value={mileagePriority} 
@@ -652,7 +659,7 @@ function App() {
                                     <h1>{yearPriority}</h1>
                                 </div> */}
                                 <Stack spacing={4} direction="row" sx={{mb: 1}} justifyContent="center" alignItems="center">
-                                    <p class="slider-name">Year&nbsp;&nbsp;</p>
+                                    <p class="slider-name">&nbsp;Year&nbsp;&nbsp;&nbsp;&nbsp;</p>
                                     <Slider 
                                         aria-label="yearSlider" 
                                         value={yearPriority} 
