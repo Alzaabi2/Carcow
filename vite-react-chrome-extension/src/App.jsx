@@ -63,6 +63,7 @@ async function singleCarData1(url) {
         
         var model = titleParts[2];
         var trim = titleParts[3];
+        var VIN = "KMHEC4A4XEA116874";
         // console.log(`Year: ${year}`);
         // console.log(`Make: ${make}`);
         // console.log(`Model: ${model}`);
@@ -212,6 +213,9 @@ function App() {
 
     let tempCarData = undefined
     const [email, setEmail] = useState('')
+
+    //Counter variable to track how many car results we receive
+    const [counter, setCounter] = useState(0)
 
         // console.log('running chrome local')
         // const value = '2'
@@ -513,6 +517,10 @@ function App() {
         });
     };
 
+    const incrementCounter = () => {
+        setCounter(counter+1);
+    };
+
     if (!done && !long && !carData){
         return(
             <div className="App">
@@ -585,26 +593,37 @@ function App() {
                             }                     
                         </div>
                         <table>
-                            {carData.map(car=>(                   
-                                <tr>
-                                    <td>
-                                        <img src={car.imageurl} alt="Image Not Found"/>
-                                        <div class="info-display">
-                                            <a href = {car.url} target="_blank">
-                                                <div class="car-basics">&nbsp;&nbsp;{car.year} {car.make} {car.model} {car.trim}</div>
-                                                <div class="car-stats">
-                                                    &nbsp; <div class="car-price">&nbsp;${car.price} </div>&nbsp; &nbsp;<div class="car-mileage"> {car.mileage}mi</div>
-                                                </div>
-                                                <div class="car-stats">{Math.round(100*(1 - (car.price / car.suggested))) > 0 ? <div class="suggested-price-good">&nbsp;Below Market by {Math.round(100*(1 - (car.price / car.suggested)))}%</div> : <div class="suggested-price-bad"> &nbsp;Above Market by {Math.round(-100*(1 - (car.price / car.suggested)))}%</div>}</div>                                              
-                                            </a>
-                                        </div>
-                                    </td>
-                                </tr>
+                            {carData.map((car) =>(                   
+                                <>             
+                                {car.VIN == currentCar.VIN ?
+                                  <tr className="vin-match">
+                                      <img src={car.imageurl} alt="Image Not Found" onError={replaceImage}/>
+                                      <div class="info-display-current">
+                                          <a href = {car.url} target="_blank">
+                                              {/* <div class="car-basics-current">{car.year} {car.make} {car.model} {car.trim}</div> */}
+                                              {/* <div class="car-stats">
+                                                  <div class="car-price">${car.price} </div>&nbsp;&nbsp;<div class="car-mileage"> {car.mileage}mi</div>
+                                              </div> */}
+                                              <div> <b>{"\n"}</b></div>
+                                              {Math.round(100*(1 - (car.price / car.suggested))) > 0 ? <div class="suggested-price-current">Below Market by {Math.round(100*(1 - (car.price / car.suggested)))}%</div> : <div class="suggested-price-current"> Above Market by {Math.round(-100*(1 - (car.price / car.suggested)))}%</div>}                                     
+                                          </a>
+                                      </div>
+                                  </tr> :
+                                  <tr className="other-cars">
+                                    <img src={car.imageurl} alt="Image Not Found" onError={replaceImage}/>
+                                    <div class="info-display">
+                                        <a href = {car.url} target="_blank">
+                                            <div class="car-basics">{car.year} {car.make} {car.model} {car.trim}</div>
+                                            <div class="car-stats">
+                                                <div class="car-price">${car.price} </div>&nbsp;&nbsp;<div class="car-mileage"> {car.mileage}mi</div>
+                                            </div>
+                                            {Math.round(100*(1 - (car.price / car.suggested))) > 0 ? <div class="suggested-price-good">Below Market by {Math.round(100*(1 - (car.price / car.suggested)))}%</div> : <div class="suggested-price-bad">Above Market by {Math.round(-100*(1 - (car.price / car.suggested)))}%</div>}                                      
+                                        </a>
+                                    </div>
+                                  </tr>
+                              }
+                            </>
                             ))} 
-                            {moreCarsLoading && <div className="loading-more">Loading...</div>}
-                            {!moreCarsLoading && (
-                                <button onClick={handleLoadMore}>Load More Cars</button>
-                            )} 
                         </table>
                         {moreCarsLoading && <div className="loading-more">Loading...</div>}
                         {!moreCarsLoading && (

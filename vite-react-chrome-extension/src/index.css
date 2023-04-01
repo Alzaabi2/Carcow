@@ -27,7 +27,7 @@ h1 {
   font-size: 3.2em;
   line-height: 1.1;
   text-align: center;
-  color: white;
+  color: #ffffff;
 }
 
 h2{
@@ -39,8 +39,7 @@ h2{
 .banner{
   margin: 0 auto; 
   text-align: center;
-  background: #000000;
-  color: white;
+  background: #0ea85b;
   font-size: 10px;
   font-family: 'Roboto', sans-serif;
   font-weight: 500; 
@@ -48,6 +47,7 @@ h2{
   position:sticky;
   position:-webkit-sticky;
   top:0%;
+  border-radius: 5px; 
 }
 
 .preference-toggle{
@@ -75,22 +75,6 @@ h2{
   font-size: 10px;
 }
 
-.suggested-price{
-  font-size: 13px;
-  text-align: left;
-  white-space: normal;
-}
-
-.suggested-price-good{
-  color: green;
-  text-align: left;
-  font-size: 13px;
-}
-.suggested-price-bad{
-  color: red;
-  font-size: 13px;
-}
-
 .popup{
   height: 550px;
   width: 310px;
@@ -111,9 +95,9 @@ h2{
 }
 
 .load-more-button{
-  width: 300px;
+  width: 310px;
   height: 20px;
-  font-family: 'Lato', sans-serif;
+  font-family: 'Roboto', sans-serif;
   font-weight: 500;
   cursor: pointer;
   transition: all 0.3s ease;
@@ -142,6 +126,7 @@ h2{
   }
   a {
     font-weight: 500;
+    font-family: 'Roboto', sans-serif;
     color: #000000;
     text-decoration: inherit;
     display: block;
@@ -150,30 +135,63 @@ h2{
     color: #000000;
   } 
   table{
-    width: 300px;
-    border-radius: 8px;
+    width: 310px;
+    border-radius: 5px; 
     table-layout: auto;
+    font-family: 'Roboto', sans-serif;
   }
-  td{
-    display: flex;
-    background-color: #bdbdbd;
-    border-left: hidden;
-    border-right: hidden;
-    width: 300px;
-    height: 90px;
+
+  .image-display{
+    width: 300px; 
   }
-  td:hover{
-    background-color: rgb(216, 215, 215);
+
+  img{
+    height: 93px;
+    border-radius: 5px; 
   }
 
   .info-display{
-    border-radius: 8px;
-    float: right;
+    padding-left: 5px;
+    font-family: 'Roboto', sans-serif;
   }
-  img{
-    float: left;
-    min-width: 40%;
-    max-width: 40%;
-    height: auto;
+
+  .info-display-current{
+    padding-left: 5px;
+    font-family: 'Roboto', sans-serif;
+    display: flex;
+    align-items: center;
+    justify-content: center; 
   }
+
+  .other-cars{
+    /* display: flex; */
+    background-color: #ece9e9;
+    /* border-left: 2px solid black;
+    border-right: 2px solid black; */
+    border-top: 1.5px solid #ffffff; 
+    border-bottom: 1.5px solid #ffffff;
+    border-radius: 5px; 
+    height: 93px; 
+    font-family: 'Roboto', sans-serif;
+  }
+
+  .other-cars:hover{
+    background-color: #dae6d4;
+  }
+
+  .vin-match{
+    display: flex;
+    background-color: #0ea85be8;
+    /* border-left: hidden;
+    border-right: hidden; */
+    border-top: 1.5px solid #ffffff; 
+    border-bottom: 1.5px solid #ffffff;
+    border-radius: 5px; 
+    height: 93px; 
+    font-family: 'Roboto', sans-serif;
+  }
+  .vin-match:hover{
+    background-color: #0ea85bfb;
+  }
+
 }

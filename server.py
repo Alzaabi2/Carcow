@@ -11,9 +11,6 @@ from scrapeV1_6 import ScrapeAlpha, cleanData
 import mysql.connector
 import os
 from dotenv import load_dotenv
-from pymemcache.client import base
-from contextlib import contextmanager
-import threading
 
 load_dotenv()
 AWSPASSWORD = os.getenv('AWSPASSWORD')
@@ -163,49 +160,31 @@ def getUrl(url):
 
     return topCars
 
-@app.route('/getCarData/<string:make>/<string:model>/<string:year>/<string:zip>/<int:pricePriority>/<int:mileagePriority>/<int:yearPriority>/<string:trim>/<int:trimPriority>')
-def getCarData(make, model, year, zip, pricePriority, mileagePriority, yearPriority, trim, trimPriority):
+#@app.route('/getPreferences/<int:pricePriority>/<int:mileagePriority>/<int:yearPriority>/<string:trim>/<int:trimPriority>')
+def getPreferences(pricePriority, mileagePriority, yearPriority, trim, trimPriority):
     cursor = mydb.cursor(dictionary=True)
 
-    if pricePriority == mileagePriority == yearPriority == trimPriority:
-        pricePriority = 1
-        mileagePriority = 1
-        yearPriority = 1
-        trimPriority = 1
+    print(pricePriority, mileagePriority, yearPriority, trim, trimPriority)
+
+    with open('lastCar.txt', 'r') as f:
+        reader = csv.DictReader(f)
+        for row in reader:
+            lastCar = row
     
-    #Check if the user searched for the same car, by checking memcached
-    # Don't forget to run `memcached' before running this next line:
-    client = base.Client(('localhost', 11211))
-    searchID = model+year+str(pricePriority)+str(mileagePriority)+str(yearPriority)+trim+str(trimPriority)
-    print("Search ID: ", searchID, " Type of searchID: ", type(searchID))
-
-    cars = client.get(searchID)
-        
-    if cars is not None:
-        cars = cars.decode('utf-8').replace(" '", " \"").replace("':", "\":").replace("{'", "{\"").replace("',", "\",").replace("None", "\"\"").replace('datetime.datetime', '"datetime.datetime').replace(")", ")\"")
-        print(cars)
-        topCars = json.loads(cars)
-
-        print("\nFound list of cars in memcache")
-        return topCars
+    cursor.execute("SELECT * FROM scraped WHERE model = %s AND (searchID IS NULL OR searchID = %s) AND date >= '2023-02-00'", (lastCar['model'], 'available'))
     
-    #Searched car is not in memcached, pull from database, rate, and send first 5 checked, then continue checking
-
-    year = float(year)
-    yearUp = year + 2
-    yearDown = year - 2
-    cursor.execute("SELECT * FROM scraped WHERE model = %s AND (year <= %s AND year >= %s) AND (searchID IS NULL OR searchID = %s) AND date >= '2023-02-00'", (model, yearUp, yearDown, 'available'))
-
     list = cursor.fetchall()
-    print("\nThe length of the original list of cars: ", len(list))
+    
+    # print(list, "\n")
 
     #TO-DO
     #color = colorRating(list, color, colorRate)
     #distance = distanceRating(list, distanceRate)
 
+
     price = priceRating(list)
     mileage = mileageRating(list)
-    year = yearRating(list, year)
+    year = yearRating(list, lastCar['year'])
     trim = trimRating(list, trim.replace('_', ' '))
 
     vin_dict = {}
@@ -226,56 +205,190 @@ def getCarData(make, model, year, zip, pricePriority, mileagePriority, yearPrior
             vin_dict[vin]["trim"] = trim_rating
     
     combined_list = [(vin, vin_dict[vin]["price"], vin_dict[vin]["url"], vin_dict[vin]["mileage"], vin_dict[vin]["year"], vin_dict[vin]["trim"]) for vin in vin_dict]
+    # print(combined_list, "\n")
     
     rating = preferenceRate(combined_list, pricePriority, mileagePriority, yearPriority, trimPriority)
+    
+    topCars = getTopCars(list, rating)
+    # print(topCars)
 
-    sortedList = getTopCars(list, rating)
-
-    topCars = []
-    availableCounter = 0
-    t = threading.Thread(target = maintainence, args = (searchID, sortedList))
-    t.setDaemon(False)
-    t.start()
-    ("Thread Started")
-
-    for i in range(len(sortedList)):
-        if availableCounter == 5:
-            availableCounter += 1
-            print("\nThe 5 top cars returned to chrome extension: ", topCars)
-            return topCars
-        if checkAvailability(sortedList[i]['url']):
-            if "https:" not in sortedList[i]['imageurl']:
-                sortedList[i]['imageurl'] = "https:" + sortedList[i]['imageurl']
-            topCars.append(sortedList[i])
-            availableCounter += 1
-            #Set the memcache for the list of cars
-            client.set(searchID, topCars, 60*60*6)
-
-    print("\n The length of the final list of available cars: ", len(topCars))
+    for i in range(len(topCars)):
+        # print(topCars[i]['imageurl'])
+        if "https:" not in topCars[i]['imageurl']:
+            topCars[i]['imageurl'] = "https:" + topCars[i]['imageurl']
+    
     return topCars
 
-def maintainence(searchID, sortedList):
-    topCars = []
-    client = base.Client(('localhost', 11211))
-    print("Inside thread function")
-    counter = 0
-    for i in range(len(sortedList)):
-        if checkAvailability(sortedList[i]['url']):
-            counter += 1
-            if "https:" not in sortedList[i]['imageurl']:
-                sortedList[i]['imageurl'] = "https:" + sortedList[i]['imageurl']
-            topCars.append(sortedList[i])
-            #Set the memcache for the list of cars
-            client.set(searchID, topCars, 60*60*6)
-            if counter == 50:
-                break
+@app.route('/getCarData/<string:make>/<string:model>/<string:year>/<string:zip>/<int:pricePriority>/<int:mileagePriority>/<int:yearPriority>/<string:trim>/<int:trimPriority>')
+def getCarData(make,model,year,zip, pricePriority, mileagePriority, yearPriority, trim, trimPriority):
+    cursor = mydb.cursor(dictionary=True)
 
-    print("Final list of checked cars", topCars)
+    if pricePriority + mileagePriority + yearPriority + trimPriority == 0:
+        tempData = []
+        lastCar = {}
+        try:
+            with open('TempData.txt', 'r') as f:
+                reader = csv.DictReader(f)
+                for row in reader:
+                    tempData.append(row)
+
+            with open('lastCar.txt', 'r') as f:
+                reader = csv.DictReader(f)
+                for row in reader:
+                    lastCar = row
+        except:
+            with open('lastCar.txt', 'w', encoding='utf8', newline='\n') as f:
+                w = writer(f)
+                header = ['make', 'model', 'year', 'Zip']
+                w.writerow(header)
+                #no rip
+                row = ['sample', 'sample', '2023', '22201']
+                w.writerow(row)
+                
+            with open('TempData.txt', 'w', encoding='utf8', newline='\n') as f:
+                w = writer(f)
+                header = ['VIN', 'make', 'model', 'year', 'trim', 'mileage', 'price', 'suggested', 'url', 'imageurl']
+                w.writerow(header)
+                for i in range(len(topCars)):
+                    row = ['sample', 'sample', 'sample', 'sample', 'sample', 'sample', 'sample', 'sample', 'sample', 'sample']
+                    w.writerow(row)
+
+        if lastCar != {}:  
+            if lastCar['make'] == make and lastCar['model'] == model and float(lastCar['year']) == float(year):
+                for i in range(len(tempData)):
+                    if "https:" not in tempData[i]['imageurl']:
+                        tempData[i]['imageurl'] = "https:" + tempData[i]['imageurl']
+                print("\n2. Same car as last search, return previous output.\n")
+                print("\nDone.\n")
+                return tempData
+
+        time3 = time.perf_counter()
+        # print("Timer2 tempData:" + str(time3-time2))
+
+        #error check for undefined data
+        if(year == 'undefined'):
+            return tempData
+        
+        year = float(year)
+        yearUp = year + 2
+        yearDown = year - 2
+        cursor.execute("SELECT * FROM scraped WHERE model = %s AND (year <= %s AND year >= %s) AND (searchID IS NULL OR searchID = %s)", (model, yearUp, yearDown, 'available'))
+
+        list = cursor.fetchall()
+        print("\n2. Fetched data of similar cars from database \n")
+        time4 = time.perf_counter()
+        # print("Timer3 ScrapeAlpha():" + str(time4-time3))
+        
+        time5 = time.perf_counter()
+        # print("Timer4 cleanData():" + str(time5-time4))
+        
+        rating = rate2(list)
+        print("\n3. Rating of fetched data is done.\n")
+        time6 = time.perf_counter()
+        # print("Timer5 rate:" + str(time6-time5))
+        
+        topCars = getTopCars(list, rating)
+        print("\n4. From the list of the rated cars, the top 5 are retrieved, with all relevant data from the database \n")
+        time7 = time.perf_counter()
+        # print("Timer6 topCars():" + str(time7-time6))
+        
+        #data for last scraped car
+        with open('lastCar.txt', 'w', encoding='utf8', newline='\n') as f:
+            w = writer(f)
+            header = ['make', 'model', 'year', 'Zip']
+            w.writerow(header)
+            #no rip
+            row = [make, model, year, '22201']
+            w.writerow(row)
+            
+        with open('TempData.txt', 'w', encoding='utf8', newline='\n') as f:
+            w = writer(f)
+            header = ['VIN', 'make', 'model', 'year', 'trim', 'mileage', 'price', 'suggested', 'url', 'imageurl']
+            w.writerow(header)
+            for i in range(len(topCars)):
+                row = [topCars[i]['VIN'], topCars[i]['make'], topCars[i]['model'], topCars[i]['year'], topCars[i]['trim'], topCars[i]['mileage'], topCars[i]['price'], topCars[i]['suggested'], topCars[i]['url'], topCars[i]['imageurl']]
+                w.writerow(row)
+
+        if lastCar != {}:
+            print(lastCar['make'], '!=?', make)
+            print(lastCar['model'], '!=?', model)
+            print(lastCar['year'], '!=?', year)
+            if lastCar['make'] == make and lastCar['model'] == model and float(lastCar['year']) == float(year):
+                for i in range(len(tempData)):
+                    if "https:" not in tempData[i]['imageurl']:
+                        tempData[i]['imageurl'] = "https:" + tempData[i]['imageurl']
+                print("\n2. Same car as last search, return previous output.\n")
+                print("\nDone.\n")
+                return tempData
+
+        time3 = time.perf_counter()
+        # print("Timer2 tempData:" + str(time3-time2))
+
+        year = float(year)
+        yearUp = year + 2
+        yearDown = year - 2
+        cursor.execute("SELECT * FROM scraped WHERE model = %s AND (year <= %s AND year >= %s) AND (searchID IS NULL OR searchID = %s)", (model, yearUp, yearDown, 'available'))
+
+        list = cursor.fetchall()
+        print("\n2. Fetched data of similar cars from database \n")
+        time4 = time.perf_counter()
+        # print("Timer3 ScrapeAlpha():" + str(time4-time3))
+        
+        time5 = time.perf_counter()
+        # print("Timer4 cleanData():" + str(time5-time4))
+        
+        rating = rate2(list)
+        print("\n3. Rating of fetched data is done.\n")
+        time6 = time.perf_counter()
+        # print("Timer5 rate:" + str(time6-time5))
+        
+        topCars = getTopCars(list, rating)
+        print("\n4. From the list of the rated cars, the top 5 are retrieved, with all relevant data from the database \n")
+        time7 = time.perf_counter()
+        # print("Timer6 topCars():" + str(time7-time6))
+        
+        #data for last scraped car
+        with open('lastCar.txt', 'w', encoding='utf8', newline='\n') as f:
+            w = writer(f)
+            header = ['make', 'model', 'year', 'Zip']
+            w.writerow(header)
+            #no rip
+            row = [make, model, str(year), '22201']
+            w.writerow(row)
+            
+        with open('TempData.txt', 'w', encoding='utf8', newline='\n') as f:
+            w = writer(f)
+            header = ['VIN', 'make', 'model', 'year', 'trim', 'mileage', 'price', 'suggested', 'url', 'imageurl']
+            w.writerow(header)
+            for i in range(len(topCars)):
+                row = [topCars[i]['VIN'], topCars[i]['make'], topCars[i]['model'], str(topCars[i]['year']), topCars[i]['trim'], str(topCars[i]['mileage']), str(topCars[i]['price']), str(topCars[i]['suggested']), topCars[i]['url'], topCars[i]['imageurl']]
+                w.writerow(row)
+        
+        time8 = time.perf_counter()
+        # print("Timer7 tempDataWrite:" + str(time8-time7))
+
+        for i in range(len(topCars)):
+            # print(topCars[i]['imageurl'])
+            if "https:" not in topCars[i]['imageurl']:
+                topCars[i]['imageurl'] = "https:" + topCars[i]['imageurl']
+        print("\n5. The top 5 cars are returned to Chrome extension.\n")
+        print("\nDone.\n")
+        time8 = time.perf_counter()
+        # print("Timer7 tempDataWrite:" + str(time8-time7))
+
+        for i in range(len(topCars)):
+            # print(topCars[i]['imageurl'])
+            if "https:" not in topCars[i]['imageurl']:
+                topCars[i]['imageurl'] = "https:" + topCars[i]['imageurl']
+        print("\n5. The top 5 cars are returned to Chrome extension.\n")
+        print("\nDone.\n")
+    else:
+        topCars = getPreferences(pricePriority, mileagePriority, yearPriority, 'NA', trimPriority)
 
     return topCars
 
 
 #getPreferences(0,2,3,'NA',0)
-# getCarData('hyundai', 'palisade','2020','22182',10,0,0,'NA',0)
+# getCarData('hyundai', 'palisade','2022','22182',1,0,0,'NA',0)
 
 app.run(host='0.0.0.0', port=8080)
