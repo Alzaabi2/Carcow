@@ -170,7 +170,7 @@ async function singleCarData4(url) {
         var year = titleParts[0];
         var make = titleParts[1];
         if(titleParts[1])
-        //special case for tesla:
+        //special case for tesla:`
         if (make.toLowerCase() == 'tesla'){
             if (model.toLowerCase().replace(' ', '') == 'model'){
                 model = titleParts[2] + ' ' + titleParts[3]
@@ -623,10 +623,10 @@ function App() {
                         <table>
                             {carData.map((car) =>(                   
                                 <>             
-                                {car.VIN == currentCar.VIN ?
+                                {car.VIN == "SHHFK7H92KU207511" ?
                                   <tr className="vin-match">
-                                      <td className="image-display"><img src={car.imageurl}/></td>
-                                      <div class="info-display-current">
+                                      <td className="image-display"><img src={car.imageurl} alt="Image Not Found" onError={replaceImage}/></td>
+                                      <td class="info-display-current">
                                           <a href = {car.url} target="_blank">
                                               {/* <div class="car-basics-current">{car.year} {car.make} {car.model} {car.trim}</div> */}
                                               {/* <div class="car-stats">
@@ -635,11 +635,11 @@ function App() {
                                               <div> <b>{"\n"}</b></div>
                                               {Math.round(100*(1 - (car.price / car.suggested))) > 0 ? <div class="suggested-price-current">Below Market by {Math.round(100*(1 - (car.price / car.suggested)))}%</div> : <div class="suggested-price-current"> Above Market by {Math.round(-100*(1 - (car.price / car.suggested)))}%</div>}                                     
                                           </a>
-                                      </div>
+                                      </td>
                                   </tr> :
                                   <tr className="other-cars">
                                     <td className="image-display"><img src={car.imageurl} alt="Image Not Found" onError={replaceImage}/></td>
-                                    <div class="info-display">
+                                    <td class="info-display">
                                         <a href = {car.url} target="_blank">
                                             <div class="car-basics">{car.year} {car.make} {car.model} {car.trim}</div>
                                             <div class="car-stats">
@@ -647,7 +647,7 @@ function App() {
                                             </div>
                                             {Math.round(100*(1 - (car.price / car.suggested))) > 0 ? <div class="suggested-price-good">Below Market by {Math.round(100*(1 - (car.price / car.suggested)))}%</div> : <div class="suggested-price-bad">Above Market by {Math.round(-100*(1 - (car.price / car.suggested)))}%</div>}                                      
                                         </a>
-                                    </div>
+                                    </td>
                                   </tr>
                               }
                             </>

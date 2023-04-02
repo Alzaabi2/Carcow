@@ -190,9 +190,9 @@ h2{
   }
 
   .info-display-current{
-    padding-left: 3px;
+    /* padding-left: 3px; */
     font-family: 'Roboto', sans-serif;
-    display: flex;
+    /* display: flex; */
     align-items: center;
     justify-content: center; 
   }
@@ -216,7 +216,7 @@ h2{
   }
 
   .vin-match{
-    display: flex;
+    /* display: flex; */
     background-color: #0ea85b;
     /* border-left: hidden;
     border-right: hidden; */
