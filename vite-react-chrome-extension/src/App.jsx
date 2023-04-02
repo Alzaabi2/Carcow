@@ -12,6 +12,7 @@ import BuildIcon from '@mui/icons-material/Build';
 import CloseOutlinedIcon from '@mui/icons-material/CloseOutlined';
 import IconButton from '@mui/material/IconButton';
 import Tooltip from '@mui/material/Tooltip';
+import { createTheme, ThemeProvider } from '@mui/material/styles';
 
 //Labels for the ends of the sliders
 const labels = [
@@ -24,6 +25,25 @@ const labels = [
         label: '10',
     },
 ];
+
+//Theme Identifier for Sliders
+const muiTheme = createTheme({
+    components: {
+      MuiSlider: {
+        styleOverrides: {
+          thumb: {
+            backgroundColor: '#0ea85b', // Same green as everything else
+          },
+          track: {
+            backgroundColor: '#0ea85b', // Lavender to offset, but complement all the green
+          },
+          rail: {
+            backgroundColor: '#254126', // Bright Purple to offset, but complement all the green color
+          },
+        },
+      },
+    },
+  });
 
 
 //cars.com
@@ -44,13 +64,14 @@ async function singleCarData1(url) {
         var zip = 20001
         var year = titleParts[0];
         var make = titleParts[1];
+        var VIN = "KMHEC4A4XEA116874";
 
         //special case for tesla:
         if (make.toLowerCase() == 'tesla'){
             if (model.toLowerCase().replace(' ', '') == 'model'){
                 model = titleParts[2] + ' ' + titleParts[3]
             }
-            return {year, make, model, trim}
+            return {year, make, model, trim, VIN}
         } //special case for land rover:
         else if (make.toLowerCase() == 'land'){
             make = 'Land Rover'
@@ -58,17 +79,17 @@ async function singleCarData1(url) {
             if (model.toLowerCase() == 'range'){
                 model = 'Range Rover'
             }
-            return {year, make, model, trim}
+            return {year, make, model, trim, VIN}
         }
         
         var model = titleParts[2];
         var trim = titleParts[3];
-        var VIN = "KMHEC4A4XEA116874";
+        VIN = "KMHEC4A4XEA116874";
         // console.log(`Year: ${year}`);
         // console.log(`Make: ${make}`);
         // console.log(`Model: ${model}`);
         // console.log(`Trim: ${trim}`);
-        return {year, make, model, trim}
+        return {year, make, model, trim, VIN}
         // Print the scraped data
     })
     .catch((error) => {
@@ -497,6 +518,13 @@ function App() {
         setPreferences(false);
     };
 
+    // replace image function
+    const replaceImage = (error) => {
+        //replacement of broken Image
+        // error.target.src = 'C:\Users\dmurray_7\Desktop\Capstone Senior Design l\Carcow Project\Carcow\vite-react-chrome-extension\src\no_photo_available.jpg';
+        error.target.src = 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRT4gKDtP_saQcsAuBukz2OlfjtOh9DDMI9Edtb1iAfA_2-GI39chp5exgrelld5ViOdZw&usqp=CAU';
+    }
+
     //Append 5 more car entries to the list displayed in the extension
     const handleLoadMore = async() => {
         setmoreCarsLoading(true);
@@ -597,7 +625,7 @@ function App() {
                                 <>             
                                 {car.VIN == currentCar.VIN ?
                                   <tr className="vin-match">
-                                      <img src={car.imageurl} alt="Image Not Found" onError={replaceImage}/>
+                                      <td className="image-display"><img src={car.imageurl}/></td>
                                       <div class="info-display-current">
                                           <a href = {car.url} target="_blank">
                                               {/* <div class="car-basics-current">{car.year} {car.make} {car.model} {car.trim}</div> */}
@@ -610,7 +638,7 @@ function App() {
                                       </div>
                                   </tr> :
                                   <tr className="other-cars">
-                                    <img src={car.imageurl} alt="Image Not Found" onError={replaceImage}/>
+                                    <td className="image-display"><img src={car.imageurl} alt="Image Not Found" onError={replaceImage}/></td>
                                     <div class="info-display">
                                         <a href = {car.url} target="_blank">
                                             <div class="car-basics">{car.year} {car.make} {car.model} {car.trim}</div>
@@ -639,58 +667,60 @@ function App() {
                                 <h3>Price </h3><input type='range' className={pricePriority<5 ? 'low': 'high'} min='0' max='10' step='1' value={pricePriority} onChange={(e) => setpricePriority(e.target.value)}/>
                                 <h1>{pricePriority}</h1>
                             </div> */}
-                            <Box 
-                                sx={{width:250}}
-                                alignItems = "center"
-                            >
-                                <Stack spacing={4} direction="row" sx={{mb: 1}} justifyContent="center" alignItems="center">
-                                    <p class="slider-name">&nbsp;Price&nbsp;&nbsp;&nbsp;</p>
-                                    <Slider 
-                                        aria-label="priceSlider" 
-                                        value={pricePriority} 
-                                        min={0}
-                                        max={10}
-                                        step={1}
-                                        marks={labels}
-                                        valueLabelDisplay="auto"
-                                        onChange={(e) => setpricePriority(e.target.value)}
-                                    />
-                                </Stack>
-                                {/* <div className="mileage-slider-display">
-                                    <h3>Mileage </h3><input type='range' className={mileagePriority<5 ? 'low': 'high'} min='0' max='10' step='1' value={mileagePriority} onChange={(e) => setmileagePriority(e.target.value)}/>
-                                    <h1>{mileagePriority}</h1>
-                                </div> */}
-                                <Stack spacing={3} direction="row" sx={{mb: 1}} justifyContent="center" alignItems="center">
-                                    <p class="slider-name">&nbsp;Mileage</p>
-                                    <Slider 
-                                        aria-label="mileageSlider" 
-                                        value={mileagePriority} 
-                                        min={0}
-                                        max={10}
-                                        step={1}
-                                        marks={labels}
-                                        valueLabelDisplay="auto"
-                                        onChange={(e) => setmileagePriority(e.target.value)}
-                                    />
-                                </Stack>
-                                {/* <div className="year-slider-display">
-                                    <h3>Year </h3><input type='range' className={yearPriority<5 ? 'low': 'high'} min='0' max='10' step='1' value={yearPriority} onChange={(e) => setyearPriority(e.target.value)}/>
-                                    <h1>{yearPriority}</h1>
-                                </div> */}
-                                <Stack spacing={4} direction="row" sx={{mb: 1}} justifyContent="center" alignItems="center">
-                                    <p class="slider-name">&nbsp;Year&nbsp;&nbsp;&nbsp;&nbsp;</p>
-                                    <Slider 
-                                        aria-label="yearSlider" 
-                                        value={yearPriority} 
-                                        min={0}
-                                        max={10}
-                                        step={1}
-                                        marks={labels}
-                                        valueLabelDisplay="auto"
-                                        onChange={(e) => setyearPriority(e.target.value)}
-                                    />
-                                </Stack>
-                            </Box>
+                            <ThemeProvider theme={muiTheme}>
+                                <Box 
+                                    sx={{width:250}}
+                                    alignItems = "center"
+                                >
+                                    <Stack spacing={4} direction="row" sx={{mb: 1}} justifyContent="center" alignItems="center">
+                                        <p class="slider-name">&nbsp;Price&nbsp;&nbsp;&nbsp;</p>
+                                        <Slider 
+                                            aria-label="priceSlider" 
+                                            value={pricePriority} 
+                                            min={0}
+                                            max={10}
+                                            step={1}
+                                            marks={labels}
+                                            valueLabelDisplay="auto"
+                                            onChange={(e) => setpricePriority(e.target.value)}
+                                        />
+                                    </Stack>
+                                    {/* <div className="mileage-slider-display">
+                                        <h3>Mileage </h3><input type='range' className={mileagePriority<5 ? 'low': 'high'} min='0' max='10' step='1' value={mileagePriority} onChange={(e) => setmileagePriority(e.target.value)}/>
+                                        <h1>{mileagePriority}</h1>
+                                    </div> */}
+                                    <Stack spacing={3} direction="row" sx={{mb: 1}} justifyContent="center" alignItems="center">
+                                        <p class="slider-name">&nbsp;Mileage</p>
+                                        <Slider 
+                                            aria-label="mileageSlider" 
+                                            value={mileagePriority} 
+                                            min={0}
+                                            max={10}
+                                            step={1}
+                                            marks={labels}
+                                            valueLabelDisplay="auto"
+                                            onChange={(e) => setmileagePriority(e.target.value)}
+                                        />
+                                    </Stack>
+                                    {/* <div className="year-slider-display">
+                                        <h3>Year </h3><input type='range' className={yearPriority<5 ? 'low': 'high'} min='0' max='10' step='1' value={yearPriority} onChange={(e) => setyearPriority(e.target.value)}/>
+                                        <h1>{yearPriority}</h1>
+                                    </div> */}
+                                    <Stack spacing={4} direction="row" sx={{mb: 1}} justifyContent="center" alignItems="center">
+                                        <p class="slider-name">&nbsp;Year&nbsp;&nbsp;&nbsp;&nbsp;</p>
+                                        <Slider 
+                                            aria-label="yearSlider" 
+                                            value={yearPriority} 
+                                            min={0}
+                                            max={10}
+                                            step={1}
+                                            marks={labels}
+                                            valueLabelDisplay="auto"
+                                            onChange={(e) => setyearPriority(e.target.value)}
+                                        />
+                                    </Stack>
+                                </Box>
+                            </ThemeProvider>
                             {/* <div>
                                 <h3>Trim </h3><input type='range' className={trimPriority<5 ? 'low': 'high'} min='0' max='10' step='1' value={trimPriority} onChange={(e) => settrimPriority(e.target.value)}/>
                                 <div className="priority-value">
