@@ -5,6 +5,7 @@ from flask import Flask, request, jsonify
 from csv import writer
 from rateV1 import *
 from scrapeV1_6 import *
+from database import *
 from flask import render_template
 from extension import *
 from scrapeV1_6 import ScrapeAlpha, cleanData
@@ -163,9 +164,15 @@ def getUrl(url):
 
     return topCars
 
-@app.route('/getCarData/<string:make>/<string:model>/<string:year>/<string:zip>/<int:pricePriority>/<int:mileagePriority>/<int:yearPriority>/<string:trim>/<int:trimPriority>')
-def getCarData(make, model, year, zip, pricePriority, mileagePriority, yearPriority, trim, trimPriority):
+@app.route('/getCarData/<string:make>/<string:model>/<string:year>/<string:zip>/<int:pricePriority>/<int:mileagePriority>/<int:yearPriority>/<string:trim>/<int:trimPriority>/<string:currentVin>')
+def getCarData(make, model, year, zip, pricePriority, mileagePriority, yearPriority, trim, trimPriority, currentVin):
     cursor = mydb.cursor(dictionary=True)
+
+    if pricePriority == mileagePriority == yearPriority == trimPriority:
+        pricePriority = 1
+        mileagePriority = 1
+        yearPriority = 1
+        trimPriority = 1
 
     #Check if the user searched for the same car, by checking memcached
     # Don't forget to run `memcached' before running this next line:
@@ -224,6 +231,7 @@ def getCarData(make, model, year, zip, pricePriority, mileagePriority, yearPrior
     rating = preferenceRate(combined_list, pricePriority, mileagePriority, yearPriority, trimPriority)
 
     sortedList = getTopCars(list, rating)
+    
 
     topCars = []
     availableCounter = 0
@@ -264,8 +272,43 @@ def maintainence(searchID, sortedList):
 
     return topCars
 
+@app.route('/addCurrent/<string:vin>/<string:make>/<string:model>/<string:year>/<string:trim>/<string:mileage>/<string:price>/<string:url>/<string:imageurl>')
+def addCurrent(vin, make, model, year, trim, mileage, price, url, imageurl):
+    cursor = mydb.cursor(dictionary=True)
+
+    cursor.execute("SELECT * FROM scraped WHERE vin = %s", (vin,))
+    list = cursor.fetchall()
+
+    if list:
+        print("Current car already in database:\n")
+        print("\n", list, "\n")
+        return
+    else:
+        print("Current car not in database, adding to database\n")
+        car_dict = {
+            "VIN": vin,
+            "Make": make,
+            "Model": model,
+            "Year": year,
+            "Trim": trim,
+            "Mileage": mileage,
+            "Price": price,
+            "url": url,
+            "img": imageurl
+        }
+
+        car_list = []
+        car_list.append(car_dict)
+
+        populateScraped(car_list)
+
+    print("Current car added to databse\n")
+
+    return
+
 
 #getPreferences(0,2,3,'NA',0)
 # getCarData('hyundai', 'palisade','2020','22182',10,0,0,'NA',0)
+# addCurrent("2")
 
 app.run(host='0.0.0.0', port=8080)
