@@ -12,6 +12,7 @@ import BuildIcon from '@mui/icons-material/Build';
 import CloseOutlinedIcon from '@mui/icons-material/CloseOutlined';
 import IconButton from '@mui/material/IconButton';
 import Tooltip from '@mui/material/Tooltip';
+import { createTheme, ThemeProvider } from '@mui/material/styles';
 
 //Labels for the ends of the sliders
 const labels = [
@@ -25,9 +26,50 @@ const labels = [
     },
 ];
 
-//cars.com
+var currentMake = ''
+var currentModel = ''
+var currentYear = ''
+var currentTrim = ''
+var currentVin = ''
+var currentImg = ''
+var currentPrice = ''
+var currentMileage = ''
+var currentUrl = ''
+
+function checkData(data) {
+    if (data !== undefined) {
+      // Data is defined, continue with your code here
+      console.log("Data is defined:", data);
+    } else {
+      // Data is still undefined, wait and check again
+      console.log("Data is still undefined, waiting...");
+      setTimeout(checkData, 1000); // wait for 1 second (1000 milliseconds)
+    }
+  }
+
+
+//Theme Identifier for Sliders
+const muiTheme = createTheme({
+    components: {
+      MuiSlider: {
+        styleOverrides: {
+          thumb: {
+            backgroundColor: '#0ea85b', // Same green as everything else
+          },
+          track: {
+            backgroundColor: '#0ea85b', // Lavender to offset, but complement all the green
+          },
+          rail: {
+            backgroundColor: '#254126', // Bright Purple to offset, but complement all the green color
+          },
+        },
+      },
+    },
+  });
+
+
 async function singleCarData1(url) {
-    const carData = await axios.get(url)
+    const singleCarData = await axios.get(url)
     .then((response) => {
         // Load the HTML into cheerio
         var $ = cheerio.load(response.data);
@@ -62,18 +104,48 @@ async function singleCarData1(url) {
         
         var model = titleParts[2];
         var trim = titleParts[3];
-        // console.log(`Year: ${year}`);
-        // console.log(`Make: ${make}`);
-        // console.log(`Model: ${model}`);
-        // console.log(`Trim: ${trim}`);
-        return {year, make, model, trim}
-        // Print the scraped data
+
+        const vinRegex = /[A-HJ-NPR-Z\d]{17}/g;
+        // search for VIN numbers in Cheerio HTML variable
+        const vinNumbers = $('body').text().match(vinRegex);
+        var VIN = vinNumbers[0]
+        var imgURL = $('gallery-slides img').attr('src');
+        var price = $('div.price-section span').first().text().replace('$', '').replace(',', '')
+        var mileage = $('div.listing-mileage').text().replace(' mi.', '').replace(',', '').replace(' ', '')
+        
+        currentMake = make
+        currentModel = model
+        currentYear = year
+        currentTrim = trim
+        currentVin = VIN
+        currentPrice = price
+        currentImg = imgURL
+        currentMileage = mileage
+        currentUrl = url
+
+        console.log('single car data response:', make)
+        return {year, make, model, trim, VIN, imgURL, mileage, price, url}
     })
     .catch((error) => {
         console.error(error);
     });
 
-    return carData
+    // setTimeout(5000); // wait for 1 second (1000 milliseconds)
+    // var postData = JSON.stringify(await singleCarData)
+    //     const config = {
+    //         headers: {
+    //           'Content-Type': 'application/json;charset=utf-8'
+    //         }
+    //       };
+
+    // axios.post('http://localhost:8080/addCurrent', postData, config)
+    //     .then(response => {
+    //         console.log(response);
+    //     })
+    //     .catch(error => {
+    //         console.error(error);
+    //     });
+    return singleCarData
 }
 
 //autotrader
@@ -190,6 +262,7 @@ function App() {
 
     const [error, setError] = useState(undefined); //Changed from useState(null)
     let [carData, setCarData] = useState(null);
+    let [currentCar, setCurrent] = useState(null)
     const [done, setDone] = useState(undefined);
     const [long, setLong] = useState(undefined);
     //Determine time to wait for server response before sending error message
@@ -200,15 +273,19 @@ function App() {
     const[preferences, setPreferences] = useState (false);
 
     //Variables to manage each Slider Component and their values
-    const [pricePriority, setpricePriority] = useState(0)
+    const [pricePriority, setpricePriority] = useState(10)
     const [mileagePriority, setmileagePriority] = useState(0)
     const [yearPriority, setyearPriority] = useState(0)
     const [trimPriority, settrimPriority] = useState(0)
 
-    const [testValue, settestValue] = useState (0)
+    //Variable to help manage loading more car listings for display
+    const [moreCarsLoading, setmoreCarsLoading] = useState(false)
 
     let tempCarData = undefined
     const [email, setEmail] = useState('')
+
+    //Counter variable to track how many car results we receive
+    const [counter, setCounter] = useState(0)
 
         // console.log('running chrome local')
         // const value = '2'
@@ -227,7 +304,7 @@ function App() {
 
     const SliderChange = async() => {
         console.log("From the SliderChange function:")
-        const fetchPreferences = 'http://localhost:8080/getCarData/' + data.make + '/' + data.model + '/' + data.year + '/22201/' + pricePriority + '/' + mileagePriority + '/' + yearPriority + '/NA/' + trimPriority;
+        const fetchPreferences = 'http://localhost:8080/getCarData/' + currentMake + '/' + currentModel + '/' + currentYear + '/22201/' + pricePriority + '/' + mileagePriority + '/' + yearPriority + '/NA/' + trimPriority;
         axios.get(fetchPreferences)
         .then((response) => {
             console.log("slider change: ",response)
@@ -268,7 +345,9 @@ function App() {
     //     SliderChange();
     // }, [pricePriority, mileagePriority, yearPriority, trimPriority]);
 
-    useEffect(()=>console.log("change in :",carData), [carData])
+    useEffect(()=>{
+        console.log("change in :",carData)
+    }, [carData])
     
 
     useEffect(async () => {
@@ -311,11 +390,16 @@ function App() {
             }
             else if(siteID == 1){
                 const data =  await singleCarData1(urlCall)
-                // console.log("returning: "+data.make)
-                // console.log(data.model)
-                // console.log(data.year)
+                setLong(false)
+                setDone(false)
+
+                //ALERT: make changes to singleCarData2 and 3 in the future  
+
+                // console.log("returning: data ", currentMake)
+                // console.log(currentModel)
+                // console.log(currentYear)
                 // console.log(data.trim)
-                var fetchURL =  'http://localhost:8080/getCarData/' + data.make + '/' + data.model + '/' + data.year + '/22201/' + pricePriority + '/' + mileagePriority + '/' + yearPriority +'/NA/' + trimPriority;
+                var fetchURL =  'http://localhost:8080/getCarData/' +  data.make + '/' + data.model + '/' + data.year + '/22201/' + pricePriority + '/' + mileagePriority + '/' + yearPriority +'/NA/' + trimPriority;
             }else if(siteID == 2){
                 const data = await singleCarData2(urlCall)
                 var fetchURL =  'http://localhost:8080/getCarData/' + data.make + '/' + data.model + '/' + data.year + '/22201/' + pricePriority + '/' + mileagePriority + '/' + yearPriority +'/NA/' + trimPriority;
@@ -331,18 +415,28 @@ function App() {
                     await chrome.storage.sync.get(["carData"]).then(async (result2) => {
                         // console.log("Last carData", JSON.parse(result2.carData));
                         // tempCarData = await JSON.parse(result2.carData)
-                        setCarData(await result2.carData)
-                        // console.log("awaiting: ", await carData)
-                        //edge case: url exists but carData undefined
-                        
-                        if(result2.carData == undefined){
-                            console.log("Our URL Key exists, but value is undefined")
-                            axios.get(fetchURL)
+                        var testModel = await result2.carData[0].model
+                        if(testModel != currentModel)
+                        {
+                            console.log('non matching model', currentModel)
+                            console.log(result2.carData)
+                        }
+                        else{
+                            setCarData(await result2.carData)
+                            // console.log("awaiting: ", await carData)
+                            //edge case: url exists but carData undefined
+                        }  
+                        if(carData == undefined){
+                            console.log("Our URL Key exists, but value is undefined, or not matching url")
+                            axios.get(await fetchURL)
                             .then((response) => {
                                 // console.log("Response: ",response)
                                 setCarData(response.data);
                                 // console.log("cardata show on console",response.data)
                                 //store response in chrome storage
+                                chrome.storage.sync.set({ urlCall : urlCall }).then(() => {
+                                    console.log("Url set to " + urlCall);
+                                });   
                                 chrome.storage.sync.set({ carData : response.data }).then(() => {
                                     console.log("carData set second: ", response.data);
                                 });
@@ -358,7 +452,7 @@ function App() {
                                 // });
                                 //End of Cache Entry Creation
                                 setDone (true);
-                                setError(null);                
+                                setError(null);             
                             }, {timeout: 15000})
                             .catch((error) => {
                                 // Error
@@ -386,6 +480,7 @@ function App() {
                                 console.log(error.config);
                             });   
                         }
+                        
                         setDone (true);
                         setError(null); 
                     });
@@ -395,7 +490,7 @@ function App() {
                 }
                 else{
                     console.log('Url does not match')
-                    axios.get(fetchURL)
+                    axios.get(await fetchURL)
                     .then((response) => {
                         // console.log("Response: ",response)
                         setCarData(response.data);
@@ -489,8 +584,40 @@ function App() {
         setPreferences(false);
     };
 
+    // replace image function
+    const replaceImage = (error) => {
+        //replacement of broken Image
+        // error.target.src = 'C:\Users\dmurray_7\Desktop\Capstone Senior Design l\Carcow Project\Carcow\vite-react-chrome-extension\src\no_photo_available.jpg';
+        error.target.src = 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRT4gKDtP_saQcsAuBukz2OlfjtOh9DDMI9Edtb1iAfA_2-GI39chp5exgrelld5ViOdZw&usqp=CAU';
+    }
+
+    //ALERT: may not be needed
     const handleChange = () => {
         console.log("New Test Value: "+ testValue);
+    };
+
+    //Append 5 more car entries to the list displayed in the extension
+    const handleLoadMore = async() => {
+        setmoreCarsLoading(true);
+        console.log("Loading more cars momentarily...BE PATIENT >:(")
+        console.log("current car is ",currentCar)
+        const fetchMoreCars = 'http://localhost:8080/getCarData/' + currentMake + '/' + currentModel + '/' + currentYear + '/22201/' + pricePriority + '/' + mileagePriority + '/' + yearPriority + '/NA/' + trimPriority;
+        axios.get(fetchMoreCars)
+        .then((response) => {
+            console.log("We got more cars DI MOLTO!!!! ", response)
+            setCarData(response.data);
+            setDone (true);
+            setError(null); 
+            setmoreCarsLoading(false);
+        })
+        .catch((error) => {
+            console.error(error);
+            setmoreCarsLoading(false);
+        });
+    };
+
+    const incrementCounter = () => {
+        setCounter(counter+1);
     };
 
     if (!done && !long && !carData){
@@ -546,7 +673,7 @@ function App() {
                                     <IconButton 
                                         className="preference-toggle" 
                                         variant='contained'
-                                        sx={{color:"white", position:"fixed", top: 20, right: 0}} 
+                                        sx={{color:"white", position:"absolute", top: -2, right: 0}} 
                                         onClick={preferenceFormOpen}
                                     >
                                         <BuildIcon/>
@@ -556,7 +683,7 @@ function App() {
                                     <IconButton 
                                         className="preference-toggle" 
                                         variant='contained'
-                                        sx={{color:"white", position:"fixed", top: 20, right: 0}} 
+                                        sx={{color:"white", position:"absolute", top: -2, right: 0}} 
                                         onClick={preferenceFormClose}
                                     >
                                         <CloseOutlinedIcon/>
@@ -565,85 +692,107 @@ function App() {
                             }                     
                         </div>
                         <table>
-                            {carData.map(car=>(                   
-                                <tr>
-                                    <td>
-                                        <img src={car.imageurl} alt="Image Not Found"/>
-                                        <div class="info-display">
-                                            <a href = {car.url} target="_blank">
-                                                <div class="car-basics">&nbsp;&nbsp;{car.year} {car.make} {car.model} {car.trim}</div>
-                                                <div class="car-stats">
-                                                    &nbsp; <div class="car-price">&nbsp;${car.price} </div>&nbsp; &nbsp;<div class="car-mileage"> {car.mileage}mi</div>
-                                                </div>
-                                                <div class="car-stats">{Math.round(100*(1 - (car.price / car.suggested))) > 0 ? <div class="suggested-price-good">&nbsp;Below Market by {Math.round(100*(1 - (car.price / car.suggested)))}%</div> : <div class="suggested-price-bad"> &nbsp;Above Market by {Math.round(-100*(1 - (car.price / car.suggested)))}%</div>}</div>                                              
-                                            </a>
-                                        </div>
+                            {carData.map((car) =>(                   
+                                <>             
+                                {car.VIN == currentVin ?
+                                  <tr className="vin-match">
+                                    {console.log(currentVin)}
+                                      <td className="image-display"><img src={currentImg} alt="Image Not Found" onError={replaceImage}/></td>
+                                      <td class="info-display-current">
+                                          <a href = {car.url} target="_blank">
+                                              {/* <div class="car-basics-current">{car.year} {car.make} {car.model} {car.trim}</div> */}
+                                              {/* <div class="car-stats">
+                                                  <div class="car-price">${car.price} </div>&nbsp;&nbsp;<div class="car-mileage"> {car.mileage}mi</div>
+                                              </div> */}
+                                              <div> <b>{"\n"}</b></div>
+                                              {Math.round(100*(1 - (car.price / car.suggested))) > 0 ? <div class="suggested-price-current">Below Market by {Math.round(100*(1 - (car.price / car.suggested)))}%</div> : <div class="suggested-price-current"> Above Market by {Math.round(-100*(1 - (car.price / car.suggested)))}%</div>}                                     
+                                          </a>
+                                      </td>
+                                  </tr> :
+                                  <tr className="other-cars">
+                                    <td className="image-display"><img src={car.imageurl} alt="Image Not Found" onError={replaceImage}/></td>
+                                    <td class="info-display">
+                                        <a href = {car.url} target="_blank">
+                                            <div class="car-basics">{car.year} {car.make} {car.model} {car.trim}</div>
+                                            <div class="car-stats">
+                                                <div class="car-price">${car.price} </div>&nbsp;&nbsp;<div class="car-mileage"> {car.mileage}mi</div>
+                                            </div>
+                                            {Math.round(100*(1 - (car.price / car.suggested))) > 0 ? <div class="suggested-price-good">Below Market by {Math.round(100*(1 - (car.price / car.suggested)))}%</div> : <div class="suggested-price-bad">Above Market by {Math.round(-100*(1 - (car.price / car.suggested)))}%</div>}                                      
+                                        </a>
                                     </td>
-                                </tr>
-                            ))}      
+                                  </tr>
+                              }
+                            </>
+                            ))} 
                         </table>
+                        {moreCarsLoading && <div className="loading-more">Loading...</div>}
+                        {!moreCarsLoading && (
+                            <button class="load-more-button" onClick={handleLoadMore}>Load More Cars</button>
+                        )} 
                     </header>
                     <div> 
                         {/*If preferences = true, open popup, otherwise it is false and should be closed */}
                         {preferences?
                         <div className="popup">
-                            <div className="preferences-form-header"><h2>Preferences Form</h2></div>
+                            <div className="preferences-form-header"><h2>Preferences</h2></div>
                             {/* <div className="price-slider-display">
                                 <h3>Price </h3><input type='range' className={pricePriority<5 ? 'low': 'high'} min='0' max='10' step='1' value={pricePriority} onChange={(e) => setpricePriority(e.target.value)}/>
                                 <h1>{pricePriority}</h1>
                             </div> */}
-                            <Box 
-                                sx={{width:250}}
-                                alignItems = "center"
-                            >
-                                <Stack spacing={4} direction="row" sx={{mb: 1}} justifyContent="center" alignItems="center">
-                                    <p class="slider-name">Price</p>
-                                    <Slider 
-                                        aria-label="priceSlider" 
-                                        value={pricePriority} 
-                                        min={0}
-                                        max={10}
-                                        step={1}
-                                        marks={labels}
-                                        valueLabelDisplay="auto"
-                                        onChange={(e) => setpricePriority(e.target.value)}
-                                    />
-                                </Stack>
-                                {/* <div className="mileage-slider-display">
-                                    <h3>Mileage </h3><input type='range' className={mileagePriority<5 ? 'low': 'high'} min='0' max='10' step='1' value={mileagePriority} onChange={(e) => setmileagePriority(e.target.value)}/>
-                                    <h1>{mileagePriority}</h1>
-                                </div> */}
-                                <Stack spacing={3} direction="row" sx={{mb: 1}} justifyContent="center" alignItems="center">
-                                    <p class="slider-name">Mileage</p>
-                                    <Slider 
-                                        aria-label="mileageSlider" 
-                                        value={mileagePriority} 
-                                        min={0}
-                                        max={10}
-                                        step={1}
-                                        marks={labels}
-                                        valueLabelDisplay="auto"
-                                        onChange={(e) => setmileagePriority(e.target.value)}
-                                    />
-                                </Stack>
-                                {/* <div className="year-slider-display">
-                                    <h3>Year </h3><input type='range' className={yearPriority<5 ? 'low': 'high'} min='0' max='10' step='1' value={yearPriority} onChange={(e) => setyearPriority(e.target.value)}/>
-                                    <h1>{yearPriority}</h1>
-                                </div> */}
-                                <Stack spacing={4} direction="row" sx={{mb: 1}} justifyContent="center" alignItems="center">
-                                    <p class="slider-name">Year</p>
-                                    <Slider 
-                                        aria-label="yearSlider" 
-                                        value={yearPriority} 
-                                        min={0}
-                                        max={10}
-                                        step={1}
-                                        marks={labels}
-                                        valueLabelDisplay="auto"
-                                        onChange={(e) => setyearPriority(e.target.value)}
-                                    />
-                                </Stack>
-                            </Box>
+                            <ThemeProvider theme={muiTheme}>
+                                <Box 
+                                    sx={{width:250}}
+                                    alignItems = "center"
+                                >
+                                    <Stack spacing={4} direction="row" sx={{mb: 1}} justifyContent="center" alignItems="center">
+                                        <p class="slider-name">&nbsp;Price&nbsp;&nbsp;&nbsp;</p>
+                                        <Slider 
+                                            aria-label="priceSlider" 
+                                            value={pricePriority} 
+                                            min={0}
+                                            max={10}
+                                            step={1}
+                                            marks={labels}
+                                            valueLabelDisplay="auto"
+                                            onChange={(e) => setpricePriority(e.target.value)}
+                                        />
+                                    </Stack>
+                                    {/* <div className="mileage-slider-display">
+                                        <h3>Mileage </h3><input type='range' className={mileagePriority<5 ? 'low': 'high'} min='0' max='10' step='1' value={mileagePriority} onChange={(e) => setmileagePriority(e.target.value)}/>
+                                        <h1>{mileagePriority}</h1>
+                                    </div> */}
+                                    <Stack spacing={3} direction="row" sx={{mb: 1}} justifyContent="center" alignItems="center">
+                                        <p class="slider-name">&nbsp;Mileage</p>
+                                        <Slider 
+                                            aria-label="mileageSlider" 
+                                            value={mileagePriority} 
+                                            min={0}
+                                            max={10}
+                                            step={1}
+                                            marks={labels}
+                                            valueLabelDisplay="auto"
+                                            onChange={(e) => setmileagePriority(e.target.value)}
+                                        />
+                                    </Stack>
+                                    {/* <div className="year-slider-display">
+                                        <h3>Year </h3><input type='range' className={yearPriority<5 ? 'low': 'high'} min='0' max='10' step='1' value={yearPriority} onChange={(e) => setyearPriority(e.target.value)}/>
+                                        <h1>{yearPriority}</h1>
+                                    </div> */}
+                                    <Stack spacing={4} direction="row" sx={{mb: 1}} justifyContent="center" alignItems="center">
+                                        <p class="slider-name">&nbsp;Year&nbsp;&nbsp;&nbsp;&nbsp;</p>
+                                        <Slider 
+                                            aria-label="yearSlider" 
+                                            value={yearPriority} 
+                                            min={0}
+                                            max={10}
+                                            step={1}
+                                            marks={labels}
+                                            valueLabelDisplay="auto"
+                                            onChange={(e) => setyearPriority(e.target.value)}
+                                        />
+                                    </Stack>
+                                </Box>
+                            </ThemeProvider>
                             {/* <div>
                                 <h3>Trim </h3><input type='range' className={trimPriority<5 ? 'low': 'high'} min='0' max='10' step='1' value={trimPriority} onChange={(e) => settrimPriority(e.target.value)}/>
                                 <div className="priority-value">
