@@ -19,8 +19,9 @@
   .preferences-form-header{
     position: relative;
     text-align:center;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 500;
     font-size:30px;
-    text-decoration:underline;
     color:rgb(0, 0, 0);
   }
 
@@ -33,7 +34,7 @@
     width: 130px;
     height: 40px;
     padding: 0px;
-    font-family: 'Lato', sans-serif;
+    font-family: 'Roboto', sans-serif;
     font-weight: 500;
     cursor: pointer;
     transition: all 0.3s ease;

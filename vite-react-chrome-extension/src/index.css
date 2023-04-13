@@ -37,12 +37,17 @@ h2{
 }
 
 .banner{
+  margin: 0 auto; 
   text-align: center;
   background: #000000;
   color: white;
   font-size: 10px;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 500; 
   width: auto;
   position:sticky;
+  position:-webkit-sticky;
+  top:0%;
 }
 
 .preference-toggle{
@@ -87,13 +92,44 @@ h2{
 }
 
 .popup{
-  height: 500px;
+  height: 550px;
   width: 310px;
   background-color: rgb(255, 255, 255);
-  position: absolute;
-  top: 57%;
+  /* position: absolute; */
+  position:fixed;
+  /* bottom: 0; */
+  top: 55px;
+  /* position:-webkit-fixed; */
   left: 50%;
-  transform: translate(-50%, -50%);
+  transform: translateX(-50%); 
+  /* top:0; */
+  /* transform: translate(-50%, -50%); */
+}
+
+.loading-more{
+  color: black; 
+}
+
+.load-more-button{
+  width: 300px;
+  height: 20px;
+  font-family: 'Lato', sans-serif;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  color: black; 
+  background-color: rgb(150, 150, 150);
+  text-align: center;
+  border: 1px solid black;
+}
+
+.load-more-button:before {
+  height: 0%;
+  width: 2px;
+}
+
+.load-more-button:hover{
+  color: white;
 }
 
 @media (prefers-color-scheme: light) {
