@@ -281,6 +281,9 @@ function App() {
     //Variable to help manage loading more car listings for display
     const [moreCarsLoading, setmoreCarsLoading] = useState(false)
 
+    //Variable to help manage loading similar car listings for display
+    const [similarCarsLoading, setsimilarCarsLoading] = useState(false);
+
     let tempCarData = undefined
     const [email, setEmail] = useState('')
 
@@ -304,7 +307,13 @@ function App() {
 
     const SliderChange = async() => {
         console.log("From the SliderChange function:")
-        const fetchPreferences = 'http://localhost:8080/getCarData/' + currentMake + '/' + currentModel + '/' + currentYear + '/22201/' + pricePriority + '/' + mileagePriority + '/' + yearPriority + '/NA/' + trimPriority;
+        var fetchPreferences = 'http://localhost:8080/getCarData/' + currentMake + '/' + currentModel + '/' + currentYear + '/22201/' + pricePriority + '/' + mileagePriority + '/' + yearPriority + '/NA/' + trimPriority;
+        
+        if (similarCarsLoading) {
+            console.log("We've swithed to similar cars")
+            fetchPreferences = 'http://localhost:8080/findEquivalent/' + currentModel + '/' + currentYear + '/' + pricePriority + '/' + mileagePriority + '/' + yearPriority + '/NA/' + trimPriority;
+        }
+        
         axios.get(fetchPreferences)
         .then((response) => {
             console.log("slider change: ",response)
@@ -591,17 +600,17 @@ function App() {
         error.target.src = 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRT4gKDtP_saQcsAuBukz2OlfjtOh9DDMI9Edtb1iAfA_2-GI39chp5exgrelld5ViOdZw&usqp=CAU';
     }
 
-    //ALERT: may not be needed
-    const handleChange = () => {
-        console.log("New Test Value: "+ testValue);
-    };
-
-    //Append 5 more car entries to the list displayed in the extension
+    //Append more car entries to the list displayed in the extension
     const handleLoadMore = async() => {
         setmoreCarsLoading(true);
         console.log("Loading more cars momentarily...BE PATIENT >:(")
         console.log("current car is ",currentCar)
-        const fetchMoreCars = 'http://localhost:8080/getCarData/' + currentMake + '/' + currentModel + '/' + currentYear + '/22201/' + pricePriority + '/' + mileagePriority + '/' + yearPriority + '/NA/' + trimPriority;
+        var fetchMoreCars = 'http://localhost:8080/getCarData/' + currentMake + '/' + currentModel + '/' + currentYear + '/22201/' + pricePriority + '/' + mileagePriority + '/' + yearPriority + '/NA/' + trimPriority;
+
+        if (similarCarsLoading) {
+            fetchMoreCars= 'http://localhost:8080/findEquivalent/' + currentModel + '/' + currentYear + '/' + pricePriority + '/' + mileagePriority + '/' + yearPriority + '/NA/' + trimPriority;
+        }
+
         axios.get(fetchMoreCars)
         .then((response) => {
             console.log("We got more cars DI MOLTO!!!! ", response)
@@ -616,9 +625,28 @@ function App() {
         });
     };
 
-    const incrementCounter = () => {
-        setCounter(counter+1);
+    const loadSimilar = async() => {
+        console.log("Loading similar cars momentarily...BE PATIENT B)")
+        console.log("current car is ", currentCar)
+        const fetchSimilarCars = 'http://localhost:8080/findEquivalent/' + currentModel + '/' + currentYear + '/0/0/0/NA/0';
+        axios.get(fetchSimilarCars)
+        .then((response) => {
+            console.log("We got more cars!!!! ", response)
+            setCarData(response.data);
+            setDone (true);
+            setError(null); 
+            setsimilarCarsLoading(true);
+        })
+        .catch((error) => {
+            console.error(error);
+            setsimilarCarsLoading(false);
+        });
     };
+
+    const handleGoBack = async() => {
+        setsimilarCarsLoading(false);
+        SliderChange();
+    }
 
     if (!done && !long && !carData){
         return(
@@ -691,6 +719,10 @@ function App() {
                                 </Tooltip> 
                             }                     
                         </div>
+                        {similarCarsLoading && <button className="leave-similar-button" onClick={handleGoBack}>Back</button>}
+                        {!similarCarsLoading && (
+                            <button class="load-similar-button" onClick={loadSimilar}>Load Similar Cars</button>
+                        )} 
                         <table>
                             {carData.map((car) =>(                   
                                 <>             

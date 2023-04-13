@@ -9,7 +9,6 @@ from scrapeV1_6 import *
 from database import *
 from flask import render_template
 from extension import *
-from scrapeV1_6 import ScrapeAlpha, cleanData
 from CarClass import *
 import mysql.connector
 import os
@@ -333,6 +332,9 @@ def findEquivalent(model, year, pricePriority, mileagePriority, yearPriority, tr
     #Check if the user searched for the same car, by checking memcached
     # Don't forget to run `memcached' before running this next line:
 
+    model = model.lower()
+    print(model)
+
     try:
         model = globals()[model]
     except:
@@ -451,6 +453,6 @@ def findEquivalent(model, year, pricePriority, mileagePriority, yearPriority, tr
 #getPreferences(0,2,3,'NA',0)
 # getCarData('hyundai', 'palisade','2020','22182',10,0,0,'NA',0)
 
-findEquivalent("mustang",'2020',0,0,0,'NA',0)
+findEquivalent("corolla",'2020',0,0,0,'NA',0)
 
 app.run(host='0.0.0.0', port=8080)

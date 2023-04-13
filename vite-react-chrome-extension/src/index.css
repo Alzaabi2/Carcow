@@ -121,10 +121,6 @@ h2{
   color: white; 
 }
 
-.loading-more{
-  color: black; 
-}
-
 .load-more-button{
   width: 310px;
   height: 20px;
@@ -149,6 +145,50 @@ h2{
 
 .loading-more{
   color: black;
+}
+
+.load-similar-button{
+  width: 110px;
+  height: 20px;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  color: black; 
+  background-color: #0ea85b;
+  text-align: center;
+  border: 1px solid black;
+}
+
+.load-similar-button:before {
+  height: 0%;
+  width: 2px;
+}
+
+.load-similar-button:hover{
+  color: white;
+}
+
+.leave-similar-button{
+  width: 110px;
+  height: 20px;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  color: black; 
+  background-color: #0ea85b;
+  text-align: center;
+  border: 1px solid black;
+}
+
+.leave-similar-button:before {
+  height: 0%;
+  width: 2px;
+}
+
+.leave-similar-button:hover{
+  color: white;
 }
 
 @media (prefers-color-scheme: light) {
