@@ -231,7 +231,7 @@ function App() {
 
     const SliderChange = async() => {
         console.log("From the SliderChange function:")
-        const fetchPreferences = 'http://localhost:8080/getCarData/' + await currentCar.make + '/' + await currentCar.model + '/' + await currentCar.year + '/22201/' + pricePriority + '/' + mileagePriority + '/' + yearPriority + '/NA/' + trimPriority;
+        const fetchPreferences = 'http://44.212.18.158:8080/getCarData/' + await currentCar.make + '/' + await currentCar.model + '/' + await currentCar.year + '/22201/' + pricePriority + '/' + mileagePriority + '/' + yearPriority + '/NA/' + trimPriority;
         axios.get(fetchPreferences)
         .then((response) => {
             console.log("slider change: ",response)
@@ -310,7 +310,7 @@ function App() {
                 const parsedURL2 = urlCall.replace(/https:\/\/www\.autotrader\.com\/cars-for-sale\/vehicledetails.xhtml/g, 'constautotraderurl').replace(/\//g, 'slash').replace(/\./g, 'dot').replace(/:/g, 'colum').replace(/\?/g, 'questionmark')
                 console.log(urlCall)
                 console.log(parsedURL2)
-                var fetchURL =  'http://localhost:8080/getUrl/' + parsedURL2 + '/' + pricePriority + '/' + mileagePriority + '/' + yearPriority +'/NA/' + trimPriority;
+                var fetchURL =  'http://44.212.18.158:8080/getUrl/' + parsedURL2 + '/' + pricePriority + '/' + mileagePriority + '/' + yearPriority +'/NA/' + trimPriority;
                 // console.log(fetchURL)
             }
             else if(siteID == 1){
@@ -320,13 +320,13 @@ function App() {
                 // console.log(data.model)
                 // console.log(data.year)
                 // console.log(data.trim)
-                var fetchURL =  'http://localhost:8080/getCarData/' + data.make + '/' + data.model + '/' + data.year + '/22201/' + pricePriority + '/' + mileagePriority + '/' + yearPriority +'/NA/' + trimPriority;
+                var fetchURL =  'http://44.212.18.158:8080/getCarData/' + data.make + '/' + data.model + '/' + data.year + '/22201/' + pricePriority + '/' + mileagePriority + '/' + yearPriority +'/NA/' + trimPriority;
             }else if(siteID == 2){
                 const data = await singleCarData2(urlCall)
-                var fetchURL =  'http://localhost:8080/getCarData/' + data.make + '/' + data.model + '/' + data.year + '/22201/' + pricePriority + '/' + mileagePriority + '/' + yearPriority +'/NA/' + trimPriority;
+                var fetchURL =  'http://44.212.18.158:8080/getCarData/' + data.make + '/' + data.model + '/' + data.year + '/22201/' + pricePriority + '/' + mileagePriority + '/' + yearPriority +'/NA/' + trimPriority;
             }else if(siteID == 4){
                 const data = await singleCarData4(urlCall)
-                var fetchURL =  'http://localhost:8080/getCarData/' + data.make + '/' + data.model + '/' + data.year + '/22201/' + pricePriority + '/' + mileagePriority + '/' + yearPriority +'/NA/' + trimPriority;
+                var fetchURL =  'http://44.212.18.158:8080/getCarData/' + data.make + '/' + data.model + '/' + data.year + '/22201/' + pricePriority + '/' + mileagePriority + '/' + yearPriority +'/NA/' + trimPriority;
             }
             //check if url matches last call
             await chrome.storage.sync.get(["urlCall"]).then(async (result) => {
@@ -499,7 +499,7 @@ function App() {
         setmoreCarsLoading(true);
         console.log("Loading more cars momentarily...BE PATIENT >:(")
         console.log("current car is ",currentCar)
-        const fetchMoreCars = 'http://localhost:8080/getCarData/' + await currentCar.make + '/' + await currentCar.model + '/' + await currentCar.year + '/22201/' + pricePriority + '/' + mileagePriority + '/' + yearPriority + '/NA/' + trimPriority;
+        const fetchMoreCars = 'http://44.212.18.158:8080/getCarData/' + await currentCar.make + '/' + await currentCar.model + '/' + await currentCar.year + '/22201/' + pricePriority + '/' + mileagePriority + '/' + yearPriority + '/NA/' + trimPriority;
         axios.get(fetchMoreCars)
         .then((response) => {
             console.log("We got more cars DI MOLTO!!!! ", response)
