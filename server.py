@@ -380,7 +380,7 @@ def findEquivalent(model, year, pricePriority, mileagePriority, yearPriority, tr
     # Loop through the list of models and execute the query for each model
     for model in sameClassModels:
         # Generate query for each model
-        query = "SELECT * FROM scraped WHERE model = %s AND (year <= %s AND year >= %s) AND (searchID IS NULL OR searchID = %s) AND date >= '2023-02-00' LIMIT 10"
+        query = "SELECT * FROM scraped WHERE model = %s AND (year <= %s AND year >= %s) AND (searchID IS NULL OR searchID = %s) AND date >= '2023-02-00'"
         
         # Execute the query against the database
         cursor.execute(query, (model, yearUp, yearDown, 'available'))
@@ -453,6 +453,6 @@ def findEquivalent(model, year, pricePriority, mileagePriority, yearPriority, tr
 #getPreferences(0,2,3,'NA',0)
 # getCarData('hyundai', 'palisade','2020','22182',10,0,0,'NA',0)
 
-findEquivalent("corolla",'2020',0,0,0,'NA',0)
+# findEquivalent("corolla",'2020',0,0,0,'NA',0)
 
 app.run(host='0.0.0.0', port=8080)

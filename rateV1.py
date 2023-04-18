@@ -112,6 +112,7 @@ def checkAvailability(url):
     except:
         print('connection timeout error during availability validation')
         available = False
+        return available
     soup = BeautifulSoup(page.content, 'html.parser')
     if soup.find('p', class_='sds-notification__desc') is not None:
         available = False

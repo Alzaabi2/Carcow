@@ -282,7 +282,10 @@ function App() {
     const [moreCarsLoading, setmoreCarsLoading] = useState(false)
 
     //Variable to help manage loading similar car listings for display
-    const [similarCarsLoading, setsimilarCarsLoading] = useState(false);
+    const [showSimilarCars, setshowSimilarCars] = useState(false);
+
+    //Variable to keep track of status of cars shown
+    const [loadingSimilarCars, setloadingSimilarCars] = useState(false);
 
     let tempCarData = undefined
     const [email, setEmail] = useState('')
@@ -309,7 +312,7 @@ function App() {
         console.log("From the SliderChange function:")
         var fetchPreferences = 'http://localhost:8080/getCarData/' + currentMake + '/' + currentModel + '/' + currentYear + '/22201/' + pricePriority + '/' + mileagePriority + '/' + yearPriority + '/NA/' + trimPriority;
         
-        if (similarCarsLoading) {
+        if (showSimilarCars) {
             console.log("We've swithed to similar cars")
             fetchPreferences = 'http://localhost:8080/findEquivalent/' + currentModel + '/' + currentYear + '/' + pricePriority + '/' + mileagePriority + '/' + yearPriority + '/NA/' + trimPriority;
         }
@@ -607,7 +610,7 @@ function App() {
         console.log("current car is ",currentCar)
         var fetchMoreCars = 'http://localhost:8080/getCarData/' + currentMake + '/' + currentModel + '/' + currentYear + '/22201/' + pricePriority + '/' + mileagePriority + '/' + yearPriority + '/NA/' + trimPriority;
 
-        if (similarCarsLoading) {
+        if (showSimilarCars) {
             fetchMoreCars= 'http://localhost:8080/findEquivalent/' + currentModel + '/' + currentYear + '/' + pricePriority + '/' + mileagePriority + '/' + yearPriority + '/NA/' + trimPriority;
         }
 
@@ -626,27 +629,67 @@ function App() {
     };
 
     const loadSimilar = async() => {
+        setloadingSimilarCars (true);
         console.log("Loading similar cars momentarily...BE PATIENT B)")
         console.log("current car is ", currentCar)
-        const fetchSimilarCars = 'http://localhost:8080/findEquivalent/' + currentModel + '/' + currentYear + '/0/0/0/NA/0';
+        const fetchSimilarCars = 'http://localhost:8080/findEquivalent/' + currentModel + '/' + currentYear + '/' + pricePriority + '/' + mileagePriority + '/' + yearPriority + '/NA/' + trimPriority;
         axios.get(fetchSimilarCars)
         .then((response) => {
             console.log("We got more cars!!!! ", response)
             setCarData(response.data);
             setDone (true);
             setError(null); 
-            setsimilarCarsLoading(true);
+            setshowSimilarCars(true);
+            setloadingSimilarCars(false);
         })
         .catch((error) => {
             console.error(error);
-            setsimilarCarsLoading(false);
+            setshowSimilarCars(false);
+            setloadingSimilarCars(false);
         });
     };
 
-    const handleGoBack = async() => {
-        setsimilarCarsLoading(false);
-        SliderChange();
+    const handleGoBack = async() => {        
+        setshowSimilarCars(false);
+        
+        var fetchPreferences = 'http://localhost:8080/getCarData/' + currentMake + '/' + currentModel + '/' + currentYear + '/22201/' + pricePriority + '/' + mileagePriority + '/' + yearPriority + '/NA/' + trimPriority;
+        
+        axios.get(fetchPreferences)
+        .then((response) => {
+            setCarData(response.data);
+            setDone (true);
+            setError(null); 
+        })
+        .catch((error) => {
+            // Error
+            setTime(true);
+            if (error.response) {
+                // The request was made and the server responded with a status code
+                // that falls out of the range of 2xx
+                console.log("Error out of 2xx Range Found:");
+                console.log(error.response.data);
+                console.log(error.response.status);
+                console.log(error.response.headers);
+
+            } else if (error.request) {
+                // The request was made but no response was received
+                // `error.request` is an instance of XMLHttpRequest in the 
+                // browser and an instance of http.ClientRequest in node.js
+                console.log("No Repsonse Received from Request");
+                console.log(error.request);
+            } else {
+                // Something happened in setting up the request that triggered an Error
+                console.log("Request not sent");
+                console.log('Error', error.message);
+            }
+            console.log(error.config);
+        });
     }
+
+    const formatMileageWithCommas = (mileage) => {
+        return mileage.replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,');
+    };
+      
 
     if (!done && !long && !carData){
         return(
@@ -719,10 +762,11 @@ function App() {
                                 </Tooltip> 
                             }                     
                         </div>
-                        {similarCarsLoading && <button className="leave-similar-button" onClick={handleGoBack}>Back</button>}
-                        {!similarCarsLoading && (
+                        {(!showSimilarCars && !loadingSimilarCars) && (
                             <button class="load-similar-button" onClick={loadSimilar}>Load Similar Cars</button>
                         )} 
+                        {(!showSimilarCars && loadingSimilarCars) && <div className="loading-more">Loading...</div>}
+                        {(showSimilarCars && !loadingSimilarCars) && (<button className="leave-similar-button" onClick={handleGoBack}>Back</button>)}
                         <table>
                             {carData.map((car) =>(                   
                                 <>             
@@ -737,7 +781,7 @@ function App() {
                                                   <div class="car-price">${car.price} </div>&nbsp;&nbsp;<div class="car-mileage"> {car.mileage}mi</div>
                                               </div> */}
                                               <div> <b>{"\n"}</b></div>
-                                              {Math.round(100*(1 - (car.price / car.suggested))) > 0 ? <div class="suggested-price-current">Below Market by {Math.round(100*(1 - (car.price / car.suggested)))}%</div> : <div class="suggested-price-current"> Above Market by {Math.round(-100*(1 - (car.price / car.suggested)))}%</div>}                                     
+                                              {(car.price - car.suggested) < 0 ? <div class="suggested-price-good">Below Market by ${(parseInt(car.suggested - car.price))}</div> : <div class="suggested-price-bad"> Above Market by ${(parseInt(car.price - car.suggested))}</div>}
                                           </a>
                                       </td>
                                   </tr> :
@@ -747,9 +791,9 @@ function App() {
                                         <a href = {car.url} target="_blank">
                                             <div class="car-basics">{car.year} {car.make} {car.model} {car.trim}</div>
                                             <div class="car-stats">
-                                                <div class="car-price">${car.price} </div>&nbsp;&nbsp;<div class="car-mileage"> {car.mileage}mi</div>
+                                                <div class="car-price">${car.price.replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')}</div>&nbsp;&nbsp;{parseInt(car.mileage) >= 1000 ? <div class="car-mileage">{formatMileageWithCommas(car.mileage)} mi</div> : <div class="car-mileage">{car.mileage} mi</div>}
                                             </div>
-                                            {Math.round(100*(1 - (car.price / car.suggested))) > 0 ? <div class="suggested-price-good">Below Market by {Math.round(100*(1 - (car.price / car.suggested)))}%</div> : <div class="suggested-price-bad">Above Market by {Math.round(-100*(1 - (car.price / car.suggested)))}%</div>}                                      
+                                            {(car.price - car.suggested) < 0 ? <div class="suggested-price-good">Below Market by ${(parseInt(car.suggested - car.price))}</div> : <div class="suggested-price-bad"> Above Market by ${(parseInt(car.price - car.suggested))}</div>}
                                         </a>
                                     </td>
                                   </tr>
