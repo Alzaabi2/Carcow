@@ -135,9 +135,9 @@ def Scrape2(make, model):
     make = make.lower().replace(' ', '_')
     model = model.lower().replace(' ', '_')
 
-    zipdata = json.loads(getZipData(zipcode))
-    city =str(zipdata['results'][zipcode][0]['city']).replace(' ', '')
-    state = str(zipdata['results'][zipcode][0]['state_code'])
+    # zipdata = json.loads(getZipData(zipcode))
+    # city =str(zipdata['results'][zipcode][0]['city']).replace(' ', '')
+    # state = str(zipdata['results'][zipcode][0]['state_code'])
 
     url = 'https://www.autotrader.com/cars-for-sale/all-cars/'+make+'/'+model+'/washington-dc-20001?requestId=USED&dma=&searchRadius=50&location=&marketExtension=include&isNewSearch=true&showAccelerateBanner=false&sortBy=relevance&numRecords=100'
     vins = ScrapeVin2(make, model)
@@ -151,14 +151,14 @@ def Scrape2(make, model):
             print(url)
             page = requests.get(url, timeout=10000)
             soup = BeautifulSoup(page.content, 'html.parser')
-            cars = soup.find_all('div', class_="item-card row display-flex align-items-stretch")
+            cars = soup.find_all('div', class_="item-card row display-flex align-items-stretch flex-column")
             for c in cars:
                 # print('-----')
                 if c == None:
                     continue
-                if c.find('h2', class_="text-bold text-size-400 text-size-sm-500 link-unstyled") == None:
+                if c.find('h3', class_="text-bold text-size-400 text-size-sm-500 link-unstyled") == None:
                     continue
-                title = c.find('h2', class_="text-bold text-size-400 text-size-sm-500 link-unstyled").text
+                title = c.find('h3', class_="text-bold text-size-400 text-size-sm-500 link-unstyled").text
                 if "New" in title:
                     continue
                 title = title.split(' ', 4)
@@ -195,7 +195,7 @@ def Scrape2(make, model):
                 else:
                     mileage = ' '
                 
-                print(img)
+                # print(img)
                 vin = vins[vincount]    
                 row = [make, model, trim, year, mileage, price, vin, carpage, img]
                 rowlist = {'Make': make, 'Model':model, 'Trim':trim, 'Year':year, 'Mileage':mileage, 'Price':price, 'VIN':vin, 'url':carpage, 'img':img}
@@ -349,7 +349,7 @@ def Scrape3(make):
     print(numCars)
     numPages = round(int(numCars.replace(',',''))/15)
     print(numCars + ' - ' + str(numPages))
-
+    # print(browser.page_source.encode('utf-8'))
     with open('cardata3.csv', 'w', encoding='utf8', newline='') as f:
         w = writer(f)
         header = ['Make', 'Model', 'Trim', 'Year', 'Mileage', 'Price', 'VIN', 'url', 'img']
@@ -379,7 +379,7 @@ def Scrape3(make):
                 break
             soup = BeautifulSoup(browser.page_source, 'html.parser')
 
-            cars = soup.find_all('div', class_='soQyMy')
+            cars = soup.find_all('div', class_='SxbqMk')
             if cars is not None:
                 for c in cars:
                     if c.find('h4', class_='vO42pn') == None:
@@ -940,10 +940,10 @@ def cleanData(list):
     return res_list      
 
 
-l = Scrape5('land rover', 'range rover')
-print(l)
-print(str(len(l)))
+# l = Scrape5('land rover', 'range rover')
+# print(l)
+# print(str(len(l)))
 
 
-# Scrape1('land_rover')
+print(Scrape4('ford', 'mustang'))
 # ScrapeAlpha('Jeep', 'Wrangler', '2014', '10003')
