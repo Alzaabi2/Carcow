@@ -8,6 +8,7 @@ import re
 load_dotenv()
 
 AWSPASSWORD = os.getenv('AWSPASSWORD')
+APIKEY = os.getenv('CARUTILSAPIKEY')
 
 mydb = mysql.connector.connect(
     host="carcow.ce0uqlnzw4og.us-east-1.rds.amazonaws.com",
@@ -28,7 +29,7 @@ def populateScraped(list):
         if i['VIN'] is None:
             continue
         else:
-            vin   = i['VIN']
+            vin   = i['VIN'][0]
         make  = i['Make']
         model = i['Model']
         trim  = i['Trim']
@@ -42,16 +43,19 @@ def populateScraped(list):
         mileage2 = mileage.replace(',','')
         miles = re.findall(r'\d+\d+', mileage2)
 
-        price  = list[i]['Price'].replace('$','').replace(' ','')
+        price  = i['Price'].replace('$','').replace(' ','').replace(',', '')
         price2 = re.findall(r'\d+\d+', price)
 
-        url   = list[i]['url']
+        url   = i['url']
 
-        imageurl = list[i]['img']
+        imageurl = i['img']
 
         suggested = dollarValueVin4(vin, int(miles[0]))
-
-        cursor.execute("INSERT INTO scraped (VIN, make, model, year, trim, mileage, price, suggested, url, imageurl, date)VALUES (%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,NOW())", (vin, make, model, year2[0], trim, miles[0], price2[0], suggested, url, imageurl))
+        # print(vin, make, model, year2[0], trim, miles[0], price2[0], suggested, url, imageurl)
+        try:
+            cursor.execute("INSERT INTO scraped (VIN, make, model, year, trim, mileage, price, suggested, url, imageurl, date)VALUES (%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,NOW())", (vin, make, model, year2[0], trim, miles[0], price2[0], suggested, url, imageurl))
+        except:
+            print('duplicate')
         mydb.commit()
 
         # print('its in')
@@ -71,3 +75,4 @@ def populateScraped(list):
 #     print(cursor.fetchall())
 
 # testenv()
+# print(dollarValueVin4('5J8TC1H57NL003558', 7153))

@@ -41,6 +41,7 @@ def Scrape1(make):
         vincount = 0
         # page = requests.get(url)
         while url != None:
+        # for i in range(1):
             rand = random.random()
             time.sleep(rand*10)
             print(url)

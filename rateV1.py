@@ -15,6 +15,12 @@ import concurrent.futures
 import itertools 
 import json
 from CarDepreciationValue import *
+from dotenv import load_dotenv
+import os
+
+load_dotenv()
+
+APIKEY = os.getenv('CARUTILSAPIKEY')
 
 carlist = []
 
@@ -148,16 +154,18 @@ def dollarValueVin4(vin, mileage):
     querystring = {"vin": vin, "mileage": mileage}
 
     headers = {
-        "X-RapidAPI-Key": "eabb27e940mshbaf991f2c492656p1afbb7jsnc31638e26d33",
+        "X-RapidAPI-Key": APIKEY,
         "X-RapidAPI-Host": "car-utils.p.rapidapi.com"
     }
     
     response = requests.request("GET", url, headers=headers, params=querystring)
     
     apiResponse = response.text
-
+    print(response.text)
     #if no market value data
     if '"vehicle":null' in response.text:
+        print('DV4 invalid vehicle: ')
+
         return "0"
     while(1):
         if 'You have exceeded the rate limit per second for your plan, BASIC, by the API provider' in response.text:
@@ -168,6 +176,7 @@ def dollarValueVin4(vin, mileage):
             break
     
     if '"message":"invalid vin"' in response.text:
+        print('DV4 invalid vin: ' + vin)
         return '0'
 
     start = re.search('"prices":', response.text)
