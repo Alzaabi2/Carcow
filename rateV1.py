@@ -161,14 +161,14 @@ def dollarValueVin4(vin, mileage):
     response = requests.request("GET", url, headers=headers, params=querystring)
     
     apiResponse = response.text
-    print(response.text)
+    # print(response.text)
     #if no market value data
     if '"vehicle":null' in response.text:
         print('DV4 invalid vehicle: ')
 
         return "0"
     while(1):
-        if 'You have exceeded the rate limit per second for your plan, BASIC, by the API provider' in response.text:
+        if 'You have exceeded the rate limit per second for your plan, BASIC, by the API provider' in response.text or 'Too many requests' in response.text:
             time.sleep(1)
             response = requests.request("GET", url, headers=headers, params=querystring)
             apiResponse = response.text
