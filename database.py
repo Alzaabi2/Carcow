@@ -26,38 +26,56 @@ def populateScraped(list):
         return
 
     for i in list:
-        if i['VIN'] is None:
-            continue
-        else:
-            vin   = i['VIN'][0]
-        make  = i['Make']
-        model = i['Model']
-        trim  = i['Trim']
-        # trim = ''
-        year  = i['Year'].replace(' ', '')
-        year2 = re.findall(r'\d+\d+', year)
-        if len(year2) == 0:
-            year2.append('-1')
-
-        mileage = i['Mileage']
-        mileage2 = mileage.replace(',','')
-        miles = re.findall(r'\d+\d+', mileage2)
-
-        price  = i['Price'].replace('$','').replace(' ','').replace(',', '')
-        price2 = re.findall(r'\d+\d+', price)
-
-        url   = i['url']
-
-        imageurl = i['img']
-
-        suggested = dollarValueVin4(vin, int(miles[0]))
-        # print(vin, make, model, year2[0], trim, miles[0], price2[0], suggested, url, imageurl)
         try:
-            cursor.execute("INSERT INTO scraped (VIN, make, model, year, trim, mileage, price, suggested, url, imageurl, date)VALUES (%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,NOW())", (vin, make, model, year2[0], trim, miles[0], price2[0], suggested, url, imageurl))
-        except:
-            print('duplicate')
-        mydb.commit()
+            if i['VIN'] is None:
+                continue
+            else:
+                vin   = i['VIN'][0]
+            make  = i['Make']
+            model = i['Model']
+            trim  = i['Trim']
+            # trim = ''
+            year  = i['Year'].replace(' ', '')
+            year2 = re.findall(r'\d+\d+', year)
+            if year is None:
+                print('ERROR: year is none')
+                continue
+            elif len(year) == 0:
+                print('ERROR: year is []')
+                continue
 
+            mileage = i['Mileage']
+            mileage2 = mileage.replace(',','')
+            miles = re.findall(r'\d+\d+', mileage2)
+
+            price  = i['Price'].replace('$','').replace(' ','').replace(',', '')
+            price2 = re.findall(r'\d+\d+', price)
+            if price2 is None:
+                print('ERROR: price is none')
+                continue
+            elif len(price2) == 0:
+                print('ERROR: miles is []')
+                continue
+
+            url   = i['url']
+
+            imageurl = i['img']
+            if miles is None:
+                print('ERROR: miles is none')
+                continue
+            elif len(miles) == 0:
+                print('ERROR: miles is []')
+                continue
+            
+            suggested = dollarValueVin4(vin, int(miles[0]))
+            # print(vin, make, model, year2[0], trim, miles[0], price2[0], suggested, url, imageurl)
+            try:
+                cursor.execute("INSERT INTO scraped (VIN, make, model, year, trim, mileage, price, suggested, url, imageurl, date)VALUES (%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,NOW())", (vin, make, model, year2[0], trim, miles[0], price2[0], suggested, url, imageurl))
+            except:
+                print('duplicate')
+            mydb.commit()
+        except:
+            print('ERROR: insert error')
         # print('its in')
         # except:
         #     print('entry error')
