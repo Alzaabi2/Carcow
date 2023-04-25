@@ -346,7 +346,7 @@ def Scrape3(make):
     soup = BeautifulSoup(browser.page_source, 'html.parser')
     # print(soup.encode("utf-8"))
     numCars = soup.find('span', class_='eegHEr').find_all('strong')[1].text
-    print(numCars)
+    # print(numCars)
     numPages = round(int(numCars.replace(',',''))/15)
     print(numCars + ' - ' + str(numPages))
     # print(browser.page_source.encode('utf-8'))
@@ -386,10 +386,18 @@ def Scrape3(make):
                         continue
                     title = c.find('h4', class_='vO42pn').text
                     title = title.split(' ', 3)
+                    if title == '':
+                        continue
                     year = title[0]
+                    if len(title) < 3:
+                        continue
                     make = title[1]
                     model = title[2]
-                    trim = title[3]
+                    if len(title) >= 4:     
+                        trim = title[3]
+                    else:
+                        trim = ''
+                    
                     if c == None:
                         continue
                     if c.find('p', class_='JKzfU4 umcYBP') == None:
@@ -429,7 +437,7 @@ def Scrape3(make):
                     rowlist = {'Make': make, 'Model':model, 'Trim':trim, 'Year':year, 'Mileage':mileage, 'Price':price, 'VIN':vin, 'url':carpage, 'img':img}
                     w.writerow(row)
                     scrapedList.append(rowlist)
-                    print(rowlist)
+                    # print(rowlist)
                 print('scraped:' + str(len(scrapedList)))
                 # next page
             else:
@@ -945,5 +953,5 @@ def cleanData(list):
 # print(str(len(l)))
 
 
-print(Scrape4('ford', 'mustang'))
+# print(Scrape4('ford', 'mustang'))
 # ScrapeAlpha('Jeep', 'Wrangler', '2014', '10003')

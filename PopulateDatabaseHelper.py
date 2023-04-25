@@ -159,15 +159,11 @@ def massScrape2():
 def massScrape3():
     modelsList = models
     makesList = makes
-    errorList = []
     for i in makesList:
-        try:
-            scrapedData = Scrape3(i)
-            populateScraped(scrapedData)
-            print('Completed '+i)
-        except:
-            errorList.append('Scrape3 Error: '+i)
-    print(errorList)
+        scrapedData = Scrape3(i)
+        populateScraped(scrapedData)
+        print('Completed '+i)
+    
 
 def massScrape4():
     modelsList = models
@@ -220,7 +216,8 @@ def createModelIds():
         n += 1
     mydb.commit()
 
-
-massScrape1()
+# list = [{'Make': 'BMW', 'Model': 'M3', 'Trim': 'Competition xDrive AWD', 'Year': '2023', 'Mileage': '2,150 mi', 'Price': '$97,931', 'VIN': 'WBS43AY03PFP05510 ', 'url': 'https://www.cargurus.com/Cars/inventorylisting/viewDetailsFilterViewInventoryListing.action?entitySelectingHelper.selectedEntity=m3&distance=50&zip=20001&sourceContext=carSelectorAPI#listing=355059127/NONE/DEFAULT', 'img': 'https://static.cargurus.com/images/forsale/2023/04/20/16/05/2023_bmw_m3-pic-1343548017705957128-1024x768.jpeg?io=true&width=640&height=480&fit=bounds&format=jpg&auto=webp'}]
+massScrape3()
+# populateScraped(list)
 # createMakeIds()
 # createModelIds()
