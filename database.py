@@ -131,4 +131,4 @@ def massAvailabilityCheck():
             cursor.execute(query2)
             mydb.commit()
         counter+=1
-massAvailabilityCheck()
+# massAvailabilityCheck()
