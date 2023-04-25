@@ -182,16 +182,16 @@ def massScrape4():
     print(errorList)
 
 def massScrape5():
-    modelsList = models
+    # modelsList = models
     makesList = makes
     errorList = []
-    for i in modelsList:
-        try:
-            scrapedData = Scrape5(i[0],i[1])
-            populateScraped(scrapedData)
-            print('Completed '+i[1])
-        except:
-            errorList.append('Scrape5 Error: '+i[0]+'-'+i[1])
+    for i in makesList:
+        # try:
+        scrapedData = Scrape5(i)
+        populateScraped(scrapedData)
+        print('Completed '+i)
+        # except:
+            # errorList.append('Scrape5 Error: '+i)
     print(errorList)
 
 # massScrape1()
@@ -217,7 +217,7 @@ def createModelIds():
     mydb.commit()
 
 # list = [{'Make': 'BMW', 'Model': 'M3', 'Trim': 'Competition xDrive AWD', 'Year': '2023', 'Mileage': '2,150 mi', 'Price': '$97,931', 'VIN': 'WBS43AY03PFP05510 ', 'url': 'https://www.cargurus.com/Cars/inventorylisting/viewDetailsFilterViewInventoryListing.action?entitySelectingHelper.selectedEntity=m3&distance=50&zip=20001&sourceContext=carSelectorAPI#listing=355059127/NONE/DEFAULT', 'img': 'https://static.cargurus.com/images/forsale/2023/04/20/16/05/2023_bmw_m3-pic-1343548017705957128-1024x768.jpeg?io=true&width=640&height=480&fit=bounds&format=jpg&auto=webp'}]
-massScrape3()
+massScrape5()
 # populateScraped(list)
 # createMakeIds()
 # createModelIds()

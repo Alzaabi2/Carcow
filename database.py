@@ -30,7 +30,7 @@ def populateScraped(list):
         if i['VIN'] is None:
             continue
         else:
-            vin   = i['VIN'][0]
+            vin   = i['VIN']
         make  = i['Make']
         model = i['Model']
         trim  = i['Trim']
@@ -69,10 +69,33 @@ def populateScraped(list):
         
         suggested = dollarValueVin4(vin, int(miles[0]))
         # print(vin, make, model, year2[0], trim, miles[0], price2[0], suggested, url, imageurl)
-        try:
+        query = 'SELECT * FROM scraped WHERE `VIN` = "'+vin+'"'
+        cursor.execute(query)
+        prevListing = cursor.fetchall()
+        # print('prev listing')
+        # print(prevListing)
+        found = False
+        if prevListing != [] and prevListing != None:
+            if prevListing[0]['searchID'] == 'unavailable':
+                query = 'DELETE FROM scraped WHERE `VIN` = "'+vin+'"'
+                cursor.execute(query)
+                print('removing previous listing')
+            else:
+                if (checkAvailability(prevListing[0]['url'])) == False:
+                    query = 'DELETE FROM scraped WHERE `VIN` = "'+vin+'"'
+                    cursor.execute(query)
+                    print('removing previous listing: unavailable')
+                else:
+                    found = True
+                    print('dup found')
+        # try:
+        if found == False:
+            # if('https://' not in imageurl):
+            #     imageurl = 'https://'+imageurl
+            print((vin, make, model, year2[0], trim, miles[0], price2[0], suggested, url, imageurl))
             cursor.execute("INSERT INTO scraped (VIN, make, model, year, trim, mileage, price, suggested, url, imageurl, date)VALUES (%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,NOW())", (vin, make, model, year2[0], trim, miles[0], price2[0], suggested, url, imageurl))
-        except:
-            print('duplicate')
+        # except:
+        #     print('duplicate')
         mydb.commit()
         # except:
         #     print('ERROR: insert error')
@@ -94,3 +117,18 @@ def populateScraped(list):
 
 # testenv()
 # print(dollarValueVin4('5J8TC1H57NL003558', 7153))
+def massAvailabilityCheck():
+    cursor = mydb.cursor(buffered=True,dictionary=True)
+    query = 'SELECT * FROM scraped WHERE searchID != "unavailable" or searchID is NULL'
+    cursor.execute(query)
+    listings = cursor.fetchall()
+    print(str(len(listings)))
+    counter = 0
+    for i in listings:
+        print('count :' +str(counter))
+        if checkAvailability(i['url']) == False:
+            query2 = 'UPDATE scraped SET searchID = "unavailable" WHERE VIN = "'+i['VIN']+'";'
+            cursor.execute(query2)
+            mydb.commit()
+        counter+=1
+massAvailabilityCheck()

@@ -116,10 +116,10 @@ def Scrape1(make):
                     # print('vin error')
                     continue
 
-                print(vin)
+                print(vin[0])
                 
-                row = [make, model, trim, year, mileage, price, vin, carpage, img]
-                rowlist = {'Make': make, 'Model':model, 'Trim':trim, 'Year':year, 'Mileage':mileage, 'Price':price, 'VIN':vin, 'url':carpage, 'img':img}
+                row = [make, model, trim, year, mileage, price, vin[0], carpage, img]
+                rowlist = {'Make': make, 'Model':model, 'Trim':trim, 'Year':year, 'Mileage':mileage, 'Price':price, 'VIN':vin[0], 'url':carpage, 'img':img}
                 w.writerow(row)
                 scrapedList.append(rowlist)
             url = getNextPage(soup)
@@ -147,6 +147,7 @@ def Scrape2(make, model):
         header = ['Make', 'Model', 'Trim', 'Year', 'Mileage', 'Price', 'VIN', 'url', 'img']
         w.writerow(header)
         vincount = 0
+        # for j in range(1):
         while url != None:
             print(url)
             page = requests.get(url, timeout=10000)
@@ -416,7 +417,7 @@ def Scrape3(make):
 
                     extradata2 = c.find('dl', class_='O3A4fA').find_all('dd') #contains vin
                     # if extradata ==
-                    vin = extradata2[vinIndex-1].text
+                    vin = extradata2[vinIndex-1].text.replace(' ', '')
                     carpagepart = c.find('a', class_='lmXF4B c7jzqC A1f6zD').get('href')
                     carpage = 'https://www.cargurus.com/Cars/inventorylisting/viewDetailsFilterViewInventoryListing.action?entitySelectingHelper.selectedEntity='+makeID+'&distance=50&zip='+zipcode+'&sourceContext=carSelectorAPI' + carpagepart
                     priceText = c.find('span', class_='JzvPHo')
@@ -474,8 +475,8 @@ def Scrape4(make, model):
         w.writerow(header)
         vincount = 0
         i = 1
-        # while url != None:
-        for x in range(1):
+        while url != None:
+        # for x in range(1):
             print(url)
             headers = {'User-Agent': 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/56.0.2924.76 Safari/537.36', "Upgrade-Insecure-Requests": "1","DNT": "1","Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8","Accept-Language": "en-US,en;q=0.5","Accept-Encoding": "gzip, deflate"}
 
@@ -621,17 +622,17 @@ def Scrape4(make, model):
 #     return scrapedList
 
 #carsdirect.com
-def Scrape5(make, model):
+def Scrape5(make):
     scrapedList = []
-    make = make.lower().replace(' ', '-')
-    model = model.lower().replace(' ', '-')
-    if make == 'tesla':
-        model = model.replace('_', '-')
-    elif make == 'land':
-        make = make.replace('_', '-').replace
-        model = model.replace('_', '-')
+    make = make.lower().replace(' ', '-').replace('_','-')
+    # model = model.lower().replace(' ', '-')
+    # if make == 'tesla':
+    #     model = model.replace('_', '-')
+    # elif make == 'land':
+    #     make = make.replace('_', '-').replace
+    #     model = model.replace('_', '-')
 
-    url = 'https://www.carsdirect.com/used_cars/listings/' + make + '/' + model + '?zipcode=' + '20001' + '&dealerId=&distance=50&yearFrom=&yearTo=&priceFrom=&priceTo=&qString=' + make + '%603%6020%600%600%60false%7C' + model + '%604%60380%600%600%60false%7C&keywords=&makeName=' + make + '&modelName=' + model + '&sortColumn=&sortDirection=&searchGroupId=&lnk='
+    url = 'https://www.carsdirect.com/used_cars/listings/' + make + '?dealerId=&sellerId=&active=&zipcode=20001&distance=50'
     # search first 3 pages
     with open('cardata5.csv', 'w', encoding='utf8', newline='') as f:
         w = writer(f)
@@ -680,8 +681,8 @@ def Scrape5(make, model):
                 carpage = c.find('meta').get('content')
                 url = 'https://www.carsdirect.com' + carpage
                 
-                row = [make, model,trim, year, mileage, price, vin, carpage, img]
-                rowlist = {'Make': make, 'Model':model, 'Trim':trim, 'Year':year, 'Mileage':mileage, 'Price':price, 'VIN':vin, 'url':carpage, 'img':img}
+                row = [make, model,trim, year, mileage, price, vin, url, img]
+                rowlist = {'Make': make, 'Model':model, 'Trim':trim, 'Year':year, 'Mileage':mileage, 'Price':price, 'VIN':vin, 'url':url, 'img':img}
                 w.writerow(row)
                 scrapedList.append(rowlist)
             url = getNextPage5(soup)
@@ -955,5 +956,5 @@ def cleanData(list):
 # print(str(len(l)))
 
 
-# print(Scrape4('ford', 'mustang'))
+# print(Scrape5('mazda'))
 # ScrapeAlpha('Jeep', 'Wrangler', '2014', '10003')

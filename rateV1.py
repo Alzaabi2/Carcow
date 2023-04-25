@@ -113,7 +113,10 @@ def checkAvailability(url):
 
     available = True
     headers = {'User-Agent': 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/56.0.2924.76 Safari/537.36', "Upgrade-Insecure-Requests": "1","DNT": "1","Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8","Accept-Language": "en-US,en;q=0.5","Accept-Encoding": "gzip, deflate"}
-    page = requests.get(url, headers=headers)
+    try:
+        page = requests.get(url, headers=headers)
+    except:
+        return False
     soup = BeautifulSoup(page.content, 'html.parser')
     if soup.find('p', class_='sds-notification__desc') is not None:
         available = False
@@ -152,7 +155,8 @@ def dollarValueVin4(vin, mileage):
     url = "https://car-utils.p.rapidapi.com/marketvalue"
 
     querystring = {"vin": vin, "mileage": mileage}
-
+    print('DV4 queryString: ')
+    print(querystring)
     headers = {
         "X-RapidAPI-Key": APIKEY,
         "X-RapidAPI-Host": "car-utils.p.rapidapi.com"
