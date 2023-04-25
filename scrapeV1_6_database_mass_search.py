@@ -455,11 +455,15 @@ def Scrape4(make, model):
 
     make = make.lower().replace(' ', '-')
     model = model.lower().replace(' ', '-')
-    if make == 'tesla':
-        model = model.replace('_', '-')
-    elif make == 'land':
-        make = make.replace('_', '-').replace
-        model = model.replace('_', '-')
+    model = model.replace('_', '-')
+    make = make.replace('_', '-')
+
+
+    # if make == 'tesla':
+    #     model = model.replace('_', '-')
+    # elif make == 'land':
+    #     make = make.replace('_', '-').replace
+    #     model = model.replace('_', '-')
 
     url = 'https://www.edmunds.com/inventory/srp.html?inventorytype=used&make='+make+'&model='+model+'&radius=50&deliverytype=local'
     # search first 10 pages
@@ -470,12 +474,12 @@ def Scrape4(make, model):
         w.writerow(header)
         vincount = 0
         i = 1
-        while url != None:
+        # while url != None:
+        for x in range(1):
             print(url)
             headers = {'User-Agent': 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/56.0.2924.76 Safari/537.36', "Upgrade-Insecure-Requests": "1","DNT": "1","Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8","Accept-Language": "en-US,en;q=0.5","Accept-Encoding": "gzip, deflate"}
 
             page = requests.get(url, headers=headers)
-
             # json_data = {
             #     'target': 'universal',
             #     'parse': False,
@@ -486,17 +490,17 @@ def Scrape4(make, model):
             # p = str(page.content).replace('\\n', '').replace('\\', '').replace("b'", '').replace('{"results":[{"content":"', '')
             soup = BeautifulSoup(page.content, 'html.parser')
 
-            cars = soup.find_all('div', class_="d-flex flex-column usurp-inventory-card w-100 srp-expanded")
+            cars = soup.find_all('li', class_="d-flex mb-0_75 mb-md-1_5 col-12 col-md-6")
             if len(cars) < 2:
                 break
             i += 1
             for c in cars:
-                if c.find('span', class_="size-24 font-weight-bold text-gray-darker") == None:
+                if c.find('span', class_="heading-3") == None:
                     continue
-                price = c.find('span', class_="size-24 font-weight-bold text-gray-darker").text
-                if c.find('div', class_='size-16 font-weight-bold mb-0_5 text-primary-darker') == None:
+                price = c.find('span', class_="heading-3").text
+                if c.find('div', class_='size-16 font-weight-bold mb-0_5 text-blue-50') == None:
                     continue
-                title = c.find('div', class_='size-16 font-weight-bold mb-0_5 text-primary-darker').text
+                title = c.find('div', class_='size-16 font-weight-bold mb-0_5 text-blue-50').text
                 if c.find('div', class_='font-weight-normal size-14 text-gray-dark') == None:
                     continue
                 trim = c.find('div', class_='font-weight-normal size-14 text-gray-dark').text
@@ -509,13 +513,11 @@ def Scrape4(make, model):
                 if img == None:
                     continue
                 img_link = img.get('src')
-
-                if c.find('div', class_='font-weight-normal size-14 text-gray-dark') == None:
-                    trim = ''
-                else:
-                    trim = c.find('div', class_='font-weight-normal size-14 text-gray-dark').text
-
-                mileage = c.find('span', class_='').text
+                # if c.find('div', class_='font-weight-normal size-14 text-gray-dark') == None:
+                #     trim = ''
+                # else:
+                #     trim = c.find('div', class_='font-weight-normal size-14 text-gray-dark').text
+                mileage = c.find('div', class_='key-point size-14 d-flex align-items-baseline mt-0_5 col-12').find_all('span')[1].text
                 title = title.split(' ')
                 year = title[0]
                 make = title[1]
@@ -527,13 +529,13 @@ def Scrape4(make, model):
                 vin = parseLink[5]
 
                 row = [make, model, trim, year, mileage, price, vin, carpage]
-                rowlist = {'Make': make, 'Model':model, 'Trim':trim, 'Year':year, 'Mileage':mileage, 'Price':price, 'VIN':vin, 'url':carpage, 'img':img}
+                rowlist = {'Make': make, 'Model':model, 'Trim':trim, 'Year':year, 'Mileage':mileage, 'Price':price, 'VIN':vin, 'url':carpage, 'img':img_link}
                 w.writerow(row)
                 scrapedList.append(rowlist)
                 modelurl = model.replace(' ', '-')
                 makeurl = make.replace(' ', '-')
 
-            url = 'https://www.edmunds.com/inventory/srp.html?inventorytype=used&make='+makeurl+'&model='+modelurl+'&radius=50&pagenumber='+str(i)+'&deliverytype=local'
+            url = 'https://www.edmunds.com/inventory/srp.html?inventorytype=used&make='+make+'&model='+model+'&radius=50&pagenumber='+str(i)+'&deliverytype=local'
     # print('Scrape4 returning '+str(len(scrapedList))+' cars')
     return scrapedList
 
