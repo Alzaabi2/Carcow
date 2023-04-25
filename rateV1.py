@@ -17,6 +17,7 @@ import json
 from CarDepreciationValue import *
 from dotenv import load_dotenv
 import os
+from bs4 import BeautifulSoup
 
 load_dotenv()
 
@@ -123,7 +124,7 @@ def checkAvailability(url):
     elif soup.find('div', class_='text-bold text-size-600 text-size-sm-700 margin-vertical-7 margin-horizontal-7 text-center') is not None:
         if soup.find('div', class_='text-bold text-size-600 text-size-sm-700 margin-vertical-7 margin-horizontal-7 text-center').text == 'This car is no longer available. One moment while we take you to the search results page.':
             available = False
-    elif soup.find('h2', class_='CVRsvD') is not None:
+    elif soup.find('h3', class_='lowInventoryBannerHeader') is not None:
         available = False
     elif soup.find('h2', class_='pt-1 pt-md-3 px-1 px-md-3 pb-2 text-center display-1 m-0') is not None:
         if soup.find('h2', class_='pt-1 pt-md-3 px-1 px-md-3 pb-2 text-center display-1 m-0').text == 'Vehicle no longer available':
@@ -388,3 +389,5 @@ def trimRating(list, trim):
         deals.append(row)
 
     return deals  
+
+checkAvailability('https://www.cargurus.com/Cars/l-Used-SUV-Crossover-bg7#listing=3418358606/PRIORITY')
