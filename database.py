@@ -76,26 +76,26 @@ def populateScraped(list):
         # print(prevListing)
         found = False
         if prevListing != [] and prevListing != None:
-            if prevListing[0]['searchID'] == 'unavailable':
-                query = 'DELETE FROM scraped WHERE `VIN` = "'+vin+'"'
-                cursor.execute(query)
-                print('removing previous listing')
-            else:
-                if (checkAvailability(prevListing[0]['url'])) == False:
-                    query = 'DELETE FROM scraped WHERE `VIN` = "'+vin+'"'
-                    cursor.execute(query)
-                    print('removing previous listing: unavailable')
-                else:
-                    found = True
-                    print('dup found')
-        # try:
-        if found == False:
-            # if('https://' not in imageurl):
-            #     imageurl = 'https://'+imageurl
-            print((vin, make, model, year2[0], trim, miles[0], price2[0], suggested, url, imageurl))
-            cursor.execute("INSERT INTO scraped (VIN, make, model, year, trim, mileage, price, suggested, url, imageurl, date)VALUES (%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,NOW())", (vin, make, model, year2[0], trim, miles[0], price2[0], suggested, url, imageurl))
-        # except:
-        #     print('duplicate')
+            # if prevListing[0]['searchID'] == 'unavailable':
+            query = 'DELETE FROM scraped WHERE `VIN` = "'+vin+'"'
+            cursor.execute(query)
+            print('removing previous listing')
+            # else:
+                # if (checkAvailability(prevListing[0]['url'])) == False:
+                #     query = 'DELETE FROM scraped WHERE `VIN` = "'+vin+'"'
+                #     cursor.execute(query)
+                #     print('removing previous listing: unavailable')
+                # else:
+                #     found = True
+                #     print('dup found')
+        # # try:
+        # if found == False:
+        #     # if('https://' not in imageurl):
+        #     #     imageurl = 'https://'+imageurl
+        #     print((vin, make, model, year2[0], trim, miles[0], price2[0], suggested, url, imageurl))
+        cursor.execute("INSERT INTO scraped (VIN, make, model, year, trim, mileage, price, suggested, url, imageurl, date)VALUES (%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,NOW())", (vin, make, model, year2[0], trim, miles[0], price2[0], suggested, url, imageurl))
+        # # except:
+        # #     print('duplicate')
         mydb.commit()
         # except:
         #     print('ERROR: insert error')
