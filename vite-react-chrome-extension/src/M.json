@@ -1,0 +1,545 @@
+[
+    {
+      "make": "abarth"
+    },
+    {
+      "make": "ac"
+    },
+    {
+      "make": "acura"
+    },
+    {
+      "make": "Alfa Romeo"
+    },
+    {
+      "make": "alfa-romeo"
+    },
+    {
+      "make": "allard"
+    },
+    {
+      "make": "alpina"
+    },
+    {
+      "make": "alpine"
+    },
+    {
+      "make": "alvis"
+    },
+    {
+      "make": "Am general"
+    },
+    {
+      "make": "amc"
+    },
+    {
+      "make": "American motors"
+    },
+    {
+      "make": "ariel"
+    },
+    {
+      "make": "armstrong-siddeley"
+    },
+    {
+      "make": "ascari"
+    },
+    {
+      "make": "Aston Martin"
+    },
+    {
+      "make": "aston-martin"
+    },
+    {
+      "make": "audi"
+    },
+    {
+      "make": "austin"
+    },
+    {
+      "make": "Austin healey"
+    },
+    {
+      "make": "austin-healey"
+    },
+    {
+      "make": "autobianchi"
+    },
+    {
+      "make": "auverland"
+    },
+    {
+      "make": "avanti"
+    },
+    {
+      "make": "Avanti motors"
+    },
+    {
+      "make": "beijing"
+    },
+    {
+      "make": "bentley"
+    },
+    {
+      "make": "berkeley"
+    },
+    {
+      "make": "bitter"
+    },
+    {
+      "make": "bizzarrini"
+    },
+    {
+      "make": "bmw"
+    },
+    {
+      "make": "brilliance"
+    },
+    {
+      "make": "bristol"
+    },
+    {
+      "make": "bugatti"
+    },
+    {
+      "make": "buick"
+    },
+    {
+      "make": "cadillac"
+    },
+    {
+      "make": "caterham"
+    },
+    {
+      "make": "checker"
+    },
+    {
+      "make": "chevrolet"
+    },
+    {
+      "make": "chrysler"
+    },
+    {
+      "make": "citroen"
+    },
+    {
+      "make": "dacia"
+    },
+    {
+      "make": "daewoo"
+    },
+    {
+      "make": "daf"
+    },
+    {
+      "make": "daihatsu"
+    },
+    {
+      "make": "daimler"
+    },
+    {
+      "make": "datsun"
+    },
+    {
+      "make": "de-tomaso"
+    },
+    {
+      "make": "Delorean"
+    },
+    {
+      "make": "Desoto"
+    },
+    {
+      "make": "Detomaso"
+    },
+    {
+      "make": "dkw"
+    },
+    {
+      "make": "dodge"
+    },
+    {
+      "make": "donkervoort"
+    },
+    {
+      "make": "eagle"
+    },
+    {
+      "make": "Edsel"
+    },
+    {
+      "make": "fairthorpe"
+    },
+    {
+      "make": "ferrari"
+    },
+    {
+      "make": "fiat"
+    },
+    {
+      "make": "fisker"
+    },
+    {
+      "make": "ford"
+    },
+    {
+      "make": "gaz"
+    },
+    {
+      "make": "geely"
+    },
+    {
+      "make": "Genesis"
+    },
+    {
+      "make": "Geo"
+    },
+    {
+      "make": "ginetta"
+    },
+    {
+      "make": "gmc"
+    },
+    {
+      "make": "holden"
+    },
+    {
+      "make": "honda"
+    },
+    {
+      "make": "hudson"
+    },
+    {
+      "make": "humber"
+    },
+    {
+      "make": "hummer"
+    },
+    {
+      "make": "hyundai"
+    },
+    {
+      "make": "infiniti"
+    },
+    {
+      "make": "innocenti"
+    },
+    {
+      "make": "International"
+    },
+    {
+      "make": "isuzu"
+    },
+    {
+      "make": "italdesign"
+    },
+    {
+      "make": "jaguar"
+    },
+    {
+      "make": "jeep"
+    },
+    {
+      "make": "jensen"
+    },
+    {
+      "make": "Kaiser"
+    },
+    {
+      "make": "Karma"
+    },
+    {
+      "make": "kia"
+    },
+    {
+      "make": "koenigsegg"
+    },
+    {
+      "make": "lada"
+    },
+    {
+      "make": "lamborghini"
+    },
+    {
+      "make": "lancia"
+    },
+    {
+      "make": "Land Rover"
+    },
+    {
+      "make": "land-rover"
+    },
+    {
+      "make": "Lasalle"
+    },
+    {
+      "make": "lexus"
+    },
+    {
+      "make": "lincoln"
+    },
+    {
+      "make": "lotec"
+    },
+    {
+      "make": "lotus"
+    },
+    {
+      "make": "Lucid"
+    },
+    {
+      "make": "luxgen"
+    },
+    {
+      "make": "mahindra"
+    },
+    {
+      "make": "marcos"
+    },
+    {
+      "make": "maserati"
+    },
+    {
+      "make": "matra-simca"
+    },
+    {
+      "make": "maybach"
+    },
+    {
+      "make": "mazda"
+    },
+    {
+      "make": "mcc"
+    },
+    {
+      "make": "mclaren"
+    },
+    {
+      "make": "Mercedes benz"
+    },
+    {
+      "make": "mercedes-benz"
+    },
+    {
+      "make": "mercury"
+    },
+    {
+      "make": "mg"
+    },
+    {
+      "make": "mini"
+    },
+    {
+      "make": "mitsubishi"
+    },
+    {
+      "make": "monteverdi"
+    },
+    {
+      "make": "moretti"
+    },
+    {
+      "make": "morgan"
+    },
+    {
+      "make": "morris"
+    },
+    {
+      "make": "Nash"
+    },
+    {
+      "make": "nissan"
+    },
+    {
+      "make": "noble"
+    },
+    {
+      "make": "nsu"
+    },
+    {
+      "make": "oldsmobile"
+    },
+    {
+      "make": "opel"
+    },
+    {
+      "make": "packard"
+    },
+    {
+      "make": "pagani"
+    },
+    {
+      "make": "panoz"
+    },
+    {
+      "make": "peugeot"
+    },
+    {
+      "make": "pininfarina"
+    },
+    {
+      "make": "plymouth"
+    },
+    {
+      "make": "Polestar"
+    },
+    {
+      "make": "pontiac"
+    },
+    {
+      "make": "porsche"
+    },
+    {
+      "make": "proton"
+    },
+    {
+      "make": "Qvale"
+    },
+    {
+      "make": "Ram"
+    },
+    {
+      "make": "reliant"
+    },
+    {
+      "make": "renault"
+    },
+    {
+      "make": "riley"
+    },
+    {
+      "make": "Rivian"
+    },
+    {
+      "make": "Rolls royce"
+    },
+    {
+      "make": "rolls-royce"
+    },
+    {
+      "make": "rover"
+    },
+    {
+      "make": "saab"
+    },
+    {
+      "make": "saleen"
+    },
+    {
+      "make": "samsung"
+    },
+    {
+      "make": "saturn"
+    },
+    {
+      "make": "scion"
+    },
+    {
+      "make": "seat"
+    },
+    {
+      "make": "simca"
+    },
+    {
+      "make": "singer"
+    },
+    {
+      "make": "skoda"
+    },
+    {
+      "make": "smart"
+    },
+    {
+      "make": "spyker"
+    },
+    {
+      "make": "ssangyong"
+    },
+    {
+      "make": "ssc"
+    },
+    {
+      "make": "steyr"
+    },
+    {
+      "make": "studebaker"
+    },
+    {
+      "make": "subaru"
+    },
+    {
+      "make": "sunbeam"
+    },
+    {
+      "make": "suzuki"
+    },
+    {
+      "make": "talbot"
+    },
+    {
+      "make": "tata"
+    },
+    {
+      "make": "tatra"
+    },
+    {
+      "make": "tesla"
+    },
+    {
+      "make": "toyota"
+    },
+    {
+      "make": "trabant"
+    },
+    {
+      "make": "triumph"
+    },
+    {
+      "make": "tvr"
+    },
+    {
+      "make": "vauxhall"
+    },
+    {
+      "make": "vector"
+    },
+    {
+      "make": "venturi"
+    },
+    {
+      "make": "volkswagen"
+    },
+    {
+      "make": "volvo"
+    },
+    {
+      "make": "wartburg"
+    },
+    {
+      "make": "westfield"
+    },
+    {
+      "make": "Willys"
+    },
+    {
+      "make": "willys-overland"
+    },
+    {
+      "make": "xedos"
+    },
+    {
+      "make": "zagato"
+    },
+    {
+      "make": "zastava"
+    },
+    {
+      "make": "zaz"
+    },
+    {
+      "make": "zenvo"
+    },
+    {
+      "make": "zil"
+    }
+   ]

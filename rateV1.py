@@ -165,7 +165,7 @@ def dollarValueVin4(vin, mileage):
     print('DV4 queryString: ')
     print(querystring)
     headers = {
-        "X-RapidAPI-Key": APIKEY,
+        "X-RapidAPI-Key": '',
         "X-RapidAPI-Host": "car-utils.p.rapidapi.com"
     }
     
@@ -396,4 +396,6 @@ def trimRating(list, trim):
 
     return deals  
 
-checkAvailability('https://www.cargurus.com/Cars/l-Used-SUV-Crossover-bg7#listing=3418358606/PRIORITY')
+# checkAvailability('https://www.cargurus.com/Cars/l-Used-SUV-Crossover-bg7#listing=3418358606/PRIORITY')
+
+print(dollarValueVin4('1G6AX5SX4K0148603', 20401))

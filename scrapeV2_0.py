@@ -220,6 +220,70 @@ def DynamicScrape(url,HTMLclass, HTMLitem):
         #         makeCounter = v
         # print("    "+make)
             
-        
+def getMakesModelsTrimsCSV():
+    cursor = mydb.cursor(dictionary=True)
+    cursor.execute("SELECT DISTINCT make, model, trim FROM tbl_models")
+    rows = cursor.fetchall()
+    
+    csv_file = "MMT.csv" #MakesModelsTrims
 
-DynamicScrape('https://www.cars.com/shopping/results/?stock_type=all&makes%5B%5D=jeep&models%5B%5D=&list_price_max=&maximum_distance=30&zip=22101', 'vehicle-card', 'div')
+    # write the data to the CSV file
+    with open(csv_file, "w", newline="") as f:
+        writer = csv.writer(f)
+        # write header row
+        writer.writerow([i[0] for i in cursor.description])
+        # write data rows
+        for row in rows:
+            writer.writerow((row['make'], row['model'], row['trim']))
+
+    # close the database connection
+    mydb.close()
+    
+# def getMakesCSV():
+#     cursor = mydb.cursor(dictionary=True)
+
+#     # Execute the query
+#     cursor.execute("SELECT DISTINCT make FROM tbl_models")
+
+#     # Fetch the results
+#     results = cursor.fetchall()
+
+#     # Open a CSV file in write mode
+#     with open('output.csv', 'w', newline='') as csvfile:
+#         # Create a CSV writer
+#         writer = csv.writer(csvfile)
+
+#         # Write the header row
+#         writer.writerow('make')
+
+#         # Write each row of data to the CSV file
+#         for row in results:
+#             print(row['make'])
+#             writer.writerow(row['make'])
+
+#     # Close the cursor and database connection
+#     cursor.close()
+#     mydb.close()
+
+def getMakesModelsCSV():
+    cursor = mydb.cursor(dictionary=True)
+    cursor.execute("SELECT DISTINCT make, model FROM tbl_models")
+    rows = cursor.fetchall()
+    
+    csv_file = "MM.csv" #MakesModelsTrims
+
+    # write the data to the CSV file
+    with open(csv_file, "w", newline="") as f:
+        writer = csv.writer(f)
+        # write header row
+        writer.writerow([i[0] for i in cursor.description])
+        # write data rows
+        for row in rows:
+            writer.writerow((row['make'], row['model']))
+
+    # close the database connection
+    mydb.close()
+
+
+# getMakesCSV()
+# DynamicScrape('https://www.cars.com/shopping/results/?stock_type=all&makes%5B%5D=jeep&models%5B%5D=&list_price_max=&maximum_distance=30&zip=22101', 'vehicle-card', 'div')
