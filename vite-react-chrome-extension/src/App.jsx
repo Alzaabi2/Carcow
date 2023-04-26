@@ -232,6 +232,9 @@ function App() {
     //Variable to help manage loading more car listings for display
     const [moreCarsLoading, setmoreCarsLoading] = useState(false)
 
+    //Variable to help manage loading similar car listings for display
+    const [similarCarsLoading, setsimilarCarsLoading] = useState(false);
+
     let tempCarData = undefined
     const [email, setEmail] = useState('')
 
@@ -545,8 +548,27 @@ function App() {
         });
     };
 
-    const incrementCounter = () => {
-        setCounter(counter+1);
+    //Create new list of similar cars with possibly different makes and models
+    const loadSimilar = async() => {
+        console.log("Loading similar cars momentarily...BE PATIENT B)")
+        console.log("current car is ", currentCar)
+        const fetchSimilarCars = 'http://localhost:8080/findEquivalent/' + await currentCar.model + '/' + await currentCar.year + '/0/0/0/NA/0/';
+        axios.get(fetchSimilarCars)
+        .then((response) => {
+            console.log("We got similar cars!!!! ", response)
+            setCarData(response.data);
+            setDone (true);
+            setError(null); 
+            setsimilarCarsLoading(true);
+        })
+        .catch((error) => {
+            console.error(error);
+        });
+    };
+
+    //Close Preferences Form
+    const closeSimilarCars = () => {
+        setsimilarCarsLoading(false);
     };
 
     if (!done && !long && !carData){
@@ -620,6 +642,20 @@ function App() {
                                 </Tooltip> 
                             }                     
                         </div>
+                        {similarCarsLoading && <div className="loading-similar">Loading...</div>}
+                        {!similarCarsLoading && (
+                            <button class="load-similar-button" onClick={loadSimilar}>Load Similar Cars</button>
+                        )} 
+                        <div> 
+                        {/*If preferences = true, open popup, otherwise it is false and should be closed */}
+                        {preferences?
+                        <div className="popup">
+                            <div className="preferences-form-header"><h2>Similar Cars</h2></div>
+
+                            
+                                <button class="submit" onClick={loadSimilar}>Apply Preferences</button>&nbsp;
+                            </div>: ""}
+                        </div>
                         <table>
                             {carData.map((car) =>(                   
                                 <>             
@@ -649,7 +685,7 @@ function App() {
                                         </a>
                                     </td>
                                   </tr>
-                              }
+                                }
                             </>
                             ))} 
                         </table>
