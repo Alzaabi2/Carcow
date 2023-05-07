@@ -10,7 +10,7 @@ accord = Model("Accord", "midsize sedan")
 civic = Model("Civic", "compact sedan")
 jetta = Model("Jetta", "compact sedan")
 elantra = Model("Elantra", "compact sedan")
-mazda3 = Model("Mazda3", "compact sedan")
+# mazda3 = Model("Mazda3", "compact sedan")
 sentra = Model("Sentra", "compact sedan")
 fusion = Model("Fusion", "midsize sedan")
 optima = Model("Optima", "midsize sedan")
@@ -204,6 +204,7 @@ q4_e_tron = Model("Q4 e-tron", "electric SUV")
 a3 = Model("A3", "compact luxury sedan")
 a5 = Model("A5", "luxury coupe")
 a7 = Model("A7", "luxury sedan")
+E_class = Model("E-class", "luxury coupe")
 e_tron = Model("e-tron", "electric SUV")
 r8_spyder = Model("R8 Spyder", "sports car")
 rs3 = Model("RS3", "luxury sedan")
@@ -262,7 +263,6 @@ accord,
 civic,
 jetta,
 elantra,
-mazda3,
 sentra,
 fusion,
 optima,

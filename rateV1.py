@@ -220,7 +220,7 @@ def dollarValueVin4(vin, mileage):
     return below
 
 
-def preferenceRate(combined_list, pricePriority, mileagePriority, yearPriority, trimPriority):
+def preferenceRate(combined_list, pricePriority, mileagePriority, trimPriority):
     deals = []
     ret_list = []
     for n in range(len(combined_list)):
@@ -228,10 +228,9 @@ def preferenceRate(combined_list, pricePriority, mileagePriority, yearPriority, 
         priceRate = float(combined_list[n][1])
         url = combined_list[n][2]
         mileageRate = float(combined_list[n][3])
-        yearRate = float(combined_list[n][4])
         trimRate = float(combined_list[n][5])
 
-        finalRate = ((pricePriority * priceRate) + (mileagePriority * mileageRate) + (yearPriority * yearRate) + (trimPriority * trimRate)) / (pricePriority + mileagePriority + yearPriority + trimPriority)
+        finalRate = ((pricePriority * priceRate) + (mileagePriority * mileageRate) + (trimPriority * trimRate)) / (pricePriority + mileagePriority + trimPriority)
         
         row = (vin, finalRate, url)
         deals.append(row)

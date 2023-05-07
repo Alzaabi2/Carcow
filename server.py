@@ -165,8 +165,8 @@ def getUrl(url):
 
     return topCars
 
-@app.route('/getCarData/<string:make>/<string:model>/<string:year>/<string:zip>/<int:pricePriority>/<int:mileagePriority>/<int:yearPriority>/<string:trim>/<int:trimPriority>')
-def getCarData(make, model, year, zip, pricePriority, mileagePriority, yearPriority, trim, trimPriority):
+@app.route('/getCarData/<string:make>/<string:model>/<string:year>/<string:zip>/<int:pricePriority>/<int:mileagePriority>/<int:lowestYear>/<int:highestYear>/<string:trim>/<int:trimPriority>')
+def getCarData(make, model, year, zip, pricePriority, mileagePriority, lowestYear, highestYear, trim, trimPriority):
     cursor = mydb.cursor(dictionary=True)
 
     if pricePriority == mileagePriority == yearPriority == trimPriority:
@@ -178,7 +178,7 @@ def getCarData(make, model, year, zip, pricePriority, mileagePriority, yearPrior
     #Check if the user searched for the same car, by checking memcached
     # Don't forget to run `memcached' before running this next line:
     client = base.Client(('localhost', 11211))
-    searchID = model+year+str(pricePriority)+str(mileagePriority)+str(yearPriority)+trim+str(trimPriority)
+    searchID = model+year+str(pricePriority)+str(mileagePriority)+str(lowestYear)+str(highestYear)+trim+str(trimPriority)
     print("Search ID: ", searchID, " Type of searchID: ", type(searchID))
 
     cars = client.get(searchID)
@@ -197,6 +197,17 @@ def getCarData(make, model, year, zip, pricePriority, mileagePriority, yearPrior
     year = float(year)
     yearUp = year + 2
     yearDown = year - 2
+
+    if lowestYear != 0 or highestYear != 0:
+        if lowestYear != 0 and highestYear == 0:
+            yearDown = lowestYear
+        elif lowestYear == 0 and highestYear != 0:
+            yearUp = highestYear
+        elif lowestYear != 0 and highestYear != 0:
+            yearDown = lowestYear
+            yearUp = highestYear
+
+    
     cursor.execute("SELECT * FROM scraped WHERE model = %s AND (year <= %s AND year >= %s) AND (searchID IS NULL OR searchID = %s) AND date >= '2023-02-00'", (model, yearUp, yearDown, 'available'))
 
     list = cursor.fetchall()
@@ -230,7 +241,7 @@ def getCarData(make, model, year, zip, pricePriority, mileagePriority, yearPrior
     
     combined_list = [(vin, vin_dict[vin]["price"], vin_dict[vin]["url"], vin_dict[vin]["mileage"], vin_dict[vin]["year"], vin_dict[vin]["trim"]) for vin in vin_dict]
     
-    rating = preferenceRate(combined_list, pricePriority, mileagePriority, yearPriority, trimPriority)
+    rating = preferenceRate(combined_list, pricePriority, mileagePriority, trimPriority)
 
     sortedList = getTopCars(list, rating)
     
@@ -319,8 +330,8 @@ def addCurrent():
 
     return ""
 
-@app.route('/findEquivalent/<string:model>/<string:year>/<int:pricePriority>/<int:mileagePriority>/<int:yearPriority>/<string:trim>/<int:trimPriority>')
-def findEquivalent(model, year, pricePriority, mileagePriority, yearPriority, trim, trimPriority):
+@app.route('/findEquivalent/<string:model>/<string:year>/<int:pricePriority>/<int:mileagePriority>/<int:lowestYear>/<int:highestYear>/<string:trim>/<int:trimPriority>')
+def findEquivalent(model, year, pricePriority, mileagePriority, lowestYear, highestYear, trim, trimPriority):
     cursor = mydb.cursor(dictionary=True)
 
     if pricePriority == mileagePriority == yearPriority == trimPriority:
@@ -344,7 +355,7 @@ def findEquivalent(model, year, pricePriority, mileagePriority, yearPriority, tr
     modelClass = model.model_class
 
     client = base.Client(('localhost', 11211))
-    searchID = modelClass.replace(" ", "")+year+str(pricePriority)+str(mileagePriority)+str(yearPriority)+trim+str(trimPriority)
+    searchID = modelClass.replace(" ", "")+year+str(pricePriority)+str(mileagePriority)+ str(lowestYear) + str(highestYear) + trim +str(trimPriority)
     print("Search ID: ", searchID, " Type of searchID: ", type(searchID))
 
     cars = client.get(searchID)
@@ -374,6 +385,15 @@ def findEquivalent(model, year, pricePriority, mileagePriority, yearPriority, tr
     year = float(year)
     yearUp = year + 2
     yearDown = year - 2
+
+    if lowestYear != 0 or highestYear != 0:
+        if lowestYear != 0 and highestYear == 0:
+            yearDown = lowestYear
+        elif lowestYear == 0 and highestYear != 0:
+            yearUp = highestYear
+        elif lowestYear != 0 and highestYear != 0:
+            yearDown = lowestYear
+            yearUp = highestYear
 
     combined_results = []
 
@@ -420,9 +440,112 @@ def findEquivalent(model, year, pricePriority, mileagePriority, yearPriority, tr
     
     combined_list = [(vin, vin_dict[vin]["price"], vin_dict[vin]["url"], vin_dict[vin]["mileage"], vin_dict[vin]["year"], vin_dict[vin]["trim"]) for vin in vin_dict]
     
-    rating = preferenceRate(combined_list, pricePriority, mileagePriority, yearPriority, trimPriority)
+    rating = preferenceRate(combined_list, pricePriority, mileagePriority, trimPriority)
 
     sortedList = getTopCars(combined_results, rating)
+    
+
+    topCars = []
+    availableCounter = 0
+    t = threading.Thread(target = maintainence, args = (searchID, sortedList))
+    t.setDaemon(False)
+    t.start()
+    ("Thread Started")
+
+    for i in range(len(sortedList)):
+        if availableCounter == 5:
+            availableCounter += 1
+            print("\nThe 5 top cars returned to chrome extension: ", topCars)
+            cursor.close()
+            return topCars
+        if checkAvailability(sortedList[i]['url']):
+            if "https:" not in sortedList[i]['imageurl']:
+                sortedList[i]['imageurl'] = "https:" + sortedList[i]['imageurl']
+            topCars.append(sortedList[i])
+            availableCounter += 1
+            #Set the memcache for the list of cars
+            client.set(searchID, topCars, 60*60*6)
+
+    print("\n The length of the final list of available cars: ", len(topCars))
+    cursor.close()
+    return topCars
+
+
+
+
+
+
+
+### WHEEL DEAL ANDROID APP ###
+@app.route('/getCarDataApp/<string:make>/<string:model>/<string:year>/<string:zip>/<int:pricePriority>/<int:mileagePriority>/<int:yearPriority>/<string:trim>/<int:trimPriority>')
+def getCarDataApp(make, model, year, zip, pricePriority, mileagePriority, yearPriority, trim, trimPriority):
+    cursor = mydb.cursor(dictionary=True)
+
+    if pricePriority == mileagePriority == yearPriority == trimPriority:
+        pricePriority = 1
+        mileagePriority = 1
+        yearPriority = 1
+        trimPriority = 1
+
+    #Check if the user searched for the same car, by checking memcached
+    # Don't forget to run `memcached' before running this next line:
+    client = base.Client(('localhost', 11211))
+    searchID = model+year+str(pricePriority)+str(mileagePriority)+str(yearPriority)+trim+str(trimPriority)
+    print("Search ID: ", searchID, " Type of searchID: ", type(searchID))
+
+    cars = client.get(searchID)
+        
+    if cars is not None:
+        cars = cars.decode('utf-8').replace(" '", " \"").replace("':", "\":").replace("{'", "{\"").replace("',", "\",").replace("None", "\"\"").replace('datetime.datetime', '"datetime.datetime').replace(")", ")\"")
+        print(cars)
+        topCars = json.loads(cars)
+
+        print("\nFound list of cars in memcache")
+        cursor.close()
+        return topCars
+    
+    #Searched car is not in memcached, pull from database, rate, and send first 5 checked, then continue checking
+
+    year = float(year)
+    yearUp = year + 2
+    yearDown = year - 2
+    
+    cursor.execute("SELECT * FROM scraped WHERE model = %s AND (year <= %s AND year >= %s) AND (searchID IS NULL OR searchID = %s) AND date >= '2023-02-00'", (model, yearUp, yearDown, 'available'))
+
+    list = cursor.fetchall()
+    print("\nThe length of the original list of cars: ", len(list))
+
+    #TO-DO
+    #color = colorRating(list, color, colorRate)
+    #distance = distanceRating(list, distanceRate)
+
+    price = priceRating(list)
+    mileage = mileageRating(list)
+    year = yearRating(list, year)
+    trim = trimRating(list, trim.replace('_', ' '))
+
+    vin_dict = {}
+    
+    for vin, price_rating, url in price:
+        vin_dict[vin] = {"price": price_rating, "url": url}
+    
+    for vin, mile_rating in mileage:
+        if vin in vin_dict:
+            vin_dict[vin]["mileage"] = mile_rating
+
+    for vin, year_rating in year:
+        if vin in vin_dict:
+            vin_dict[vin]["year"] = year_rating
+    
+    for vin, trim_rating in trim:
+        if vin in vin_dict:
+            vin_dict[vin]["trim"] = trim_rating
+    
+    combined_list = [(vin, vin_dict[vin]["price"], vin_dict[vin]["url"], vin_dict[vin]["mileage"], vin_dict[vin]["year"], vin_dict[vin]["trim"]) for vin in vin_dict]
+    
+    rating = preferenceRate(combined_list, pricePriority, mileagePriority, trimPriority)
+
+    sortedList = getTopCars(list, rating)
     
 
     topCars = []

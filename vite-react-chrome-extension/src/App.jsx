@@ -15,7 +15,18 @@ import Tooltip from '@mui/material/Tooltip';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 
 //Labels for the ends of the sliders
-const labels = [
+const pricelabels = [
+    {
+        value: 0,
+        label: '0',
+    },
+    {
+        value: 10,
+        label: '10',
+    },
+];
+
+const mileagelabels = [
     {
         value: 0,
         label: '0',
@@ -122,7 +133,7 @@ async function singleCarData1(url) {
         currentImg = imgURL
         currentMileage = mileage
         currentUrl = url
-
+        
         console.log('single car data response:', make)
         return {year, make, model, trim, VIN, imgURL, mileage, price, url}
     })
@@ -272,10 +283,17 @@ function App() {
     //Variable to determine if preferences form popup should be open or not
     const[preferences, setPreferences] = useState (false);
 
+    //Variables to determine if preferences form submit button should be disabled or not based on yearValue1 and yearValue2
+    const[submitDisabled, setsubmitDisabled] = useState (false);
+    const[submitDisabled2, setsubmitDisabled2] = useState (false);
+
     //Variables to manage each Slider Component and their values
     const [pricePriority, setpricePriority] = useState(10)
     const [mileagePriority, setmileagePriority] = useState(0)
-    const [yearPriority, setyearPriority] = useState(0)
+
+    let [yearValue1, setyearValue1] = useState(2023)
+    let [yearValue2, setyearValue2] = useState(2023)
+
     const [trimPriority, settrimPriority] = useState(0)
 
     //Variable to help manage loading more car listings for display
@@ -309,12 +327,14 @@ function App() {
     const conditions = ['cars.com/vehicledetail', 'autotrader.com/cars-for-sale/vehicledetails', 'cargurus.com/cars', 'edmunds.com', 'carsdirect.com/used_cars/vehicle-detail']
 
     const SliderChange = async() => {
+        setDone(false)
+        setLong(false)
         console.log("From the SliderChange function:")
-        var fetchPreferences = 'http://localhost:8080/getCarData/' + currentMake + '/' + currentModel + '/' + currentYear + '/22201/' + pricePriority + '/' + mileagePriority + '/' + yearPriority + '/NA/' + trimPriority;
+        var fetchPreferences = 'http://localhost:8080/getCarData/' + currentMake + '/' + currentModel + '/' + currentYear + '/22201/' + pricePriority + '/' + mileagePriority + '/' + yearValue1 + '/' + yearValue2 + '/NA/' + trimPriority;
         
         if (showSimilarCars) {
             console.log("We've swithed to similar cars")
-            fetchPreferences = 'http://localhost:8080/findEquivalent/' + currentModel + '/' + currentYear + '/' + pricePriority + '/' + mileagePriority + '/' + yearPriority + '/NA/' + trimPriority;
+            fetchPreferences = 'http://localhost:8080/findEquivalent/' + currentModel + '/' + currentYear + '/' + pricePriority + '/' + mileagePriority + '/' + yearValue1 + '/' + yearValue2 + '/NA/' + trimPriority;
         }
         
         axios.get(fetchPreferences)
@@ -322,6 +342,7 @@ function App() {
             console.log("slider change: ",response)
             setCarData(response.data);
             setDone (true);
+            setLong(true)
             setError(null); 
         })
         .catch((error) => {
@@ -351,11 +372,6 @@ function App() {
         console.log("End of SliderChange Function results");
         preferenceFormClose();
     };
-
-    // useEffect(() => {
-    //     console.log("The SliderChange() useEffect was utilized");
-    //     SliderChange();
-    // }, [pricePriority, mileagePriority, yearPriority, trimPriority]);
 
     useEffect(()=>{
         console.log("change in :",carData)
@@ -397,11 +413,16 @@ function App() {
                 const parsedURL2 = urlCall.replace(/https:\/\/www\.autotrader\.com\/cars-for-sale\/vehicledetails.xhtml/g, 'constautotraderurl').replace(/\//g, 'slash').replace(/\./g, 'dot').replace(/:/g, 'colum').replace(/\?/g, 'questionmark')
                 console.log(urlCall)
                 console.log(parsedURL2)
-                var fetchURL =  'http://localhost:8080/getUrl/' + parsedURL2 + '/' + pricePriority + '/' + mileagePriority + '/' + yearPriority +'/NA/' + trimPriority;
+                var fetchURL =  'http://localhost:8080/getUrl/' + parsedURL2 + '/' + pricePriority + '/' + mileagePriority + '/' + yearValue1 +'/NA/' + trimPriority;
                 // console.log(fetchURL)
             }
             else if(siteID == 1){
                 const data =  await singleCarData1(urlCall)
+                var minYear = parseInt(data.year) - 2;
+                var maxYear = parseInt(data.year) + 2;
+
+                await setyearValue1(minYear)
+                await setyearValue2(maxYear)
                 setLong(false)
                 setDone(false)
 
@@ -411,13 +432,13 @@ function App() {
                 // console.log(currentModel)
                 // console.log(currentYear)
                 // console.log(data.trim)
-                var fetchURL =  'http://localhost:8080/getCarData/' +  data.make + '/' + data.model + '/' + data.year + '/22201/' + pricePriority + '/' + mileagePriority + '/' + yearPriority +'/NA/' + trimPriority;
+                var fetchURL =  'http://localhost:8080/getCarData/' +  data.make + '/' + data.model + '/' + data.year + '/22201/' + pricePriority + '/' + mileagePriority + '/' + 0  + '/' + 0 + '/NA/' + trimPriority;
             }else if(siteID == 2){
                 const data = await singleCarData2(urlCall)
-                var fetchURL =  'http://localhost:8080/getCarData/' + data.make + '/' + data.model + '/' + data.year + '/22201/' + pricePriority + '/' + mileagePriority + '/' + yearPriority +'/NA/' + trimPriority;
+                var fetchURL =  'http://localhost:8080/getCarData/' + data.make + '/' + data.model + '/' + data.year + '/22201/' + pricePriority + '/' + mileagePriority + '/' + yearValue1 + '/' + yearValue2 + '/NA/' + trimPriority;
             }else if(siteID == 4){
                 const data = await singleCarData4(urlCall)
-                var fetchURL =  'http://localhost:8080/getCarData/' + data.make + '/' + data.model + '/' + data.year + '/22201/' + pricePriority + '/' + mileagePriority + '/' + yearPriority +'/NA/' + trimPriority;
+                var fetchURL =  'http://localhost:8080/getCarData/' + data.make + '/' + data.model + '/' + data.year + '/22201/' + pricePriority + '/' + mileagePriority + '/' + yearValue1 + '/' + yearValue2 + '/NA/' + trimPriority;
             }
             //check if url matches last call
             await chrome.storage.sync.get(["urlCall"]).then(async (result) => {
@@ -427,18 +448,8 @@ function App() {
                     await chrome.storage.sync.get(["carData"]).then(async (result2) => {
                         // console.log("Last carData", JSON.parse(result2.carData));
                         // tempCarData = await JSON.parse(result2.carData)
-                        var testModel = await result2.carData[0].model
-                        if(testModel != currentModel)
-                        {
-                            console.log('non matching model', currentModel)
-                            console.log(result2.carData)
-                        }
-                        else{
-                            setCarData(await result2.carData)
-                            // console.log("awaiting: ", await carData)
-                            //edge case: url exists but carData undefined
-                        }  
-                        if(carData == undefined){
+                        console.log(result2)
+                        if(result2.carData[0] == undefined){
                             console.log("Our URL Key exists, but value is undefined, or not matching url")
                             axios.get(await fetchURL)
                             .then((response) => {
@@ -492,6 +503,74 @@ function App() {
                                 console.log(error.config);
                             });   
                         }
+                        else{
+                            var testModel = await result2.carData[0].model
+                            if(testModel != currentModel)
+                            {
+                                console.log('non matching model', currentModel)
+                                console.log(result2.carData)
+                            }
+                            else{
+                                setCarData(await result2.carData)
+                                // console.log("awaiting: ", await carData)
+                                //edge case: url exists but carData undefined
+                            }  
+                            if(carData == undefined){
+                                console.log("Our URL Key exists, but value is undefined, or not matching url")
+                                axios.get(await fetchURL)
+                                .then((response) => {
+                                    // console.log("Response: ",response)
+                                    setCarData(response.data);
+                                    // console.log("cardata show on console",response.data)
+                                    //store response in chrome storage
+                                    chrome.storage.sync.set({ urlCall : urlCall }).then(() => {
+                                        console.log("Url set to " + urlCall);
+                                    });   
+                                    chrome.storage.sync.set({ carData : response.data }).then(() => {
+                                        console.log("carData set second: ", response.data);
+                                    });
+
+                                    // const cacheEntry = {};
+                                    // cacheEntry[cacheKey] = response.data;
+                                    // //onIstalled.addListener line initializes the chrome.storage API on extension installation or update (necessary to do this)
+                                    // chrome.runtime.onInstalled.addListener ( () => {
+                                    //     chrome.storage.local.set(cacheEntry, function() {
+                                    //         console.log(response.data);
+                                    //         console.log(`Successfully stored cache key: "${cacheKey}" and its data:`, result[cacheKey]);
+                                    //     });
+                                    // });
+                                    //End of Cache Entry Creation
+                                    setDone (true);
+                                    setError(null);             
+                                }, {timeout: 15000})
+                                .catch((error) => {
+                                    // Error
+                                    setLong(true);
+                                    setTime(true);
+                                    if (error.response) {
+                                        // The request was made and the server responded with a status code
+                                        // that falls out of the range of 2xx
+                                        console.log("Error out of 2xx Range Found:");
+                                        console.log(error.response.data);
+                                        console.log(error.response.status);
+                                        console.log(error.response.headers);
+            
+                                    } else if (error.request) {
+                                        // The request was made but no response was received
+                                        // `error.request` is an instance of XMLHttpRequest in the 
+                                        // browser and an instance of http.ClientRequest in node.js
+                                        console.log("No Repsonse Received from Request");
+                                        console.log(error.request);
+                                    } else {
+                                        // Something happened in setting up the request that triggered an Error
+                                        console.log("Request not sent");
+                                        console.log('Error', error.message);
+                                    }
+                                    console.log(error.config);
+                                });   
+                            }
+                        }
+                        
                         
                         setDone (true);
                         setError(null); 
@@ -608,10 +687,10 @@ function App() {
         setmoreCarsLoading(true);
         console.log("Loading more cars momentarily...BE PATIENT >:(")
         console.log("current car is ",currentCar)
-        var fetchMoreCars = 'http://localhost:8080/getCarData/' + currentMake + '/' + currentModel + '/' + currentYear + '/22201/' + pricePriority + '/' + mileagePriority + '/' + yearPriority + '/NA/' + trimPriority;
+        var fetchMoreCars = 'http://localhost:8080/getCarData/' + currentMake + '/' + currentModel + '/' + currentYear + '/22201/' + pricePriority + '/' + mileagePriority + '/' + yearValue1 + '/' + yearValue2 + '/NA/' + trimPriority;
 
         if (showSimilarCars) {
-            fetchMoreCars= 'http://localhost:8080/findEquivalent/' + currentModel + '/' + currentYear + '/' + pricePriority + '/' + mileagePriority + '/' + yearPriority + '/NA/' + trimPriority;
+            fetchMoreCars= 'http://localhost:8080/findEquivalent/' + currentModel + '/' + currentYear + '/' + pricePriority + '/' + mileagePriority + '/' + yearValue1 + '/' + yearValue2 + '/NA/' + trimPriority;
         }
 
         axios.get(fetchMoreCars)
@@ -632,7 +711,7 @@ function App() {
         setloadingSimilarCars (true);
         console.log("Loading similar cars momentarily...BE PATIENT B)")
         console.log("current car is ", currentCar)
-        const fetchSimilarCars = 'http://localhost:8080/findEquivalent/' + currentModel + '/' + currentYear + '/' + pricePriority + '/' + mileagePriority + '/' + yearPriority + '/NA/' + trimPriority;
+        const fetchSimilarCars = 'http://localhost:8080/findEquivalent/' + currentModel + '/' + currentYear + '/' + pricePriority + '/' + mileagePriority + '/' + yearValue1 + '/' + yearValue2 + '/NA/' + trimPriority;
         axios.get(fetchSimilarCars)
         .then((response) => {
             console.log("We got more cars!!!! ", response)
@@ -652,7 +731,7 @@ function App() {
     const handleGoBack = async() => {        
         setshowSimilarCars(false);
         
-        var fetchPreferences = 'http://localhost:8080/getCarData/' + currentMake + '/' + currentModel + '/' + currentYear + '/22201/' + pricePriority + '/' + mileagePriority + '/' + yearPriority + '/NA/' + trimPriority;
+        var fetchPreferences = 'http://localhost:8080/getCarData/' + currentMake + '/' + currentModel + '/' + currentYear + '/22201/' + pricePriority + '/' + mileagePriority + '/' + yearValue1 + '/' + yearValue2 + '/NA/' + trimPriority;
         
         axios.get(fetchPreferences)
         .then((response) => {
@@ -689,9 +768,82 @@ function App() {
     const formatMileageWithCommas = (mileage) => {
         return mileage.replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,');
     };
-      
+    
+    // const handleYear1 = (event) => {
+    //     const inputVal = event.target.value;
+    //     const parsedVal = parseInt(inputVal);
+    
+    //     if (/^[0-9]+$/.test(inputVal) && parsedVal >= 1900 && parsedVal <= yearValue2) {
+    //         console.log("Previous Year 1: ", yearValue1);
+    //         setyearValue1(parsedVal);
+    //         setsubmitDisabled(false);
+    //         console.log("New Year 1: ", yearValue1);
+    //     }
+    // };
 
-    if (!done && !long && !carData){
+    const handleYear1 = (event) => {
+        setsubmitDisabled(true);
+        const inputVal = event.target.value;
+        const parsedVal = parseInt(inputVal);
+        const isValidYear = /^[0-9]+$/.test(inputVal) && parsedVal >= 1900;
+        const isLessThanYear2 = parsedVal <= yearValue2;
+        const isTextBoxValid = isValidYear && isLessThanYear2;
+        
+        if (isLessThanYear2) {
+            setsubmitDisabled2(false);
+        }
+
+        if (isTextBoxValid) {
+          console.log("Previous Year 1: ", yearValue1);
+          setyearValue1(parsedVal);
+          setsubmitDisabled(false);
+          console.log("New Year 1: ", yearValue1);
+        }
+        else {
+            console.log("Input Invalid, Failed to Set Year 1")
+
+            setyearValue1(parsedVal);
+            setsubmitDisabled(true);
+        }
+    };
+
+    // const handleYear2 = (event) => {
+    //     const inputVal = event.target.value;
+    //     const parsedVal = parseInt(inputVal);
+
+    //     if (/^[0-9]+$/.test(inputVal) && parsedVal >= yearValue2 && parsedVal <= 2023) {
+    //         console.log("Previous Year 2: ", yearValue2)
+    //         setyearValue2(parsedVal); 
+    //         setsubmitDisabled2(false);
+    //         console.log("New Year 2: ", yearValue2)     
+    //     }
+    // };
+    const handleYear2 = (event) => {
+        setsubmitDisabled2(true);
+        const inputVal = event.target.value;
+        const parsedVal = parseInt(inputVal);
+        const isValidYear = /^[0-9]+$/.test(inputVal) && parsedVal <= 2023;
+        const isGreaterThanYear1 = parsedVal >= yearValue1;
+        const isTextBoxValid = isValidYear && isGreaterThanYear1;
+
+        if (isGreaterThanYear1) {
+            setsubmitDisabled(false);
+        }
+      
+        if (isTextBoxValid) {
+          console.log("Previous Year 2: ", yearValue2);
+          setyearValue2(parsedVal);
+          setsubmitDisabled2(false);
+          console.log("New Year 2: ", yearValue2);
+        }
+        else {
+            console.log("Input Invalid, Failed to Set Year 2")
+            setyearValue2(parsedVal);
+            setsubmitDisabled2(true);
+        }
+    };
+
+    if (!done && !long){
         return(
             <div className="App">
                 <ReactLoading
@@ -704,17 +856,7 @@ function App() {
             </div>
         );
     }
-    // else if (!done && time){
-    //     return (
-    //         <div className="App">
-    //             <div class="banner">
-    //                 <h1><b>CARCOW</b></h1>
-    //             </div>
-    //             <h3>{error.response.status} Status Error Code</h3>
-    //             <p>{error.response.data}</p>
-    //         </div>              
-    //     ); 
-    // }
+    
     else{
         if(carData == null){
             return(
@@ -781,7 +923,7 @@ function App() {
                                                   <div class="car-price">${car.price} </div>&nbsp;&nbsp;<div class="car-mileage"> {car.mileage}mi</div>
                                               </div> */}
                                               <div> <b>{"\n"}</b></div>
-                                              {(car.price - car.suggested) < 0 ? <div class="suggested-price-good">Below Market by ${(parseInt(car.suggested - car.price))}</div> : <div class="suggested-price-bad"> Above Market by ${(parseInt(car.price - car.suggested))}</div>}
+                                              {(car.price - car.suggested) < 0 ? <div class="suggested-price-current">Below Market by ${(parseInt(car.suggested - car.price))}</div> : <div class="suggested-price-bad"> Above Market by ${(parseInt(car.price - car.suggested))}</div>}
                                           </a>
                                       </td>
                                   </tr> :
@@ -817,18 +959,24 @@ function App() {
                             </div> */}
                             <ThemeProvider theme={muiTheme}>
                                 <Box 
-                                    sx={{width:250}}
-                                    alignItems = "center"
+                                    sx={{
+                                        width:280,
+                                    }}
+                                    spacing={3}
+                                    alignItems='center'
+                                    justifyContent='center'
+                                    padding='5px !important'
+                                    margin="5px !important"
                                 >
                                     <Stack spacing={4} direction="row" sx={{mb: 1}} justifyContent="center" alignItems="center">
-                                        <p class="slider-name">&nbsp;Price&nbsp;&nbsp;&nbsp;</p>
+                                        <p class="slider-name">Price&nbsp;&nbsp;</p>
                                         <Slider 
                                             aria-label="priceSlider" 
                                             value={pricePriority} 
                                             min={0}
                                             max={10}
                                             step={1}
-                                            marks={labels}
+                                            marks={pricelabels}
                                             valueLabelDisplay="auto"
                                             onChange={(e) => setpricePriority(e.target.value)}
                                         />
@@ -838,34 +986,64 @@ function App() {
                                         <h1>{mileagePriority}</h1>
                                     </div> */}
                                     <Stack spacing={3} direction="row" sx={{mb: 1}} justifyContent="center" alignItems="center">
-                                        <p class="slider-name">&nbsp;Mileage</p>
+                                        <p class="slider-name">Mileage</p>
                                         <Slider 
                                             aria-label="mileageSlider" 
                                             value={mileagePriority} 
                                             min={0}
                                             max={10}
                                             step={1}
-                                            marks={labels}
+                                            marks={mileagelabels}
                                             valueLabelDisplay="auto"
                                             onChange={(e) => setmileagePriority(e.target.value)}
                                         />
                                     </Stack>
                                     {/* <div className="year-slider-display">
-                                        <h3>Year </h3><input type='range' className={yearPriority<5 ? 'low': 'high'} min='0' max='10' step='1' value={yearPriority} onChange={(e) => setyearPriority(e.target.value)}/>
-                                        <h1>{yearPriority}</h1>
+                                        <h3>Year </h3><input type='range' className={yearValue1<5 ? 'low': 'high'} min='0' max='10' step='1' value={yearValue1} onChange={(e) => setyearValue1(e.target.value)}/>
+                                        <h1>{yearValue1}</h1>
                                     </div> */}
-                                    <Stack spacing={4} direction="row" sx={{mb: 1}} justifyContent="center" alignItems="center">
-                                        <p class="slider-name">&nbsp;Year&nbsp;&nbsp;&nbsp;&nbsp;</p>
-                                        <Slider 
-                                            aria-label="yearSlider" 
-                                            value={yearPriority} 
-                                            min={0}
-                                            max={10}
-                                            step={1}
-                                            marks={labels}
-                                            valueLabelDisplay="auto"
-                                            onChange={(e) => setyearPriority(e.target.value)}
+                                    <div className="year-range-instructions"><h4>&nbsp;Please Enter a Year Range in the Boxes Below:</h4></div>
+                                    <Stack  
+                                        sx={{ mb: -1 }}
+                                        direction='row'
+                                        spacing={2}
+                                        justifyContent='center'
+                                        alignItems='center'
+                                    >
+                                        <input
+                                            id="input1"
+                                            type="text"
+                                            style={{width:'85px'}}
+                                            defaultValue={yearValue1}
+                                            placeholder="Enter Min Year"
+                                            onChange={handleYear1}
+                                            min="1900"
+                                            max={yearValue2}
+                                            pattern="[0-9]*"
+                                            minLength={4}
+                                            maxLength={4}
                                         />
+                                        <input
+                                            id="input2"
+                                            type="text"
+                                            style={{width:'85px'}}
+                                            defaultValue={yearValue2}
+                                            placeholder="Enter Max Year"
+                                            onChange={handleYear2}
+                                            min={yearValue1}
+                                            max="2023"
+                                            pattern="[0-9]*"
+                                            minLength={4}
+                                            maxLength={4}
+                                        />
+                                        <br />
+                                        {(yearValue1.length === 4 && (yearValue1 < 1900 || yearValue1 > yearValue2)) ? (
+                                            <p style={{ color:'red', alignItems:'center' }}>Minimum Year must be between 1900 and Maximum Year</p>
+                                        ) : ""}
+
+                                        {(yearValue2.length === 4 && (yearValue2 < yearValue1 || yearValue2 > 2023)) ? (
+                                            <p style={{ color:'red', alignItems:'center' }}>Maximum Year must be between Minimum Year and 2023</p>
+                                        ) : ""}
                                     </Stack>
                                 </Box>
                             </ThemeProvider>
@@ -875,7 +1053,8 @@ function App() {
                                     <p1>{trimPriority}</p1>
                                 </div>
                             </div> */}
-                            <button class="submit" onClick={SliderChange}>Apply Preferences</button>&nbsp;
+                            <br />
+                            {(submitDisabled || submitDisabled2) ? (<button class="disabled-button" onClick={SliderChange} disabled>Apply Preferences</button>) : (<button class="submit" onClick={SliderChange}>Apply Preferences</button>) }                 
                         </div>: ""}
                     </div>
                 </div>
