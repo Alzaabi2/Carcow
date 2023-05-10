@@ -15,13 +15,6 @@ import concurrent.futures
 import itertools 
 import json
 from CarDepreciationValue import *
-from dotenv import load_dotenv
-import os
-from bs4 import BeautifulSoup
-
-load_dotenv()
-
-APIKEY = os.getenv('CARUTILSAPIKEY')
 
 carlist = []
 
@@ -126,7 +119,7 @@ def checkAvailability(url):
     elif soup.find('div', class_='text-bold text-size-600 text-size-sm-700 margin-vertical-7 margin-horizontal-7 text-center') is not None:
         if soup.find('div', class_='text-bold text-size-600 text-size-sm-700 margin-vertical-7 margin-horizontal-7 text-center').text == 'This car is no longer available. One moment while we take you to the search results page.':
             available = False
-    elif soup.find('h3', class_='lowInventoryBannerHeader') is not None:
+    elif soup.find('h2', class_='CVRsvD') is not None:
         available = False
     elif soup.find('h2', class_='pt-1 pt-md-3 px-1 px-md-3 pb-2 text-center display-1 m-0') is not None:
         if soup.find('h2', class_='pt-1 pt-md-3 px-1 px-md-3 pb-2 text-center display-1 m-0').text == 'Vehicle no longer available':
@@ -158,24 +151,21 @@ def dollarValueVin4(vin, mileage):
     url = "https://car-utils.p.rapidapi.com/marketvalue"
 
     querystring = {"vin": vin, "mileage": mileage}
-    print('DV4 queryString: ')
-    print(querystring)
+
     headers = {
-        "X-RapidAPI-Key": '',
+        "X-RapidAPI-Key": "eabb27e940mshbaf991f2c492656p1afbb7jsnc31638e26d33",
         "X-RapidAPI-Host": "car-utils.p.rapidapi.com"
     }
     
     response = requests.request("GET", url, headers=headers, params=querystring)
     
     apiResponse = response.text
-    # print(response.text)
+
     #if no market value data
     if '"vehicle":null' in response.text:
-        print('DV4 invalid vehicle: ')
-
         return "0"
     while(1):
-        if 'You have exceeded the rate limit per second for your plan, BASIC, by the API provider' in response.text or 'Too many requests' in response.text:
+        if 'You have exceeded the rate limit per second for your plan, BASIC, by the API provider' in response.text:
             time.sleep(1)
             response = requests.request("GET", url, headers=headers, params=querystring)
             apiResponse = response.text
@@ -183,7 +173,6 @@ def dollarValueVin4(vin, mileage):
             break
     
     if '"message":"invalid vin"' in response.text:
-        print('DV4 invalid vin: ' + vin)
         return '0'
 
     start = re.search('"prices":', response.text)
@@ -390,7 +379,3 @@ def trimRating(list, trim):
         deals.append(row)
 
     return deals  
-
-# checkAvailability('https://www.cargurus.com/Cars/l-Used-SUV-Crossover-bg7#listing=3418358606/PRIORITY')
-
-print(dollarValueVin4('1G6AX5SX4K0148603', 20401))

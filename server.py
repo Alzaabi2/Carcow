@@ -169,10 +169,9 @@ def getUrl(url):
 def getCarData(make, model, year, zip, pricePriority, mileagePriority, lowestYear, highestYear, trim, trimPriority):
     cursor = mydb.cursor(dictionary=True)
 
-    if pricePriority == mileagePriority == yearPriority == trimPriority:
+    if pricePriority == mileagePriority == trimPriority:
         pricePriority = 1
         mileagePriority = 1
-        yearPriority = 1
         trimPriority = 1
 
     #Check if the user searched for the same car, by checking memcached
@@ -338,10 +337,9 @@ def addCurrent():
 def findEquivalent(model, year, pricePriority, mileagePriority, lowestYear, highestYear, trim, trimPriority):
     cursor = mydb.cursor(dictionary=True)
 
-    if pricePriority == mileagePriority == yearPriority == trimPriority:
+    if pricePriority == mileagePriority == trimPriority:
         pricePriority = 1
         mileagePriority = 1
-        yearPriority = 1
         trimPriority = 1
 
     #Check if the user searched for the same car, by checking memcached
