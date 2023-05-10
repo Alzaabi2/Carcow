@@ -104,6 +104,45 @@ def populateScraped(list):
         #     print('entry error')
     print('inserted : '+ str(len(list)))
     print('example vin: '+ list[0]['VIN'])
+    cursor.close()
+
+def populateSingleScraped(i):
+    cursor = mydb.cursor(buffered=True,dictionary=True)
+
+    if i['VIN'] is None:
+        return
+    else:
+        vin   = i['VIN']
+    make  = i['Make']
+    model = i['Model']
+    trim  = i['Trim']
+    # trim = ''
+    year  = i['Year'].replace(' ', '')
+    year2 = re.findall(r'\d+\d+', year)
+    if len(year2) == 0:
+        year2.append('-1')
+
+    mileage = i['Mileage']
+    mileage2 = mileage.replace(',','')
+    miles = re.findall(r'\d+\d+', mileage2)
+
+    price  = i['Price'].replace('$','').replace(' ','')
+    price2 = re.findall(r'\d+\d+', price)
+
+    url   = i['url']
+
+    imageurl = i['img']
+
+    suggested = dollarValueVin4(vin, int(miles[0]))
+
+    cursor.execute("INSERT INTO scraped (VIN, make, model, year, trim, mileage, price, suggested, url, imageurl, date)VALUES (%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,NOW())", (vin, make, model, year2[0], trim, miles[0], price2[0], suggested, url, imageurl))
+    mydb.commit()
+
+        # print('its in')
+        # except:
+        #     print('entry error')
+    print('inserted : '+ i)
+    cursor.close()
 
 # populateScraped()
 

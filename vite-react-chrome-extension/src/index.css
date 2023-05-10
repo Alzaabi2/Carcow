@@ -27,7 +27,7 @@ h1 {
   font-size: 3.2em;
   line-height: 1.1;
   text-align: center;
-  color: white;
+  color: #ffffff;
 }
 
 h2{
@@ -39,8 +39,7 @@ h2{
 .banner{
   margin: 0 auto; 
   text-align: center;
-  background: #000000;
-  color: white;
+  background: #0ea85b;
   font-size: 10px;
   font-family: 'Roboto', sans-serif;
   font-weight: 500; 
@@ -48,6 +47,7 @@ h2{
   position:sticky;
   position:-webkit-sticky;
   top:0%;
+  border-radius: 5px; 
 }
 
 .preference-toggle{
@@ -82,19 +82,30 @@ h2{
 }
 
 .suggested-price-good{
-  color: green;
-  text-align: left;
+  color: #0ea85b;
+  text-align: center;
   font-size: 13px;
+  font-family: 'Roboto', sans-serif;
 }
 .suggested-price-bad{
-  color: red;
+  color: black;
+  text-align: center;
   font-size: 13px;
+  font-family: 'Roboto', sans-serif;
+}
+
+.suggested-price-current{
+  color: white;
+  text-align: center;
+  font-size: 16px;
+  font-weight: bold;
+  line-height: 1.1;
 }
 
 .popup{
   height: 550px;
   width: 310px;
-  background-color: rgb(255, 255, 255);
+  background-color: #e0e0e0;
   /* position: absolute; */
   position:fixed;
   /* bottom: 0; */
@@ -104,23 +115,22 @@ h2{
   transform: translateX(-50%); 
   /* top:0; */
   /* transform: translate(-50%, -50%); */
-}
-
-.loading-more{
-  color: black; 
+  justify-content:center;
+  align-items:center;
 }
 
 .load-more-button{
-  width: 300px;
+  width: 310px;
   height: 20px;
-  font-family: 'Lato', sans-serif;
+  font-family: 'Roboto', sans-serif;
   font-weight: 500;
   cursor: pointer;
   transition: all 0.3s ease;
   color: black; 
-  background-color: rgb(150, 150, 150);
+  background-color: #0ea85b;
   text-align: center;
   border: 1px solid black;
+  border-radius: 5px; 
 }
 
 .load-more-button:before {
@@ -132,12 +142,73 @@ h2{
   color: white;
 }
 
+.loading-more{
+  color: black;
+}
+
+.load-similar-button{
+  width: 310px;
+  height: 20px;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  color: black; 
+  background-color: #0ea85b;
+  text-align: center;
+  border: 1px solid black;
+  border-radius: 5px;
+}
+
+.load-similar-button:before {
+  height: 0%;
+  width: 2px;
+}
+
+.load-similar-button:hover{
+  color: white;
+}
+
+.leave-similar-button{
+  width: 310px;
+  height: 20px;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  color: black; 
+  background-color: #0ea85b;
+  text-align: center;
+  border: 1px solid black;
+  border-radius: 5px;
+}
+
+.leave-similar-button:before {
+  height: 0%;
+  width: 2px;
+}
+
+.leave-similar-button:hover{
+  color: white;
+}
+
+.year-range-instructions{
+  text-align:center;
+  color: black; 
+}
+
+.input[type=text]{
+  border-radius:4px;
+  border-bottom: 2px solid #0ea85b;
+}
+
 @media (prefers-color-scheme: light) {
   :root {
     background-color: white; 
   }
   a {
     font-weight: 500;
+    font-family: 'Roboto', sans-serif;
     color: #000000;
     text-decoration: inherit;
     display: block;
@@ -146,30 +217,72 @@ h2{
     color: #000000;
   } 
   table{
-    width: 300px;
-    border-radius: 8px;
+    width: 310px;
+    border-radius: 5px; 
     table-layout: auto;
+    font-family: 'Roboto', sans-serif;
   }
-  td{
-    display: flex;
-    background-color: #bdbdbd;
-    border-left: hidden;
-    border-right: hidden;
-    width: 300px;
+
+  .image-display{
+    width: 120px;
+    height: 90px; 
+    border-right:hidden;
+  }
+
+  img{
+    width: 100%;
     height: 90px;
-  }
-  td:hover{
-    background-color: rgb(216, 215, 215);
+    border-radius: 5px; 
   }
 
   .info-display{
-    border-radius: 8px;
-    float: right;
+    padding-left: 3px;
+    font-family: 'Roboto', sans-serif;
+    border-left:hidden;
+    height: 88px;
   }
-  img{
-    float: left;
-    min-width: 40%;
-    max-width: 40%;
-    height: auto;
+
+  .info-display-current{
+    /* padding-left: 3px; */
+    font-family: 'Roboto', sans-serif;
+    /* display: flex; */
+    align-items: center;
+    justify-content: center; 
   }
+
+  .other-cars{
+    /* display: flex; */
+    background-color: #ece9e9;
+    /* border-left: 2px solid black;
+    border-right: 2px solid black; */
+    border-top: 1.5px solid #ffffff; 
+    border-bottom: 1.5px solid #ffffff;
+    border-left:hidden;
+    border-right:hidden;
+    border-radius: 5px; 
+    height: 88px; 
+    font-family: 'Roboto', sans-serif;
+  }
+
+  .other-cars:hover{
+    background-color: #dae6d4;
+  }
+
+  .vin-match{
+    /* display: flex; */
+    background-color: #0ea85b;
+    /* border-left: hidden;
+    border-right: hidden; */
+    border-top: 1.5px solid #ffffff; 
+    border-bottom: 1.5px solid #ffffff;
+    border-left:hidden;
+    border-right:hidden;
+    border-radius: 5px; 
+    height: 88px; 
+    font-family: 'Roboto', sans-serif;
+  }
+  .vin-match:hover{
+    background-color: #0ea85b;
+  }
+
 }
